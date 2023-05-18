@@ -1,3 +1,3 @@
 # IHelp
 
-[DEV server](https://alexanderstreltsov.github.io/ihelp)
+[DEV server](https://alexanderstreltsov.github.io/IHelp)
