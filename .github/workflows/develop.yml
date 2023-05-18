@@ -1,0 +1,97 @@
+name: Develop pipeline
+
+on:
+  pull_request:
+    branches:
+      - develop
+    types: [opened, synchronize, reopened, closed]
+
+jobs:
+  lint:
+    name: ESLint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Install project dependencies
+        run: npm ci --prefer-offline
+
+      - name: ESLint
+        run: npm run lint
+
+  format:
+    name: Prettier
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Install project dependencies
+        run: npm ci --prefer-offline
+
+      - name: Prettier
+        run: npm run prettier
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Install project dependencies
+        run: npm ci --prefer-offline
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload deploy artifact (dist)
+        if: github.event.pull_request.merged == true
+        uses: actions/upload-artifact@v3
+        with:
+          name: webpack-bundle
+          path: ./build
+
+  deploy:
+    name: Deploy
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    needs: [lint, format, build]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Download deploy artifact (dist)
+        uses: actions/download-artifact@v3
+        with:
+          name: webpack-bundle
+          path: ./build
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: ./build
