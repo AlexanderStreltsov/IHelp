@@ -1,0 +1,24 @@
+@import '../scss/mixins/text';
+
+// селекторы текстов
+.text-big {
+  @include text(24px, 400, 29px);
+}
+
+.text-medium {
+  @include text(16px, 400, 19px);
+}
+
+.text-medium-bold {
+  @extend .text-medium;
+  font-weight: 700;
+}
+
+.text-small {
+  @include text(12px, 400, 14px);
+}
+
+.text-small-bold {
+  @extend .text-small;
+  font-weight: 700;
+}

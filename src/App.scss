@@ -1,5 +1,6 @@
 @use "sass:map";
-@import './scss/variable';
+@import './common/variable';
+@import './common/selectors';
 
 .App {
   text-align: center;
@@ -31,10 +32,6 @@
   color: transparent;
   background-image: map.get($text_color, gradient);
   background-clip: text;
-  font: {
-    weight: 700;
-    size: 40px;
-  }
 }
 
 @keyframes App-logo-spin {

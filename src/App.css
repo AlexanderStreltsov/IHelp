@@ -1,3 +1,35 @@
+.text-big {
+  font-family: "GolosText";
+  font-style: normal;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 29px;
+}
+
+.text-medium, .text-medium-bold {
+  font-family: "GolosText";
+  font-style: normal;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+}
+
+.text-medium-bold {
+  font-weight: 700;
+}
+
+.text-small, .text-small-bold {
+  font-family: "GolosText";
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+}
+
+.text-small-bold {
+  font-weight: 700;
+}
+
 .App {
   text-align: center;
 }
@@ -28,8 +60,6 @@
   background-image: linear-gradient(to right, #2e3192 50%, #fff 50%);
   -webkit-background-clip: text;
           background-clip: text;
-  font-weight: 700;
-  font-size: 40px;
 }
 
 @keyframes App-logo-spin {
