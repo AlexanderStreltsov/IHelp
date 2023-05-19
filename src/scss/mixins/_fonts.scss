@@ -3,8 +3,8 @@
   @font-face {
     font-family: $name;
     src: url(../../vendor/fonts/#{$name}-#{$weightText}.woff2) format('woff2'),
-         url(../../vendor/fonts/#{$name}-#{$weightText}.ttf) format('truetype');
+      url(../../vendor/fonts/#{$name}-#{$weightText}.ttf) format('truetype');
     font-style: normal;
     font-weight: $weightNumber;
   }
-};
+}

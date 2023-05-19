@@ -1,13 +1,14 @@
 .text-big {
-  font-family: "GolosText";
+  font-family: 'GolosText';
   font-style: normal;
   font-size: 24px;
   font-weight: 400;
   line-height: 29px;
 }
 
-.text-medium, .text-medium-bold {
-  font-family: "GolosText";
+.text-medium,
+.text-medium-bold {
+  font-family: 'GolosText';
   font-style: normal;
   font-size: 16px;
   font-weight: 400;
@@ -18,8 +19,9 @@
   font-weight: 700;
 }
 
-.text-small, .text-small-bold {
-  font-family: "GolosText";
+.text-small,
+.text-small-bold {
+  font-family: 'GolosText';
   font-style: normal;
   font-size: 12px;
   font-weight: 400;
@@ -59,7 +61,7 @@
   color: transparent;
   background-image: linear-gradient(to right, #2e3192 50%, #fff 50%);
   -webkit-background-clip: text;
-          background-clip: text;
+  background-clip: text;
 }
 
 @keyframes App-logo-spin {
@@ -69,4 +71,4 @@
   to {
     transform: rotate(360deg);
   }
-}/*# sourceMappingURL=App.css.map */
+} /*# sourceMappingURL=App.css.map */
