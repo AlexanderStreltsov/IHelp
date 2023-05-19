@@ -1,0 +1,26 @@
+@import '../src/vendor/normalize.css';
+@font-face {
+  font-family: GolosText;
+  src: url(../../vendor/fonts/GolosText-Regular.woff2) format("woff2"), url(../../vendor/fonts/GolosText-Regular.ttf) format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: GolosText;
+  src: url(../../vendor/fonts/GolosText-Bold.woff2) format("woff2"), url(../../vendor/fonts/GolosText-Bold.ttf) format("truetype");
+  font-style: normal;
+  font-weight: 700;
+}
+body {
+  margin: 0;
+  font-family: "GolosText", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}/*# sourceMappingURL=index.css.map */

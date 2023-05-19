@@ -12,7 +12,6 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -26,10 +25,8 @@
 
 .App-link {
   color: #61dafb;
-  font: {
-    weight: 700;
-    size: 40px;
-  }
+  font-weight: 700;
+  font-size: 40px;
 }
 
 @keyframes App-logo-spin {
@@ -39,4 +36,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+}/*# sourceMappingURL=App.css.map */
