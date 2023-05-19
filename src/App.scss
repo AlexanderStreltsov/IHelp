@@ -1,3 +1,6 @@
+@use "sass:map";
+@import './scss/variable';
+
 .App {
   text-align: center;
 }
@@ -14,7 +17,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background: map.get($background_color, horizontalGradient);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -25,7 +28,9 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: transparent;
+  background-image: map.get($text_color, gradient);
+  background-clip: text;
   font: {
     weight: 700;
     size: 40px;
