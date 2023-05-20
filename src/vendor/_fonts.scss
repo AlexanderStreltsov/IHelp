@@ -1,0 +1,4 @@
+@import '../scss/mixins/fonts';
+
+@include font(GolosText, Regular, 400);
+@include font(GolosText, Bold, 700);
