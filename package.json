@@ -4,11 +4,11 @@
   "private": true,
   "homepage": "https://alexanderstreltsov.github.io/IHelp/",
   "scripts": {
-    "start": "react-scripts start",
+    "start": "set PUBLIC_URL= && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint --ext .js,.jsx,.ts,.tsx src --color",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx src --color --fix",
     "lint:fix": "npm run lint --fix",
     "prettier": "prettier --check src/**/*.{ts,tsx,scss,css,json}",
     "prettier:format": "prettier --write src/**/*.{ts,tsx,scss}",
