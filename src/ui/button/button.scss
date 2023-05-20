@@ -1,14 +1,15 @@
-// basic button and all possible variables
-@mixin button($width: 0, $height: 0, $font-size: 0, $line-height: 0, $font-color:#333, $imgpath: '') {
+// basic button and all its variables
+@mixin button() {
+	display: flex;
+    align-items: center;
     font-family: "Golos";
     font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
+	width: $width;
+	height: $height;
+    font-weight: $font-weight;
+    font-size: $font-size;
     line-height: $line-height;
-    display: flex;
-    align-items: center;
     padding: $padding;
-	display: inline-block;
 	border-radius: $border-radius;
 	font-size: $font-size;
 	color: $font-color;
@@ -20,22 +21,52 @@
 }
 
 // buttons by class
-.btn--icon {
-	@include button();
+.btn--call {
+	@include button($width: 32px, $height: 32px, $border-radius: 50%);
 }
 
-.btn--search {
-	@include button();
+.btn--message {
+	@include button($width: 32px, $height: 32px, $border-radius: 50%);
 }
 
-.btn--block {
-	@include button();
+.btn--locate {
+	@include button($width: 53px, $height: 53px, $border-radius: 50%);
 }
 
-.btn--apply {
-	@include button();
+.btn--close {
+	@include button($width: 32px, $height: 32.5px, $imgpath: '../../images/closeback.svg' );
+}
+
+.btn--edit{
+	@include button($width: 32, $height: 32.5, $imgpath: '../../images/editback.svg' );
+}
+
+.btn--check{
+	@include button($width: 32, $height: 32.12px, $imgpath: '../../images/checkback.svg' );
+}
+
+.btn--search{
+	@include button($width: 169px, $height: 33px, $font-size: 16px, $line-height: 19px, $font-weight: 400, $imgpath: '../../images/searchback.svg' );
+}
+
+.btn--apply{
+	@include button($width: 104px, $height: 30px, $font-size: 12px, $line-height: 14px, $font-weight: 400, $font-color: $common);
+}
+
+.btn--block{
+	@include button($width: 123px, $height: 30px, $font-size: 12px, $line-height: 14px, $font-weight: 400, $font-color: $primary);
+}
+
+.btn--add{
+	@include button($width: 82px, $height: 82px, $border-radius: 50%);
 }
 
 .btn--card{
-	@include button();
+	@include button($width: 275px, $height: 113px, $font-size: 16px, $line-height: 19px, $font-weight: 400, );
+}
+
+// button icon if present
+.btn--image{
+	display: block;
+	background-color: transparent;
 }
