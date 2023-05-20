@@ -1,0 +1,41 @@
+// basic button and all possible variables
+@mixin button($width: 0, $height: 0, $font-size: 0, $line-height: 0, $font-color:#333, $imgpath: '') {
+    font-family: "Golos";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: $line-height;
+    display: flex;
+    align-items: center;
+    padding: $padding;
+	display: inline-block;
+	border-radius: $border-radius;
+	font-size: $font-size;
+	color: $font-color;
+    background-image: url($imgpath);
+}
+
+.btn {
+	@include button;
+}
+
+// buttons by class
+.btn--icon {
+	@include button();
+}
+
+.btn--search {
+	@include button();
+}
+
+.btn--block {
+	@include button();
+}
+
+.btn--apply {
+	@include button();
+}
+
+.btn--card{
+	@include button();
+}
