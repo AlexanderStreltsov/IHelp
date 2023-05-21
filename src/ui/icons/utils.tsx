@@ -1,8 +1,6 @@
 import React from 'react';
 
-type TIconColor =
-  | 'white'
-  | 'dark-blue';
+type TIconColor = 'white' | 'dark-blue';
 
 export const getColor = (color: TIconColor) => {
   switch (color) {
