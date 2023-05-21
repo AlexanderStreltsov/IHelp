@@ -1,0 +1,819 @@
+---
+openapi: 3.0.3
+info:
+  title: "ЯПомогаю, некоммерческая организация"
+  description: "Образец API, с которым работает фронтенд часть проекта ЯПомогаю."
+  contact:
+    email: web77@yandex.ru
+  version: 1.0.0
+servers:
+- url: https://virtserver.swaggerhub.com/WEB77_1/IHelp/1.0.0
+  description: SwaggerHub API Auto Mocking
+tags:
+- name: tasks
+  description: Интерфейс для работы с заявками
+- name: volunteers
+  description: Интерфейс для работы с данными волонтеров
+- name: recipients
+  description: Интерфейс для работы с данными реципиентов
+- name: admin
+  description: Интерфейс для задач администрирования
+paths:
+  /tasks:
+    get:
+      tags:
+      - tasks
+      summary: Показать все заявки
+      operationId: TaskController_findMany
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                example:
+                - id: 1
+                  title: Выгулять собаку
+                  date: 2015-07-20T15:49:04-07:00
+                  description: "Заболел и совсем нет сил даже ходить по квартире. Почти неделю собаку выгуливали соседи, но в пятницу они не смогут. Помогите, пожалуйста!"
+                  recipientId: 1
+                  volunteerId: 2
+                  address: "ул. Нахимова, д. 9"
+                  coordinates:
+                  - 59.830065
+                  - 30.033465
+                  scores: 10
+                  status: open
+                - id: 2
+                  title: Выгулять собаку
+                  date: 2015-07-20T15:49:04-07:00
+                  description: "Заболел и совсем нет сил даже ходить по квартире. Почти неделю собаку выгуливали соседи, но в пятницу они не смогут. Помогите, пожалуйста!"
+                  recipientId: 1
+                  volunteerId: 0
+                  address: "ул. Нахимова, д. 9"
+                  coordinates:
+                  - 59.830065
+                  - 30.033465
+                  scores: 10
+                  status: open
+                - id: 3
+                  title: Выгулять собаку
+                  date: 2015-07-20T15:49:04-07:00
+                  description: "Заболел и совсем нет сил даже ходить по квартире. Почти неделю собаку выгуливали соседи, но в пятницу они не смогут. Помогите, пожалуйста!"
+                  recipientId: 1
+                  volunteerId: 2
+                  address: "ул. Нахимова, д. 9"
+                  coordinates:
+                  - 59.830065
+                  - 30.033465
+                  scores: 10
+                  status: open
+                - id: 4
+                  title: Выгулять собаку
+                  date: 2015-07-20T15:49:04-07:00
+                  description: "Заболел и совсем нет сил даже ходить по квартире. Почти неделю собаку выгуливали соседи, но в пятницу они не смогут. Помогите, пожалуйста!"
+                  recipientId: 1
+                  volunteerId: 2
+                  address: "ул. Нахимова, д. 9"
+                  coordinates:
+                  - 59.830065
+                  - 30.033465
+                  scores: 10
+                  status: open
+                - id: 5
+                  title: Выгулять собаку
+                  date: 2015-07-20T15:49:04-07:00
+                  description: "Заболел и совсем нет сил даже ходить по квартире. Почти неделю собаку выгуливали соседи, но в пятницу они не смогут. Помогите, пожалуйста!"
+                  recipientId: 1
+                  volunteerId: 2
+                  address: "ул. Нахимова, д. 9"
+                  coordinates:
+                  - 59.830065
+                  - 30.033465
+                  scores: 10
+                  status: open
+                items:
+                  $ref: '#/components/schemas/Task'
+    post:
+      tags:
+      - tasks
+      summary: Добавление новой заявки
+      operationId: TasksController_createOne
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTaskDto'
+        required: true
+      responses:
+        "201":
+          description: Заявка добавлена успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        "400":
+          description: Bad Request error
+          content:
+            applecation/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+  /tasks/{id}:
+    get:
+      tags:
+      - tasks
+      summary: Показать все данные по выбранной заявки
+      operationId: TaskController_findOne
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        "404":
+          description: Requested object does not exist
+          content:
+            applecation/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+    delete:
+      tags:
+      - tasks
+      summary: Удаление заявки
+      operationId: TaskController_deleteOne
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: ""
+          content: {}
+        "400":
+          description: Bad Request error
+          content:
+            applecation/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+        "404":
+          description: Requested object does not exist
+          content:
+            applecation/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+    patch:
+      tags:
+      - tasks
+      summary: Редактирование заявки
+      operationId: TaskController_updateOne
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateTaskDto'
+        required: true
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        "400":
+          description: Bad Request error
+          content:
+            applecation/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+        "404":
+          description: Requested object does not exist
+          content:
+            applecation/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+  /volunteers:
+    get:
+      tags:
+      - volunteers
+      summary: Показать всех волонтеров на площадке
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                example:
+                - id: 2
+                  fullname: Иванов Иван Иванович
+                  vk: https://vk.com/id123456789
+                  photo: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
+                  phone: +7 (000) 000-00-00
+                  address: "ул. Поселковая, д. 5"
+                  coordinates:
+                  - 59.821539
+                  - 30.178031
+                  status: active
+                  scores: 2500
+                  completed: 100
+                - id: 3
+                  fullname: Семенов Семен Семонович
+                  vk: https://vk.com/id123456789
+                  photo: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
+                  phone: +7 (000) 000-00-00
+                  address: "ул. Поселковая, д. 5"
+                  coordinates:
+                  - 59.821539
+                  - 30.178031
+                  status: active
+                  scores: 2500
+                  completed: 100
+                - id: 4
+                  fullname: Сидоров Сидр Сидорович
+                  vk: https://vk.com/id123456789
+                  photo: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
+                  phone: +7 (000) 000-00-00
+                  address: "ул. Поселковая, д. 5"
+                  coordinates:
+                  - 59.821539
+                  - 30.178031
+                  status: active
+                  scores: 2500
+                  completed: 100
+                items:
+                  $ref: '#/components/schemas/Volunteer'
+    post:
+      tags:
+      - volunteers
+      summary: Добавить нового волонтера на площадку
+      operationId: VolunteersController_createOne
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateVolunteerDto'
+        required: true
+      responses:
+        "201":
+          description: Профиль волонтера добавлен успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Volunteer'
+        "400":
+          description: Bad Request error
+          content:
+            applecation/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+  /volunteers/{id}:
+    get:
+      tags:
+      - volunteers
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Volunteer'
+    patch:
+      tags:
+      - volunteers
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateVolunteerDto'
+        required: true
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Volunteer'
+  /volunteers/{id}/lock:
+    patch:
+      tags:
+      - volunteers
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Volunteer'
+  /recipients:
+    get:
+      tags:
+      - recipients
+      summary: Показать всех реципиентов на площадке
+      operationId: RecipientsController_findMany
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Recipient'
+    post:
+      tags:
+      - recipients
+      summary: Добавить реципиента
+      operationId: RecipientsController_createOne
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateRecipientDto'
+        required: true
+      responses:
+        "201":
+          description: Реципиент успешно добавлен
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Recipient'
+  /recipients/{id}:
+    get:
+      tags:
+      - recipients
+      operationId: RecipientsController_findOne
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Recipient'
+    patch:
+      tags:
+      - recipients
+      summary: Обновить информацию у выбранного реципиента
+      operationId: RecipientsController_updateOne
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateRecipientDto'
+        required: true
+      responses:
+        "200":
+          description: Обновление информации прошло успешно
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Recipient'
+  /recipients/{id}/lock:
+    patch:
+      tags:
+      - recipients
+      summary: Заблокировать выбранного реципиента
+      operationId: RecipientsController_blockOne
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Recipient'
+components:
+  schemas:
+    Task:
+      type: object
+      properties:
+        id:
+          type: number
+          example: 1
+        title:
+          type: string
+          example: Выгулять собаку
+        date:
+          type: string
+          format: date-time
+        description:
+          type: string
+          example: "Заболел и совсем нет сил даже ходить по квартире. Почти неделю собаку выгуливали соседи, но в пятницу они не смогут. Помогите, пожалуйста!"
+        recipientId:
+          type: number
+          example: 1
+        volunteerId:
+          type: number
+          example: 2
+        address:
+          type: string
+          example: "ул. Нахимова, д. 9"
+        coordinates:
+          type: array
+          example:
+          - 59.830065
+          - 30.033465
+          items:
+            type: number
+        scores:
+          type: number
+          example: 10
+        status:
+          type: string
+          description: Текущий статус заявки
+          example: open
+          enum:
+          - open
+          - close
+    CreateTaskDto:
+      required:
+      - address
+      - coordinates
+      - date
+      - description
+      - recipientId
+      - title
+      - volunteerId
+      type: object
+      properties:
+        title:
+          type: string
+          example: Выгулять собаку
+        date:
+          type: string
+          format: date-time
+        description:
+          type: string
+          example: "Заболел и совсем нет сил даже ходить по квартире. Почти неделю собаку выгуливали соседи, но в пятницу они не смогут. Помогите, пожалуйста!"
+        recipientId:
+          type: number
+          example: 1
+        volunteerId:
+          type: number
+          example: 2
+        address:
+          type: string
+          example: "ул. Нахимова, д. 9"
+        coordinates:
+          type: array
+          example:
+          - 59.830065
+          - 30.033465
+          items:
+            type: number
+    UpdateTaskDto:
+      type: object
+      properties:
+        title:
+          type: string
+        date:
+          type: string
+        description:
+          type: string
+        recipientId:
+          type: number
+        volunteerId:
+          type: number
+        address:
+          type: string
+        coordinates:
+          type: array
+          items:
+            type: number
+        scores:
+          type: number
+    Volunteer:
+      type: object
+      properties:
+        id:
+          type: number
+          example: 2
+        fullname:
+          type: string
+          example: Иванов Иван Иванович
+        vk:
+          type: string
+          example: https://vk.com/id123456789
+        photo:
+          type: string
+          description: "Link on volunteer photo, only url"
+          example: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
+        phone:
+          type: string
+          example: +7 (000) 000-00-00
+        address:
+          type: string
+          example: "ул. Поселковая, д. 5"
+        coordinates:
+          type: array
+          example:
+          - 59.821539
+          - 30.178031
+          items:
+            type: number
+        status:
+          type: string
+          description: Статус волонтера
+          example: active
+          enum:
+          - new
+          - approved
+          - checked
+          - active
+          - blocked
+        scores:
+          type: number
+          description: Колличество заработанных баллов
+          example: 2500
+        completed:
+          type: number
+          description: Колличество выполненных заявок
+          example: 100
+    CreateVolunteerDto:
+      required:
+      - address
+      - coordinates
+      - fullname
+      - phone
+      - photo
+      - vk
+      type: object
+      properties:
+        fullname:
+          type: string
+          example: Иванов Иван Иванович
+        vk:
+          type: string
+          example: https://vk.com/id123456789
+        photo:
+          type: string
+          description: "Link on volunteer photo, only url"
+          example: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
+        phone:
+          type: string
+          example: +7 (000) 000-00-00
+        address:
+          type: string
+          example: "ул. Поселковая, д. 5"
+        coordinates:
+          type: array
+          example:
+          - 59.821539
+          - 30.178031
+          items:
+            type: number
+    UpdateVolunteerDto:
+      type: object
+      properties:
+        fullname:
+          type: string
+          example: Иванов Иван Иванович
+        vk:
+          type: string
+          example: https://vk.com/id123456789
+        photo:
+          type: string
+          description: "Link on volunteer photo, only url"
+          example: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
+        phone:
+          type: string
+          example: +7 (000) 000-00-00
+        address:
+          type: string
+          example: "ул. Поселковая, д. 5"
+        coordinates:
+          type: array
+          example:
+          - 59.821539
+          - 30.178031
+          items:
+            type: number
+        status:
+          type: string
+          description: Статус волонтера
+          example: active
+          enum:
+          - new
+          - approved
+          - checked
+          - active
+          - blocked
+        scores:
+          type: number
+          description: Колличество заработанных баллов
+          example: 2500
+    Recipient:
+      type: object
+      properties:
+        id:
+          type: number
+          example: 1
+        fullname:
+          type: string
+          example: Петров Петр Петрович
+        vk:
+          type: string
+          example: https://vk.com/id123456789
+        photo:
+          type: string
+          description: Ссылка на фотографию реципиента
+          example: https://avatars.mds.yandex.net/i?id=4d99de7998ed1fb525198f98208ae108866144fe-9146954-images-thumbs&n=13
+        phone:
+          type: string
+          example: +7 (000) 000-00-00
+        address:
+          type: string
+          example: "ул. Нахимова, д. 9"
+        coordinates:
+          type: array
+          example:
+          - 59.830065
+          - 30.033465
+          items:
+            type: number
+        status:
+          type: string
+          description: Volunteer status
+          example: approved
+          enum:
+          - new
+          - approved
+          - blocked
+    CreateRecipientDto:
+      required:
+      - address
+      - coordinates
+      - fullname
+      - phone
+      - photo
+      - vk
+      type: object
+      properties:
+        fullname:
+          type: string
+          example: Петров Петр Петрович
+        vk:
+          type: string
+          example: https://vk.com/id123456789
+        photo:
+          type: string
+          description: Ссылка на фотографию реципиента
+          example: https://avatars.mds.yandex.net/i?id=4d99de7998ed1fb525198f98208ae108866144fe-9146954-images-thumbs&n=13
+        phone:
+          type: string
+          example: +7 (000) 000-00-00
+        address:
+          type: string
+          example: "ул. Нахимова, д. 9"
+        coordinates:
+          type: array
+          example:
+          - 59.830065
+          - 30.033465
+          items:
+            type: number
+    UpdateRecipientDto:
+      type: object
+      properties:
+        fullname:
+          type: string
+          example: Петров Петр Петрович
+        vk:
+          type: string
+          example: https://vk.com/id123456789
+        photo:
+          type: string
+          description: Ссылка на фотографию реципиента
+          example: https://avatars.mds.yandex.net/i?id=4d99de7998ed1fb525198f98208ae108866144fe-9146954-images-thumbs&n=13
+        phone:
+          type: string
+          example: +7 (000) 000-00-00
+        address:
+          type: string
+          example: "ул. Нахимова, д. 9"
+        coordinates:
+          type: array
+          example:
+          - 59.830065
+          - 30.033465
+          items:
+            type: number
+        status:
+          type: string
+          description: Статус реципиента
+          example: approved
+          enum:
+          - new
+          - approved
+          - blocked
+    inline_response_400:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Запрос не может быть выполнен
+    inline_response_404:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Запрашиваемый объект не найден
+  responses:
+    NotFound:
+      description: Requested object does not exist
+      content:
+        applecation/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_404'
+    BadRequest:
+      description: Bad Request error
+      content:
+        applecation/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_400'
