@@ -1,91 +1,161 @@
+@import "./src/scss/mixins/text";
+$colorWhite: #FBFDFF;
+$colorBlue: #2E3192;
+$colorSea: #0071BC;
+$colorSilver: #818C99;
+
 .button {
+  @include text(12px, 400, 14.4px);
+  box-sizing: border-box;
   padding: 8px 16px;
-  border-radius: 0;
-  border: #2E3192 solid 1px;
   box-shadow: none;
   cursor: pointer;
-  background-color: #F5F5F5;
-  color: #2E3192;
   display: flex;
   align-items: center;
-  transition: linear, 0.5s;
+  transition: linear, 0.2s;
 }
 
-.button:hover {
-  background-color: #0071BC;
-  color: #FBFDFF;
+.text{
+  @include text(16px, 400, 19.2px);
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  z-index: 3;
+  color: $colorWhite;
 }
 
-.button:disabled {
-  border: #9798C9 solid 1px;
-  color: #9798C9;
+.block {
+  border-radius: 0;
+  box-sizing: border-box;
+  border: $colorBlue solid 1px;
+  background-color: $colorWhite;
+  .text {
+    color: $colorBlue;
+  }
+
+    &:hover {
+      background-color: $colorSea;
+
+      .text {
+        color: $colorWhite;
+      }
+    }
+
+    &:disabled {
+      border: #9798C9 solid 1px;
+      cursor: auto;
+      background-color: $colorWhite;
+
+      .text {
+        color: #9798C9;
+      }
+    }
 }
 
-//.button {
-//  position: relative;
-//  font-family: 'Lato';
-//  font-weight: 700;
-//  border: none;
-//  border-radius: var(--common-border-radius);
-//  cursor: pointer;
-//  display: flex;
-//  align-items: center;
-//  transition: linear, 0.5s;
-//}
+.apply {
+  border-radius: 0;
+  border: none;
+  background-color: $colorBlue;
+  color: $colorWhite;
 
-.primary {
-  color: #ffffff;
-  background-color: #4154a4;
-}
-.primary:hover {
-  opacity: 0.8;
-}
-.primary:active {
-  transition: none;
-  opacity: 1;
-  color: #ffffff;
-  background-color: #344383;
-}
-.secondary {
-  color: #4154a4;
-  background-color: #eceef6;
-}
-.secondary:hover {
-  background-color: #d9dded;
-}
-.secondary:active {
-  transition: none;
-  opacity: 1;
-  color: #ffffff;
-  background-color: #4154a4;
-}
-.negative {
-  color: #4154a4;
-  background-color: #eceef6;
-}
-.negative:hover {
-  color: #c53637;
-  background-color: #f9ebeb;
-}
-.negative:active {
-  transition: none;
-  opacity: 1;
-  color: #ffffff;
-  background-color: #c53637;
+    &:hover {
+      background-color: $colorSea;
+    }
+
+    &:disabled {
+      background-color: $colorSilver;
+      cursor: auto;
+    }
 }
 
-.disabled {
-  color: var(--colors-interface-gray);
-  background-color: var(--colors-interface-gray-light);
+.search {
+  width: 170px;
+  height: 33px;
+  position: relative;
+  border-radius: 0;
+  border: red;
+  background-color: $colorWhite;
+  overflow: hidden;
+  cursor: auto;
+
+  .text {
+    position: relative;
+    color: $colorWhite;
+    z-index: 2;
+  }
+  .over {
+    position: absolute;
+    padding: 11px 0 8px;
+    top: 0;
+    left: 0;
+    width: 130px;
+    height: 33px;
+    z-index: 3;
+    background-color: rgba(0, 0, 0, 0.0);
+    cursor: pointer;
+
+      .text {
+        margin: 0 auto;
+        position: relative;
+        color: $colorWhite;
+        z-index: 2;
+      }
+
+      &:hover .rectangle {
+        background-color: $colorSea;
+      }
+
+    .rectangle {
+      z-index: 1;
+      position: absolute;
+      top: 5px;
+      left: -13px;
+      width: 171px;
+      height: 33px;
+      background-color: $colorBlue;
+      transform: skew(-26deg, 3deg);
+      cursor: pointer;
+    }
+  }
+
+  &:disabled .text {
+    cursor: auto;
+  }
+
+  &:disabled .over:hover {
+    cursor: auto;
+  }
+
+  &:disabled .rectangle {
+    background-color: $colorSilver;
+  }
+
+  &:disabled .over:hover .rectangle {
+    background-color: $colorSilver;
+    cursor: auto;
+  }
 }
 
-.small {
-  font-size: 16px;
-  line-height: 19px;
-  padding: 10px 15px;
+.circleSmall {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: $colorBlue;
+  border: 1px solid $colorSilver;
 }
-.large {
-  font-size: 18px;
-  line-height: 22px;
-  padding: 18px 56px;
+
+.circleMiddle {
+  width: 53px;
+  height: 53px;
+  border-radius: 50%;
+  background-color: $colorBlue;
+  border: 1px solid $colorSilver;
+}
+
+.circleBig {
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  background-color: $colorBlue;
+  border: 1px solid $colorSilver;
 }

@@ -1,39 +1,46 @@
-import React from 'react';
+import React, { ComponentType, HTMLAttributes } from 'react';
 import styles from './button.module.scss';
 
-export type TButtonProps = React.PropsWithChildren<
-  Omit<React.HTMLProps<HTMLButtonElement>, 'size'>
-> & {
-  htmlType: 'button' | 'submit' | 'reset';
-  type?: 'primary' | 'secondary' | 'negative' | 'disabled';
-  size?: 'small' | 'large';
-  className?: string;
-  onClick?: (() => void) | ((e: React.SyntheticEvent) => void);
-  disabled?: boolean;
-};
+export interface IButtonProps extends HTMLAttributes<HTMLButtonElement> {
+  type?:
+    | 'block'
+    | 'apply'
+    | 'search'
+    | 'circleSmall'
+    | 'circleBig'
+    | 'circleMiddle';
+  // className?: string;
+  children: string;
+  disabled: boolean;
+  onClick: (() => void) | ((e: React.SyntheticEvent) => void);
+}
 
 export const Button = ({
-  type = 'primary',
-  size = 'large',
+  type = 'block',
+  disabled = false,
   children,
-  className = '',
-  htmlType,
-  disabled,
   ...props
-}: TButtonProps) => {
-  const styleType =
-    disabled || type === 'disabled' ? styles.disabled : styles[type];
-
-  const extClassName = className || '';
+}: IButtonProps) => {
+  const Rectangle = () => {
+    return (
+      <div className={styles.over}>
+        <div className={styles.rectangle}> </div>
+        <p className={styles.text}>{children}</p>
+      </div>
+    );
+  };
 
   return (
     <button
-      type={htmlType}
-      className={`${styles.button} ${styles[size]} ${styleType} ${extClassName}`}
+      className={`${styles.button} ${styles[type]}`}
       disabled={disabled}
       {...props}
     >
-      {children}
+      {type === 'search' ? (
+        <Rectangle />
+      ) : (
+        <p className={styles.text}>{children}</p>
+      )}
     </button>
   );
 };
