@@ -1,10 +1,11 @@
 import { getColor, IIconProps } from './utils';
 
-export const AlertIcon = ({ color, ...props }: IIconProps) => (
+export const MessageWithTextIcon = ({ color, ...props }: IIconProps) => (
   <svg
-    width="17"
-    height="17"
-    viewBox="0 0 17 17"
+    width="20"
+    height="18"
+    viewBox="0 0 20 18"
+    fill="none"
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
