@@ -1,6 +1,6 @@
 import { getColor, IIconProps } from './utils';
 
-export const ContactsIcon = ({ color, ...props }: IIconProps) => (
+export const ContactsLocationSmIcon = ({ color, ...props }: IIconProps) => (
   <svg
     width="18"
     height="20"
