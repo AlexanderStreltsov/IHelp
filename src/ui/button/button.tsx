@@ -1,4 +1,4 @@
-import React, { ComponentType, HTMLAttributes } from 'react';
+import React, { ComponentType, HTMLAttributes, useState } from 'react';
 import styles from './button.module.scss';
 import { ArrowIcon } from '../icons/arrow-icon';
 import { PhoneIcon } from '../icons/phone-icon';
@@ -8,6 +8,7 @@ import { CloseIcon } from '../icons/close-icon';
 import { EditIcon } from '../icons/edit-icon';
 import { ConfirmIcon } from '../icons/confirm-icon';
 import { SettingsIcon } from '../icons/settings-icon';
+import { SendIcon } from '../icons/send-icon';
 
 export interface IButtonProps extends HTMLAttributes<HTMLButtonElement> {
   type?:
@@ -21,21 +22,50 @@ export interface IButtonProps extends HTMLAttributes<HTMLButtonElement> {
     | 'quadrilateralExit'
     | 'quadrilateralEdit'
     | 'quadrilateralConfirm'
-    | 'quadrilateralSetting';
-  // className?: string;
+    | 'quadrilateralSetting'
+    | 'quadrilateralExcel'
+    | 'bigCard';
   children: string;
   disabled: boolean;
-  hover?: boolean;
   onClick: (() => void) | ((e: React.SyntheticEvent) => void);
+  onMouseEnter: (() => void) | ((e: React.MouseEvent) => void);
+  noMouseLeave: (() => void) | ((e: React.MouseEvent) => void);
 }
 
 export const Button = ({
   type = 'block',
   disabled = false,
   children,
-  hover = false,
+  onMouseEnter,
+  onMouseLeave,
   ...props
 }: IButtonProps) => {
+  // Cостояние для для цвета icon settinds при hover
+  const [stateHover, setStateHover] = useState<boolean>(false);
+  //Состояние для изменения c icon excel на download при hover
+  const [stateHoverExcel, setStateHoverExcel] = useState<boolean>(false);
+
+  const mouseOn = (actions: string) => {
+    switch (actions) {
+      case 'setting':
+        return setStateHover(true);
+      case 'excel':
+        return setStateHoverExcel(true);
+      default:
+        break;
+    }
+  };
+  const mouseOf = (actions: string) => {
+    switch (actions) {
+      case 'setting':
+        return setStateHover(false);
+      case 'excel':
+        return setStateHoverExcel(false);
+      default:
+        break;
+    }
+  };
+
   const Rectangle = () => {
     return (
       <div className={styles.over}>
@@ -46,6 +76,15 @@ export const Button = ({
     );
   };
 
+  const BigCard = () => {
+    return (
+      <>
+        <ArrowIcon color={'white'} className={styles.svg} />
+        <p className={styles.text}>{children}</p>
+      </>
+    );
+  };
+
   return (
     <button
       className={`${styles.button} ${styles[type]}`}
@@ -53,6 +92,7 @@ export const Button = ({
       {...props}
     >
       {type === 'search' && <Rectangle />}
+      {type === 'bigCard' && <BigCard />}
       {type === 'circleSmallPhone' && (
         <PhoneIcon color={'white'} className={styles.image} />
       )}
@@ -84,14 +124,32 @@ export const Button = ({
         </div>
       )}
       {type === 'quadrilateralSetting' && (
-        <div className={styles.quadrilateral}>
+        <div
+          className={styles.quadrilateral}
+          onMouseEnter={() => mouseOn('setting')}
+          onMouseLeave={() => mouseOf('setting')}
+        >
           <SettingsIcon
-            color={styles.blue ? 'dark-blue' : 'white'}
+            color={stateHover ? 'dark-blue' : 'white'}
             className={styles.image}
           />
         </div>
       )}
-      <p className={styles.text}>{children}</p>
+      {type === 'quadrilateralExcel' && (
+        <div
+          className={styles.quadrilateral}
+          onMouseEnter={() => mouseOn('excel')}
+          onMouseLeave={() => mouseOf('excel')}
+        >
+          {!stateHoverExcel ? (
+            <SettingsIcon color={'white'} className={styles.image} />
+          ) : (
+            <SendIcon color={'white'} />
+          )}
+        </div>
+      )}
+      {type === 'block' && <p className={styles.text}>{children}</p>}
+      {type === 'apply' && <p className={styles.text}>{children}</p>}
     </button>
   );
 };

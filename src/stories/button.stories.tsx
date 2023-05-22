@@ -87,3 +87,16 @@ export const quadrilateralSetting = Template.bind({});
 quadrilateralSetting.args = {
   type: 'quadrilateralSetting',
 };
+
+export const quadrilateralExcel = Template.bind({});
+
+quadrilateralExcel.args = {
+  type: 'quadrilateralExcel',
+};
+
+export const bigCard = Template.bind({});
+
+bigCard.args = {
+  children: 'Обозначение карточки',
+  type: 'bigCard',
+};
