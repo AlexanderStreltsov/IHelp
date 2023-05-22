@@ -40,20 +40,50 @@ Search.args = {
   type: 'search',
 };
 
-export const CircleSmall = Template.bind({});
+export const CircleSmallPhone = Template.bind({});
 
-CircleSmall.args = {
-  type: 'circleSmall',
+CircleSmallPhone.args = {
+  type: 'circleSmallPhone',
 };
 
-export const CircleMiddle = Template.bind({});
+export const CircleSmallEmail = Template.bind({});
 
-CircleMiddle.args = {
-  type: 'circleMiddle',
+CircleSmallEmail.args = {
+  type: 'circleSmallEmail',
 };
 
-export const CircleBig = Template.bind({});
+export const CircleLocation = Template.bind({});
 
-CircleBig.args = {
-  type: 'circleBig',
+CircleLocation.args = {
+  type: 'circleLocation',
+};
+
+export const circleBigCross = Template.bind({});
+
+circleBigCross.args = {
+  type: 'circleBigCross',
+};
+
+export const quadrilateralExit = Template.bind({});
+
+quadrilateralExit.args = {
+  type: 'quadrilateralExit',
+};
+
+export const quadrilateralEdit = Template.bind({});
+
+quadrilateralEdit.args = {
+  type: 'quadrilateralEdit',
+};
+
+export const quadrilateralConfirm = Template.bind({});
+
+quadrilateralConfirm.args = {
+  type: 'quadrilateralConfirm',
+};
+
+export const quadrilateralSetting = Template.bind({});
+
+quadrilateralSetting.args = {
+  type: 'quadrilateralSetting',
 };

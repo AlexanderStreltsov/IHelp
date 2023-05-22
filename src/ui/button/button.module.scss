@@ -69,6 +69,7 @@ $colorSilver: #818C99;
 }
 
 .search {
+  padding: 0 0;
   width: 170px;
   height: 33px;
   position: relative;
@@ -86,17 +87,29 @@ $colorSilver: #818C99;
   .over {
     position: absolute;
     padding: 11px 0 8px;
+    justify-content: flex-start;
+    align-items: flex-start;
     top: 0;
     left: 0;
-    width: 130px;
-    height: 33px;
+    width: 100px;
+    height: 14px;
     z-index: 3;
     background-color: rgba(0, 0, 0, 0.0);
     cursor: pointer;
 
+      .svg {
+        position: absolute;
+        top: 10px;
+        left: 5px;
+        width: 31px;
+        height: 14px;
+        z-index: 2;
+      }
+
       .text {
-        margin: 0 auto;
-        position: relative;
+        position: absolute;
+        top: 8px;
+        left: 43px;
         color: $colorWhite;
         z-index: 2;
       }
@@ -136,26 +149,327 @@ $colorSilver: #818C99;
   }
 }
 
-.circleSmall {
+.circleSmallPhone {
+  padding: 0;
+  margin: 0;
   width: 32px;
   height: 32px;
   border-radius: 50%;
   background-color: $colorBlue;
   border: 1px solid $colorSilver;
+
+  .image {
+    margin: 0 auto;
+    width: 18px;
+    height: 18px;
+  }
+
+  &:hover {
+    background-color: $colorSea;
+  }
+
+  &:active {
+    background-color: $colorBlue;
+  }
+
+  &:disabled {
+    background-color: $colorSilver;
+    cursor: auto;
+  }
 }
 
-.circleMiddle {
+.circleSmallEmail {
+  padding: 0;
+  margin: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: $colorBlue;
+  border: 1px solid $colorSilver;
+
+  .image {
+    margin: 0 auto;
+    width: 18px;
+    height: 18px;
+  }
+
+  &:hover {
+    background-color: $colorSea;
+  }
+
+  &:active {
+    background-color: $colorBlue;
+  }
+
+  &:disabled {
+    background-color: $colorSilver;
+    cursor: auto;
+  }
+}
+
+.circleLocation {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
   width: 53px;
   height: 53px;
   border-radius: 50%;
   background-color: $colorBlue;
-  border: 1px solid $colorSilver;
+  border: none;
+
+  .image {
+    margin: 0 auto;
+    width: 50px;
+    height: 50px;
+  }
+
+  &:hover {
+    background-color: $colorSea;
+  }
+
+  &:disabled {
+    background-color: $colorSilver;
+    cursor: auto;
+  }
 }
 
-.circleBig {
+.circleBigCross {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
   width: 82px;
   height: 82px;
   border-radius: 50%;
   background-color: $colorBlue;
-  border: 1px solid $colorSilver;
+  border: none;
+
+  .crossFirst {
+    position: absolute;
+    top: 7px;
+    left: 39px;
+    width: 3px;
+    height: 66px;
+    background-color: $colorWhite;
+    border-radius: 3px;
+  }
+
+  .crossSecond {
+    position: absolute;
+    top: 39px;
+    left: 7px;
+    width: 66px;
+    height: 3px;
+    background-color: $colorWhite;
+    border-radius: 3px;
+  }
+
+  &:hover {
+    background-color: $colorSea;
+  }
+
+  &:disabled {
+    background-color: $colorSilver;
+    cursor: auto;
+  }
+}
+
+.quadrilateralExit {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  position: relative;
+  background-color: rgba(0, 0, 0, .0);
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  border: none;
+  cursor: auto;
+
+  .quadrilateral {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-top: -7px;
+    margin-left: 1px;
+    width: 32px;
+    height: 32px;
+    background-color: #9798C9;
+    transform: skew(3deg, -10deg);
+    cursor: pointer;
+
+    &:hover {
+      background-color: $colorBlue;
+      transition: linear, 0.2s;
+    }
+
+    &:active {
+      background-color: #9798C9;
+    }
+  }
+
+  .image {
+    margin-top: 8px;
+    transform: skew(-3deg, 10deg);
+  }
+}
+
+.quadrilateralEdit {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  position: relative;
+  background-color: rgba(0, 0, 0, .0);
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  border: none;
+  cursor: auto;
+
+  &:disabled .quadrilateral {
+    background-color: $colorSilver;
+    cursor: auto;
+  }
+
+  &:disabled .quadrilateral:hover {
+    background-color: $colorSilver;
+    cursor: auto;
+  }
+  .quadrilateral {
+    display: flex;
+    position: relative;
+    margin-top: 7px;
+    margin-left: 1px;
+    width: 32px;
+    height: 32px;
+    background-color: $colorSea;
+    transform: skew(-3deg, 10deg);
+    cursor: pointer;
+
+    &:hover {
+      background-color: #00A99D;
+      transition: linear, 0.2s;
+    }
+
+    &:active {
+      background-color: $colorSea;
+    }
+  }
+
+  .image {
+    overflow: hidden;
+    margin-top: -4px;
+    transform: skew(3deg, -10deg);
+  }
+}
+
+.quadrilateralConfirm {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  position: relative;
+  background-color: rgba(0, 0, 0, .0);
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  border: none;
+  cursor: auto;
+
+  &:disabled .quadrilateral {
+    background-color: $colorSilver;
+    cursor: auto;
+  }
+
+  &:disabled .quadrilateral:hover {
+    background-color: $colorSilver;
+    cursor: auto;
+  }
+  .quadrilateral {
+    display: flex;
+    position: relative;
+    margin-top: -7px;
+    margin-left: -1px;
+    width: 32px;
+    height: 32px;
+    background-color: #00A99D;
+    transform: skew(-3deg, 10deg);
+    cursor: pointer;
+    overflow: hidden;
+
+    &:hover {
+      background-color: #009245;
+      transition: linear, 0.2s;
+    }
+
+    &:active {
+      background-color: $colorSea;
+    }
+  }
+
+  .image {
+    margin-top: -1px;
+    margin-left: 5px;
+    width: 32px;
+    transform: skew(0deg, -10deg);
+  }
+}
+
+.quadrilateralSetting {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  position: relative;
+  background-color: rgba(0, 0, 0, .0);
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  border: none;
+  cursor: auto;
+
+  &:disabled .quadrilateral {
+    background-color: $colorSilver;
+    cursor: auto;
+  }
+
+  &:disabled .quadrilateral:hover {
+    background-color: $colorSilver;
+    cursor: auto;
+  }
+  .quadrilateral {
+    display: flex;
+    position: relative;
+    margin-top: 7px;
+    margin-left: 1px;
+    width: 32px;
+    height: 32px;
+    background-color: $colorBlue;
+    transform: skew(-3deg, -10deg);
+    cursor: pointer;
+
+    &:hover {
+      //background-color: $colorWhite;
+      transition: linear, 0.2s;
+    }
+    &:hover .image {
+      color: $colorBlue;
+    }
+  }
+
+  .image {
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    margin-top: 5px;
+    margin-left: -5px;
+    transform: skew(3deg, 10deg);
+
+    &:hover {
+      margin-left: 0;
+      color: $colorBlue;
+    }
+  }
 }
