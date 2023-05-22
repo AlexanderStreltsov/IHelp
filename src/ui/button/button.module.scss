@@ -464,6 +464,8 @@ $colorSilver: #818C99;
 
 .quadrilateralExcel {
   display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -477,6 +479,8 @@ $colorSilver: #818C99;
 
   .quadrilateral {
     display: flex;
+    justify-content: center;
+    align-items: flex-start;
     position: relative;
     margin-top: 7px;
     margin-left: 1px;
@@ -494,14 +498,15 @@ $colorSilver: #818C99;
 
   .image {
     overflow: hidden;
-    //margin-top: -4px;
+    margin-top: 2px;
     transform: skew(3deg, -10deg);
   }
 }
 
 .bigCard {
   display: flex;
-  padding: 0 0;
+  box-sizing: border-box;
+  padding: 30px;
   width: 275px;
   height: 113px;
   position: relative;
@@ -509,20 +514,29 @@ $colorSilver: #818C99;
   border: red;
   background-color: $colorBlue;
   overflow: hidden;
-  cursor: auto;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $colorSea;
+  }
 
     .text {
+      display: inline-block;
+      margin-left: 8px;
+      text-justify-trim: center;
+      text-align: left;
+      align-content: flex-start;
+      width: 120px;
       position: relative;
       color: $colorWhite;
       z-index: 2;
     }
 
     .svg {
-      position: absolute;
-      top: 10px;
-      left: 5px;
-      width: 31px;
-      height: 14px;
+      position: relative;
+      margin-top: -10px;
+      width: 48px;
+      height: 48px;
       z-index: 2;
     }
 }

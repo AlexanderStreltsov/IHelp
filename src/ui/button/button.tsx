@@ -8,7 +8,9 @@ import { CloseIcon } from '../icons/close-icon';
 import { EditIcon } from '../icons/edit-icon';
 import { ConfirmIcon } from '../icons/confirm-icon';
 import { SettingsIcon } from '../icons/settings-icon';
-import { SendIcon } from '../icons/send-icon';
+import { ExcelIcon } from '../icons/excel-icon';
+import { DownloadIcon } from '../icons/download-icon';
+import { RequestMapIcon } from '../icons/request-map-icon';
 
 export interface IButtonProps extends HTMLAttributes<HTMLButtonElement> {
   type?:
@@ -27,6 +29,7 @@ export interface IButtonProps extends HTMLAttributes<HTMLButtonElement> {
     | 'bigCard';
   children: string;
   disabled: boolean;
+  // icon: 'map' | 'card' | 'some';
   onClick: (() => void) | ((e: React.SyntheticEvent) => void);
   onMouseEnter: (() => void) | ((e: React.MouseEvent) => void);
   noMouseLeave: (() => void) | ((e: React.MouseEvent) => void);
@@ -79,7 +82,7 @@ export const Button = ({
   const BigCard = () => {
     return (
       <>
-        <ArrowIcon color={'white'} className={styles.svg} />
+        <RequestMapIcon color={'white'} className={styles.svg} />
         <p className={styles.text}>{children}</p>
       </>
     );
@@ -142,9 +145,9 @@ export const Button = ({
           onMouseLeave={() => mouseOf('excel')}
         >
           {!stateHoverExcel ? (
-            <SettingsIcon color={'white'} className={styles.image} />
+            <ExcelIcon color={'white'} className={styles.image} />
           ) : (
-            <SendIcon color={'white'} />
+            <DownloadIcon color={'white'} className={styles.image} />
           )}
         </div>
       )}
