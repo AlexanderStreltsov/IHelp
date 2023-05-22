@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/IHelp/static/css/main.2cef68c6.css",
+    "main.css": "/IHelp/static/css/main.49f05449.css",
     "main.js": "/IHelp/static/js/main.716570c0.js",
     "static/js/787.d975495b.chunk.js": "/IHelp/static/js/787.d975495b.chunk.js",
     "static/media/GolosText-Bold.ttf": "/IHelp/static/media/GolosText-Bold.9093234c5dda5e169a98.ttf",
@@ -8,12 +8,12 @@
     "static/media/GolosText-Bold.woff2": "/IHelp/static/media/GolosText-Bold.5d6b8bf193f76a280bb3.woff2",
     "static/media/GolosText-Regular.woff2": "/IHelp/static/media/GolosText-Regular.7abba679137406db4649.woff2",
     "index.html": "/IHelp/index.html",
-    "main.2cef68c6.css.map": "/IHelp/static/css/main.2cef68c6.css.map",
+    "main.49f05449.css.map": "/IHelp/static/css/main.49f05449.css.map",
     "main.716570c0.js.map": "/IHelp/static/js/main.716570c0.js.map",
     "787.d975495b.chunk.js.map": "/IHelp/static/js/787.d975495b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2cef68c6.css",
+    "static/css/main.49f05449.css",
     "static/js/main.716570c0.js"
   ]
 }
