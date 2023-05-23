@@ -2,14 +2,24 @@ import { Story, Meta } from '@storybook/react';
 import { Button, IButtonProps } from '../ui/button/button';
 
 export default {
-  title: 'Button',
+  title: 'UI/Button',
   component: Button,
+  tags: ['autodocs'],
   argTypes: {
     children: {
       name: 'label',
     },
     disabled: {
       type: false,
+    },
+    icon: {
+      type: 'string',
+      description: 'Вариант выбора иконки',
+      defaultValue: 'map',
+      options: ['map', 'active', 'completed', 'statistics', 'application'],
+      control: {
+        type: 'radio',
+      },
     },
   },
 };
@@ -99,4 +109,5 @@ export const bigCard = Template.bind({});
 bigCard.args = {
   children: 'Обозначение карточки',
   type: 'bigCard',
+  icon: 'map',
 };

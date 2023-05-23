@@ -6,11 +6,15 @@ import { MessageIcon } from '../icons/message-icon';
 import { LocationIcon } from '../icons/location-icon';
 import { CloseIcon } from '../icons/close-icon';
 import { EditIcon } from '../icons/edit-icon';
-import { ConfirmIcon } from '../icons/confirm-icon';
+import { ConfirmIcon } from '../icons/confirm-icon'; //галочка которая с крестиком
 import { SettingsIcon } from '../icons/settings-icon';
 import { ExcelIcon } from '../icons/excel-icon';
 import { DownloadIcon } from '../icons/download-icon';
 import { RequestMapIcon } from '../icons/request-map-icon';
+import { ActiveRequestVersion1Icon } from '../icons/active-request-big-version-1-icon';
+import { ExecutedRequestIcon } from '../icons/executed-request-icon';
+import { StatsIcon } from '../icons/stats-icon';
+import { CreateEditIcon } from '../icons/create-edit-icon';
 
 export interface IButtonProps extends HTMLAttributes<HTMLButtonElement> {
   type?:
@@ -27,20 +31,17 @@ export interface IButtonProps extends HTMLAttributes<HTMLButtonElement> {
     | 'quadrilateralSetting'
     | 'quadrilateralExcel'
     | 'bigCard';
+  icon?: 'map' | 'active' | 'completed' | 'statistics' | 'application';
   children: string;
   disabled: boolean;
-  // icon: 'map' | 'card' | 'some';
   onClick: (() => void) | ((e: React.SyntheticEvent) => void);
-  onMouseEnter: (() => void) | ((e: React.MouseEvent) => void);
-  noMouseLeave: (() => void) | ((e: React.MouseEvent) => void);
 }
 
 export const Button = ({
   type = 'block',
   disabled = false,
   children,
-  onMouseEnter,
-  onMouseLeave,
+  icon,
   ...props
 }: IButtonProps) => {
   // Cостояние для для цвета icon settinds при hover
@@ -74,7 +75,7 @@ export const Button = ({
       <div className={styles.over}>
         <div className={styles.rectangle}> </div>
         <ArrowIcon color={'white'} className={styles.svg} />
-        <p className={styles.text}>{children}</p>
+        <span className={`${styles.text} text-medium`}>{children}</span>
       </div>
     );
   };
@@ -82,15 +83,29 @@ export const Button = ({
   const BigCard = () => {
     return (
       <>
-        <RequestMapIcon color={'white'} className={styles.svg} />
-        <p className={styles.text}>{children}</p>
+        {icon === 'map' && (
+          <RequestMapIcon color={'white'} className={styles.svg} />
+        )}
+        {icon === 'active' && (
+          <ActiveRequestVersion1Icon color={'white'} className={styles.svg} />
+        )}
+        {icon === 'completed' && (
+          <ExecutedRequestIcon color={'white'} className={styles.svg} />
+        )}
+        {icon === 'statistics' && (
+          <StatsIcon color={'white'} className={styles.svg} />
+        )}
+        {icon === 'application' && (
+          <CreateEditIcon color={'white'} className={styles.svg} />
+        )}
+        <span className={`${styles.text} text-medium`}>{children}</span>
       </>
     );
   };
 
   return (
     <button
-      className={`${styles.button} ${styles[type]}`}
+      className={`${styles.button} ${styles[type]} text-small`}
       disabled={disabled}
       {...props}
     >
@@ -127,32 +142,23 @@ export const Button = ({
         </div>
       )}
       {type === 'quadrilateralSetting' && (
-        <div
-          className={styles.quadrilateral}
-          onMouseEnter={() => mouseOn('setting')}
-          onMouseLeave={() => mouseOf('setting')}
-        >
-          <SettingsIcon
-            color={stateHover ? 'dark-blue' : 'white'}
-            className={styles.image}
-          />
+        <div className={styles.quadrilateral}>
+          <SettingsIcon color={'white'} className={styles.image} />
+          <SettingsIcon color={'dark-blue'} className={styles.image_hover} />
         </div>
       )}
       {type === 'quadrilateralExcel' && (
-        <div
-          className={styles.quadrilateral}
-          onMouseEnter={() => mouseOn('excel')}
-          onMouseLeave={() => mouseOf('excel')}
-        >
-          {!stateHoverExcel ? (
-            <ExcelIcon color={'white'} className={styles.image} />
-          ) : (
-            <DownloadIcon color={'white'} className={styles.image} />
-          )}
+        <div className={styles.quadrilateral}>
+          <ExcelIcon color={'white'} className={styles.image} />
+          <DownloadIcon color={'white'} className={styles.image_hover} />
         </div>
       )}
-      {type === 'block' && <p className={styles.text}>{children}</p>}
-      {type === 'apply' && <p className={styles.text}>{children}</p>}
+      {type === 'block' && (
+        <span className={`${styles.text} text-medium`}>{children}</span>
+      )}
+      {type === 'apply' && (
+        <span className={`${styles.text} text-medium`}>{children}</span>
+      )}
     </button>
   );
 };
