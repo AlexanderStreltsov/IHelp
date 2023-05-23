@@ -1,4 +1,5 @@
 import { getColor, IIconProps } from './utils';
+import { ElementColors } from './../../common/variables';
 
 export const ExcelIcon = ({ color, ...props }: IIconProps) => (
   <svg
@@ -23,7 +24,7 @@ export const ExcelIcon = ({ color, ...props }: IIconProps) => (
       fill-rule="evenodd"
       clip-rule="evenodd"
       d="M4.76025 8.80466L6.36975 8.71383L7.3815 11.4528L8.577 8.60084L10.1865 8.51001L8.232 12.3987L10.1865 16.2971L8.48475 16.1841L7.33575 13.2125L6.186 16.0711L4.62225 15.9352L6.43875 12.4918L4.76025 8.80466V8.80466Z"
-      fill="#2E3192"
+      fill={ElementColors.partsPrimary}
     />
   </svg>
 );
