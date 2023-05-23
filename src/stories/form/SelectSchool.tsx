@@ -49,8 +49,14 @@ export const SelectSchool: React.FC<Props> = ({
       <label className={styles.label} htmlFor={inputId}>
         Школа
       </label>
-      <select className={styles.input} id={inputId} onChange={onSelect}>
-        <option disabled selected={!selectedSchoolId}>
+      <select
+        className={`${styles.select} ${
+          selectedSchoolId ? styles.optionEnabled : styles.optionDisabled
+        }`}
+        id={inputId}
+        onChange={onSelect}
+      >
+        <option className={styles.option} disabled selected={!selectedSchoolId}>
           Выберите школу
         </option>
         {items}

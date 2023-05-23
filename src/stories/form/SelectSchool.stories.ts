@@ -15,7 +15,18 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const SchoolSelected: Story = {
+  args: {
+    selectedSchoolId: '1',
+    schools: [
+      { schoolId: '1', schoolName: 'Школа №123' },
+      { schoolId: '2', schoolName: 'Школа №2' },
+      { schoolId: '3', schoolName: 'Школа №3' },
+    ],
+  },
+};
+
+export const SchoolNotSelected: Story = {
   args: {
     schools: [
       { schoolId: '1', schoolName: 'Школа №123' },

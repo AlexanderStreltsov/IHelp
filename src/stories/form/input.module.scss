@@ -1,0 +1,105 @@
+.form {
+  width: 375px;
+  height: 96px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  background: #FBFDFF;
+  padding: 12px;
+}
+
+.label {
+  width: 351px;
+  height: 18px;
+  font-family: 'GolosText';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.154px;
+  color: #2E3192;
+  margin-bottom: 8px;
+}
+
+.input {
+  width: 351px;
+  height: 44px;
+  padding: 12px;
+  box-sizing: border-box;
+  background: #FBFDFF;
+  border: 1px solid #9798C9;
+  font-family: 'GolosText';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.32px;
+  color: #2E3192;
+}
+
+.select {
+  width: 351px;
+  height: 44px;
+  padding: 12px;
+  box-sizing: border-box;
+  background: #FBFDFF;
+  border: 1px solid #9798C9;
+  font-family: 'GolosText';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.32px;
+  appearance: none;
+  background-image: url('../assets/dropdown.svg');
+  background-repeat: no-repeat;
+  background-position: right .7em top 50%, 0 0;
+  background-size: 14px, 7px;
+}
+
+.optionEnabled {
+  color: #2E3192;
+}
+
+.optionDisabled {
+  color: #818C99;
+}
+
+.commentForm {
+  width: 375px;
+  height: 116px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  background: #FBFDFF;
+  padding: 12px;
+}
+
+.commentLabel {
+  width: 351px;
+  height: 18px;
+  font-family: 'GolosText';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: -0.154px;
+  color: #818C99;
+  margin-bottom: 8px;
+}
+
+.commentInput {
+  width: 351px;
+  height: 64px;
+  padding: 12px;
+  box-sizing: border-box;
+  background: #FBFDFF;
+  border: 1px solid #9798C9;
+  font-family: 'GolosText';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.32px;
+  color: #000;
+}
