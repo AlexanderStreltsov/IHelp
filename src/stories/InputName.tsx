@@ -1,5 +1,5 @@
 import React from 'react';
-import './inputName.scss';
+import styles from './input.module.scss';
 
 interface Props {
   /**
@@ -7,7 +7,7 @@ interface Props {
    */
   value: string;
   /**
-   * Optional change handler
+   * Change handler
    */
   onChange: (value: string) => void;
 }
@@ -22,9 +22,12 @@ export const InputName: React.FC<Props> = ({ value, onChange }: Props) => {
   };
 
   return (
-    <div>
-      <label htmlFor={inputId}>Имя</label>
+    <div className={styles.form}>
+      <label className={styles.label} htmlFor={inputId}>
+        Имя
+      </label>
       <input
+        className={styles.input}
         id={inputId}
         type="text"
         placeholder="Введите имя"
