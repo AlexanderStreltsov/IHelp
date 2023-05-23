@@ -7,13 +7,17 @@ interface Props {
    */
   selectedSchoolId?: string;
   /**
-   * Callback, when school is selected
-   */
-  onChange: (schoolId: string) => void;
-  /**
    * List of schools to select from
    */
   schools: SchoolOption[];
+  /**
+   * Error message
+   */
+  errorMessage?: string;
+  /**
+   * Callback, when school is selected
+   */
+  onChange: (schoolId: string) => void;
 }
 
 interface SchoolOption {
@@ -26,8 +30,9 @@ interface SchoolOption {
  */
 export const SelectSchool: React.FC<Props> = ({
   selectedSchoolId,
-  onChange,
   schools,
+  errorMessage,
+  onChange,
 }: Props) => {
   const inputId = `input-name-${Math.random()}`;
   const onSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -52,7 +57,7 @@ export const SelectSchool: React.FC<Props> = ({
       <select
         className={`${styles.select} ${
           selectedSchoolId ? styles.optionEnabled : styles.optionDisabled
-        }`}
+        } ${errorMessage ? styles.wrongInput : styles.correctInput}`}
         id={inputId}
         onChange={onSelect}
       >
@@ -61,6 +66,9 @@ export const SelectSchool: React.FC<Props> = ({
         </option>
         {items}
       </select>
+      {errorMessage && (
+        <div className={styles.errorMessage}>{errorMessage}</div>
+      )}
     </div>
   );
 };

@@ -15,6 +15,16 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+export const SchoolNotSelected: Story = {
+  args: {
+    schools: [
+      { schoolId: '1', schoolName: 'Школа №123' },
+      { schoolId: '2', schoolName: 'Школа №2' },
+      { schoolId: '3', schoolName: 'Школа №3' },
+    ],
+  },
+};
+
 export const SchoolSelected: Story = {
   args: {
     selectedSchoolId: '1',
@@ -26,12 +36,9 @@ export const SchoolSelected: Story = {
   },
 };
 
-export const SchoolNotSelected: Story = {
+export const SchoolsError: Story = {
   args: {
-    schools: [
-      { schoolId: '1', schoolName: 'Школа №123' },
-      { schoolId: '2', schoolName: 'Школа №2' },
-      { schoolId: '3', schoolName: 'Школа №3' },
-    ],
+    schools: [],
+    errorMessage: 'Ошибка загрузки',
   },
 };
