@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Checkbox } from '../../ui/checkbox/checkbox';
+import { Popup } from '../../ui/popup/popup';
+import styles from './app.module.scss';
 
 import './App.scss';
 
@@ -11,27 +12,16 @@ const App = () => (
         element={
           <>
             <h1>IHelp</h1>
-            <Checkbox
-              form="checkbox"
-              label="Категория 1"
-              name="category"
-              type="checkbox"
-              value="1"
-            />
-            <Checkbox
-              form="checkbox"
-              label="Категория 2"
-              name="category"
-              type="checkbox"
-              value="2"
-            />
-            <Checkbox
-              form="checkbox"
-              label="Категория 3"
-              name="category"
-              type="checkbox"
-              value="3"
-            />
+            <Popup
+              arrow="right"
+              width="middle"
+              shadow={true}
+              moduleOutStyles={`${styles.height} text-big`}
+              outStyles={{ paddingRight: '60px' }}
+            >
+              <p>jvbdsjkbvj</p>
+              <p>jvbdsjkbvj</p>
+            </Popup>
           </>
         }
       />

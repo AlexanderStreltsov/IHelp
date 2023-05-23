@@ -18,6 +18,7 @@ export const Checkbox = ({
   form = 'checkbox',
   label = null,
 }: ICheckbox) => {
+  // верстка input
   const input = (
     <input
       type={type}
@@ -27,6 +28,8 @@ export const Checkbox = ({
       className={styles.input}
     />
   );
+
+  // вёрстка внешнего оформления input в виде checkbox
   const checkbox = (
     <label className={`${styles.label} text-small`}>
       {input}
@@ -40,11 +43,14 @@ export const Checkbox = ({
       {label}
     </label>
   );
+
+  // вёрстка внешнего оформления input в виде кнопок
   const button = (
     <label className={styles.label}>
       {input}
       <span className={`${styles.fakeButton}  text-small`}>{label}</span>
     </label>
   );
+
   return form === 'checkbox' ? checkbox : button;
 };

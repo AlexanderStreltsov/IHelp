@@ -1,0 +1,49 @@
+.popup {
+  box-sizing: border-box;
+  padding: 20px 20px 20px 30px;
+  background-color: #fff;
+  position: relative;
+}
+
+.shadow {
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.0392156863), 0 4px 32px rgba(0, 0, 0, 0.1607843137);
+}
+
+.width_type_small {
+  width: 287px;
+}
+
+.width_type_middle {
+  width: 370px;
+}
+
+.width_type_big {
+  width: 586px;
+}
+
+.arrow_type_right::before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 9px solid #fff;
+  position: absolute;
+  right: 14px;
+  top: -9px;
+}
+
+.arrow_type_center::before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 9px solid #fff;
+  position: absolute;
+  right: 14px;
+  top: -9px;
+  right: calc(50% - 10px);
+}/*# sourceMappingURL=popup.module.css.map */
