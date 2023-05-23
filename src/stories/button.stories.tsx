@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react';
+import { Story } from '@storybook/react';
 import { Button, IButtonProps } from '../ui/button/button';
 
 export default {
@@ -68,45 +68,45 @@ CircleLocation.args = {
   type: 'circleLocation',
 };
 
-export const circleBigCross = Template.bind({});
+export const CircleBigCross = Template.bind({});
 
-circleBigCross.args = {
+CircleBigCross.args = {
   type: 'circleBigCross',
 };
 
-export const quadrilateralExit = Template.bind({});
+export const QuadrilateralExit = Template.bind({});
 
-quadrilateralExit.args = {
+QuadrilateralExit.args = {
   type: 'quadrilateralExit',
 };
 
-export const quadrilateralEdit = Template.bind({});
+export const QuadrilateralEdit = Template.bind({});
 
-quadrilateralEdit.args = {
+QuadrilateralEdit.args = {
   type: 'quadrilateralEdit',
 };
 
-export const quadrilateralConfirm = Template.bind({});
+export const QuadrilateralConfirm = Template.bind({});
 
-quadrilateralConfirm.args = {
+QuadrilateralConfirm.args = {
   type: 'quadrilateralConfirm',
 };
 
-export const quadrilateralSetting = Template.bind({});
+export const QuadrilateralSetting = Template.bind({});
 
-quadrilateralSetting.args = {
+QuadrilateralSetting.args = {
   type: 'quadrilateralSetting',
 };
 
-export const quadrilateralExcel = Template.bind({});
+export const QuadrilateralExcel = Template.bind({});
 
-quadrilateralExcel.args = {
+QuadrilateralExcel.args = {
   type: 'quadrilateralExcel',
 };
 
-export const bigCard = Template.bind({});
+export const BigCard = Template.bind({});
 
-bigCard.args = {
+BigCard.args = {
   children: 'Обозначение карточки',
   type: 'bigCard',
   icon: 'map',

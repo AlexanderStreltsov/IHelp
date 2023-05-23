@@ -1,4 +1,4 @@
-import React, { ComponentType, HTMLAttributes, useState } from 'react';
+import React, { HTMLAttributes } from 'react';
 import styles from './button.module.scss';
 import { ArrowIcon } from '../icons/arrow-icon';
 import { PhoneIcon } from '../icons/phone-icon';
@@ -44,32 +44,6 @@ export const Button = ({
   icon,
   ...props
 }: IButtonProps) => {
-  // Cостояние для для цвета icon settinds при hover
-  const [stateHover, setStateHover] = useState<boolean>(false);
-  //Состояние для изменения c icon excel на download при hover
-  const [stateHoverExcel, setStateHoverExcel] = useState<boolean>(false);
-
-  const mouseOn = (actions: string) => {
-    switch (actions) {
-      case 'setting':
-        return setStateHover(true);
-      case 'excel':
-        return setStateHoverExcel(true);
-      default:
-        break;
-    }
-  };
-  const mouseOf = (actions: string) => {
-    switch (actions) {
-      case 'setting':
-        return setStateHover(false);
-      case 'excel':
-        return setStateHoverExcel(false);
-      default:
-        break;
-    }
-  };
-
   const Rectangle = () => {
     return (
       <div className={styles.over}>
