@@ -37,6 +37,10 @@
   color: #2E3192;
 }
 
+.input:focus {
+  border: 1px solid #0091C7;
+}
+
 .select {
   width: 351px;
   height: 44px;
@@ -102,4 +106,63 @@
   line-height: 20px;
   letter-spacing: -0.32px;
   color: #000;
+}
+
+.formPhoneNumber {
+  width: 375px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  background: #FBFDFF;
+  padding: 12px;
+}
+
+.labelPhoneNumber {
+  width: 351px;
+  height: 18px;
+  font-family: 'GolosText';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.154px;
+  color: #2E3192;
+  margin-bottom: 8px;
+}
+
+.inputPhoneNumber {
+  width: 351px;
+  height: 44px;
+  padding: 12px;
+  box-sizing: border-box;
+  background: #FBFDFF;
+  font-family: 'GolosText';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.32px;
+  color: #2E3192;
+}
+
+.correctPhoneNumber {
+  border: 1px solid #9798C9;
+}
+
+.wrongPhoneNumber {
+  border: 0.5px solid #E64646;
+}
+
+.errorMessage {
+  width: 351px;
+  height: 16px;
+  margin-top: 8px;
+  font-family: 'GolosText';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: -0.078px;
+  color: #F37920;
 }
