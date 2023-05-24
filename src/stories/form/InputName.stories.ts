@@ -17,12 +17,12 @@ type Story = StoryObj<typeof meta>;
 
 export const EmptyName: Story = {
   args: {
-    value: '',
+    initialValue: '',
   },
 };
 
 export const NameWithValue: Story = {
   args: {
-    value: 'Aleksandr',
+    initialValue: 'Aleksandr',
   },
 };
