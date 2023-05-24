@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './input.module.scss';
 
 interface Props {
   /**
    * Input value
    */
-  value: string;
+  initialValue: string;
   /**
    * Error message
    */
@@ -20,12 +20,15 @@ interface Props {
  * Input field for name
  */
 export const InputPhoneNumber: React.FC<Props> = ({
-  value,
+  initialValue,
   errorMessage,
   onChange,
 }: Props) => {
+  const [value, setValue] = useState(initialValue);
+
   const inputId = `input-name-${Math.random()}`;
   const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.currentTarget.value);
     onChange(e.currentTarget.value);
   };
 

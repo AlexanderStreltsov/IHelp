@@ -17,19 +17,19 @@ type Story = StoryObj<typeof meta>;
 
 export const EmptyPhoneNumber: Story = {
   args: {
-    value: '',
+    initialValue: '',
   },
 };
 
 export const PhoneNumberWithValue: Story = {
   args: {
-    value: '+7 (123) 456 78 90',
+    initialValue: '+7 (123) 456 78 90',
   },
 };
 
 export const WrongPhoneNumber: Story = {
   args: {
-    value: 'Wrong Phone Number',
+    initialValue: 'Wrong Phone Number',
     errorMessage: 'Указан некорректный номер телефона',
   },
 };
