@@ -7,6 +7,7 @@
 }
 
 .request {
+    width: 100%;
     height: 219px;
     padding: 0 0 27px 0;
     display: flex;
@@ -154,7 +155,7 @@
 }
 
 .content {
-    width: 531px;
+    width: 54%;
     display: flex;
     flex-direction: column;
     margin-left: 6px;
@@ -277,7 +278,7 @@
     height: 25px;
     margin: 0 0 10px 0;
     padding: 0;
-    // background-image: url('../../images/balls.svg');
+    background-image: url('../../../images/back.svg');
     background-position: center;
     background-repeat: no-repeat;
     @include respond(small) {
@@ -314,7 +315,7 @@
 .dateicon {
     width: 17px;
     height: 17px;
-    margin: 0 5px 8px 0;
+    margin: 0 5px 0px 0;
 }
 
 .datetext {
@@ -329,7 +330,7 @@
     align-items: center;
     text-align: center;
     color: #2e3192;
-    margin: 0 0 5px 0;
+    margin: 0;
     @include respond(small) {
         width: 91px;
         height: 29px;
@@ -362,6 +363,7 @@
 .timetext {
     width: 63px;
     height: 29px;
+    margin: 0;
     font-family: "GolosText";
     font-style: normal;
     font-weight: 400;
@@ -396,7 +398,7 @@
 .addressicon {
     width: 27px;
     height: 27px;
-    margin: 0 3px 10px -5px;
+    margin: 0 0px 10px -5px;
 }
 
 .addresstext {
