@@ -1,0 +1,196 @@
+.request{
+    width: 889px;
+    height: 219px;
+    padding: 0 0 27px 0;
+    display: flex;
+    flex-direction: row-reverse
+}
+
+.buttons{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 20px;
+    width: 83px;
+    height: 83px;
+}
+
+.icon{
+    width: 32px;
+    height: 32.12px;
+}
+
+.volunteer{
+    width: 181px;
+    display: flex;
+    flex-direction: column;
+}
+
+.avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-image: '../../images/avatar.png';
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.text{
+    width: 181px;
+    height: 23px;
+    font-family: 'Golos';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+    margin: 0 0 4px 0;
+    padding: 0;
+}
+
+.teltext{
+    width: 154px;
+    height: 16px;
+    font-family: 'Golos';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    color: #2E3192;
+    margin: 0 0 8px 0;
+    padding: 0;
+}
+
+.icons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 72px;
+}
+
+.callicon{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #2E3192;
+}
+
+.content{
+    width: 451px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 6px;
+}
+
+.contentheader{
+    width: 165px;
+    height: 17px;
+    font-family: 'Golos';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    color: #9798C9;
+    margin: 42px 0 10px 0;
+}
+
+.requesticon{
+    width: 43px;
+    height: 32px;
+    margin: 28px 5px 0 0;
+}
+
+.category{
+    display: flex;
+    flex-direction: column;
+    width: 169px;
+}
+
+.categorylogo{
+    width: 169px;
+    height: 25px;
+    margin: 0 0 10px 0;
+    padding: 0;
+}
+
+.date{
+    display: flex;
+    flex-direction: row;
+}
+
+.dateicon{
+    width: 17px;
+    height: 17px;
+    margin: 0 5px 0 0;
+}
+
+.datetext{
+    width: 131px;
+    height: 36px;
+    font-family: 'Golos';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #2E3192;
+    margin: 0 0 5px 0;
+}
+
+.time{
+    display: flex;
+    flex-direction: row;
+}
+
+.timeicon{
+    width: 17px;
+    height: 17px;
+    margin: 0 5px 5px 0;
+}
+
+.timetext{
+    width: 63px;
+    height: 29px;
+    font-family: 'Golos';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #2E3192;
+}
+
+.address{
+    display: flex;
+    flex-direction: row;
+}
+
+.addressicon{
+    width: 17px;
+    height: 17px;
+    margin: 0 5px 0 0;
+}
+
+.addresstext{
+    width: 131px;
+    height: 38px;
+    font-family: 'Golos';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    color: #2E3192;
+}
