@@ -36,7 +36,8 @@
   color: map-get($background_color, "partsPrimary");
 }
 
-.input:focus {
+.input:focus-visible, .input:focus {
+  outline: 1px solid map-get($background_color, "partsActiveSecondary");
   border: 1px solid map-get($background_color, "partsActiveSecondary");
 }
 
@@ -131,6 +132,7 @@
   @extend .text-medium;
   letter-spacing: -0.32px;
   color: map-get($background_color, "partsPrimary");
+  outline: none;
 }
 
 .correctInput {

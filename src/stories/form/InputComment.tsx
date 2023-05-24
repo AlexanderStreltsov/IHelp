@@ -33,7 +33,7 @@ export const InputComment: React.FC<Props> = ({
         Комментарий
       </label>
       <textarea
-        className={styles.commentInput}
+        className={`${styles.input} ${styles.commentInput}`}
         id={inputId}
         rows={2}
         placeholder="Добавьте комментарий"

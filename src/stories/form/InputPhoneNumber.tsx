@@ -38,7 +38,7 @@ export const InputPhoneNumber: React.FC<Props> = ({
         Телефон
       </label>
       <input
-        className={`${styles.inputPhoneNumber} ${
+        className={`${styles.input} ${styles.inputPhoneNumber} ${
           errorMessage ? styles.wrongInput : styles.correctInput
         }`}
         id={inputId}
