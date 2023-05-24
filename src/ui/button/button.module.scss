@@ -2,500 +2,497 @@
 @import './src/scss/mixins/text';
 @import 'src/common/variable';
 
-//.button {
-//  position: relative;
-//  box-sizing: border-box;
-//  padding: 0;
-//  margin: 0;
-//  border-radius: 0;
-//  box-shadow: none;
-//  cursor: pointer;
-//  border: none;
-//  display: flex;
-//  align-items: center;
-//  transition: linear, 0.2s;
-//}
-.text{
-  display: inline-block;
-  //margin: 0;
-  //padding: 0;
-  //z-index: 3;
-  //color: map.get($text_color, additional);
+.button {
+  position: relative;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+  transition: linear, 0.2s;
 }
 
-//.block {
-//  padding: 8px 16px;
-//  border: map.get($background_color, partsPrimary) solid 1px;
-//  background-color: map.get($background_color, primary);
-//
-//  .text {
-//    color: map.get($text_color, primary);
-//  }
-//
-//    &:hover {
-//      background-color: map.get($background_color, partsActivePrimary);
-//
-//      .text {
-//        color: map.get($text_color, additional);
-//      }
-//    }
-//
-//    &:disabled {
-//      border: map.get($background_color, partsSecondary) solid 1px;
-//      cursor: auto;
-//      background-color: map.get($background_color, primary);
-//
-//      .text {
-//        color: map.get($text_color, primaryAdditional);
-//      }
-//    }
-//}
-//
-//.apply {
-//  padding: 8px 16px;
-//  background-color: map.get($background_color, partsPrimary);
-//  color: map.get($text_color, additional);
-//
-//    &:hover {
-//      background-color: map.get($background_color, partsActivePrimary);
-//    }
-//
-//    &:disabled {
-//      background-color: map.get($background_color, inactive);
-//      cursor: auto;
-//    }
-//}
-//
-//.search {
-//  width: 170px;
-//  height: 33px;
-//  background-color: map.get($background_color, primary);
-//  overflow: hidden;
-//  cursor: auto;
-//
-//  .text {
-//    position: relative;
-//    color: map.get($text_color, additional);
-//    z-index: 2;
-//  }
-//  .over {
-//    position: absolute;
-//    padding: 11px 0 8px;
-//    justify-content: flex-start;
-//    align-items: flex-start;
-//    top: 0;
-//    left: 0;
-//    width: 100px;
-//    height: 14px;
-//    z-index: 3;
-//    background-color: rgba(0, 0, 0, 0.0);
-//    cursor: pointer;
-//
-//      .svg {
-//        position: absolute;
-//        top: 10px;
-//        left: 5px;
-//        width: 31px;
-//        height: 14px;
-//        z-index: 2;
-//      }
-//
-//      .text {
-//        position: absolute;
-//        top: 8px;
-//        left: 43px;
-//        color: map.get($text_color, additional);
-//        z-index: 2;
-//      }
-//
-//      &:hover .rectangle {
-//        background-color: map.get($background_color, partsActivePrimary);
-//      }
-//
-//    .rectangle {
-//      z-index: 1;
-//      position: absolute;
-//      top: 5px;
-//      left: -13px;
-//      width: 171px;
-//      height: 33px;
-//      background-color: map.get($background_color, partsPrimary);
-//      transform: skew(-26deg, 3deg);
-//      cursor: pointer;
-//    }
-//  }
-//
-//  &:disabled .text {
-//    cursor: auto;
-//  }
-//
-//  &:disabled .over:hover {
-//    cursor: auto;
-//  }
-//
-//  &:disabled .rectangle {
-//    background-color: map.get($background_color, inactive);
-//  }
-//
-//  &:disabled .over:hover .rectangle {
-//    background-color: map.get($background_color, inactive);
-//    cursor: auto;
-//  }
-//}
-//
-//.circleSmallPhone,
-//.circleSmallEmail {
-//  width: 32px;
-//  height: 32px;
-//  border-radius: 50%;
-//  background-color: map.get($background_color, partsPrimary);
-//  border: 1px solid map.get($background_color, inactive);
-//
-//  .image {
-//    margin: 0 auto;
-//    width: 18px;
-//    height: 18px;
-//  }
-//
-//  &:hover {
-//    background-color: map.get($background_color, partsActivePrimary);
-//  }
-//
-//  &:active {
-//    background-color: map.get($background_color, partsPrimary);
-//  }
-//
-//  &:disabled {
-//    background-color: map.get($background_color, inactive);
-//    cursor: auto;
-//  }
-//}
-//
-//.circleSmallEmail {
-//
-//  .image {
-//    margin: 0 auto;
-//    width: 18px;
-//    height: 18px;
-//  }
-//
-//  &:hover {
-//    background-color: map.get($background_color, partsActivePrimary);
-//  }
-//
-//  &:active {
-//    background-color: map.get($background_color, partsPrimary);
-//  }
-//
-//  &:disabled {
-//    background-color: map.get($background_color, inactive);
-//    cursor: auto;
-//  }
-//}
-//
-//.circleLocation {
-//  width: 53px;
-//  height: 53px;
-//  border-radius: 50%;
-//  background-color: map.get($background_color, partsPrimary);
-//
-//  .image {
-//    margin: 0 auto;
-//    width: 50px;
-//    height: 50px;
-//  }
-//
-//  &:hover {
-//    background-color: map.get($background_color, partsActivePrimary);
-//  }
-//
-//  &:disabled {
-//    background-color: map.get($background_color, inactive);
-//    cursor: auto;
-//  }
-//}
-//
-//.circleBigCross {
-//  width: 82px;
-//  height: 82px;
-//  border-radius: 50%;
-//  background-color: map.get($background_color, partsPrimary);
-//
-//  .crossFirst {
-//    position: absolute;
-//    top: 7px;
-//    left: 39px;
-//    width: 3px;
-//    height: 66px;
-//    background-color: map.get($background_color, primary);
-//    border-radius: 3px;
-//  }
-//
-//  .crossSecond {
-//    position: absolute;
-//    top: 39px;
-//    left: 7px;
-//    width: 66px;
-//    height: 3px;
-//    background-color: map.get($background_color, primary);
-//    border-radius: 3px;
-//  }
-//
-//  &:hover {
-//    background-color: map.get($background_color, partsActivePrimary);
-//  }
-//
-//  &:disabled {
-//    background-color: map.get($background_color, inactive);
-//    cursor: auto;
-//  }
-//}
-//
-//.quadrilateralExit,
-//.quadrilateralEdit,
-//.quadrilateralConfirm,
-//.quadrilateralSetting,
-//.quadrilateralExcel{
-//  display: flex;
-//  background-color: rgba(0, 0, 0, .0);
-//  width: 32px;
-//  height: 32px;
-//  overflow: hidden;
-//  cursor: auto;
-//
-//  .quadrilateral {
-//    display: flex;
-//    justify-content: center;
-//    position: relative;
-//    margin-top: -7px;
-//    margin-left: 1px;
-//    width: 32px;
-//    height: 32px;
-//    background-color: map.get($background_color, partsSecondary);
-//    transform: skew(3deg, -10deg);
-//    cursor: pointer;
-//
-//    &:hover {
-//      background-color: map.get($background_color, partsPrimary);
-//      transition: linear, 0.2s;
-//    }
-//
-//    &:active {
-//      background-color: map.get($background_color, partsSecondary);
-//    }
-//  }
-//
-//  &:disabled .quadrilateral{
-//    background-color: map.get($background_color, inactive);
-//    cursor: auto;
-//  }
-//
-//  .image {
-//    margin-top: 8px;
-//    transform: skew(-3deg, 10deg);
-//  }
-//}
-//
-//.quadrilateralEdit {
-//
-//  &:disabled .quadrilateral {
-//    background-color: map.get($background_color, inactive);
-//    cursor: auto;
-//  }
-//
-//  &:disabled .quadrilateral:hover {
-//    background-color: map.get($background_color, inactive);
-//    cursor: auto;
-//  }
-//
-//  .quadrilateral {
-//    display: flex;
-//    position: relative;
-//    margin-top: 7px;
-//    margin-left: 1px;
-//    width: 32px;
-//    height: 32px;
-//    background-color: map.get($background_color, partsActivePrimary);
-//    transform: skew(-3deg, 10deg);
-//    cursor: pointer;
-//
-//    &:hover {
-//      background-color: map.get($background_color, partsActiveAdditional);
-//      transition: linear, 0.2s;
-//    }
-//
-//    &:active {
-//      background-color: map.get($background_color, partsActivePrimary);
-//    }
-//  }
-//
-//  .image {
-//    overflow: hidden;
-//    margin-top: -4px;
-//    transform: skew(3deg, -10deg);
-//  }
-//}
-//
-//.quadrilateralConfirm {
-//
-//  &:disabled .quadrilateral {
-//    background-color: map.get($background_color, inactive);
-//    cursor: auto;
-//  }
-//
-//  &:disabled .quadrilateral:hover {
-//    background-color: map.get($background_color, inactive);
-//    cursor: auto;
-//  }
-//  .quadrilateral {
-//    display: flex;
-//    position: relative;
-//    margin-top: -7px;
-//    margin-left: -1px;
-//    width: 32px;
-//    height: 32px;
-//    background-color: map.get($background_color, partsActiveAdditional);
-//    transform: skew(-3deg, 10deg);
-//    cursor: pointer;
-//    overflow: hidden;
-//
-//    &:hover {
-//      background-color: map.get($background_color, miracle);
-//      transition: linear, 0.2s;
-//    }
-//
-//    &:active {
-//      background-color: map.get($background_color, partsActivePrimary);
-//    }
-//  }
-//
-//  .image {
-//    margin-top: -1px;
-//    margin-left: 5px;
-//    width: 32px;
-//    transform: skew(0deg, -10deg);
-//  }
-//}
-//
-//.quadrilateralSetting {
-//
-//  .quadrilateral {
-//    display: flex;
-//    margin-top: 7px;
-//    margin-left: 1px;
-//    width: 32px;
-//    height: 32px;
-//    background-color: map.get($background_color, partsPrimary);
-//    transform: skew(-3deg, -10deg);
-//    cursor: pointer;
-//    transition: linear, 0.3s;
-//
-//    &:hover {
-//      background-color: rgba(0, 0, 0, 0.0);
-//      transition: linear, 0.3s;
-//    }
-//
-//    .image {
-//      width: 30px;
-//      height: 30px;
-//      overflow: hidden;
-//      margin-top: 5px;
-//      margin-left: -5px;
-//      transform: skew(3deg, 10deg);
-//    }
-//
-//    .image_hover {
-//      display: none;
-//      margin-top: -2px;
-//      width: 30px;
-//      height: 30px;
-//      transform: skew(3deg, 10deg);
-//      transition: linear, 0.3s;
-//    }
-//    &:hover .image{
-//      display: none;
-//      transition: linear, 0.3s;
-//    }
-//
-//      &:hover .image_hover{
-//        display: inline;
-//        transition: linear, 0.3s;
-//      }
-//  }
-//}
-//
-//.quadrilateralExcel {
-//  justify-content: center;
-//  align-items: center;
-//
-//  .quadrilateral {
-//    display: flex;
-//    justify-content: center;
-//    align-items: flex-start;
-//    position: relative;
-//    margin-top: 7px;
-//    margin-left: 1px;
-//    width: 32px;
-//    height: 32px;
-//    background-color: map.get($background_color, partsPrimary);
-//    transform: skew(-3deg, 10deg);
-//    cursor: pointer;
-//    transition: linear, 0.3s;
-//
-//    &:hover {
-//      background-color: map.get($background_color, partsActiveAdditional);
-//      transition: linear, 0.3s;
-//    }
-//
-//    .image {
-//      margin-top: 2px;
-//      overflow: hidden;
-//      transform: skew(3deg, -10deg);
-//    }
-//
-//    .image_hover {
-//      display: none;
-//      margin-top: 2px;
-//      transform: skew(3deg, -10deg);
-//    }
-//
-//    &:hover .image{
-//      display: none;
-//      transition: linear, 0.3s;
-//    }
-//
-//    &:hover .image_hover{
-//      display: inline;
-//      transition: linear, 0.3s;
-//    }
-//  }
-//}
-//
-//.bigCard {
-//  display: flex;
-//  padding: 30px;
-//  width: 275px;
-//  height: 113px;
-//  background-color: map.get($background_color, partsPrimary);
-//  overflow: hidden;
-//
-//  &:hover {
-//    background-color: map.get($background_color, partsActivePrimary);
-//  }
-//
-//    .text {
-//      display: inline-block;
-//      margin-left: 8px;
-//      text-justify-trim: center;
-//      text-align: left;
-//      align-content: flex-start;
-//      width: 120px;
-//      color: map.get($text_color, additional);
-//    }
-//
-//    .svg {
-//      margin-top: -10px;
-//      width: 48px;
-//      height: 48px;
-//    }
-//}
+.text {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  z-index: 3;
+  color: map.get($text_color, additional);
+}
+
+.block {
+  padding: 8px 16px;
+  border: map.get($background_color, partsPrimary) solid 1px;
+  background-color: map.get($background_color, primary);
+
+  .text {
+    color: map.get($text_color, primary);
+  }
+
+  &:hover {
+    background-color: map.get($background_color, partsActivePrimary);
+
+    .text {
+      color: map.get($text_color, additional);
+    }
+  }
+
+  &:disabled {
+    border: map.get($background_color, partsSecondary) solid 1px;
+    cursor: auto;
+    background-color: map.get($background_color, primary);
+
+    .text {
+      color: map.get($text_color, primaryAdditional);
+    }
+  }
+}
+
+.apply {
+  padding: 8px 16px;
+  background-color: map.get($background_color, partsPrimary);
+  color: map.get($text_color, additional);
+
+  &:hover {
+    background-color: map.get($background_color, partsActivePrimary);
+  }
+
+  &:disabled {
+    background-color: map.get($background_color, inactive);
+    cursor: auto;
+  }
+}
+
+.search {
+  width: 170px;
+  height: 33px;
+  background-color: map.get($background_color, primary);
+  overflow: hidden;
+  cursor: auto;
+
+  .text {
+    position: relative;
+    color: map.get($text_color, additional);
+    z-index: 2;
+  }
+  .over {
+    position: absolute;
+    padding: 11px 0 8px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 14px;
+    z-index: 3;
+    background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+
+    .svg {
+      position: absolute;
+      top: 10px;
+      left: 5px;
+      width: 31px;
+      height: 14px;
+      z-index: 2;
+    }
+
+    .text {
+      position: absolute;
+      top: 8px;
+      left: 43px;
+      color: map.get($text_color, additional);
+      z-index: 2;
+    }
+
+    &:hover .rectangle {
+      background-color: map.get($background_color, partsActivePrimary);
+    }
+
+    .rectangle {
+      z-index: 1;
+      position: absolute;
+      top: 5px;
+      left: -13px;
+      width: 171px;
+      height: 33px;
+      background-color: map.get($background_color, partsPrimary);
+      transform: skew(-26deg, 3deg);
+      cursor: pointer;
+    }
+  }
+
+  &:disabled .text {
+    cursor: auto;
+  }
+
+  &:disabled .over:hover {
+    cursor: auto;
+  }
+
+  &:disabled .rectangle {
+    background-color: map.get($background_color, inactive);
+  }
+
+  &:disabled .over:hover .rectangle {
+    background-color: map.get($background_color, inactive);
+    cursor: auto;
+  }
+}
+
+.circleSmallPhone,
+.circleSmallEmail {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: map.get($background_color, partsPrimary);
+  border: 1px solid map.get($background_color, inactive);
+
+  .image {
+    margin: 0 auto;
+    width: 18px;
+    height: 18px;
+  }
+
+  &:hover {
+    background-color: map.get($background_color, partsActivePrimary);
+  }
+
+  &:active {
+    background-color: map.get($background_color, partsPrimary);
+  }
+
+  &:disabled {
+    background-color: map.get($background_color, inactive);
+    cursor: auto;
+  }
+}
+
+.circleSmallEmail {
+  .image {
+    margin: 0 auto;
+    width: 18px;
+    height: 18px;
+  }
+
+  &:hover {
+    background-color: map.get($background_color, partsActivePrimary);
+  }
+
+  &:active {
+    background-color: map.get($background_color, partsPrimary);
+  }
+
+  &:disabled {
+    background-color: map.get($background_color, inactive);
+    cursor: auto;
+  }
+}
+
+.circleLocation {
+  width: 53px;
+  height: 53px;
+  border-radius: 50%;
+  background-color: map.get($background_color, partsPrimary);
+
+  .image {
+    margin: 0 auto;
+    width: 50px;
+    height: 50px;
+  }
+
+  &:hover {
+    background-color: map.get($background_color, partsActivePrimary);
+  }
+
+  &:disabled {
+    background-color: map.get($background_color, inactive);
+    cursor: auto;
+  }
+}
+
+.circleBigCross {
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  background-color: map.get($background_color, partsPrimary);
+
+  .crossFirst {
+    position: absolute;
+    top: 7px;
+    left: 39px;
+    width: 3px;
+    height: 66px;
+    background-color: map.get($background_color, primary);
+    border-radius: 3px;
+  }
+
+  .crossSecond {
+    position: absolute;
+    top: 39px;
+    left: 7px;
+    width: 66px;
+    height: 3px;
+    background-color: map.get($background_color, primary);
+    border-radius: 3px;
+  }
+
+  &:hover {
+    background-color: map.get($background_color, partsActivePrimary);
+  }
+
+  &:disabled {
+    background-color: map.get($background_color, inactive);
+    cursor: auto;
+  }
+}
+
+.quadrilateralExit,
+.quadrilateralEdit,
+.quadrilateralConfirm,
+.quadrilateralSetting,
+.quadrilateralExcel {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0);
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  cursor: auto;
+
+  .quadrilateral {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-top: -7px;
+    margin-left: 1px;
+    width: 32px;
+    height: 32px;
+    background-color: map.get($background_color, partsSecondary);
+    transform: skew(3deg, -10deg);
+    cursor: pointer;
+
+    &:hover {
+      background-color: map.get($background_color, partsPrimary);
+      transition: linear, 0.2s;
+    }
+
+    &:active {
+      background-color: map.get($background_color, partsSecondary);
+    }
+  }
+
+  &:disabled .quadrilateral {
+    background-color: map.get($background_color, inactive);
+    cursor: auto;
+  }
+
+  .image {
+    margin-top: 8px;
+    transform: skew(-3deg, 10deg);
+  }
+}
+
+.quadrilateralEdit {
+  &:disabled .quadrilateral {
+    background-color: map.get($background_color, inactive);
+    cursor: auto;
+  }
+
+  &:disabled .quadrilateral:hover {
+    background-color: map.get($background_color, inactive);
+    cursor: auto;
+  }
+
+  .quadrilateral {
+    display: flex;
+    position: relative;
+    margin-top: 7px;
+    margin-left: 1px;
+    width: 32px;
+    height: 32px;
+    background-color: map.get($background_color, partsActivePrimary);
+    transform: skew(-3deg, 10deg);
+    cursor: pointer;
+
+    &:hover {
+      background-color: map.get($background_color, partsActiveAdditional);
+      transition: linear, 0.2s;
+    }
+
+    &:active {
+      background-color: map.get($background_color, partsActivePrimary);
+    }
+  }
+
+  .image {
+    overflow: hidden;
+    margin-top: -4px;
+    transform: skew(3deg, -10deg);
+  }
+}
+
+.quadrilateralConfirm {
+  &:disabled .quadrilateral {
+    background-color: map.get($background_color, inactive);
+    cursor: auto;
+  }
+
+  &:disabled .quadrilateral:hover {
+    background-color: map.get($background_color, inactive);
+    cursor: auto;
+  }
+  .quadrilateral {
+    display: flex;
+    position: relative;
+    margin-top: -7px;
+    margin-left: -1px;
+    width: 32px;
+    height: 32px;
+    background-color: map.get($background_color, partsActiveAdditional);
+    transform: skew(-3deg, 10deg);
+    cursor: pointer;
+    overflow: hidden;
+
+    &:hover {
+      background-color: map.get($background_color, miracle);
+      transition: linear, 0.2s;
+    }
+
+    &:active {
+      background-color: map.get($background_color, partsActivePrimary);
+    }
+  }
+
+  .image {
+    margin-top: -1px;
+    margin-left: 5px;
+    width: 32px;
+    transform: skew(0deg, -10deg);
+  }
+}
+
+.quadrilateralSetting {
+  .quadrilateral {
+    display: flex;
+    margin-top: 7px;
+    margin-left: 1px;
+    width: 32px;
+    height: 32px;
+    background-color: map.get($background_color, partsPrimary);
+    transform: skew(-3deg, -10deg);
+    cursor: pointer;
+    transition: linear, 0.3s;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0);
+      transition: linear, 0.3s;
+    }
+
+    .image {
+      width: 30px;
+      height: 30px;
+      overflow: hidden;
+      margin-top: 5px;
+      margin-left: -5px;
+      transform: skew(3deg, 10deg);
+    }
+
+    .image_hover {
+      display: none;
+      margin-top: -2px;
+      width: 30px;
+      height: 30px;
+      transform: skew(3deg, 10deg);
+      transition: linear, 0.3s;
+    }
+    &:hover .image {
+      display: none;
+      transition: linear, 0.3s;
+    }
+
+    &:hover .image_hover {
+      display: inline;
+      transition: linear, 0.3s;
+    }
+  }
+}
+
+.quadrilateralExcel {
+  justify-content: center;
+  align-items: center;
+
+  .quadrilateral {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    margin-top: 7px;
+    margin-left: 1px;
+    width: 32px;
+    height: 32px;
+    background-color: map.get($background_color, partsPrimary);
+    transform: skew(-3deg, 10deg);
+    cursor: pointer;
+    transition: linear, 0.3s;
+
+    &:hover {
+      background-color: map.get($background_color, partsActiveAdditional);
+      transition: linear, 0.3s;
+    }
+
+    .image {
+      margin-top: 2px;
+      overflow: hidden;
+      transform: skew(3deg, -10deg);
+    }
+
+    .image_hover {
+      display: none;
+      margin-top: 2px;
+      transform: skew(3deg, -10deg);
+    }
+
+    &:hover .image {
+      display: none;
+      transition: linear, 0.3s;
+    }
+
+    &:hover .image_hover {
+      display: inline;
+      transition: linear, 0.3s;
+    }
+  }
+}
+
+.bigCard {
+  display: flex;
+  padding: 30px;
+  width: 275px;
+  height: 113px;
+  background-color: map.get($background_color, partsPrimary);
+  overflow: hidden;
+
+  &:hover {
+    background-color: map.get($background_color, partsActivePrimary);
+  }
+
+  .text {
+    display: inline-block;
+    margin-left: 8px;
+    text-justify-trim: center;
+    text-align: left;
+    align-content: flex-start;
+    width: 120px;
+    color: map.get($text_color, additional);
+  }
+
+  .svg {
+    margin-top: -10px;
+    width: 48px;
+    height: 48px;
+  }
+}
