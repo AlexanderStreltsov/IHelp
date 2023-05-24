@@ -14,7 +14,7 @@ export default {
     },
     icon: {
       type: 'string',
-      description: 'Вариант выбора иконки',
+      description: 'Вариант выбора иконки для большой карточки',
       defaultValue: 'map',
       options: ['map', 'active', 'completed', 'statistics', 'application'],
       control: {
