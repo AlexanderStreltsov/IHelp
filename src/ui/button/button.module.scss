@@ -1,6 +1,6 @@
-@use "sass:map";
-@import "./src/scss/mixins/text";
-@import "src/common/variable";
+@use 'sass:map';
+@import './src/scss/mixins/text';
+@import 'src/common/variable';
 
 .button {
   position: relative;
