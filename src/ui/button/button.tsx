@@ -15,6 +15,7 @@ import { ActiveRequestVersion1Icon } from '../icons/active-request-big-version-1
 import { ExecutedRequestIcon } from '../icons/executed-request-icon';
 import { StatsIcon } from '../icons/stats-icon';
 import { CreateEditIcon } from '../icons/create-edit-icon';
+import { ApproveIcon } from '../icons/approve-icon';
 
 export interface IButtonProps extends HTMLAttributes<HTMLButtonElement> {
   type?:
@@ -27,11 +28,17 @@ export interface IButtonProps extends HTMLAttributes<HTMLButtonElement> {
     | 'circleBigCross'
     | 'quadrilateralExit'
     | 'quadrilateralEdit'
-    | 'quadrilateralConfirm'
+    | 'quadrilateralApprove'
     | 'quadrilateralSetting'
     | 'quadrilateralExcel'
     | 'bigCard';
-  icon?: 'map' | 'active' | 'completed' | 'statistics' | 'application';
+  icon?:
+    | 'map'
+    | 'active'
+    | 'completed'
+    | 'statistics'
+    | 'application'
+    | 'confirm';
   children: string;
   disabled: boolean;
   onClick: (() => void) | ((e: React.SyntheticEvent) => void);
@@ -72,6 +79,9 @@ export const Button = ({
         {icon === 'application' && (
           <CreateEditIcon color={'white'} className={styles.svg} />
         )}
+        {icon === 'confirm' && (
+          <ConfirmIcon color={'white'} className={styles.svg} />
+        )}
         <span className={`${styles.text} text-medium`}>{children}</span>
       </>
     );
@@ -110,9 +120,9 @@ export const Button = ({
           <EditIcon color={'white'} className={styles.image} />
         </div>
       )}
-      {type === 'quadrilateralConfirm' && (
+      {type === 'quadrilateralApprove' && (
         <div className={styles.quadrilateral}>
-          <ConfirmIcon color={'white'} className={styles.image} />
+          <ApproveIcon color={'white'} className={styles.image} />
         </div>
       )}
       {type === 'quadrilateralSetting' && (

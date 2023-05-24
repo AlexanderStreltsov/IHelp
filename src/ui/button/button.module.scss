@@ -253,7 +253,7 @@
 
 .quadrilateralExit,
 .quadrilateralEdit,
-.quadrilateralConfirm,
+.quadrilateralApprove,
 .quadrilateralSetting,
 .quadrilateralExcel {
   display: flex;
@@ -262,7 +262,9 @@
   height: 32px;
   overflow: hidden;
   cursor: auto;
+}
 
+.quadrilateralExit {
   .quadrilateral {
     display: flex;
     justify-content: center;
@@ -335,7 +337,7 @@
   }
 }
 
-.quadrilateralConfirm {
+.quadrilateralApprove {
   &:disabled .quadrilateral {
     background-color: map.get($background_color, inactive);
     cursor: auto;
@@ -352,6 +354,8 @@
     margin-left: -1px;
     width: 32px;
     height: 32px;
+    justify-content: center;
+    align-items: center;
     background-color: map.get($background_color, partsActiveAdditional);
     transform: skew(-3deg, 10deg);
     cursor: pointer;
@@ -368,8 +372,7 @@
   }
 
   .image {
-    margin-top: -1px;
-    margin-left: 5px;
+    margin-top: 5px;
     width: 32px;
     transform: skew(0deg, -10deg);
   }

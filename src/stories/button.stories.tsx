@@ -16,7 +16,14 @@ export default {
       type: 'string',
       description: 'Вариант выбора иконки для большой карточки',
       defaultValue: 'map',
-      options: ['map', 'active', 'completed', 'statistics', 'application'],
+      options: [
+        'map',
+        'active',
+        'completed',
+        'statistics',
+        'application',
+        'confirm',
+      ],
       control: {
         type: 'radio',
       },
@@ -86,10 +93,10 @@ QuadrilateralEdit.args = {
   type: 'quadrilateralEdit',
 };
 
-export const QuadrilateralConfirm = Template.bind({});
+export const QuadrilateralApprove = Template.bind({});
 
-QuadrilateralConfirm.args = {
-  type: 'quadrilateralConfirm',
+QuadrilateralApprove.args = {
+  type: 'quadrilateralApprove',
 };
 
 export const QuadrilateralSetting = Template.bind({});
