@@ -15,13 +15,13 @@
   align-items: center;
   transition: linear, 0.2s;
 }
-.text{
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-  z-index: 3;
-  //color: map.get($text_color, additional);
-}
+  .text{
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    z-index: 3;
+    //color: map.get($text_color, additional);
+  }
 
 //.block {
 //  padding: 8px 16px;
