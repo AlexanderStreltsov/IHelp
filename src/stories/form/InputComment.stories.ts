@@ -17,12 +17,12 @@ type Story = StoryObj<typeof meta>;
 
 export const EmptyComment: Story = {
   args: {
-    value: '',
+    initialValue: '',
   },
 };
 
 export const CommentWithValue: Story = {
   args: {
-    value: 'Выгулять собаку',
+    initialValue: 'Выгулять собаку',
   },
 };

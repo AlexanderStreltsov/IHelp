@@ -1,4 +1,5 @@
 @import '../../common/_variable';
+@import '../../common/_selectors';
 
 .form {
   width: 375px;
@@ -30,11 +31,7 @@
   box-sizing: border-box;
   background: map-get($background_color, "primary");
   border: 1px solid map-get($background_color, "partsSecondary");
-  font-family: 'GolosText';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 20px;
+  @extend .text-medium;
   letter-spacing: -0.32px;
   color: map-get($background_color, "partsPrimary");
 }
@@ -50,11 +47,7 @@
   box-sizing: border-box;
   background: map-get($background_color, "primary");
   border: 1px solid map-get($background_color, "partsSecondary");
-  font-family: 'GolosText';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 20px;
+  @extend .text-medium;
   letter-spacing: -0.32px;
   appearance: none;
   background-image: url('../assets/dropdown.svg');
@@ -101,11 +94,7 @@
   box-sizing: border-box;
   background: map-get($background_color, "primary");
   border: 1px solid map-get($background_color, "partsSecondary");
-  font-family: 'GolosText';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 20px;
+  @extend .text-medium;
   letter-spacing: -0.32px;
   color: map-get($text_color, "common");
 }
@@ -139,11 +128,7 @@
   padding: 12px;
   box-sizing: border-box;
   background: map-get($background_color, "primary");
-  font-family: 'GolosText';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 20px;
+  @extend .text-medium;
   letter-spacing: -0.32px;
   color: map-get($background_color, "partsPrimary");
 }
@@ -153,7 +138,7 @@
 }
 
 .wrongInput {
-  border: 0.5px solid #E64646;
+  border: 0.5px solid map-get($background_color, "errorBorder");
 }
 
 .errorMessage {
@@ -166,5 +151,5 @@
   font-size: 13px;
   line-height: 16px;
   letter-spacing: -0.078px;
-  color: #F37920;
+  color: map-get($text_color, "errorMessage");
 }

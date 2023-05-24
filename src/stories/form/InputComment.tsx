@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './input.module.scss';
 
 interface Props {
   /**
-   * Input value
+   * Initial value
    */
-  value: string;
+  initialValue: string;
   /**
    * Change handler
    */
@@ -15,9 +15,15 @@ interface Props {
 /**
  * Input field for Comment
  */
-export const InputComment: React.FC<Props> = ({ value, onChange }: Props) => {
+export const InputComment: React.FC<Props> = ({
+  initialValue,
+  onChange,
+}: Props) => {
+  const [value, setValue] = useState(initialValue);
+
   const inputId = `input-name-${Math.random()}`;
   const onInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setValue(e.currentTarget.value);
     onChange(e.currentTarget.value);
   };
 
