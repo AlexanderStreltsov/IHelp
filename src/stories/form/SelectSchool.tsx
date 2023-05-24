@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './input.module.scss';
 
 interface Props {
   /**
    * Id of the selected school
    */
-  selectedSchoolId?: string;
+  initialSchoolId?: string;
   /**
    * List of schools to select from
    */
@@ -29,13 +29,16 @@ interface SchoolOption {
  * Input field for name
  */
 export const SelectSchool: React.FC<Props> = ({
-  selectedSchoolId,
+  initialSchoolId,
   schools,
   errorMessage,
   onChange,
 }: Props) => {
+  const [selectedSchoolId, setSelectedSchoolId] = useState(initialSchoolId);
+
   const inputId = `input-name-${Math.random()}`;
   const onSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedSchoolId(e.currentTarget.value);
     onChange(e.currentTarget.value);
   };
   const items = schools.map((school) => {

@@ -27,7 +27,7 @@ export const SchoolNotSelected: Story = {
 
 export const SchoolSelected: Story = {
   args: {
-    selectedSchoolId: '1',
+    initialSchoolId: '1',
     schools: [
       { schoolId: '1', schoolName: 'Школа №123' },
       { schoolId: '2', schoolName: 'Школа №2' },
