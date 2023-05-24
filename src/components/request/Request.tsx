@@ -1,43 +1,122 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable jsx-a11y/alt-text */
 import React, { FC } from 'react';
-import './request.scss';
+import './request.css';
+import { BallsIcon } from '../../ui/icons/balls-icon';
+import { CalendarIcon } from '../../ui/icons/calendar-icon';
+import { LocationIcon } from '../../ui/icons/location-icon';
+import { ClockIcon } from '../../ui/icons/clock-icon';
+import { Button } from '../../ui/button/button';
 
-export const Request: FC = () => {
+interface RequestProps {
+  date: Date;
+  location: string;
+  header: string;
+  text: string;
+  avatar: string;
+  name: string;
+  phone: string;
+  offers: number;
+}
+
+const onButtonClick = (event: any) => {
+  if (event.target.innerHTML === 'Читать') {
+    event.target.innerHTML = 'Свернуть';
+    document.getElementById('conttext')!.className = 'contenttextshow';
+  } else {
+    event.target.innerHTML = 'Читать';
+    document.getElementById('conttext')!.className = 'contenttext';
+  }
+};
+
+export const Request: FC<RequestProps> = ({ ...props }) => {
   return (
     <>
       <div className="request">
         <div className="buttons">
-          <img className="icon" />
-          <img className="icon" />
-          <img className="icon" />
+          <Button
+            type="quadrilateralExit"
+            disabled={false}
+            children=""
+            onClick={() => {
+              console.log('hello');
+            }}
+          />
+          <Button
+            type="quadrilateralApprove"
+            disabled={false}
+            children=""
+            onClick={() => {
+              console.log('hello');
+            }}
+          />
+          <Button
+            type="quadrilateralEdit"
+            disabled={false}
+            children=""
+            onClick={() => {
+              console.log('hello');
+            }}
+          />
         </div>
         <div className="volunteer">
-          <img className="avatar" />
-          <p className="text">Петров Петр Петрович</p>
-          <p className="teltext">+7(000) 000-00-00</p>
+          <div className="volunteerinfo">
+            <img className="avatar" src={props.avatar} />
+            <div className="infotext">
+              <p className="text">{props.name}</p>
+              <p className="teltext">{props.phone}</p>
+            </div>
+          </div>
           <div className="icons">
-            <img className="callicon" />
-            <img className="callicon" />
+            <Button
+              type="circleSmallPhone"
+              disabled={false}
+              children=""
+              onClick={() => {
+                console.log('hello');
+              }}
+            />
+            <Button
+              type="circleSmallEmail"
+              disabled={false}
+              children=""
+              onClick={() => {
+                console.log('hello');
+              }}
+            />
           </div>
         </div>
         <div className="content">
-          <h1 className="contentheader">Заголовок</h1>
-          <p className="text"></p>
-          <img className="requesticon"></img>
+          <h1 className="contentheader">{props.header}</h1>
+          <div className="contenttext" id="conttext">
+            {props.text}
+          </div>
+          <button className="contenthide" onClick={onButtonClick}>
+            Читать
+          </button>
+          <div className="requestcount">
+            <BallsIcon color="dark-blue" />
+            <div>{props.offers}</div>
+          </div>
         </div>
         <div className="category">
-          <img className="categorylogo" src="../../images/logoo.svg"></img>
+          <div className="categorylogo">
+            <p className="logotext">Категория</p>
+          </div>
           <div className="date">
-            <img className="dateicon" src="../../images/calendar.svg" />
-            <p className="datetext">24.10.2022</p>
+            <CalendarIcon className="dateicon" color="dark-blue" />
+            <p className="datetext">{props.date.getFullYear()}</p>
           </div>
           <div className="time">
-            <img className="timeicon" src="../../images/clock.svg" />
-            <p className="timetext">16:00</p>
+            <ClockIcon className="timeicon" color="dark-blue" />
+            <p className="timetext">{props.date.getHours()}</p>
           </div>
           <div className="address">
-            <img className="addressicon" src="../../images/location.svg" />
-            <p className="addresstext">ул. Потолочного д. 9</p>
+            <div>
+              <LocationIcon className="addressicon" color="dark-blue" />
+            </div>
+            <p className="addresstext">{props.location}</p>
           </div>
         </div>
       </div>
