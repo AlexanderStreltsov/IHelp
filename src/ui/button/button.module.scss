@@ -2,26 +2,26 @@
 @import './src/scss/mixins/text';
 @import 'src/common/variable';
 
-.button {
-  position: relative;
-  box-sizing: border-box;
-  padding: 0;
+//.button {
+//  position: relative;
+//  box-sizing: border-box;
+//  padding: 0;
+//  margin: 0;
+//  border-radius: 0;
+//  box-shadow: none;
+//  cursor: pointer;
+//  border: none;
+//  display: flex;
+//  align-items: center;
+//  transition: linear, 0.2s;
+//}
+.text{
+  display: inline-block;
   margin: 0;
-  border-radius: 0;
-  box-shadow: none;
-  cursor: pointer;
-  border: none;
-  display: flex;
-  align-items: center;
-  transition: linear, 0.2s;
-},
-  .text{
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-    z-index: 3;
-    color: map.get($text_color, additional);
-  }
+  padding: 0;
+  z-index: 3;
+  color: map.get($text_color, additional);
+}
 
 //.block {
 //  padding: 8px 16px;
