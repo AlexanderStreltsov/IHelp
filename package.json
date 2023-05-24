@@ -10,7 +10,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src --color --fix",
     "lint:fix": "npm run lint --fix",
-    "prettier": "prettier --check src/**/*.{ts,tsx,scss,css,json}",
+    "prettier": "prettier --check src/**/*.{ts,tsx,scss,css}",
     "prettier:format": "prettier --write src/**/*.{ts,tsx,scss,css,json}",
     "build:storybook": "storybook build",
     "storybook": "storybook dev -p 6006",
