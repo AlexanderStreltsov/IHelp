@@ -1,57 +1,57 @@
-//@use "sass:map";
-//@import "./src/scss/mixins/text";
-//@import "src/common/variable";
-//
-//.button {
-//  position: relative;
-//  box-sizing: border-box;
-//  padding: 0;
-//  margin: 0;
-//  border-radius: 0;
-//  box-shadow: none;
-//  cursor: pointer;
-//  border: none;
-//  display: flex;
-//  align-items: center;
-//  transition: linear, 0.2s;
-//}
-//
-//.text{
-//  display: inline-block;
-//  margin: 0;
-//  padding: 0;
-//  z-index: 3;
-//  color: map.get($text_color, additional);
-//}
-//
-//.block {
-//  padding: 8px 16px;
-//  border: map.get($background_color, partsPrimary) solid 1px;
-//  background-color: map.get($background_color, primary);
-//
-//  .text {
-//    color: map.get($text_color, primary);
-//  }
-//
-//    &:hover {
-//      background-color: map.get($background_color, partsActivePrimary);
-//
-//      .text {
-//        color: map.get($text_color, additional);
-//      }
-//    }
-//
-//    &:disabled {
-//      border: map.get($background_color, partsSecondary) solid 1px;
-//      cursor: auto;
-//      background-color: map.get($background_color, primary);
-//
-//      .text {
-//        color: map.get($text_color, primaryAdditional);
-//      }
-//    }
-//}
-//
+@use "sass:map";
+@import "./src/scss/mixins/text";
+@import "src/common/variable";
+
+.button {
+  position: relative;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+  transition: linear, 0.2s;
+}
+
+.text{
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  z-index: 3;
+  color: map.get($text_color, additional);
+}
+
+.block {
+  padding: 8px 16px;
+  border: map.get($background_color, partsPrimary) solid 1px;
+  background-color: map.get($background_color, primary);
+
+  .text {
+    color: map.get($text_color, primary);
+  }
+
+    &:hover {
+      background-color: map.get($background_color, partsActivePrimary);
+
+      .text {
+        color: map.get($text_color, additional);
+      }
+    }
+
+    &:disabled {
+      border: map.get($background_color, partsSecondary) solid 1px;
+      cursor: auto;
+      background-color: map.get($background_color, primary);
+
+      .text {
+        color: map.get($text_color, primaryAdditional);
+      }
+    }
+}
+
 //.apply {
 //  padding: 8px 16px;
 //  background-color: map.get($background_color, partsPrimary);
