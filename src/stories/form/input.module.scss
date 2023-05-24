@@ -1,10 +1,12 @@
+@import '../../common/_variable';
+
 .form {
   width: 375px;
   height: 96px;
   display: flex;
   flex-direction: column;
   justify-content: start;
-  background: #FBFDFF;
+  background: map-get($background_color, "primary");
   padding: 12px;
 }
 
@@ -17,7 +19,7 @@
   font-size: 14px;
   line-height: 18px;
   letter-spacing: -0.154px;
-  color: #2E3192;
+  color: map-get($background_color, "partsPrimary");
   margin-bottom: 8px;
 }
 
@@ -26,19 +28,19 @@
   height: 44px;
   padding: 12px;
   box-sizing: border-box;
-  background: #FBFDFF;
-  border: 1px solid #9798C9;
+  background: map-get($background_color, "primary");
+  border: 1px solid map-get($background_color, "partsSecondary");
   font-family: 'GolosText';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
   letter-spacing: -0.32px;
-  color: #2E3192;
+  color: map-get($background_color, "partsPrimary");
 }
 
 .input:focus {
-  border: 1px solid #0091C7;
+  border: 1px solid map-get($background_color, "partsActiveSecondary");
 }
 
 .select {
@@ -46,8 +48,8 @@
   height: 44px;
   padding: 12px;
   box-sizing: border-box;
-  background: #FBFDFF;
-  border: 1px solid #9798C9;
+  background: map-get($background_color, "primary");
+  border: 1px solid map-get($background_color, "partsSecondary");
   font-family: 'GolosText';
   font-style: normal;
   font-weight: 400;
@@ -62,11 +64,11 @@
 }
 
 .optionEnabled {
-  color: #2E3192;
+  color: map-get($background_color, "partsPrimary");
 }
 
 .optionDisabled {
-  color: #818C99;
+  color: map-get($text_color, "ancillary");
 }
 
 .commentForm {
@@ -75,7 +77,7 @@
   display: flex;
   flex-direction: column;
   justify-content: start;
-  background: #FBFDFF;
+  background: map-get($background_color, "primary");
   padding: 12px;
 }
 
@@ -88,7 +90,7 @@
   font-size: 16px;
   line-height: 19px;
   letter-spacing: -0.154px;
-  color: #818C99;
+  color: map-get($text_color, "ancillary");
   margin-bottom: 8px;
 }
 
@@ -97,15 +99,15 @@
   height: 64px;
   padding: 12px;
   box-sizing: border-box;
-  background: #FBFDFF;
-  border: 1px solid #9798C9;
+  background: map-get($background_color, "primary");
+  border: 1px solid map-get($background_color, "partsSecondary");
   font-family: 'GolosText';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
   letter-spacing: -0.32px;
-  color: #000;
+  color: map-get($text_color, "common");
 }
 
 .formPhoneNumber {
@@ -114,7 +116,7 @@
   display: flex;
   flex-direction: column;
   justify-content: start;
-  background: #FBFDFF;
+  background: map-get($background_color, "primary");
   padding: 12px;
 }
 
@@ -127,7 +129,7 @@
   font-size: 14px;
   line-height: 18px;
   letter-spacing: -0.154px;
-  color: #2E3192;
+  color: map-get($background_color, "partsPrimary");
   margin-bottom: 8px;
 }
 
@@ -136,18 +138,18 @@
   height: 44px;
   padding: 12px;
   box-sizing: border-box;
-  background: #FBFDFF;
+  background: map-get($background_color, "primary");
   font-family: 'GolosText';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
   letter-spacing: -0.32px;
-  color: #2E3192;
+  color: map-get($background_color, "partsPrimary");
 }
 
 .correctInput {
-  border: 1px solid #9798C9;
+  border: 1px solid map-get($background_color, "partsSecondary");
 }
 
 .wrongInput {
