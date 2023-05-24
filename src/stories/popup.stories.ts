@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Popup } from '../ui/popup/popup';
 
 const meta: Meta<typeof Popup> = {
-  title: 'UI/Popup',
+  title: 'UI/Popup Base',
   component: Popup,
   tags: ['autodocs'],
   argTypes: {
@@ -34,7 +34,7 @@ const meta: Meta<typeof Popup> = {
     moduleOutStyles: {
       type: 'string',
       description:
-        'Передаем строку с классами стилей, которые могут быть определены как глобально, так и в модуле css родительского компонента. Они переопределят уже прописанные стили. Например: moduleOutStyles={`${styles.height} text-big`}',
+        'Передаем строку с классами стилей, которые могут быть определены как глобально, так и в модуле css родительского компонента. Они переопределят уже прописанные стили. Например: moduleOutStyles={styles.height} или moduleOutStyles="text-big". Или оба варианта сразу с помощь шаблонных строк.',
     },
     outStyles: {
       type: 'string',

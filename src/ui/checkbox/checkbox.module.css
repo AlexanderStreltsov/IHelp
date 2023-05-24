@@ -5,7 +5,7 @@
   height: 0;
   overflow: hidden;
   -webkit-clip-path: inset(0 0 0 0);
-          clip-path: inset(0 0 0 0);
+  clip-path: inset(0 0 0 0);
 }
 
 .label {
@@ -60,4 +60,4 @@
 .input:checked + .fakeButton {
   background-color: #2e3192;
   color: #fbfdff;
-}/*# sourceMappingURL=checkbox.module.css.map */
+} /*# sourceMappingURL=checkbox.module.css.map */
