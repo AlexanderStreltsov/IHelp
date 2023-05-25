@@ -10,14 +10,21 @@ import { ClockIcon } from '../../ui/icons/clock-icon';
 import { Button } from '../../ui/button/button';
 
 interface RequestProps {
-  date: Date;
-  address: string;
+  id: number;
   title: string;
+  category: object;
+  date: string;
   description: string;
+  completed: boolean;
+  recipient: object;
+  volunteer: object;
+  address: string;
+  coordinates: Array<number>;
   avatar: string;
   name: string;
   phone: string;
   scores: number;
+  chatId?: number;
 }
 
 const onButtonClick = (event: any) => {
