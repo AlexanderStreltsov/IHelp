@@ -8,24 +8,7 @@ import { CalendarIcon } from '../../ui/icons/calendar-icon';
 import { LocationIcon } from '../../ui/icons/location-icon';
 import { ClockIcon } from '../../ui/icons/clock-icon';
 import { Button } from '../../ui/button/button';
-
-interface RequestProps {
-  id: number;
-  title: string;
-  category: object;
-  date: string;
-  description: string;
-  completed: boolean;
-  recipient: object;
-  volunteer: object;
-  address: string;
-  coordinates: Array<number>;
-  avatar: string;
-  name: string;
-  phone: string;
-  scores: number;
-  chatId?: number;
-}
+import { TTask } from '../../types';
 
 const onButtonClick = (event: any) => {
   if (event.target.innerHTML === 'Читать') {
@@ -37,7 +20,7 @@ const onButtonClick = (event: any) => {
   }
 };
 
-export const Request: FC<RequestProps> = ({ ...props }) => {
+export const Request: FC<TTask> = ({ ...props }) => {
   return (
     <>
       <div className="request">
@@ -69,10 +52,10 @@ export const Request: FC<RequestProps> = ({ ...props }) => {
         </div>
         <div className="volunteer">
           <div className="volunteerinfo">
-            <img className="avatar" src={props.avatar} />
+            <img className="avatar" src={props.recipient.photo} />
             <div className="infotext">
-              <p className="text">{props.name}</p>
-              <p className="teltext">{props.phone}</p>
+              <p className="text">{props.recipient.fullname}</p>
+              <p className="teltext">{props.recipient.phone}</p>
             </div>
           </div>
           <div className="icons">
@@ -104,7 +87,7 @@ export const Request: FC<RequestProps> = ({ ...props }) => {
           </button>
           <div className="requestcount">
             <BallsIcon color="dark-blue" />
-            <div>{props.scores}</div>
+            <div>{props.recipient.scores}</div>
           </div>
         </div>
         <div className="category">
