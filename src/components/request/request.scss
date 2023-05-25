@@ -1,6 +1,21 @@
+@mixin text($size, $weight, $lineHeight) {
+    font: {
+      family: 'GolosText';
+      style: normal;
+      size: $size;
+      weight: $weight;
+    }
+    line-height: $lineHeight;
+  }
+  
 @mixin respond($breakpoint) {
     @if ($breakpoint == small) {
-        @media (max-width: 414px) {
+        @media (max-width: 960px) {
+            @content;
+        }
+    }
+    @if ($breakpoint == medium) {
+        @media screen and (min-width: 960px) and (max-width: 1440px) {
             @content;
         }
     }
@@ -12,6 +27,7 @@
     padding: 0 0 27px 0;
     display: flex;
     flex-direction: row-reverse;
+    justify-content: flex-end;
     @include respond(small) {
         width: 365px;
         flex-direction: column;
@@ -26,6 +42,9 @@
     width: 83px;
     height: 84.04px;
     margin-left: 16px;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .icon {
@@ -84,6 +103,7 @@
         width: 60px;
         height: 60px;
         margin: 0;
+        margin-top: 100px;
     }
 }
 
@@ -155,10 +175,11 @@
 }
 
 .content {
-    width: 54%;
+    width: calc(100% - 169px - 333px);
+    margin-left: 169px;
+    margin-right: 20px;
     display: flex;
     flex-direction: column;
-    margin-left: 6px;
     @include respond(small) {
         width: 365px;
         margin-left: 34.5px;
@@ -180,7 +201,7 @@
 }
 
 .contenttext {
-    width: 333px;
+    width: 76.4%;
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 4;
@@ -199,7 +220,7 @@
 }
 
 .contenttextshow {
-    width: 333px;
+    width: 76.4%;
     display: block;
     font-family: "GolosText";
     font-style: normal;
@@ -226,7 +247,7 @@
     height: 15px;
     z-index: 100;
     position: relative;
-    left: 58%;
+    left: 75.4%;
     bottom: 16px;
     &:hover {
         cursor: pointer;
@@ -264,6 +285,9 @@
     display: flex;
     flex-direction: column;
     width: 169px;
+    position: absolute;
+    top: 0;
+    left: 0;
     @include respond(small) {
         flex-direction: row;
         flex-wrap: wrap;
@@ -289,11 +313,12 @@
 }
 
 .logotext {
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 15px;
+    @include text(12px, 400, 15px);
+    // font-family: "Inter";
+    // font-style: normal;
+    // font-weight: 400;
+    // font-size: 12px;
+    // line-height: 15px;
     display: flex;
     align-items: center;
     text-align: center;
@@ -398,7 +423,7 @@
 .addressicon {
     width: 27px;
     height: 27px;
-    margin: 0 0px 10px -5px;
+    margin: 0 0px 5px -5px;
 }
 
 .addresstext {

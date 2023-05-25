@@ -11,13 +11,13 @@ import { Button } from '../../ui/button/button';
 
 interface RequestProps {
   date: Date;
-  location: string;
-  header: string;
-  text: string;
+  address: string;
+  title: string;
+  description: string;
   avatar: string;
   name: string;
   phone: string;
-  offers: number;
+  scores: number;
 }
 
 const onButtonClick = (event: any) => {
@@ -88,21 +88,21 @@ export const Request: FC<RequestProps> = ({ ...props }) => {
           </div>
         </div>
         <div className="content">
-          <h1 className="contentheader">{props.header}</h1>
+          <h1 className="contentheader">{props.title}</h1>
           <div className="contenttext" id="conttext">
-            {props.text}
+            {props.description}
           </div>
           <button className="contenthide" onClick={onButtonClick}>
             Читать
           </button>
           <div className="requestcount">
             <BallsIcon color="dark-blue" />
-            <div>{props.offers}</div>
+            <div>{props.scores}</div>
           </div>
         </div>
         <div className="category">
           <div className="categorylogo">
-            <p className="logotext">Категория</p>
+            <p className="logotext">категория</p>
           </div>
           <div className="date">
             <CalendarIcon className="dateicon" color="dark-blue" />
@@ -128,7 +128,7 @@ export const Request: FC<RequestProps> = ({ ...props }) => {
             <div>
               <LocationIcon className="addressicon" color="dark-blue" />
             </div>
-            <p className="addresstext">{props.location}</p>
+            <p className="addresstext">{props.address}</p>
           </div>
         </div>
       </div>

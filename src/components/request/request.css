@@ -4,8 +4,9 @@
   padding: 0 0 27px 0;
   display: flex;
   flex-direction: row-reverse;
+  justify-content: flex-end;
 }
-@media (max-width: 414px) {
+@media (max-width: 960px) {
   .request {
     width: 365px;
     flex-direction: column;
@@ -20,6 +21,9 @@
   width: 83px;
   height: 84.04px;
   margin-left: 16px;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .icon {
@@ -27,7 +31,7 @@
   height: 32.12px;
   margin-bottom: 19.8px;
 }
-@media (max-width: 414px) {
+@media (max-width: 960px) {
   .icon {
     display: none;
   }
@@ -38,7 +42,7 @@
   height: 32.12px;
   margin-bottom: 19.8px;
 }
-@media (max-width: 414px) {
+@media (max-width: 960px) {
   .iconclose {
     position: absolute;
     top: 0;
@@ -55,7 +59,7 @@
   display: flex;
   flex-direction: column;
 }
-@media (max-width: 414px) {
+@media (max-width: 960px) {
   .volunteerinfo {
     width: 310px;
     height: 60px;
@@ -71,7 +75,7 @@
   flex-direction: column;
   margin-left: 5px;
 }
-@media (max-width: 414px) {
+@media (max-width: 960px) {
   .infotext {
     flex-direction: column;
   }
@@ -83,11 +87,12 @@
   border-radius: 50%;
   margin: 7.12px auto 2px auto;
 }
-@media (max-width: 414px) {
+@media (max-width: 960px) {
   .avatar {
     width: 60px;
     height: 60px;
     margin: 0;
+    margin-top: 100px;
   }
 }
 
@@ -104,7 +109,7 @@
   margin: 0 auto 4px auto;
   padding: 0;
 }
-@media (max-width: 414px) {
+@media (max-width: 960px) {
   .text {
     height: 29px;
     margin: 0;
@@ -124,7 +129,7 @@
   margin: 0 auto 8px auto;
   padding: 0;
 }
-@media (max-width: 414px) {
+@media (max-width: 960px) {
   .teltext {
     margin: 0 0 10px 0;
   }
@@ -163,12 +168,13 @@
 }
 
 .content {
-  width: 54%;
+  width: calc(100% - 169px - 333px);
+  margin-left: 169px;
+  margin-right: 20px;
   display: flex;
   flex-direction: column;
-  margin-left: 6px;
 }
-@media (max-width: 414px) {
+@media (max-width: 960px) {
   .content {
     width: 365px;
     margin-left: 34.5px;
@@ -190,7 +196,7 @@
 }
 
 .contenttext {
-  width: 333px;
+  width: 76.4%;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 4;
@@ -204,14 +210,14 @@
   color: #2c2d2e;
   white-space: normal;
 }
-@media (max-width: 414px) {
+@media (max-width: 960px) {
   .contenttext {
     width: 297px;
   }
 }
 
 .contenttextshow {
-  width: 333px;
+  width: 76.4%;
   display: block;
   font-family: "GolosText";
   font-style: normal;
@@ -238,7 +244,7 @@
   height: 15px;
   z-index: 100;
   position: relative;
-  left: 58%;
+  left: 75.4%;
   bottom: 16px;
 }
 .contenthide:hover {
@@ -261,7 +267,7 @@
   color: #2e3192;
   margin-top: 28px;
 }
-@media (max-width: 414px) {
+@media (max-width: 960px) {
   .requestcount {
     margin-right: 24.5px;
     margin-left: auto;
@@ -278,8 +284,11 @@
   display: flex;
   flex-direction: column;
   width: 169px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
-@media (max-width: 414px) {
+@media (max-width: 960px) {
   .category {
     flex-direction: row;
     flex-wrap: wrap;
@@ -298,7 +307,7 @@
   background-position: center;
   background-repeat: no-repeat;
 }
-@media (max-width: 414px) {
+@media (max-width: 960px) {
   .categorylogo {
     position: absolute;
     left: 0;
@@ -307,10 +316,10 @@
 }
 
 .logotext {
-  font-family: "Inter";
+  font-family: "GolosText";
   font-style: normal;
-  font-weight: 400;
   font-size: 12px;
+  font-weight: 400;
   line-height: 15px;
   display: flex;
   align-items: center;
@@ -319,7 +328,7 @@
   margin: 0;
   padding: 5px 94px 5px 15px;
 }
-@media (max-width: 414px) {
+@media (max-width: 960px) {
   .logotext {
     padding: 5px 94px 5px 15px;
   }
@@ -352,7 +361,7 @@
   color: #2e3192;
   margin: 0;
 }
-@media (max-width: 414px) {
+@media (max-width: 960px) {
   .datetext {
     width: 91px;
     height: 29px;
@@ -396,7 +405,7 @@
   text-align: center;
   color: #2e3192;
 }
-@media (max-width: 414px) {
+@media (max-width: 960px) {
   .timetext {
     width: 47px;
     height: 29px;
@@ -422,7 +431,7 @@
 .addressicon {
   width: 27px;
   height: 27px;
-  margin: 0 0px 10px -5px;
+  margin: 0 0px 5px -5px;
 }
 
 .addresstext {
@@ -437,7 +446,7 @@
   align-items: center;
   color: #2e3192;
 }
-@media (max-width: 414px) {
+@media (max-width: 960px) {
   .addresstext {
     width: 166px;
     font-family: "GolosText";
