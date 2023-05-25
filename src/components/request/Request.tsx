@@ -113,22 +113,16 @@ export const Request: FC<RequestProps> = ({ ...props }) => {
           </div>
           <div className="date">
             <CalendarIcon className="dateicon" color="dark-blue" />
-            <p className="datetext">
-              {props.date.getDate() +
-                '.' +
-                ('0' + (props.date.getMonth() + 1)) +
-                '.' +
-                props.date.getFullYear()}
-            </p>
+            <p className="datetext"></p>
           </div>
           <div className="time">
             <ClockIcon className="timeicon" color="dark-blue" />
             <p className="timetext">
-              {props.date.toLocaleTimeString('en-US', {
+              {/* {props.date.toLocaleTimeString('en-US', {
                 hour12: false,
                 hour: 'numeric',
                 minute: 'numeric',
-              })}
+              })} */}
             </p>
           </div>
           <div className="address">
