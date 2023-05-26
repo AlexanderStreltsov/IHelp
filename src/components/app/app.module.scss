@@ -1,4 +1,6 @@
+@import '../../common/variable';
+
 .height {
-  height: 400px;
   padding-left: 80px;
+  color: map-get($text_color, primaryAdditional)
 }
