@@ -1,7 +1,7 @@
 @use 'sass:map';
 @import '../../common/variable';
 
-.portal{
+.portal {
   position: absolute;
   top: 0;
   left: 0;
@@ -26,8 +26,7 @@
 }
 
 .shadow {
-  box-shadow:
-    0 0 4px map.get($background_color, popupShadow),
+  box-shadow: 0 0 4px map.get($background_color, popupShadow),
     0 4px 32px map.get($background_color, popupShadowSecondary);
 }
 
