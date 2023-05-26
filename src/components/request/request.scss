@@ -197,7 +197,7 @@
   p {
     margin: 0;
   }
-  width: 76.4%;
+  width: 91.4%;
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
@@ -213,7 +213,7 @@
 .contenttextshow {
   display: block;
   align-items: center;
-  width: 76.4%;
+  width: 91.4%;
   color: $commonAdditional;
 }
 
@@ -228,10 +228,14 @@
   height: 15px;
   z-index: 100;
   position: relative;
-  left: calc(100% - 20px);
-  bottom: 16px;
+  left: 81.3%;
+  bottom: 15px;
   &:hover {
     cursor: pointer;
+  }
+  @include respond(small){
+    left: 81.3%;
+    bottom: 22px;
   }
 }
 
