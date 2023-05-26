@@ -1,7 +1,6 @@
 /* eslint-disable storybook/prefer-pascal-case */
 import type { Meta, StoryObj } from '@storybook/react';
 import { Request } from '../components/request/Request';
-import photo from '../../images/avatar.svg';
 import { UserRole } from '../types/user-role';
 
 const meta = {

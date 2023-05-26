@@ -1,9 +1,9 @@
-@import '../../scss/mixins/text';
-@import '../../scss/mixins/media';
-@import '../../common/variable';
+@import "../../scss/mixins/text";
+@import "../../scss/mixins/media";
+@import "../../common/variable";
 
-
-[type=checkbox], [type=radio] {
+[type="checkbox"],
+[type="radio"] {
     box-sizing: border-box;
     padding: 0;
     visibility: hidden;
@@ -41,7 +41,6 @@
     right: 0;
     margin-left: 16px;
 }
-
 
 .volunteer {
     display: flex;

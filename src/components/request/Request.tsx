@@ -138,6 +138,7 @@ export const Request: FC = () => {
             </div>
 
             <div className="requestcount text-small">
+              {/* {tasksState![0].completed &&  */}
               <BallsIcon color="dark-blue" />
               <div>{tasksState![0].recipient.scores}</div>
             </div>

@@ -1,4 +1,5 @@
-[type=checkbox], [type=radio] {
+[type="checkbox"],
+[type="radio"] {
   box-sizing: border-box;
   padding: 0;
   visibility: hidden;
@@ -198,11 +199,13 @@
 }
 .box p {
   margin: 0;
-  line-height: 29px;
 }
 @media (max-width: 960px) {
   .box {
     width: 81.3%;
+  }
+  .box p{
+    line-height: 29px;
   }
 }
 
@@ -432,4 +435,4 @@
     color: #2e3192;
     margin-top: 5px;
   }
-}/*# sourceMappingURL=request.css.map */
+} /*# sourceMappingURL=request.css.map */
