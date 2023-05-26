@@ -2,6 +2,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Request } from '../components/request/Request';
 import photo from '../../images/avatar.svg';
+import { UserRole } from '../types/user-role';
 
 const meta = {
   title: 'Example/Request',
@@ -19,28 +20,68 @@ type Story = StoryObj<typeof meta>;
 
 export const userOne: Story = {
   args: {
+    id: 1,
+    title: 'SomeTitle',
+    category: {
+      id: 2,
+      name: '',
+    },
     date: new Date(),
-    address: 'ул. Потолочного д. 9',
-    title: 'Заголовок1',
-    description:
-      'Пожалуйста, погуляйте с моей собакой, я не смогу ее выгуливать с 12.06 по 24.06 потому что уеду на обследование к врачу. Если есть желающие помочь в выгуле собаки, то звоните, 89041627779, Елена. Собаку зовут Айка, порода - немецкая овчарка, возраст - полтора года. Собака очень умная, послушная, добрая, спокойная.',
-    avatar: photo,
-    name: 'Петров Петр Петрович',
-    phone: '+1(234) 123 4567',
-    scores: 3,
+    description: 'description',
+    completed: true,
+    recipient: {
+      id: 1,
+      fullname: 'Ivan Ivanovich',
+      role: UserRole.Recipient,
+      vk: 'somevk',
+      photo: 'somephoto',
+      phone: '12234434435',
+      address: 'someaddress',
+      coordinates: [22, 22],
+      approved: null,
+      checked: null,
+      keys: null,
+      adminStatus: 3,
+      scores: null,
+      completed: null,
+    },
+    volunteer: null,
+    address: 'address',
+    coordinates: [22, 22],
+    chatId: null,
   },
 };
 
 export const userTwo: Story = {
   args: {
+    id: 1,
+    title: 'SomeTitle',
+    category: {
+      id: 2,
+      name: '',
+    },
     date: new Date(),
-    address: 'ул. Потолочного д. 10',
-    title: 'Заголовок2',
-    description:
-      'Пожалуйста, погуляйте с моим котом , я не смогу его выгуливать с 12.01 по 24.01 потому что уеду на обследование к врачу. Если есть желающие помочь в выгуле кота, то звоните, 89041627779, Павел. Кота зовут Марсик, порода - бенгал, возраст - два года. Кот очень умный, послушный, добрый, спокойный.',
-    avatar: photo,
-    name: 'Иванов Иван Иванович',
-    phone: '+1(234) 321 7654',
-    scores: 5,
+    description: 'description',
+    completed: true,
+    recipient: {
+      id: 1,
+      fullname: 'Ivan Ivanovich',
+      role: UserRole.Recipient,
+      vk: 'somevk',
+      photo: 'somephoto',
+      phone: '12234434435',
+      address: 'someaddress',
+      coordinates: [22, 22],
+      approved: null,
+      checked: null,
+      keys: null,
+      adminStatus: 3,
+      scores: null,
+      completed: null,
+    },
+    volunteer: null,
+    address: 'address',
+    coordinates: [22, 22],
+    chatId: null,
   },
 };
