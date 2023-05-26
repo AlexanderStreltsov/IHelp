@@ -1,5 +1,5 @@
-[type="checkbox"],
-[type="radio"] {
+[type='checkbox'],
+[type='radio'] {
   box-sizing: border-box;
   padding: 0;
   visibility: hidden;
@@ -204,7 +204,7 @@
   .box {
     width: 81.3%;
   }
-  .box p{
+  .box p {
     line-height: 29px;
   }
 }
@@ -282,12 +282,12 @@
   position: absolute;
   left: 0;
   top: 0;
-  background-image: url("../../../images/back.svg");
+  background-image: url('../../../images/back.svg');
   background-position: center;
   background-repeat: no-repeat;
 }
 .logotext {
-  font-family: "GolosText";
+  font-family: 'GolosText';
   font-style: normal;
   font-size: 12px;
   font-weight: 400;
@@ -326,7 +326,7 @@
   text-align: center;
   color: #2e3192;
   margin: 0;
-  font-family: "GolosText";
+  font-family: 'GolosText';
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
@@ -336,7 +336,7 @@
   .datetext {
     width: 91px;
     height: 29px;
-    font-family: "GolosText";
+    font-family: 'GolosText';
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
@@ -377,7 +377,7 @@
   margin: 0;
   text-align: center;
   color: #2e3192;
-  font-family: "GolosText";
+  font-family: 'GolosText';
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
@@ -387,7 +387,7 @@
   .timetext {
     width: 47px;
     height: 29px;
-    font-family: "GolosText";
+    font-family: 'GolosText';
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
@@ -418,7 +418,7 @@
   width: 131px;
   height: 38px;
   color: #2e3192;
-  font-family: "GolosText";
+  font-family: 'GolosText';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -426,7 +426,7 @@
 }
 @media (max-width: 960px) {
   .addresstext {
-    font-family: "GolosText";
+    font-family: 'GolosText';
     font-style: normal;
     font-weight: 700;
     font-size: 16px;

@@ -1,407 +1,407 @@
-@import "../../scss/mixins/text";
-@import "../../scss/mixins/media";
-@import "../../common/variable";
+@import '../../scss/mixins/text';
+@import '../../scss/mixins/media';
+@import '../../common/variable';
 
-[type="checkbox"],
-[type="radio"] {
-    box-sizing: border-box;
-    padding: 0;
-    visibility: hidden;
-    display: none;
+[type='checkbox'],
+[type='radio'] {
+  box-sizing: border-box;
+  padding: 0;
+  visibility: hidden;
+  display: none;
 }
 
 .request {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-    width: 100%;
-    height: 219px;
-    position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  width: 100%;
+  height: 219px;
+  position: relative;
+  margin: 0 auto;
+  max-width: 950px;
+  padding: 0 0 27px 0;
+  @include respond(small) {
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 436px;
+    max-width: 650px;
     margin: 0 auto;
-    max-width: 950px;
-    padding: 0 0 27px 0;
-    @include respond(small) {
-        flex-direction: column;
-        justify-content: flex-start;
-        height: 436px;
-        max-width: 650px;
-        margin: 0 auto;
-    }
+  }
 }
 
 .buttons {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    width: 83px;
-    height: 84.04px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin-left: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  width: 83px;
+  height: 84.04px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-left: 16px;
 }
 
 .volunteer {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .volunteerinfo {
-    display: flex;
-    flex-direction: column;
-    @include respond(small) {
-        width: 310px;
-        height: 60px;
-        flex-direction: row;
-        flex-wrap: wrap;
-        margin-top: 45px;
-        margin-left: 10px;
-    }
+  display: flex;
+  flex-direction: column;
+  @include respond(small) {
+    width: 310px;
+    height: 60px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 45px;
+    margin-left: 10px;
+  }
 }
 
 .infotext {
-    display: flex;
-    flex-direction: column;
-    margin-left: 5px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 5px;
 }
 
 .avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin: 7.12px auto 2px auto;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    @include respond(small) {
-        width: 60px;
-        height: 60px;
-        margin-left: 0;
-        margin-right: 0;
-    }
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 7.12px auto 2px auto;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  @include respond(small) {
+    width: 60px;
+    height: 60px;
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 .text {
+  display: flex;
+  align-items: center;
+  height: 23px;
+  color: $common;
+  margin: 0 auto 4px auto;
+  padding: 0;
+  @include respond(small) {
     display: flex;
-    align-items: center;
-    height: 23px;
-    color: $common;
-    margin: 0 auto 4px auto;
-    padding: 0;
-    @include respond(small) {
-        display: flex;
-        height: 29px;
-        margin: 0;
-    }
+    height: 29px;
+    margin: 0;
+  }
 }
 
 .teltext {
-    display: flex;
-    align-items: center;
-    height: 16px;
-    color: $primary;
-    margin: 0 auto 8px auto;
-    padding: 0;
-    @include respond(small) {
-        margin: 0 0 10px 0;
-    }
+  display: flex;
+  align-items: center;
+  height: 16px;
+  color: $primary;
+  margin: 0 auto 8px auto;
+  padding: 0;
+  @include respond(small) {
+    margin: 0 0 10px 0;
+  }
 }
 
 .icons {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    position: relative;
-    left: 8px;
-    width: 72px;
-    margin: 0 auto;
-    @include respond(small) {
-        margin-left: 68px;
-        max-width: 200px;
-    }
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  left: 8px;
+  width: 72px;
+  margin: 0 auto;
+  @include respond(small) {
+    margin-left: 68px;
+    max-width: 200px;
+  }
 }
 
 .content {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 502px);
+  margin-left: 169px;
+  margin-right: 20px;
+  @include respond(small) {
     display: flex;
     flex-direction: column;
-    width: calc(100% - 502px);
-    margin-left: 169px;
-    margin-right: 20px;
-    @include respond(small) {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        margin-left: 10px;
-        max-width: 950px;
-    }
+    width: 100%;
+    margin-left: 10px;
+    max-width: 950px;
+  }
 }
 
 .contentheader {
-    display: flex;
-    align-items: center;
-    color: $primaryAdditional;
-    margin: 42px 0 10px 0;
-    @include respond(small) {
-        width: 100vw;
-        margin: 20px 0 5px 0;
-        overflow: hidden;
-    }
+  display: flex;
+  align-items: center;
+  color: $primaryAdditional;
+  margin: 42px 0 10px 0;
+  @include respond(small) {
+    width: 100vw;
+    margin: 20px 0 5px 0;
+    overflow: hidden;
+  }
 }
 
 .box {
-    input {
-        opacity: 0;
-        position: absolute;
-        pointer-events: none;
-        visibility: hidden;
-        display: none;
-    }
-    p {
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        &:not(.truncated) {
-            ~ {
-                label {
-                    display: none;
-                }
-            }
-        }
-    }
-    input {
-        &:focus {
-            ~ {
-                label {
-                    outline: -webkit-focus-ring-color auto 5px;
-                }
-            }
-        }
-        &:checked {
-            + {
-                p {
-                    -webkit-line-clamp: unset;
-                }
-            }
-            ~ {
-                label {
-                    display: none;
-                }
-            }
-        }
-    }
-}
-
-.box {
-    p {
-        margin: 0;
-    }
-    width: 76.4%;
+  input {
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
+    visibility: hidden;
+    display: none;
+  }
+  p {
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
-    align-items: center;
-    color: $commonAdditional;
-    white-space: normal;
-    @include respond(small) {
-        width: 81.3%;
-        line-height: 29px;
+    overflow: hidden;
+    &:not(.truncated) {
+      ~ {
+        label {
+          display: none;
+        }
+      }
     }
+  }
+  input {
+    &:focus {
+      ~ {
+        label {
+          outline: -webkit-focus-ring-color auto 5px;
+        }
+      }
+    }
+    &:checked {
+      + {
+        p {
+          -webkit-line-clamp: unset;
+        }
+      }
+      ~ {
+        label {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.box {
+  p {
+    margin: 0;
+  }
+  width: 76.4%;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  align-items: center;
+  color: $commonAdditional;
+  white-space: normal;
+  @include respond(small) {
+    width: 81.3%;
+    line-height: 29px;
+  }
 }
 
 .contenttextshow {
-    display: block;
-    align-items: center;
-    width: 76.4%;
-    color: $commonAdditional;
+  display: block;
+  align-items: center;
+  width: 76.4%;
+  color: $commonAdditional;
 }
 
 .contenthide {
-    display: flex;
-    align-items: center;
-    display: flex;
-    background-color: transparent;
-    border: none;
-    color: $primary;
-    width: 64px;
-    height: 15px;
-    z-index: 100;
-    position: relative;
-    left: 79.4%;
-    bottom: -2px;
-    &:hover {
-        cursor: pointer;
-    }
+  display: flex;
+  align-items: center;
+  display: flex;
+  background-color: transparent;
+  border: none;
+  color: $primary;
+  width: 64px;
+  height: 15px;
+  z-index: 100;
+  position: relative;
+  left: 79.4%;
+  bottom: -2px;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .requestcount {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    width: 56px;
-    height: 32px;
-    color: $primary;
-    margin-top: 28px;
-    @include respond(small) {
-        margin-right: 5px;
-        margin-left: auto;
-    }
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  width: 56px;
+  height: 32px;
+  color: $primary;
+  margin-top: 28px;
+  @include respond(small) {
+    margin-right: 5px;
+    margin-left: auto;
+  }
 }
 
 .requesticon {
-    width: 43px;
-    height: 32px;
-    margin: 0;
+  width: 43px;
+  height: 32px;
+  margin: 0;
 }
 
 .category {
-    display: flex;
-    flex-direction: column;
-    width: 169px;
-    @include respond(small) {
-        flex-direction: row;
-        flex-wrap: wrap;
-        width: 222px;
-        justify-content: flex-start;
-    }
+  display: flex;
+  flex-direction: column;
+  width: 169px;
+  @include respond(small) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 222px;
+    justify-content: flex-start;
+  }
 }
 
 .categorylogo {
-    width: 169px;
-    height: 25px;
-    margin: 0 0 10px 0;
-    padding: 0;
-    position: absolute;
-    left: 0;
-    top: 0;
-    background-image: url("../../../images/back.svg");
-    background-position: center;
-    background-repeat: no-repeat;
-    @include respond(small) {
-    }
+  width: 169px;
+  height: 25px;
+  margin: 0 0 10px 0;
+  padding: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-image: url('../../../images/back.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  @include respond(small) {
+  }
 }
 
 .logotext {
-    @include text(12px, 400, 15px);
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: $secondery;
-    margin: 0;
+  @include text(12px, 400, 15px);
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: $secondery;
+  margin: 0;
+  padding: 5px 94px 5px 15px;
+  @include respond(small) {
     padding: 5px 94px 5px 15px;
-    @include respond(small) {
-        padding: 5px 94px 5px 15px;
-    }
+  }
 }
 
 .date {
-    display: flex;
-    flex-direction: row;
-    max-height: 36px;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  max-height: 36px;
+  align-items: center;
 }
 
 .dateicon {
-    width: 17px;
-    height: 17px;
-    margin: 0 5px 0px 0;
+  width: 17px;
+  height: 17px;
+  margin: 0 5px 0px 0;
 }
 
 .datetext {
+  display: flex;
+  align-items: center;
+  width: 131px;
+  height: 36px;
+  text-align: center;
+  color: $primary;
+  margin: 0;
+  @include text(24px, 400, 29px);
+  @include respond(small) {
+    width: 91px;
+    height: 29px;
+    font-family: 'GolosText';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
     display: flex;
     align-items: center;
-    width: 131px;
-    height: 36px;
     text-align: center;
     color: $primary;
-    margin: 0;
-    @include text(24px, 400, 29px);
-    @include respond(small) {
-        width: 91px;
-        height: 29px;
-        font-family: "GolosText";
-        font-style: normal;
-        font-weight: 700;
-        font-size: 16px;
-        line-height: 19px;
-        display: flex;
-        align-items: center;
-        text-align: center;
-        color: $primary;
-        margin-bottom: 5px;
-        margin-right: 40px;
-    }
+    margin-bottom: 5px;
+    margin-right: 40px;
+  }
 }
 
 .time {
-    display: flex;
-    flex-direction: row;
-    max-height: 29px;
-    align-items: center;
-    margin: 0 5px 5px 0;
-    @include respond(small) {
-        margin: 0;
-    }
+  display: flex;
+  flex-direction: row;
+  max-height: 29px;
+  align-items: center;
+  margin: 0 5px 5px 0;
+  @include respond(small) {
+    margin: 0;
+  }
 }
 
 .timeicon {
-    width: 17px;
-    height: 17px;
-    margin-right: 5px;
+  width: 17px;
+  height: 17px;
+  margin-right: 5px;
 }
 
 .timetext {
+  display: flex;
+  align-items: center;
+  width: 63px;
+  height: 29px;
+  margin: 0;
+  text-align: center;
+  color: $primary;
+  @include respond(small) {
+    width: 47px;
+    height: 29px;
+    font-family: 'GolosText';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
     display: flex;
     align-items: center;
-    width: 63px;
-    height: 29px;
-    margin: 0;
     text-align: center;
     color: $primary;
-    @include respond(small) {
-        width: 47px;
-        height: 29px;
-        font-family: "GolosText";
-        font-style: normal;
-        font-weight: 700;
-        font-size: 16px;
-        line-height: 19px;
-        display: flex;
-        align-items: center;
-        text-align: center;
-        color: $primary;
-    }
+  }
 }
 
 .address {
-    display: flex;
-    flex-direction: row;
-    max-height: 38px;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  max-height: 38px;
+  align-items: center;
 }
 
 .addressicon {
-    width: 27px;
-    height: 27px;
-    margin: 0 0px 5px -5px;
+  width: 27px;
+  height: 27px;
+  margin: 0 0px 5px -5px;
 }
 
 .addresstext {
+  display: flex;
+  align-items: center;
+  width: 131px;
+  height: 38px;
+  color: $primary;
+  @include text(16px, 400, 19px);
+  @include respond(small) {
+    font-family: 'GolosText';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
     display: flex;
-    align-items: center;
-    width: 131px;
-    height: 38px;
     color: $primary;
-    @include text(16px, 400, 19px);
-    @include respond(small) {
-        font-family: "GolosText";
-        font-style: normal;
-        font-weight: 700;
-        font-size: 16px;
-        line-height: 19px;
-        display: flex;
-        color: $primary;
-        margin-top: 5px;
-    }
+    margin-top: 5px;
+  }
 }
