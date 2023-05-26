@@ -87,7 +87,12 @@ export const Request: FC = () => {
           )}
           <div className="volunteer">
             <div className="volunteerinfo">
-              <img className="avatar" src={tasksState![0].recipient.photo} />
+              <div
+                className="avatar"
+                style={{
+                  backgroundImage: `url(${tasksState![0].recipient.photo})`,
+                }}
+              />
               <div className="infotext">
                 <p className="text text-medium">
                   {tasksState![0].recipient.fullname}
@@ -140,13 +145,13 @@ export const Request: FC = () => {
           <div className="category">
             <div className="date">
               <CalendarIcon className="dateicon" color="dark-blue" />
-              <p className="datetext text-big">
+              <p className="datetext">
                 {tasksState![0].date.toString().slice(0, 10).replace(/-/g, '.')}
               </p>
             </div>
             <div className="time">
               <ClockIcon className="timeicon" color="dark-blue" />
-              <p className="timetext text-big">
+              <p className="timetext">
                 {tasksState![2].date.toString().slice(11, 16)}
               </p>
             </div>
@@ -154,9 +159,7 @@ export const Request: FC = () => {
               <div>
                 <LocationIcon className="addressicon" color="dark-blue" />
               </div>
-              <p className="addresstext text-medium">
-                {tasksState![0].address}
-              </p>
+              <p className="addresstext">{tasksState![0].address}</p>
             </div>
           </div>
         </div>

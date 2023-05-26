@@ -8,15 +8,22 @@
 .request {
   display: flex;
   flex-direction: row-reverse;
+  position: relative;
   justify-content: flex-end;
   width: 100%;
   height: 219px;
+  margin: 0 auto;
+  max-width: 950px;
   padding: 0 0 27px 0;
 }
 @media (max-width: 960px) {
   .request {
+    position: relative;
     flex-direction: column;
     justify-content: flex-start;
+    height: 436px;
+    max-width: 650px;
+    margin: 0 auto;
   }
 }
 
@@ -64,6 +71,9 @@
   height: 100px;
   border-radius: 50%;
   margin: 7.12px auto 2px auto;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 @media (max-width: 960px) {
   .avatar {
@@ -124,7 +134,7 @@
   display: flex;
   flex-direction: column;
   width: calc(100% - 502px);
-  margin-left: 169px;
+  margin-left: 5px;
   margin-right: 20px;
 }
 @media (max-width: 960px) {
@@ -179,7 +189,6 @@
 
 .box {
   width: 76.4%;
-  overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
@@ -189,6 +198,7 @@
 }
 .box p {
   margin: 0;
+  line-height: 29px;
 }
 @media (max-width: 960px) {
   .box {
@@ -232,6 +242,7 @@
 }
 @media (max-width: 960px) {
   .requestcount {
+    margin-top: 5px;
     margin-right: 5px;
     margin-left: auto;
   }
@@ -247,16 +258,16 @@
   display: flex;
   flex-direction: column;
   width: 169px;
-  position: absolute;
-  left: 0;
+  position: relative;
+  top: 40px;
 }
 @media (max-width: 960px) {
   .category {
-    position: relative;
     flex-direction: row;
     flex-wrap: wrap;
     width: 222px;
     justify-content: flex-start;
+    top: 0;
   }
 }
 
@@ -312,6 +323,11 @@
   text-align: center;
   color: #2e3192;
   margin: 0;
+  font-family: "GolosText";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
 }
 @media (max-width: 960px) {
   .datetext {
@@ -358,6 +374,11 @@
   margin: 0;
   text-align: center;
   color: #2e3192;
+  font-family: "GolosText";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
 }
 @media (max-width: 960px) {
   .timetext {
@@ -394,6 +415,11 @@
   width: 131px;
   height: 38px;
   color: #2e3192;
+  font-family: "GolosText";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
 }
 @media (max-width: 960px) {
   .addresstext {
