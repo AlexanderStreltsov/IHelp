@@ -6,6 +6,10 @@
   display: none;
 }
 
+p{
+  margin: 0;
+}
+
 .request {
   display: flex;
   flex-direction: row-reverse;
@@ -174,6 +178,8 @@
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  max-width: 81.3%;
+  margin-top: 0;
 }
 .box p:not(.truncated) ~ label {
   display: none;
@@ -189,15 +195,16 @@
 }
 
 .box {
-  width: 76.4%;
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   align-items: center;
   color: #2c2d2e;
   white-space: normal;
+  width: 91.4%;
 }
 .box p {
+  line-height: 19px;
   margin: 0;
 }
 @media (max-width: 960px) {
@@ -212,9 +219,15 @@
 .contenttextshow {
   display: block;
   align-items: center;
-  width: 76.4%;
+  width: 91.4%;
   color: #2c2d2e;
 }
+
+@media (max-width: 960px) {
+    .contenttextshow{
+      line-height: 29px;
+    }
+  }
 
 .contenthide {
   display: flex;
@@ -227,11 +240,17 @@
   height: 15px;
   z-index: 100;
   position: relative;
-  left: 79.4%;
-  bottom: -2px;
+  left: 81.3%;
+  bottom: 15px;
 }
 .contenthide:hover {
   cursor: pointer;
+}
+@media (max-width: 960px) {
+  .contenthide{
+    left: 81.3%;
+    bottom: 22px;
+  }
 }
 
 .requestcount {

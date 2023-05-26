@@ -228,8 +228,8 @@
   height: 15px;
   z-index: 100;
   position: relative;
-  left: 79.4%;
-  bottom: -2px;
+  left: calc(100% - 20px);
+  bottom: 16px;
   &:hover {
     cursor: pointer;
   }

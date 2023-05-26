@@ -15,11 +15,10 @@ import api from '../../api';
 const onButtonClick = (event: any) => {
   if (event.target.innerHTML === 'Читать') {
     event.target.innerHTML = 'Свернуть';
-    document.getElementById('conttext')!.className =
-      'contenttextshow text-medium';
+    document.getElementById('conttext')!.className = 'contenttextshow';
   } else {
     event.target.innerHTML = 'Читать';
-    document.getElementById('conttext')!.className = 'contenttext';
+    document.getElementById('conttext')!.className = 'box';
   }
 };
 
@@ -105,7 +104,7 @@ export const Request: FC = () => {
             <div className="icons">
               <Button
                 type="circleSmallPhone"
-                disabled={false}
+                disabled={tasksState![0].completed}
                 children=""
                 onClick={() => {
                   console.log('hello');
@@ -113,7 +112,7 @@ export const Request: FC = () => {
               />
               <Button
                 type="circleSmallEmail"
-                disabled={false}
+                disabled={tasksState![0].completed}
                 children=""
                 onClick={() => {
                   console.log('hello');
@@ -125,7 +124,14 @@ export const Request: FC = () => {
             <h1 className="contentheader text-big">{tasksState![0].title}</h1>
             <div className="box text-medium" id="conttext">
               <input type="checkbox" id="expanded" />
-              <p>{tasksState![0].description}</p>
+              <p>
+                Пожалуйста, погуляйте с моей собакой, я не смогу ее выгуливать с
+                12.06 по 24.06 потому что уеду на обследование к врачу. Если
+                есть желающие помочь в выгуле собаки, то звоните, 89041627779,
+                Елена. Собаку зовут Айка, порода - немецкая овчарка, возраст -
+                полтора года. Собака очень умная, послушная, добрая, спокойная.
+                {/* {tasksState![0].description} */}
+              </p>
               <label
                 htmlFor="expanded"
                 className="contenthide text-medium"
