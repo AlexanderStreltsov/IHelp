@@ -6,7 +6,7 @@
   display: none;
 }
 
-p{
+p {
   margin: 0;
 }
 
@@ -224,10 +224,10 @@ p{
 }
 
 @media (max-width: 960px) {
-    .contenttextshow{
-      line-height: 29px;
-    }
+  .contenttextshow {
+    line-height: 29px;
   }
+}
 
 .contenthide {
   display: flex;
@@ -247,7 +247,7 @@ p{
   cursor: pointer;
 }
 @media (max-width: 960px) {
-  .contenthide{
+  .contenthide {
     left: 81.3%;
     bottom: 22px;
   }

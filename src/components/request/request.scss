@@ -1,5 +1,5 @@
 @import '../../scss/mixins/text';
-@import '../../scss/mixins/media';
+@import '../../common/media';
 @import '../../common/variable';
 
 [type='checkbox'],
@@ -233,7 +233,7 @@
   &:hover {
     cursor: pointer;
   }
-  @include respond(small){
+  @include respond(small) {
     left: 81.3%;
     bottom: 22px;
   }
