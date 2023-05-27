@@ -11,6 +11,22 @@ import { ClockIcon } from '../../ui/icons/clock-icon';
 import { Button } from '../../ui/button/button';
 import { TTask } from '../../types';
 import api from '../../api';
+import { ActiveRequestVersion1Icon } from '../../ui/icons/active-request-big-version-1-icon';
+import { ActiveRequestVersion2Icon } from '../../ui/icons/active-request-big-version-2-icon';
+import { ApproveIcon } from '../../ui/icons/approve-icon';
+import { ArrowIcon } from '../../ui/icons/arrow-icon';
+import { AttachIcon } from '../../ui/icons/attach-icon';
+import { BlogIcon } from '../../ui/icons/blog-icon';
+import { ContactUsIcon } from '../../ui/icons/contact-us-icon';
+import { ContactsIcon } from '../../ui/icons/contacts-icon';
+import { ExecutedRequestIcon } from '../../ui/icons/executed-request-icon';
+import { KeyIcon } from '../../ui/icons/key-icon';
+import { MessageIcon } from '../../ui/icons/message-icon';
+import { PersonIcon } from '../../ui/icons/person-icon';
+import { PopularIcon } from '../../ui/icons/popular-icon';
+import { PrivacyIcon } from '../../ui/icons/privacy-icon';
+import { StatsIcon } from '../../ui/icons/stats-icon';
+import { UnionIcon } from '../../ui/icons/union-icon';
 
 const onButtonClick = (event: any) => {
   if (event.target.innerHTML === 'Читать') {
