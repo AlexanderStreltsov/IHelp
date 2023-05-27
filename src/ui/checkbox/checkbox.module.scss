@@ -16,7 +16,7 @@
   display: inline-flex;
   align-items: center;
   color: map.get($text_color, common);
-  &:hover{
+  &:hover {
     cursor: pointer;
   }
 }

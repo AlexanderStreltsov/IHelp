@@ -5,7 +5,7 @@ import { Checkbox } from '../../ui/checkbox/checkbox';
 import { Button } from '../../ui/button/button';
 
 interface IFilter {
-  closeFilter: React.Dispatch<React.SetStateAction<boolean>>;
+  sendResult: (result: { [name: string]: string[] }) => void;
   type?:
     | 'volunteerApplicationMap'
     | 'completedVolunteerApplications'
@@ -13,9 +13,17 @@ interface IFilter {
     | 'recipient'
     | 'admin';
 }
-
+/**
+ * Данный компонент представляет собой инструмент для фильтрации отображаемого
+ * контента. После его применения он возвращает объект типа `{ [name: string]: string[] }`,
+ * содержащий выбранные
+ * параметры фильтрации. Для работы фильтра в параметр sendResult необходимо передать функцию,
+ * которая будет получать результат выбора фильтров в качестве аргумента и закрывать фильтр.
+ * Предполагается, что открытие и закрытие фильтра обеспечивается переменной состояния
+ * родительского компонента.
+ */
 export const Filter = ({
-  closeFilter,
+  sendResult,
   type = 'volunteerApplicationMap',
 }: IFilter) => {
   const refForm = useRef<HTMLFormElement>(null);
@@ -92,7 +100,7 @@ export const Filter = ({
       <Checkbox
         type="radio"
         name="radius"
-        value="1"
+        value="3"
         form="button"
         label="3 км"
         moduleOutStyles={styles.checkboxRadius}
@@ -100,7 +108,7 @@ export const Filter = ({
       <Checkbox
         type="radio"
         name="radius"
-        value="1"
+        value="5"
         form="button"
         label="5 км"
         moduleOutStyles={styles.checkboxRadius}
@@ -163,7 +171,7 @@ export const Filter = ({
       <legend className={`${styles.legend} text-small-bold`}>Категория</legend>
       <Checkbox
         type="radio"
-        name="usersCategory"
+        name="role"
         value="all"
         check={true}
         form="checkbox"
@@ -172,23 +180,23 @@ export const Filter = ({
       />
       <Checkbox
         type="radio"
-        name="usersCategory"
-        value="volunteers"
+        name="role"
+        value="volunteer"
         form="checkbox"
         label="Волонтеры"
         moduleOutStyles={styles.checkboxUsers}
       />
       <Checkbox
         type="radio"
-        name="usersCategory"
-        value="recipients"
+        name="role"
+        value="recipient"
         form="checkbox"
         label="Реципиенты"
         moduleOutStyles={styles.checkboxUsers}
       />
       <Checkbox
         type="radio"
-        name="usersCategory"
+        name="role"
         value="unprocessed"
         form="checkbox"
         label="Не обработанные"
@@ -213,6 +221,7 @@ export const Filter = ({
       }
     });
     console.log(result);
+    sendResult(result);
   };
 
   // виды фильтров
@@ -261,8 +270,6 @@ export const Filter = ({
       arrow="right"
       widthPopup="middle"
       shadow={true}
-      setIsShowPopup={closeFilter}
-      position={{ coordinateX: 0, coordinateY: 0 }}
       moduleOutStyles={styles.popup}
     >
       <form name="filter" className={styles.form} ref={refForm}>
