@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable jsx-a11y/alt-text */
-import React, { FC, useState, useEffect } from 'react';
+import React from 'react';
 import './request.css';
 import { BallsIcon } from '../../ui/icons/balls-icon';
 import { CalendarIcon } from '../../ui/icons/calendar-icon';
@@ -10,7 +10,6 @@ import { LocationIcon } from '../../ui/icons/location-icon';
 import { ClockIcon } from '../../ui/icons/clock-icon';
 import { Button } from '../../ui/button/button';
 import { TTask } from '../../types';
-import api from '../../api';
 
 const onButtonClick = (event: any) => {
   if (event.target.innerHTML === 'Читать') {
@@ -22,20 +21,7 @@ const onButtonClick = (event: any) => {
   }
 };
 
-export const Request = (props: TTask) => {
-  //  Для тестирования функциональности компонента можно раскомментировать код ниже и вместо props использовать объект(ы), приходящий(ие) от апи
-
-  // const [tasksState, setTasksState] = useState<TTask[]>();
-
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     const tasks = await api.getAllTasks();
-  //     setTasksState(tasks);
-  //   }
-
-  //   fetchData();
-  // }, []);
-
+export const Request = (props: { propsForRequest: TTask }) => {
   const ps = document.querySelectorAll('p');
   const observer = new ResizeObserver((entries) => {
     for (let entry of entries) {
@@ -56,7 +42,7 @@ export const Request = (props: TTask) => {
           <div className="categorylogo">
             <p className="logotext">категория</p>
           </div>
-          {props.recipient.completed === 0 && (
+          {props.propsForRequest.completed === false && (
             <div className="buttons">
               <Button
                 type="quadrilateralExit"
@@ -74,7 +60,7 @@ export const Request = (props: TTask) => {
                   console.log('hello');
                 }}
               />
-              {props.volunteer && (
+              {props.propsForRequest.volunteer && (
                 <Button
                   type="quadrilateralEdit"
                   disabled={false}
@@ -91,18 +77,22 @@ export const Request = (props: TTask) => {
               <div
                 className="avatar"
                 style={{
-                  backgroundImage: `url(${props.recipient.photo})`,
+                  backgroundImage: `url(${props.propsForRequest.recipient.photo})`,
                 }}
               />
               <div className="infotext">
-                <p className="text text-medium">{props.recipient.fullname}</p>
-                <p className="teltext text-medium">{props.recipient.phone}</p>
+                <p className="text text-medium">
+                  {props.propsForRequest.recipient.fullname}
+                </p>
+                <p className="teltext text-medium">
+                  {props.propsForRequest.recipient.phone}
+                </p>
               </div>
             </div>
             <div className="icons">
               <Button
                 type="circleSmallPhone"
-                disabled={props.recipient.completed === 0}
+                disabled={props.propsForRequest.recipient.completed === 0}
                 children=""
                 onClick={() => {
                   console.log('hello');
@@ -110,7 +100,7 @@ export const Request = (props: TTask) => {
               />
               <Button
                 type="circleSmallEmail"
-                disabled={props.recipient.completed === 0}
+                disabled={props.propsForRequest.recipient.completed === 0}
                 children=""
                 onClick={() => {
                   console.log('hello');
@@ -119,17 +109,12 @@ export const Request = (props: TTask) => {
             </div>
           </div>
           <div className="content">
-            <h1 className="contentheader text-big">{props.title}</h1>
+            <h1 className="contentheader text-big">
+              {props.propsForRequest.title}
+            </h1>
             <div className="box text-medium" id="conttext">
               <input type="checkbox" id="expanded" />
-              <p>
-                Пожалуйста, погуляйте с моей собакой, я не смогу ее выгуливать с
-                12.06 по 24.06 потому что уеду на обследование к врачу. Если
-                есть желающие помочь в выгуле собаки, то звоните, 89041627779,
-                Елена. Собаку зовут Айка, порода - немецкая овчарка, возраст -
-                полтора года. Собака очень умная, послушная, добрая, спокойная.
-                {/* {props.description} */}
-              </p>
+              <p>{props.propsForRequest.description}</p>
               <label
                 htmlFor="expanded"
                 className="contenthide text-medium"
@@ -142,27 +127,34 @@ export const Request = (props: TTask) => {
             </div>
 
             <div className="requestcount text-small">
-              {/* {props.completed &&  */}
+              {/* {props.propsForRequest.completed &&  */}
               <BallsIcon color="dark-blue" />
-              <div>{props.recipient.scores}</div>
+              <div>{props.propsForRequest.recipient.scores}</div>
             </div>
           </div>
           <div className="category">
             <div className="date">
               <CalendarIcon className="dateicon" color="dark-blue" />
               <p className="datetext">
-                {props.date.toString().slice(0, 10).replace(/-/g, '.')}
+                {props.propsForRequest.date
+                  .toString()
+                  .slice(0, 10)
+                  .replace(/-/g, '.')}
               </p>
             </div>
             <div className="time">
               <ClockIcon className="timeicon" color="dark-blue" />
-              <p className="timetext">{props.date.toString().slice(11, 16)}</p>
+              <p className="timetext">
+                {props.propsForRequest.date.toString().slice(11, 16)}
+              </p>
             </div>
             <div className="address">
               <div>
                 <LocationIcon className="addressicon" color="dark-blue" />
               </div>
-              <p className="addresstext">{props.recipient.address}</p>
+              <p className="addresstext">
+                {props.propsForRequest.recipient.address}
+              </p>
             </div>
           </div>
         </div>
