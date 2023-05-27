@@ -1,0 +1,168 @@
+@import '../../scss/mixins/fonts';
+
+.card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 276px;
+  height: 258px;
+  border: 1px solid #0071bc;
+  margin-top: 50px;
+}
+
+.cardcontent {
+  display: flex;
+  flex-direction: column;
+  width: 140px;
+  justify-content: flex-start;
+  margin-left: 30px;
+}
+
+.avatar {
+  position: absolute;
+  top: -31px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 62px;
+  height: 62px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 31px;
+  z-index: 50;
+}
+
+.name {
+  width: 197px;
+  height: 14px;
+  @include text(16px, 400, 19px);
+  display: flex;
+  color: #000000;
+  margin: 41px auto 5px auto;
+}
+
+.id {
+  width: 197px;
+  height: 11px;
+  @include text(12px, 400, 14px);
+  display: flex;
+  color: rgba(0, 0, 0, 0.5);
+  margin-top: 0;
+  margin-bottom: 7px;
+}
+
+.phone {
+  display: flex;
+  flex-direction: row;
+  margin: 0 0 7px 0;
+}
+
+.phonetext {
+  width: 41px;
+  height: 11px;
+  right: 205px;
+  bottom: 169px;
+  @include text(12px, 700, 14px);
+  display: flex;
+  color: #000000;
+  margin: 0;
+}
+
+.phonenumber {
+  width: 144px;
+  height: 15px;
+  @include text(12px, 400, 14px);
+  display: flex;
+  color: #000000;
+  margin: 0;
+}
+
+.underlay {
+  display: flex;
+  flex-direction: row;
+  width: 215.09px;
+  height: 25px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 0;
+  top: 96px;
+}
+
+.underlayitem {
+  width: 65px;
+  height: 22px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.underlaynumber {
+  width: 30px;
+  height: 15px;
+  @include text(12px, 400, 14px);
+  display: flex;
+  color: #2e3192;
+  margin-bottom: 5px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 40px;
+}
+
+.confirm {
+  display: flex;
+  padding: 0px 16px;
+  width: 108px;
+  height: 30px;
+  background: #818c99;
+  color: #ffffff;
+  border: none;
+  & span {
+    font-family: 'GolosText';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+  }
+}
+
+.block {
+  display: flex;
+  padding: 0px 16px;
+  width: 123px;
+  height: 30px;
+  border: 1px solid #2e3192;
+  background-color: transparent;
+  & span {
+    margin-top: 7px;
+    color: #2e3192;
+    font-family: 'GolosText';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+  }
+}
+
+.givekeys {
+  display: flex;
+  width: 100px;
+  height: 30px;
+  border: 1px solid #9798c9;
+  background: transparent;
+  & span {
+    padding: 0px 16px;
+    font-family: 'GolosText';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #9798c9;
+  }
+}
