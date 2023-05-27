@@ -22,7 +22,7 @@ const onButtonClick = (event: any) => {
   }
 };
 
-export const Request: FC = (props) => {
+export const Request = (props: TTask) => {
   //  Для тестирования функциональности компонента можно раскомментировать код ниже и вместо props использовать объект(ы), приходящий(ие) от апи
 
   // const [tasksState, setTasksState] = useState<TTask[]>();
@@ -56,7 +56,7 @@ export const Request: FC = (props) => {
           <div className="categorylogo">
             <p className="logotext">категория</p>
           </div>
-          {props.recipient.completed === false && (
+          {props.recipient.completed === 0 && (
             <div className="buttons">
               <Button
                 type="quadrilateralExit"
@@ -102,7 +102,7 @@ export const Request: FC = (props) => {
             <div className="icons">
               <Button
                 type="circleSmallPhone"
-                disabled={props.recipient.completed}
+                disabled={props.recipient.completed === 0}
                 children=""
                 onClick={() => {
                   console.log('hello');
@@ -110,7 +110,7 @@ export const Request: FC = (props) => {
               />
               <Button
                 type="circleSmallEmail"
-                disabled={props.recipient.completed}
+                disabled={props.recipient.completed === 0}
                 children=""
                 onClick={() => {
                   console.log('hello');

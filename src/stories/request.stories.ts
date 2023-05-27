@@ -2,6 +2,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Request } from '../components/request/Request';
 import { UserRole } from '../types/user-role';
+import api from '../api';
 
 const meta = {
   title: 'Example/Request',
@@ -44,7 +45,7 @@ export const recipientRequest: Story = {
       keys: null,
       adminStatus: 3,
       scores: 10,
-      completed: false,
+      completed: 4,
     },
     volunteer: null,
     address: 'address',
@@ -80,7 +81,7 @@ export const volunteerRequest: Story = {
       keys: null,
       adminStatus: 3,
       scores: 5,
-      completed: true,
+      completed: 3,
     },
     volunteer: null,
     address: 'address',
