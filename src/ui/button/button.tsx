@@ -141,7 +141,7 @@ export const Button = ({
         <span className={`${styles.text} text-medium`}>{children}</span>
       )}
       {type === 'apply' && (
-        <span className={`${styles.text} text-medium`}>{children}</span>
+        <span className={`${styles.text} text-small`}>{children}</span>
       )}
     </button>
   );

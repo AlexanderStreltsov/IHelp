@@ -16,14 +16,14 @@ interface IPopup {
   outStyles?: CSSProperties;
   children: ReactNode;
   cornerRadius?: boolean;
-  position: 'center' | { coordinateX: number; coordinateY: number };
+  position?: 'center' | { coordinateX: number; coordinateY: number };
   setIsShowPopup: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 /**
  * Данный компонент является внешней оболочкой попапов. Его отрисовка должна определяться
- * родительким компонетом. Например, родительский компонент имеет переменную состояния showPopup
- * типа boolean. Если значение этой переменной false, то попап не показывается. Если ее
+ * родительким компонетом. Родительский компонент должен имеет переменную состояния, например,
+ * showPopup типа boolean. Если значение этой переменной false, то попап не показывается. Если ее
  * значение true, то попап показывается. При этом в пропс попапа "setIsShowPopup" должен быть
  * передан метод изменения значения переменной showPopup. Благодаря этому его можно закрыть
  * щелчком по пространству за пределами попапа или клавишей esc.

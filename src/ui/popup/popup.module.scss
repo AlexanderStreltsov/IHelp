@@ -19,7 +19,6 @@
 .popup {
   width: 100%;
   box-sizing: border-box;
-  padding: 20px 20px 20px 30px;
   background-color: map.get($background_color, popup);
   position: relative;
   z-index: 100;

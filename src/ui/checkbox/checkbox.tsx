@@ -1,3 +1,4 @@
+import { CSSProperties } from 'react';
 import { Checkmark } from '../icons/checkmark';
 import styles from './checkbox.module.scss';
 
@@ -8,6 +9,8 @@ interface ICheckbox {
   check?: boolean;
   form?: 'checkbox' | 'button';
   label: string | null;
+  outStyles?: CSSProperties;
+  moduleOutStyles?: string;
 }
 
 export const Checkbox = ({
@@ -17,6 +20,8 @@ export const Checkbox = ({
   check = false,
   form = 'checkbox',
   label = null,
+  outStyles,
+  moduleOutStyles,
 }: ICheckbox) => {
   // верстка input
   const input = (
@@ -31,7 +36,10 @@ export const Checkbox = ({
 
   // вёрстка внешнего оформления input в виде checkbox
   const checkbox = (
-    <label className={`${styles.label} text-small`}>
+    <label
+      className={`${styles.label} text-small ${moduleOutStyles}`}
+      style={outStyles}
+    >
       {input}
       <span
         className={`${styles.fakeChekbox} ${
@@ -46,7 +54,7 @@ export const Checkbox = ({
 
   // вёрстка внешнего оформления input в виде кнопок
   const button = (
-    <label className={styles.label}>
+    <label className={`${styles.label} ${moduleOutStyles}`} style={outStyles}>
       {input}
       <span className={`${styles.fakeButton}  text-small`}>{label}</span>
     </label>
