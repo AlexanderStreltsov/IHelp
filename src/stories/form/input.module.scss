@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   justify-content: start;
-  background: map-get($background_color, "primary");
+  background: map-get($background_color, 'primary');
   padding: 12px;
 }
 
@@ -20,7 +20,7 @@
   font-size: 14px;
   line-height: 18px;
   letter-spacing: -0.154px;
-  color: map-get($background_color, "partsPrimary");
+  color: map-get($background_color, 'partsPrimary');
   margin-bottom: 8px;
 }
 
@@ -29,16 +29,17 @@
   height: 44px;
   padding: 12px;
   box-sizing: border-box;
-  background: map-get($background_color, "primary");
-  border: 1px solid map-get($background_color, "partsSecondary");
+  background: map-get($background_color, 'primary');
+  border: 1px solid map-get($background_color, 'partsSecondary');
   @extend .text-medium;
   letter-spacing: -0.32px;
-  color: map-get($background_color, "partsPrimary");
+  color: map-get($background_color, 'partsPrimary');
 }
 
-.input:focus-visible, .input:focus {
-  outline: 1px solid map-get($background_color, "partsActiveSecondary");
-  border: 1px solid map-get($background_color, "partsActiveSecondary");
+.input:focus-visible,
+.input:focus {
+  outline: 1px solid map-get($background_color, 'partsActiveSecondary');
+  border: 1px solid map-get($background_color, 'partsActiveSecondary');
 }
 
 .select {
@@ -46,23 +47,23 @@
   height: 44px;
   padding: 12px;
   box-sizing: border-box;
-  background: map-get($background_color, "primary");
-  border: 1px solid map-get($background_color, "partsSecondary");
+  background: map-get($background_color, 'primary');
+  border: 1px solid map-get($background_color, 'partsSecondary');
   @extend .text-medium;
   letter-spacing: -0.32px;
   appearance: none;
   background-image: url('../assets/dropdown.svg');
   background-repeat: no-repeat;
-  background-position: right .7em top 50%, 0 0;
+  background-position: right 0.7em top 50%, 0 0;
   background-size: 14px, 7px;
 }
 
 .optionEnabled {
-  color: map-get($background_color, "partsPrimary");
+  color: map-get($background_color, 'partsPrimary');
 }
 
 .optionDisabled {
-  color: map-get($text_color, "ancillary");
+  color: map-get($text_color, 'ancillary');
 }
 
 .commentForm {
@@ -71,7 +72,7 @@
   display: flex;
   flex-direction: column;
   justify-content: start;
-  background: map-get($background_color, "primary");
+  background: map-get($background_color, 'primary');
   padding: 12px;
 }
 
@@ -84,7 +85,7 @@
   font-size: 16px;
   line-height: 19px;
   letter-spacing: -0.154px;
-  color: map-get($text_color, "ancillary");
+  color: map-get($text_color, 'ancillary');
   margin-bottom: 8px;
 }
 
@@ -93,11 +94,11 @@
   height: 64px;
   padding: 12px;
   box-sizing: border-box;
-  background: map-get($background_color, "primary");
-  border: 1px solid map-get($background_color, "partsSecondary");
+  background: map-get($background_color, 'primary');
+  border: 1px solid map-get($background_color, 'partsSecondary');
   @extend .text-medium;
   letter-spacing: -0.32px;
-  color: map-get($text_color, "common");
+  color: map-get($text_color, 'common');
 }
 
 .formPhoneNumber {
@@ -106,7 +107,7 @@
   display: flex;
   flex-direction: column;
   justify-content: start;
-  background: map-get($background_color, "primary");
+  background: map-get($background_color, 'primary');
   padding: 12px;
 }
 
@@ -119,7 +120,7 @@
   font-size: 14px;
   line-height: 18px;
   letter-spacing: -0.154px;
-  color: map-get($background_color, "partsPrimary");
+  color: map-get($background_color, 'partsPrimary');
   margin-bottom: 8px;
 }
 
@@ -128,19 +129,19 @@
   height: 44px;
   padding: 12px;
   box-sizing: border-box;
-  background: map-get($background_color, "primary");
+  background: map-get($background_color, 'primary');
   @extend .text-medium;
   letter-spacing: -0.32px;
-  color: map-get($background_color, "partsPrimary");
+  color: map-get($background_color, 'partsPrimary');
   outline: none;
 }
 
 .correctInput {
-  border: 1px solid map-get($background_color, "partsSecondary");
+  border: 1px solid map-get($background_color, 'partsSecondary');
 }
 
 .wrongInput {
-  border: 0.5px solid map-get($background_color, "errorBorder");
+  border: 0.5px solid map-get($background_color, 'errorBorder');
 }
 
 .errorMessage {
@@ -153,5 +154,5 @@
   font-size: 13px;
   line-height: 16px;
   letter-spacing: -0.078px;
-  color: map-get($text_color, "errorMessage");
+  color: map-get($text_color, 'errorMessage');
 }
