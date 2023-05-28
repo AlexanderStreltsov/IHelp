@@ -1,6 +1,6 @@
 import { getColor, IIconProps } from './utils';
 
-export const ArrowIcon = ({ color, ...props }: IIconProps) => (
+export const FinishedApplicationIcon = ({ color, ...props }: IIconProps) => (
   <svg
     width="22"
     height="22"
