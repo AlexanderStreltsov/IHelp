@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from './profile.module.scss';
 import { ProfileFone } from '../icons/profile-fone';
-import { Button, IButtonProps } from '../button/button';
+import { Button } from '../button/button';
 import { BallsIcon } from '../icons/balls-icon';
 import { KeyIcon } from '../icons/key-icon';
-import { ArrowIcon } from '../icons/finished-application-icon';
+import { FinishedApplicationIcon } from '../icons/finished-application-icon';
 import { PersonIcon } from '../icons/person-icon';
-import { ActiveRequestVersion2Icon } from '../icons/active-request-big-version-2-icon';
+import { ProgressIcon } from '../icons/progress-icon';
 
 export interface IProfileProps {
   type?: 'volunteer' | 'recipient' | 'administration' | 'signUp';
@@ -100,14 +100,17 @@ export const Profile = ({ type = 'volunteer', className = '', ...props }) => {
             <span className={`${styles.ballsSum} text-small`}>{2500}</span>
             <KeyIcon className={styles.keyIcon} color={'dark-blue'} />
             <span className={`${styles.keySum} text-small`}>{1}</span>
-            <ArrowIcon className={styles.finishIcon} color={'dark-blue'} />
+            <FinishedApplicationIcon
+              className={styles.finishIcon}
+              color={'dark-blue'}
+            />
             <span className={`${styles.finishSum} text-small`}>{150}</span>
           </div>
         )}
         {type === 'recipient' && (
           <div className={styles.infoBlock}>
             <Information />
-            <ActiveRequestVersion2Icon
+            <ProgressIcon
               className={styles.recipientIcon}
               color={'dark-blue'}
             />

@@ -386,7 +386,7 @@
     width: 32px;
     height: 32px;
     background-color: map.get($background_color, partsPrimary);
-    transform: skew(-3deg, -10deg);
+    transform: skew(1deg, -10deg);
     cursor: pointer;
     transition: linear, 0.3s;
 
@@ -401,7 +401,7 @@
       overflow: hidden;
       margin-top: 5px;
       margin-left: -5px;
-      transform: skew(3deg, 10deg);
+      transform: skew(-1deg, 10deg);
     }
 
     .image_hover {
