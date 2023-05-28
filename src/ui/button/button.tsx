@@ -39,8 +39,9 @@ export interface IButtonProps extends HTMLAttributes<HTMLButtonElement> {
     | 'statistics'
     | 'application'
     | 'confirm';
-  children: string;
-  disabled: boolean;
+  children?: string;
+  disabled?: boolean;
+  className?: string;
   onClick: (() => void) | ((e: React.SyntheticEvent) => void);
 }
 
@@ -49,8 +50,10 @@ export const Button = ({
   disabled = false,
   children,
   icon,
+  className = '',
   ...props
 }: IButtonProps) => {
+  const extClassName = className || '';
   const Rectangle = () => {
     return (
       <div className={styles.over}>
@@ -89,7 +92,7 @@ export const Button = ({
 
   return (
     <button
-      className={`${styles.button} ${styles[type]} text-small`}
+      className={`${styles.button} ${styles[type]} ${extClassName} text-small`}
       disabled={disabled}
       {...props}
     >
