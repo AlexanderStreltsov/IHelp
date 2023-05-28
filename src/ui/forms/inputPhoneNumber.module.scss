@@ -2,72 +2,71 @@
 @import '../../common/_selectors';
 
 .formPhoneNumber {
-    width: 375px;
-    height: 120px;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    background: map-get($background_color, 'primary');
-    padding: 12px;
+  width: 375px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  background: map-get($background_color, 'primary');
+  padding: 12px;
 }
-  
+
 .labelPhoneNumber {
-    width: 351px;
-    height: 18px;
-    font-family: 'GolosText';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
-    letter-spacing: -0.154px;
-    color: map-get($background_color, 'partsPrimary');
-    margin-bottom: 8px;
-}  
+  width: 351px;
+  height: 18px;
+  font-family: 'GolosText';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.154px;
+  color: map-get($background_color, 'partsPrimary');
+  margin-bottom: 8px;
+}
 
 .input {
-    width: 351px;
-    height: 44px;
-    padding: 12px;
-    box-sizing: border-box;
-    background: map-get($background_color, 'primary');
-    border: 1px solid map-get($background_color, 'partsSecondary');
-    @extend .text-medium;
-    letter-spacing: -0.32px;
-    color: map-get($background_color, 'partsPrimary');
+  width: 351px;
+  height: 44px;
+  padding: 12px;
+  box-sizing: border-box;
+  background: map-get($background_color, 'primary');
+  border: 1px solid map-get($background_color, 'partsSecondary');
+  @extend .text-medium;
+  letter-spacing: -0.32px;
+  color: map-get($background_color, 'partsPrimary');
 }
-  
+
 .input:focus-visible,
 .input:focus {
-    outline: 1px solid map-get($background_color, 'partsActiveSecondary');
-    border: 1px solid map-get($background_color, 'partsActiveSecondary');
+  outline: 1px solid map-get($background_color, 'partsActiveSecondary');
+  border: 1px solid map-get($background_color, 'partsActiveSecondary');
 }
 
 .inputPhoneNumber {
-    width: 351px;
-    height: 44px;
-    padding: 12px;
-    box-sizing: border-box;
-    background: map-get($background_color, 'primary');
-    @extend .text-medium;
-    letter-spacing: -0.32px;
-    color: map-get($background_color, 'partsPrimary');
-    outline: none;
+  width: 351px;
+  height: 44px;
+  padding: 12px;
+  box-sizing: border-box;
+  background: map-get($background_color, 'primary');
+  @extend .text-medium;
+  letter-spacing: -0.32px;
+  color: map-get($background_color, 'partsPrimary');
+  outline: none;
 }
-  
+
 .correctInput {
-    border: 1px solid map-get($background_color, 'partsSecondary');
+  border: 1px solid map-get($background_color, 'partsSecondary');
 }
-  
+
 .wrongInput {
-    border: 0.5px solid map-get($background_color, 'errorBorder');
+  border: 0.5px solid map-get($background_color, 'errorBorder');
 }
-  
+
 .errorMessage {
-    width: 351px;
-    height: 16px;
-    margin-top: 8px;
-    @extend .text-error-message;
-    letter-spacing: -0.078px;
-    color: map-get($text_color, 'errorMessage');
+  width: 351px;
+  height: 16px;
+  margin-top: 8px;
+  @extend .text-error-message;
+  letter-spacing: -0.078px;
+  color: map-get($text_color, 'errorMessage');
 }
-  

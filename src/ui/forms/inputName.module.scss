@@ -36,10 +36,8 @@
   color: map-get($background_color, 'partsPrimary');
 }
 
-
 .input:focus-visible,
 .input:focus {
   outline: 1px solid map-get($background_color, 'partsActiveSecondary');
   border: 1px solid map-get($background_color, 'partsActiveSecondary');
 }
-
