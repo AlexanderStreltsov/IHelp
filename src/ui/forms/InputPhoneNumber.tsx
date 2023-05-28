@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import styles from './input.module.scss';
+import styles from './inputPhoneNumber.module.scss';
 
 interface Props {
   /**

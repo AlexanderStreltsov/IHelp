@@ -1,0 +1,55 @@
+@import '../../common/_selectors';
+@import '../../common/_variable';
+
+.commentForm {
+    width: 375px;
+    height: 116px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    background: map-get($background_color, 'primary');
+    padding: 12px;
+  }
+
+.commentLabel {
+    width: 351px;
+    height: 18px;
+    font-family: 'GolosText';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: -0.154px;
+    color: map-get($text_color, 'ancillary');
+    margin-bottom: 8px;
+}
+
+.input {
+    width: 351px;
+    height: 44px;
+    padding: 12px;
+    box-sizing: border-box;
+    background: map-get($background_color, 'primary');
+    border: 1px solid map-get($background_color, 'partsSecondary');
+    @extend .text-medium;
+    letter-spacing: -0.32px;
+    color: map-get($background_color, 'partsPrimary');
+}
+
+.input:focus-visible,
+.input:focus {
+    outline: 1px solid map-get($background_color, 'partsActiveSecondary');
+    border: 1px solid map-get($background_color, 'partsActiveSecondary');
+}
+
+.commentInput {
+    width: 351px;
+    height: 64px;
+    padding: 12px;
+    box-sizing: border-box;
+    background: map-get($background_color, 'primary');
+    border: 1px solid map-get($background_color, 'partsSecondary');
+    @extend .text-medium;
+    letter-spacing: -0.32px;
+    color: map-get($text_color, 'common');
+}

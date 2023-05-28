@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './input.module.scss';
+import styles from './inputComment.module.scss';
 
 interface Props {
   /**
