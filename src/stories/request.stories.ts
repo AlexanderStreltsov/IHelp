@@ -2,7 +2,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Request } from '../components/request/Request';
 import { UserRole } from '../types/user-role';
-import api from '../api';
 
 const meta = {
   title: 'Example/Request',
