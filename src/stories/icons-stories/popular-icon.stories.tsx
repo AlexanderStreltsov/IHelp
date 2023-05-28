@@ -1,9 +1,9 @@
-import { ActiveRequestVersion1Icon } from '../../ui/icons/active-request-big-version-1-icon';
+import { PopularIcon } from '../../ui/icons/popular-icon';
 import { IIconProps } from '../../ui/icons/utils';
 
 export default {
   title: 'UI/Icons',
-  component: ActiveRequestVersion1Icon,
+  component: PopularIcon,
   argTypes: {
     color: {
       type: 'string',
@@ -40,6 +40,6 @@ export default {
 //   <ActiveRequestVersion1Icon color="dark-blue" />
 // );
 
-const Template1 = (args: IIconProps) => <ActiveRequestVersion1Icon {...args} />;
+const Template1 = (args: IIconProps) => <PopularIcon {...args} />;
 
-export const ActiveRequestVersion1 = Template1.bind({});
+export const Popular = Template1.bind({});

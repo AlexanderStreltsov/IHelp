@@ -1,9 +1,10 @@
-import { ActiveRequestVersion1Icon } from '../../ui/icons/active-request-big-version-1-icon';
+import { BlogIcon } from '../../ui/icons/blog-icon';
 import { IIconProps } from '../../ui/icons/utils';
 
 export default {
   title: 'UI/Icons',
-  component: ActiveRequestVersion1Icon,
+  tags: ['autodocs'],
+  component: BlogIcon,
   argTypes: {
     color: {
       type: 'string',
@@ -40,6 +41,6 @@ export default {
 //   <ActiveRequestVersion1Icon color="dark-blue" />
 // );
 
-const Template1 = (args: IIconProps) => <ActiveRequestVersion1Icon {...args} />;
+const Template1 = (args: IIconProps) => <BlogIcon {...args} />;
 
-export const ActiveRequestVersion1 = Template1.bind({});
+export const Blog = Template1.bind({});

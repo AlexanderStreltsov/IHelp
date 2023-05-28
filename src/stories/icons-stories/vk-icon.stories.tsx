@@ -1,9 +1,9 @@
-import { ActiveRequestVersion1Icon } from '../../ui/icons/active-request-big-version-1-icon';
+import { VkIcon } from '../../ui/icons/vk-icon';
 import { IIconProps } from '../../ui/icons/utils';
 
 export default {
   title: 'UI/Icons',
-  component: ActiveRequestVersion1Icon,
+  component: VkIcon,
   argTypes: {
     color: {
       type: 'string',
@@ -40,6 +40,6 @@ export default {
 //   <ActiveRequestVersion1Icon color="dark-blue" />
 // );
 
-const Template1 = (args: IIconProps) => <ActiveRequestVersion1Icon {...args} />;
+const Template1 = (args: IIconProps) => <VkIcon {...args} />;
 
-export const ActiveRequestVersion1 = Template1.bind({});
+export const Vk = Template1.bind({});

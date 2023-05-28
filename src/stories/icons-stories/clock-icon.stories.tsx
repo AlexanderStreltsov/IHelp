@@ -1,9 +1,10 @@
-import { ActiveRequestVersion1Icon } from '../../ui/icons/active-request-big-version-1-icon';
+import { ClockIcon } from '../../ui/icons/clock-icon';
 import { IIconProps } from '../../ui/icons/utils';
 
 export default {
   title: 'UI/Icons',
-  component: ActiveRequestVersion1Icon,
+  tags: ['autodocs'],
+  component: ClockIcon,
   argTypes: {
     color: {
       type: 'string',
@@ -40,6 +41,6 @@ export default {
 //   <ActiveRequestVersion1Icon color="dark-blue" />
 // );
 
-const Template1 = (args: IIconProps) => <ActiveRequestVersion1Icon {...args} />;
+const Template1 = (args: IIconProps) => <ClockIcon {...args} />;
 
-export const ActiveRequestVersion1 = Template1.bind({});
+export const Clock = Template1.bind({});

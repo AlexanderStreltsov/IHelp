@@ -4,6 +4,7 @@ import { IIconProps } from '../../ui/icons/utils';
 export default {
   title: 'UI/Icons',
   component: ActiveRequestVersion1Icon,
+  tags: ['autodocs'],
   argTypes: {
     color: {
       type: 'string',
