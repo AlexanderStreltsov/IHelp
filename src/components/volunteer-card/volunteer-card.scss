@@ -1,4 +1,5 @@
 @import '../../scss/mixins/fonts';
+@import '../../common/media';
 
 .card {
   display: flex;
@@ -8,6 +9,10 @@
   height: 258px;
   border: 1px solid #0071bc;
   margin: 50px auto 0 auto;
+  @include respond(small){
+    width: 175px;
+    height: 280px;
+  }
 }
 
 .cardcontent {
