@@ -40,6 +40,6 @@ export default {
 //   <ActiveRequestVersion1Icon color="dark-blue" />
 // );
 
-const Template1 = (args: IIconProps) => <SettingsIcon {...args} />;
+const Template = (args: IIconProps) => <SettingsIcon {...args} />;
 
-export const Settings = Template1.bind({});
+export const Settings = Template.bind({});

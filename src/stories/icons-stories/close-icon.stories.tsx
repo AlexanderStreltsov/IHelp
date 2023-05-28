@@ -41,6 +41,6 @@ export default {
 //   <ActiveRequestVersion1Icon color="dark-blue" />
 // );
 
-const Template1 = (args: IIconProps) => <CloseIcon {...args} />;
+const Template = (args: IIconProps) => <CloseIcon {...args} />;
 
-export const Close = Template1.bind({});
+export const Close = Template.bind({});

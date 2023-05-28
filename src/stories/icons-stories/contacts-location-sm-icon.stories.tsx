@@ -41,6 +41,6 @@ export default {
 //   <ActiveRequestVersion1Icon color="dark-blue" />
 // );
 
-const Template1 = (args: IIconProps) => <ContactsLocationSmIcon {...args} />;
+const Template = (args: IIconProps) => <ContactsLocationSmIcon {...args} />;
 
-export const ContactsLocationSm = Template1.bind({});
+export const ContactsLocationSm = Template.bind({});

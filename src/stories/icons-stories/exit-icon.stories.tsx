@@ -41,6 +41,6 @@ export default {
 //   <ActiveRequestVersion1Icon color="dark-blue" />
 // );
 
-const Template1 = (args: IIconProps) => <ExitIcon {...args} />;
+const Template = (args: IIconProps) => <ExitIcon {...args} />;
 
-export const Exit = Template1.bind({});
+export const Exit = Template.bind({});

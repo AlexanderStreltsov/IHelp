@@ -40,6 +40,6 @@ export default {
 //   <ActiveRequestVersion1Icon color="dark-blue" />
 // );
 
-const Template1 = (args: IIconProps) => <KeyIcon {...args} />;
+const Template = (args: IIconProps) => <KeyIcon {...args} />;
 
-export const Key = Template1.bind({});
+export const Key = Template.bind({});

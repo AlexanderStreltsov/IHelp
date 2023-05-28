@@ -41,6 +41,6 @@ export default {
 //   <ActiveRequestVersion1Icon color="dark-blue" />
 // );
 
-const Template1 = (args: IIconProps) => <AttachIcon {...args} />;
+const Template = (args: IIconProps) => <AttachIcon {...args} />;
 
-export const Attach = Template1.bind({});
+export const Attach = Template.bind({});

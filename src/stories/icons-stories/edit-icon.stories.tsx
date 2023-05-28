@@ -41,6 +41,6 @@ export default {
 //   <ActiveRequestVersion1Icon color="dark-blue" />
 // );
 
-const Template1 = (args: IIconProps) => <EditIcon {...args} />;
+const Template = (args: IIconProps) => <EditIcon {...args} />;
 
-export const Edit = Template1.bind({});
+export const Edit = Template.bind({});

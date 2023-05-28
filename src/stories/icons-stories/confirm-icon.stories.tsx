@@ -41,6 +41,6 @@ export default {
 //   <ActiveRequestVersion1Icon color="dark-blue" />
 // );
 
-const Template1 = (args: IIconProps) => <ConfirmIcon {...args} />;
+const Template = (args: IIconProps) => <ConfirmIcon {...args} />;
 
-export const Confirm = Template1.bind({});
+export const Confirm = Template.bind({});

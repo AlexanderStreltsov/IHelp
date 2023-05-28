@@ -41,6 +41,6 @@ export default {
 //   <ActiveRequestVersion1Icon color="dark-blue" />
 // );
 
-const Template1 = (args: IIconProps) => <ArrowIcon {...args} />;
+const Template = (args: IIconProps) => <ArrowIcon {...args} />;
 
-export const Arrow = Template1.bind({});
+export const Arrow = Template.bind({});

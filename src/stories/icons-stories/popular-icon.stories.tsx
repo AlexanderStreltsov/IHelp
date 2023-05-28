@@ -40,6 +40,6 @@ export default {
 //   <ActiveRequestVersion1Icon color="dark-blue" />
 // );
 
-const Template1 = (args: IIconProps) => <PopularIcon {...args} />;
+const Template = (args: IIconProps) => <PopularIcon {...args} />;
 
-export const Popular = Template1.bind({});
+export const Popular = Template.bind({});

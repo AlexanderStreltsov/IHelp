@@ -40,6 +40,6 @@ export default {
 //   <ActiveRequestVersion1Icon color="dark-blue" />
 // );
 
-const Template1 = (args: IIconProps) => <PhoneIcon {...args} />;
+const Template = (args: IIconProps) => <PhoneIcon {...args} />;
 
-export const Phone = Template1.bind({});
+export const Phone = Template.bind({});

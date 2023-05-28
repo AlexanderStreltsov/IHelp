@@ -41,6 +41,6 @@ export default {
 //   <ActiveRequestVersion1Icon color="dark-blue" />
 // );
 
-const Template1 = (args: IIconProps) => <FilterIcon {...args} />;
+const Template = (args: IIconProps) => <FilterIcon {...args} />;
 
-export const Filter = Template1.bind({});
+export const Filter = Template.bind({});

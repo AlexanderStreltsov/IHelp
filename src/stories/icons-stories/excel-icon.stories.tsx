@@ -41,6 +41,6 @@ export default {
 //   <ActiveRequestVersion1Icon color="dark-blue" />
 // );
 
-const Template1 = (args: IIconProps) => <ExcelIcon {...args} />;
+const Template = (args: IIconProps) => <ExcelIcon {...args} />;
 
-export const Excel = Template1.bind({});
+export const Excel = Template.bind({});

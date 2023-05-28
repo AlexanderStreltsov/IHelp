@@ -40,6 +40,6 @@ export default {
 //   <ActiveRequestVersion1Icon color="dark-blue" />
 // );
 
-const Template1 = (args: IIconProps) => <MenuIcon {...args} />;
+const Template = (args: IIconProps) => <MenuIcon {...args} />;
 
-export const Menu = Template1.bind({});
+export const Menu = Template.bind({});

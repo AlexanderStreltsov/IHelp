@@ -40,6 +40,6 @@ export default {
 //   <ActiveRequestVersion1Icon color="dark-blue" />
 // );
 
-const Template1 = (args: IIconProps) => <VkIcon {...args} />;
+const Template = (args: IIconProps) => <VkIcon {...args} />;
 
-export const Vk = Template1.bind({});
+export const Vk = Template.bind({});

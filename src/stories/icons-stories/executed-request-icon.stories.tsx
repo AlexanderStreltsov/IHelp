@@ -41,6 +41,6 @@ export default {
 //   <ActiveRequestVersion1Icon color="dark-blue" />
 // );
 
-const Template1 = (args: IIconProps) => <ExecutedRequestIcon {...args} />;
+const Template = (args: IIconProps) => <ExecutedRequestIcon {...args} />;
 
-export const ExecutedRequest = Template1.bind({});
+export const ExecutedRequest = Template.bind({});

@@ -41,6 +41,6 @@ export default {
 //   <ActiveRequestVersion1Icon color="dark-blue" />
 // );
 
-const Template1 = (args: IIconProps) => <ContactsIcon {...args} />;
+const Template = (args: IIconProps) => <ContactsIcon {...args} />;
 
-export const Contacts = Template1.bind({});
+export const Contacts = Template.bind({});

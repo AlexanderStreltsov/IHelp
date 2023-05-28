@@ -40,6 +40,6 @@ export default {
 //   <ActiveRequestVersion1Icon color="dark-blue" />
 // );
 
-const Template1 = (args: IIconProps) => <MapIcon {...args} />;
+const Template = (args: IIconProps) => <MapIcon {...args} />;
 
-export const Map = Template1.bind({});
+export const Map = Template.bind({});

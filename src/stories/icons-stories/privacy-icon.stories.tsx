@@ -40,6 +40,6 @@ export default {
 //   <ActiveRequestVersion1Icon color="dark-blue" />
 // );
 
-const Template1 = (args: IIconProps) => <PrivacyIcon {...args} />;
+const Template = (args: IIconProps) => <PrivacyIcon {...args} />;
 
-export const Privacy = Template1.bind({});
+export const Privacy = Template.bind({});

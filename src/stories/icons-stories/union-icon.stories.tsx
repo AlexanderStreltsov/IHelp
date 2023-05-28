@@ -40,6 +40,6 @@ export default {
 //   <ActiveRequestVersion1Icon color="dark-blue" />
 // );
 
-const Template1 = (args: IIconProps) => <UnionIcon {...args} />;
+const Template = (args: IIconProps) => <UnionIcon {...args} />;
 
-export const Union = Template1.bind({});
+export const Union = Template.bind({});

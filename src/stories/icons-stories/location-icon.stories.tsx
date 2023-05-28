@@ -40,6 +40,6 @@ export default {
 //   <ActiveRequestVersion1Icon color="dark-blue" />
 // );
 
-const Template1 = (args: IIconProps) => <LocationIcon {...args} />;
+const Template = (args: IIconProps) => <LocationIcon {...args} />;
 
-export const Location = Template1.bind({});
+export const Location = Template.bind({});

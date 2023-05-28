@@ -41,6 +41,6 @@ export default {
 //   <ActiveRequestVersion1Icon color="dark-blue" />
 // );
 
-const Template1 = (args: IIconProps) => <ClockIcon {...args} />;
+const Template = (args: IIconProps) => <ClockIcon {...args} />;
 
-export const Clock = Template1.bind({});
+export const Clock = Template.bind({});

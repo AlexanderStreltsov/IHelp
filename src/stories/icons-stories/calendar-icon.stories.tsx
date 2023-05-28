@@ -41,6 +41,6 @@ export default {
 //   <ActiveRequestVersion1Icon color="dark-blue" />
 // );
 
-const Template1 = (args: IIconProps) => <CalendarIcon {...args} />;
+const Template = (args: IIconProps) => <CalendarIcon {...args} />;
 
-export const Calendar = Template1.bind({});
+export const Calendar = Template.bind({});
