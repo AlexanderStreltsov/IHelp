@@ -11,8 +11,8 @@ import { ClockIcon } from '../../ui/icons/clock-icon';
 import { Button } from '../../ui/button/button';
 import { TUser } from '../../types';
 import api from '../../api';
-import avatar from '../../../images/avatar.svg';
-import back from '../../../images/back.svg';
+import avatar from '../../images/avatar.svg';
+import back from '../../images/back.svg';
 import { KeyIcon } from '../../ui/icons/key-icon';
 import { UnionIcon } from '../../ui/icons/union-icon';
 
@@ -20,20 +20,7 @@ const onButtonClick = (event: any) => {
   console.log('hello');
 };
 
-export const VolunteerCard: FC = (props) => {
-  //  Для тестирования функциональности компонента можно раскомментировать код ниже и вместо props использовать объект(ы), приходящий(ие) от апи
-
-  // const [usersState, setUsersState] = useState<TUser]>();
-
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     const users = await api.getAllUsers();
-  //     setUsersState(users);
-  //   }
-
-  //   fetchData();
-  // }, []);
-
+export const VolunteerCard = (props: { propsForCard: TUser }) => {
   return (
     <>
       <div className="card">
@@ -43,23 +30,25 @@ export const VolunteerCard: FC = (props) => {
             style={{ backgroundImage: `url(${avatar})` }}
           ></div>
           <p className="name">Петров Петр Петрович</p>
-          <p className="id">111111114</p>
+          <p className="id">ID 111111114</p>
           <div className="phone">
             <p className="phonetext"> Тел.:</p>
             <p className="phonenumber">+7(000) 000-00-04</p>
           </div>
           <div className="underlay" style={{ backgroundImage: `url(${back})` }}>
-            <div className="underlayitem">
-              <BallsIcon color="dark-blue" />
-              <p className="underlaynumber">2500</p>
-            </div>
-            <div className="underlayitem">
-              <KeyIcon color="dark-blue" />
-              <p className="underlaynumber">1</p>
-            </div>
-            <div className="underlayitem">
-              <UnionIcon color="dark-blue" />
-              <p className="underlaynumber">150</p>
+            <div className="underlayitems">
+              <div className="underlayitem">
+                <BallsIcon color="dark-blue" />
+                <p className="underlaynumber">2500</p>
+              </div>
+              <div className="underlayitem">
+                <KeyIcon color="dark-blue" />
+                <p className="underlaynumber">1</p>
+              </div>
+              <div className="underlayitem">
+                <UnionIcon color="dark-blue" />
+                <p className="underlaynumber">150</p>
+              </div>
             </div>
           </div>
           <div className="buttons">

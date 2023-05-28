@@ -19,40 +19,44 @@ type Story = StoryObj<typeof meta>;
 
 export const volunteerCard: Story = {
   args: {
-    id: 1,
-    fullname: 'Иванов Иван Иванович',
-    role: UserRole,
-    vk: 'https://vk.com/id2222222',
-    photo:
-      'https://plus.unsplash.com/premium_photo-1658507022538-357829d3f95d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80',
-    phone: '1 (223) 443 4435',
-    address: 'ул. Звездочётная, д.15',
-    coordinates: [22.32908767, 22.32908767],
-    approved: true,
-    checked: true,
-    keys: true,
-    adminStatus: 2,
-    scores: 10,
-    completed: 2,
+    propsForCard: {
+      id: 1,
+      fullname: 'Иванов Иван Иванович',
+      role: UserRole.Volunteer,
+      vk: 'https://vk.com/id2222222',
+      photo:
+        'https://plus.unsplash.com/premium_photo-1658507022538-357829d3f95d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80',
+      phone: '1 (223) 443 4435',
+      address: 'ул. Звездочётная, д.15',
+      coordinates: [22.32908767, 22.32908767],
+      approved: true,
+      checked: true,
+      keys: true,
+      adminStatus: 2,
+      scores: 10,
+      completed: 2,
+    },
   },
 };
 
 export const volunteerCard2: Story = {
   args: {
-    id: 1,
-    fullname: 'Петров Петр Петрович',
-    role: UserRole,
-    vk: 'https://vk.com/id11111111',
-    photo:
-      'https://images.unsplash.com/photo-1601931935934-17c3717239ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=927&q=80',
-    phone: '1 (223) 443 4435',
-    address: 'ул. Луночётная, д.15',
-    coordinates: [22.32908767, 22.32908767],
-    approved: true,
-    checked: true,
-    keys: true,
-    adminStatus: 1,
-    scores: 15,
-    completed: 1,
+    propsForCard: {
+      id: 1,
+      fullname: 'Петров Петр Петрович',
+      role: UserRole.Volunteer,
+      vk: 'https://vk.com/id11111111',
+      photo:
+        'https://images.unsplash.com/photo-1601931935934-17c3717239ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=927&q=80',
+      phone: '1 (223) 443 4435',
+      address: 'ул. Луночётная, д.15',
+      coordinates: [22.32908767, 22.32908767],
+      approved: true,
+      checked: true,
+      keys: true,
+      adminStatus: 1,
+      scores: 15,
+      completed: 1,
+    },
   },
 };
