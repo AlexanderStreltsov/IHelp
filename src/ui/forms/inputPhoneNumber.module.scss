@@ -38,7 +38,7 @@
 
 .input:focus-visible,
 .input:focus {
-  outline: 1px solid map-get($background_color, 'partsActiveSecondary');
+  outline: none;
   border: 1px solid map-get($background_color, 'partsActiveSecondary');
 }
 

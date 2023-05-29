@@ -4,7 +4,7 @@ import { InputName } from '../../ui/forms/InputName';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
-  title: 'Form/InputName',
+  title: 'UI/Form/InputName',
   component: InputName,
   tags: ['autodocs'],
   //argTypes: {

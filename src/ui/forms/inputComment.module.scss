@@ -16,9 +16,7 @@
   height: 18px;
   font-family: 'GolosText';
   font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
+  @extend .text-medium;
   letter-spacing: -0.154px;
   color: map-get($text_color, 'ancillary');
   margin-bottom: 8px;
@@ -38,7 +36,7 @@
 
 .input:focus-visible,
 .input:focus {
-  outline: 1px solid map-get($background_color, 'partsActiveSecondary');
+  outline: none;
   border: 1px solid map-get($background_color, 'partsActiveSecondary');
 }
 
@@ -52,4 +50,5 @@
   @extend .text-medium;
   letter-spacing: -0.32px;
   color: map-get($text_color, 'common');
+  resize: none;
 }

@@ -4,7 +4,7 @@ import { SelectSchool } from '../../ui/forms/SelectSchool';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
-  title: 'Form/SelectSchool',
+  title: 'UI/Form/SelectSchool',
   component: SelectSchool,
   tags: ['autodocs'],
   //argTypes: {

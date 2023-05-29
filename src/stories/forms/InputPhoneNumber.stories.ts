@@ -4,7 +4,7 @@ import { InputPhoneNumber } from '../../ui/forms/InputPhoneNumber';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
-  title: 'Form/InputPhoneNumber',
+  title: 'UI/Form/InputPhoneNumber',
   component: InputPhoneNumber,
   tags: ['autodocs'],
   //argTypes: {

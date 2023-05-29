@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './inputComment.module.scss';
 
 interface Props {
@@ -20,6 +20,10 @@ export const InputComment: React.FC<Props> = ({
   onChange,
 }: Props) => {
   const [value, setValue] = useState(initialValue);
+
+  useEffect(() => {
+    setValue(initialValue);
+  }, [initialValue]);
 
   const inputId = `input-name-${Math.random()}`;
   const onInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
