@@ -1,0 +1,64 @@
+@use 'sass:map';
+@import './src/scss/mixins/text';
+@import 'src/common/variable';
+
+.header {
+  width: 100%;
+  height: 88px;
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  height: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0 93px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.circle {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: map.get($background_color, partsPrimary);
+  border: 1px solid map.get($background_color, inactive);
+
+
+    margin: 0 auto;
+    // width: 18px;
+    // height: 18px;
+  
+
+  &:hover {
+    background-color: map.get($background_color, partsActivePrimary);
+  }
+
+  &:active {
+    background-color: map.get($background_color, partsPrimary);
+  }
+
+  &:disabled {
+    background-color: map.get($background_color, inactive);
+    cursor: auto;
+  }
+  z-index: 0;
+
+
+&::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: red;
+  border: 1px solid map.get($background_color, inactive);
+  z-index: 1;
+}
+}
