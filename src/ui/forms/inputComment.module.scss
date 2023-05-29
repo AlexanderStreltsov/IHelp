@@ -37,7 +37,7 @@
 .input:focus-visible,
 .input:focus {
   outline: none;
-  border: 1px solid map-get($background_color, 'partsActiveSecondary');
+  border: 1px solid rgba(0, 0, 0, 0.24);
 }
 
 .commentInput {
@@ -46,7 +46,7 @@
   padding: 12px;
   box-sizing: border-box;
   background: map-get($background_color, 'primary');
-  border: 1px solid map-get($background_color, 'partsSecondary');
+  border: 1px solid rgba(0, 0, 0, 0.12);
   @extend .text-medium;
   letter-spacing: -0.32px;
   color: map-get($text_color, 'common');
