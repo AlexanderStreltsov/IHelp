@@ -135,10 +135,10 @@ export const Filter = ({
     >
       <legend className={`${styles.legend} text-small-bold`}>Отображать</legend>
       <Checkbox
-        type="radio"
+        type={type === 'recipient' ? 'checkbox' : 'radio'}
         name="sorting"
         value="date"
-        check={type !== 'recipient' ? true : false}
+        check={true}
         form="checkbox"
         label="По дате"
         moduleOutStyles={styles.checkboxShow}
@@ -220,7 +220,6 @@ export const Filter = ({
         }
       }
     });
-    console.log(result);
     sendResult(result);
   };
 
@@ -281,3 +280,24 @@ export const Filter = ({
     </Popup>
   );
 };
+
+// Пример использования компонента в родительском компоненте
+
+// import { useState } from 'react';
+// import { Filter } from '../components/filter/filter';
+
+// export const ParentComponent = () => {
+//   const [filter, setFilter] = useState({});
+//   const [isShowFilter, setIsShowFilter] = useState(true);
+//   const getResult = (result: { [name: string]: string[] }) => {
+//     setFilter({ ...result });
+//     setIsShowFilter(false);
+//   };
+//   return (
+//     <>
+//       {isShowFilter && (
+//         <Filter sendResult={getResult} type="activeApplicationsVolunteer" />
+//       )}
+//     </>
+//   );
+// };

@@ -35,6 +35,9 @@ export const FilterVolunteerApplicationMap: Story = {
   name: 'Фильтр какрты заявок волонтёра',
   args: {
     type: 'volunteerApplicationMap',
+    sendResult: (result: { [name: string]: string[] }) => {
+      console.log(result);
+    },
   },
 };
 
@@ -42,6 +45,9 @@ export const FilterCompletedVolunteerApplications: Story = {
   name: 'Фильтр завершённых заявок волонтёра',
   args: {
     type: 'completedVolunteerApplications',
+    sendResult: (result: { [name: string]: string[] }) => {
+      console.log(result);
+    },
   },
 };
 
@@ -49,6 +55,9 @@ export const FilterActiveApplicationsVolunteer: Story = {
   name: 'Фильтр активных заявок волонтёра',
   args: {
     type: 'activeApplicationsVolunteer',
+    sendResult: (result: { [name: string]: string[] }) => {
+      console.log(result);
+    },
   },
 };
 
@@ -56,6 +65,9 @@ export const FilterRecipient: Story = {
   name: 'Фильтр реципиента',
   args: {
     type: 'recipient',
+    sendResult: (result: { [name: string]: string[] }) => {
+      console.log(result);
+    },
   },
 };
 
@@ -63,6 +75,9 @@ export const FilterAdmin: Story = {
   name: 'Фильтр администратора',
   args: {
     type: 'admin',
+    sendResult: (result: { [name: string]: string[] }) => {
+      console.log(result);
+    },
   },
 };
 
