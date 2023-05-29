@@ -1,4 +1,4 @@
-import { TriplexUnionIcon } from '../../ui/icons/triplex-unity-icon';
+import { TriplexUnionIcon } from '../../ui/icons/triplex-union-icon';
 import { IIconProps } from '../../ui/icons/utils';
 
 export default {
