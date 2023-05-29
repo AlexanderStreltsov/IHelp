@@ -3,7 +3,6 @@ import { IIconProps } from '../../ui/icons/utils';
 
 export default {
   title: 'UI/Icons',
-  tags: ['autodocs'],
   component: ConfirmIcon,
   argTypes: {
     color: {
