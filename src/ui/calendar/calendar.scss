@@ -31,7 +31,7 @@
   }
 
   &__header {
-    padding: 14px 0 0;
+    padding: 10px 0 0;
     background: inherit;
     border-bottom: none;
 
@@ -75,7 +75,7 @@
   }
 
   &__current-month {
-    margin: 0 0 11px;
+    margin: 0 0 10px;
     color: map.get($text_color, primary);
     text-transform: capitalize;
     @include text(16px, 600, 22px);
@@ -84,12 +84,13 @@
   &__day-names {
     margin: 0 12px;
     display: flex;
-    gap: 19px;
+    gap: 19.3px;
     justify-content: center;
     @include text(12px, 400, 16px);
   }
 
   &__day-name {
+    margin: 0;
     width: 24px;
     text-transform: uppercase;
     color: map.get($text_color, inactive);
@@ -106,11 +107,12 @@
 
   &__week {
     display: flex;
-    gap: 19px;
+    gap: 19.3px;
     justify-content: center;
   }
 
   &__day {
+    margin: 0;
     display: flex;
     align-items: center;
     justify-content: center;
