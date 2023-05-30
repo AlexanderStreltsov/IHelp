@@ -1,0 +1,27 @@
+@import '../../common/variable';
+@import '../../common/selectors';
+
+.mark {
+  width: 53px;
+  height: 53px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 26px;
+  background-color: map-get($background_color, partsPrimary);
+}
+
+.hint {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 94px;
+  height: 40px;
+  background-color: map-get($background_color, alternative);
+  color: map-get($text_color, additional)
+}
+
+.hintSpan {
+  @extend .text-big;
+  margin-right: 5px;
+}
