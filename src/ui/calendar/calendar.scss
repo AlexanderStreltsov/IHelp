@@ -1,0 +1,113 @@
+@use 'sass:map';
+@import 'react-datepicker/dist/react-datepicker';
+@import '../../common/variable';
+@import '../../scss/mixins/text';
+
+.react-datepicker {
+  border-radius: 10px;
+  border-color: map.get($background_color, borderLigthGray);
+
+  &__triangle {
+    display: none;
+  }
+
+  &__header {
+    padding: 14px 0 0;
+    background: inherit;
+    border-bottom: none;
+  }
+
+  &__navigation {
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    border: 1.5px solid map.get($background_color, partsSecondary);
+    top: 16px;
+
+    &--previous {
+      left: 15px;
+    }
+
+    &--next {
+      right: 15px;
+    }
+  }
+
+  &__navigation-icon {
+    &::before {
+      border-color: map.get($text_color, inactive);
+      border-width: 1.5px 1.5px 0 0;
+      height: 5px;
+      width: 5px;
+      top: 9px;
+    }
+
+    &--previous {
+      left: -3px;
+    }
+
+    &--next {
+      left: 3px;
+    }
+  }
+
+  &__current-month {
+    margin: 0 0 11px;
+    color: map.get($text_color, primary);
+    text-transform: capitalize;
+    @include text(16px, 600, 22px);
+  }
+
+  &__day-names {
+    margin: 0 12px;
+    display: flex;
+    gap: 19px;
+    justify-content: center;
+    @include text(12px, 400, 16px);
+  }
+
+  &__day-name {
+    width: 24px;
+    text-transform: uppercase;
+    color: map.get($text_color, inactive);
+
+    &:nth-child(6),
+    &:nth-child(7) {
+      color: map.get($text_color, mainRed);
+    }
+  }
+
+  &__month {
+    margin: 0 12px 7px;
+  }
+
+  &__week {
+    display: flex;
+    gap: 19px;
+    justify-content: center;
+  }
+
+  &__day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+    @include text(10px, 400, 14px);
+
+    &:hover,
+    &--keyboard-selected {
+      background: map.get($background_color, partsSecondary);
+      border-radius: 2px;
+    }
+
+    &--selected {
+      background: map.get($background_color, partsPrimary);
+    }
+
+    &--outside-month {
+      color: map.get($text_color, inactive);
+    }
+  }
+}
