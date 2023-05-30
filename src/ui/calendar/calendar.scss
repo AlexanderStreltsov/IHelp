@@ -3,9 +3,28 @@
 @import '../../common/variable';
 @import '../../scss/mixins/text';
 
+.custom-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  @include text(12px, 400, 14px);
+}
+
 .react-datepicker {
   border-radius: 10px;
   border-color: map.get($background_color, borderLigthGray);
+
+  &--time-only {
+    border-radius: 2px;
+  }
+
+  &__input-container input {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid map.get($background_color, borderLigthGray);
+    color: map.get($text_color, ancillary);
+    @include text(12px, 400, 14px);
+  }
 
   &__triangle {
     display: none;
@@ -15,6 +34,10 @@
     padding: 14px 0 0;
     background: inherit;
     border-bottom: none;
+
+    &--time--only {
+      padding: 0;
+    }
   }
 
   &__navigation {
@@ -108,6 +131,21 @@
 
     &--outside-month {
       color: map.get($text_color, inactive);
+    }
+  }
+
+  &__time-list-item {
+    height: auto !important;
+    padding: 10px !important;
+    @include text(12px, 400, 14px);
+
+    &:hover {
+      background: map.get($background_color, partsSecondary) !important;
+    }
+
+    &--selected {
+      background: map.get($background_color, partsPrimary) !important;
+      font-weight: normal !important;
     }
   }
 }
