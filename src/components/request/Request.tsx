@@ -14,10 +14,14 @@ import { TTask } from '../../types';
 const onButtonClick = (event: any) => {
   if (event.target.innerHTML === 'Читать') {
     event.target.innerHTML = 'Свернуть';
+    event.target.className = 'contenthide fulltext';
+    document.getElementById('requestcount')!.style.marginTop = '5px';
+    document.getElementById('requestcount')!.style.marginLeft = '0px';
     document.getElementById('conttext')!.className = 'contenttextshow';
   } else {
     event.target.innerHTML = 'Читать';
-    document.getElementById('conttext')!.className = 'box';
+    event.target.className = 'contenthide';
+    document.getElementById('conttext')!.className = 'box text-medium';
   }
 };
 
@@ -109,24 +113,31 @@ export const Request = (props: { propsForRequest: TTask }) => {
             </div>
           </div>
           <div className="content">
-            <h1 className="contentheader text-big">
+            <div className="contentheader text-big">
               {props.propsForRequest.title}
-            </h1>
-            <div className="box text-medium" id="conttext">
-              <input type="checkbox" id="expanded" />
-              <p>{props.propsForRequest.description}</p>
-              <label
-                htmlFor="expanded"
-                className="contenthide text-medium"
-                id="contenthide"
-                onClick={onButtonClick}
-                role="button"
-              >
-                Читать
-              </label>
+              <div className="box text-medium" id="conttext">
+                <input type="checkbox" id="expanded" />
+                <p>
+                  Пожалуйста, погуляйте с моей собакой, я не смогу ее выгуливать
+                  с 12.06 по 24.06 потому что уеду на обследование к врачу. Если
+                  есть желающие помочь в выгуле собаки, то звоните, 89041627779,
+                  Елена. Собаку зовут Айка, порода - немецкая овчарка, возраст -
+                  полтора года. Собака очень умная, послушная, добрая,
+                  спокойная.
+                  {/* {props.propsForRequest.description} */}
+                  <label
+                    htmlFor="expanded"
+                    className="contenthide text-medium"
+                    id="contenthide"
+                    onClick={onButtonClick}
+                    role="button"
+                  >
+                    Читать
+                  </label>
+                </p>
+              </div>
             </div>
-
-            <div className="requestcount text-small">
+            <div className="requestcount text-small" id="requestcount">
               {/* {props.propsForRequest.completed &&  */}
               <BallsIcon color="dark-blue" />
               <div>{props.propsForRequest.recipient.scores}</div>
@@ -136,16 +147,18 @@ export const Request = (props: { propsForRequest: TTask }) => {
             <div className="date">
               <CalendarIcon className="dateicon" color="dark-blue" />
               <p className="datetext">
-                {props.propsForRequest.date
+                24.10.2022
+                {/* {props.propsForRequest.date
                   .toString()
                   .slice(0, 10)
-                  .replace(/-/g, '.')}
+                  .replace(/-/g, '.')} */}
               </p>
             </div>
             <div className="time">
               <ClockIcon className="timeicon" color="dark-blue" />
               <p className="timetext">
-                {props.propsForRequest.date.toString().slice(11, 16)}
+                16:00
+                {/* {props.propsForRequest.date.toString().slice(11, 16)} */}
               </p>
             </div>
             <div className="address">

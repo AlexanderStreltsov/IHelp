@@ -17,9 +17,11 @@ p {
   justify-content: flex-end;
   width: 100%;
   height: 219px;
-  margin: 0 auto;
+  margin: 5px auto 0 auto;
   max-width: 950px;
   padding: 0 0 27px 0;
+  border-bottom: 1px solid;
+  border-image-source: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #2E3192 49.28%, rgba(255, 255, 255, 0) 100%);
 }
 @media (max-width: 960px) {
   .request {
@@ -37,10 +39,9 @@ p {
   flex-wrap: wrap;
   flex-direction: row-reverse;
   justify-content: space-between;
-  width: 83px;
-  height: 84.04px;
+  width: 90px;
   position: absolute;
-  top: 0;
+  top: -5px;
   right: 0;
   margin-left: 16px;
 }
@@ -48,6 +49,7 @@ p {
 .volunteer {
   display: flex;
   flex-direction: column;
+  margin-left: 27px;
 }
 
 .volunteerinfo {
@@ -68,17 +70,17 @@ p {
 .infotext {
   display: flex;
   flex-direction: column;
-  margin-left: 5px;
 }
 
 .avatar {
-  width: 100px;
-  height: 100px;
+  width: 104px;
+  height: 104px;
   border-radius: 50%;
-  margin: 7.12px auto 2px auto;
+  margin: 5px auto 0 auto;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  margin-bottom: 5px;
 }
 @media (max-width: 960px) {
   .avatar {
@@ -122,11 +124,13 @@ p {
 .icons {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  gap: 8px;
+  /* justify-content: space-between; */
   position: relative;
-  left: 8px;
-  width: 72px;
+  left: 9px;
+  width: 70px;
   margin: 0 auto;
+  padding-right: 10px;
 }
 @media (max-width: 960px) {
   .icons {
@@ -154,9 +158,9 @@ p {
 
 .contentheader {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   color: #9798c9;
-  margin: 42px 0 10px 0;
+  margin: 40px 0 10px 5px;
 }
 @media (max-width: 960px) {
   .contentheader {
@@ -175,11 +179,10 @@ p {
 }
 .box p {
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  max-width: 81.3%;
-  margin-top: 0;
+  max-width: 395px;
 }
 .box p:not(.truncated) ~ label {
   display: none;
@@ -196,12 +199,13 @@ p {
 
 .box {
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   align-items: center;
   color: #2c2d2e;
   white-space: normal;
   width: 91.4%;
+  margin-top: 10px;
 }
 .box p {
   line-height: 19px;
@@ -223,6 +227,16 @@ p {
   color: #2c2d2e;
 }
 
+.contenttextshow p{
+  font-family: "GolosText";
+    font-style: normal;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    margin-top: 10px;
+    width: 333px;
+}
+
 @media (max-width: 960px) {
   .contenttextshow {
     line-height: 29px;
@@ -232,7 +246,6 @@ p {
 .contenthide {
   display: flex;
   align-items: center;
-  display: flex;
   background-color: transparent;
   border: none;
   color: #2e3192;
@@ -240,8 +253,10 @@ p {
   height: 15px;
   z-index: 100;
   position: relative;
-  left: 81.3%;
-  bottom: 15px;
+  top: -17px; 
+  left: 86%;
+  /*left: 39%;
+  bottom: 16px; */
 }
 .contenthide:hover {
   cursor: pointer;
@@ -253,15 +268,26 @@ p {
   }
 }
 
+.fulltext{
+  position: relative;
+  top: -17px; 
+  left: 48%;
+}
+
 .requestcount {
   display: flex;
   align-items: center;
   flex-direction: row;
-  width: 56px;
-  height: 32px;
   color: #2e3192;
-  margin-top: 28px;
+  margin-top: 24px;
+  margin-left: 7px;
 }
+
+.requestcount svg {
+  width: 53px;
+  height: 42px;
+}
+
 @media (max-width: 960px) {
   .requestcount {
     margin-top: 5px;
@@ -344,12 +370,12 @@ p {
   height: 36px;
   text-align: center;
   color: #2e3192;
-  margin: 0;
   font-family: 'GolosText';
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
   line-height: 29px;
+  margin-bottom: 2px;
 }
 @media (max-width: 960px) {
   .datetext {
@@ -374,7 +400,7 @@ p {
   flex-direction: row;
   max-height: 29px;
   align-items: center;
-  margin: 0 5px 5px 0;
+  margin: 5px 5px 5px 0;
 }
 @media (max-width: 960px) {
   .time {
@@ -393,7 +419,6 @@ p {
   align-items: center;
   width: 63px;
   height: 29px;
-  margin: 0;
   text-align: center;
   color: #2e3192;
   font-family: 'GolosText';
@@ -426,9 +451,9 @@ p {
 }
 
 .addressicon {
-  width: 27px;
-  height: 27px;
-  margin: 0 0px 5px -5px;
+  width: 32px;
+  height: 32px;
+  margin: 16px 0px 5px -8px;
 }
 
 .addresstext {
@@ -442,6 +467,7 @@ p {
   font-weight: 400;
   font-size: 16px;
   line-height: 19px;
+  margin-top: 10px;
 }
 @media (max-width: 960px) {
   .addresstext {
