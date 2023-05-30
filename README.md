@@ -2,11 +2,12 @@
 
 ### Описание проекта
 
-[Бриф](https://www.notion.so/3-9-4fb37047c4064717973bd79ab22a79b0)
+[Бриф](https://www.notion.so/3-9-4fb37047c4064717973bd79ab22a79b0)<br>
+[Дизайн Figma](<https://www.figma.com/file/xYLbl9kLmcAwYCbAhCFMCy/%D0%AF%D0%9F%D0%BE%D0%BC%D0%BE%D0%B3%D0%B0%D1%8E-(Web)?type=design&node-id=179%3A1699&t=HpHfl6XqdAYSkylY-1>)
 
 ### Ссылки на проект (dev)
 
-[DEV server](https://alexanderstreltsov.github.io/IHelp) <br>
+[DEV server](https://alexanderstreltsov.github.io/IHelp)<br>
 [DEV swagger api mock](https://app.swaggerhub.com/apis/WEB77_1/IHelp/1.1.0)
 
 ### Стек технологий
@@ -19,10 +20,10 @@
 
 ### Локальная разработка (основные команды)
 
-При разраотке используется nodejs версии 18.16 <br><br>
-Используйте `npm install` или `npm ci` для установки зависимостей npm <br>
-Для запуска проекта `npm start` <br>
-Для сборки проекта (получение конечного бандла) `npm run build` <br><br>
+При разработке используется node.js версии 18.16<br><br>
+Для установки зависимостей npm `npm install` или `npm ci` <br>
+Для запуска проекта `npm start`<br>
+Для сборки проекта (получение конечного бандла) `npm run build`<br><br>
 Для проверки кода линтером ESLint `npm run lint`<br>
 Для автоматического разрешения конфликтов, найденных линтером `npm run lint:fix`<br>
 Для проверки корректного форматирования кода `npm run prettier`<br>
