@@ -1,0 +1,67 @@
+@use 'sass:map';
+@import 'src/common/variable';
+
+.container {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  @media screen and (max-width: 1023px) {
+    flex-direction: column;
+    gap: 25px;
+    align-items: flex-end;
+    height: unset;
+  }
+}
+
+.item {
+  min-width: 134px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media screen and (max-width: 1023px) {
+    flex-direction: row-reverse;
+    gap: 5px;
+    box-sizing: border-box;
+    padding-bottom: 5px;
+  }
+
+  &.current {
+    @media screen and (max-width: 1023px) {
+      border-bottom: 4px solid map.get($background_color, partsPrimary);
+    }
+  }
+}
+
+.link {
+  display: block;
+  box-sizing: border-box;
+  padding: 2px 7px 8px;
+  border-bottom: 4px solid transparent;
+  transition: border-bottom 0.2s linear;
+
+  @media screen and (max-width: 1023px) {
+    transition: unset;
+    padding: 0;
+    text-align: right;
+  }
+
+  &:hover {
+    cursor: pointer;
+    border-bottom: 4px solid map.get($background_color, partsSecondary);
+  }
+}
+
+.current span,
+.current:hover span {
+  border-bottom: 4px solid map.get($background_color, partsPrimary);
+
+  @media screen and (max-width: 1023px) {
+    border-bottom: unset;
+  }
+}
