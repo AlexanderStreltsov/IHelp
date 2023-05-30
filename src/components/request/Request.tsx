@@ -15,8 +15,9 @@ const onButtonClick = (event: any) => {
   if (event.target.innerHTML === 'Читать') {
     event.target.innerHTML = 'Свернуть';
     event.target.className = 'contenthide fulltext';
-    document.getElementById('requestcount')!.style.marginTop = '5px';
-    document.getElementById('requestcount')!.style.marginLeft = '0px';
+    document.getElementById('requestcount')!.style.marginTop = '-25px';
+    document.getElementById('requestcount')!.style.marginLeft = '-10px';
+    document.getElementById('header')!.style.marginBottom = '0px';
     document.getElementById('conttext')!.className = 'contenttextshow';
   } else {
     event.target.innerHTML = 'Читать';
@@ -113,29 +114,28 @@ export const Request = (props: { propsForRequest: TTask }) => {
             </div>
           </div>
           <div className="content">
-            <div className="contentheader text-big">
+            <div className="contentheader text-big" id="header">
               {props.propsForRequest.title}
-              <div className="box text-medium" id="conttext">
-                <input type="checkbox" id="expanded" />
-                <p>
-                  Пожалуйста, погуляйте с моей собакой, я не смогу ее выгуливать
-                  с 12.06 по 24.06 потому что уеду на обследование к врачу. Если
-                  есть желающие помочь в выгуле собаки, то звоните, 89041627779,
-                  Елена. Собаку зовут Айка, порода - немецкая овчарка, возраст -
-                  полтора года. Собака очень умная, послушная, добрая,
-                  спокойная.
-                  {/* {props.propsForRequest.description} */}
-                  <label
-                    htmlFor="expanded"
-                    className="contenthide text-medium"
-                    id="contenthide"
-                    onClick={onButtonClick}
-                    role="button"
-                  >
-                    Читать
-                  </label>
-                </p>
-              </div>
+            </div>
+            <div className="box text-medium" id="conttext">
+              <input type="checkbox" id="expanded" />
+              <p>
+                Пожалуйста, погуляйте с моей собакой, я не смогу ее выгуливать с
+                12.06 по 24.06 потому что уеду на обследование к врачу. Если
+                есть желающие помочь в выгуле собаки, то звоните, 89041627779,
+                Елена. Собаку зовут Айка, порода - немецкая овчарка, возраст -
+                полтора года. Собака очень умная, послушная, добрая, спокойная.
+                {/* {props.propsForRequest.description} */}
+                <label
+                  htmlFor="expanded"
+                  className="contenthide text-medium"
+                  id="contenthide"
+                  onClick={onButtonClick}
+                  role="button"
+                >
+                  Читать
+                </label>
+              </p>
             </div>
             <div className="requestcount text-small" id="requestcount">
               {/* {props.propsForRequest.completed &&  */}

@@ -16,6 +16,7 @@ p {
   position: relative;
   justify-content: flex-end;
   width: 100%;
+  max-width: 889px;
   height: 219px;
   margin: 5px auto 0 auto;
   max-width: 950px;
@@ -49,7 +50,7 @@ p {
 .volunteer {
   display: flex;
   flex-direction: column;
-  margin-left: 27px;
+  margin-left: 17px;
 }
 
 .volunteerinfo {
@@ -143,8 +144,9 @@ p {
   display: flex;
   flex-direction: column;
   width: calc(100% - 502px);
-  margin-left: 5px;
+  margin-left: 15px;
   margin-right: 20px;
+  padding-top: 40px;
 }
 @media (max-width: 960px) {
   .content {
@@ -160,7 +162,7 @@ p {
   display: flex;
   flex-direction: column;
   color: #9798c9;
-  margin: 40px 0 10px 5px;
+  margin: 0;
 }
 @media (max-width: 960px) {
   .contentheader {
@@ -279,13 +281,12 @@ p {
   align-items: center;
   flex-direction: row;
   color: #2e3192;
-  margin-top: 24px;
-  margin-left: 7px;
 }
 
 .requestcount svg {
   width: 53px;
   height: 42px;
+  padding-top: 35px;
 }
 
 @media (max-width: 960px) {
