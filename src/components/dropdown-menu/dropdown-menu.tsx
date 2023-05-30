@@ -1,10 +1,8 @@
 import { FC, useState } from 'react';
 
 import { Button } from '../../ui/button/button';
-
-import { MessageIcon } from '../../ui/icons/message-icon';
+import { TriplexUnionIcon } from '../../ui/icons/triplex-union-icon';
 import { ExitIcon } from '../../ui/icons/exit-icon';
-import { UnionIcon } from '../../ui/icons/union-icon';
 
 import styles from './dropdown-menu.module.scss';
 
@@ -17,20 +15,18 @@ const DropdownMenu: FC = () => {
 
   return (
     <div className={styles.container}>
-      <button className={styles.button} onClick={dropdownHandler}>
-        <MessageIcon color="dark-blue" />
-        <ExitIcon color="dark-blue" />
-        <UnionIcon color="dark-blue" />
-      </button>
+      <TriplexUnionIcon
+        className={styles.button}
+        color="dark-blue"
+        onClick={dropdownHandler}
+      />
       {menuVisible && (
         <ul className={styles.dropdown}>
           <li className={styles.item}>
             <span className={`${styles.link} text-medium`}>
               Написать администратору
             </span>
-            <Button onClick={() => {}} type="circleSmallEmail" disabled={false}>
-              Написать администратору
-            </Button>
+            <Button onClick={() => {}} type="circleSmallEmail" />
           </li>
           <li className={styles.item}>
             <span className={`${styles.link} text-medium`}>Выйти</span>
