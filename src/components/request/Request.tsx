@@ -22,6 +22,8 @@ const onButtonClick = (event: any) => {
   } else {
     event.target.innerHTML = 'Читать';
     event.target.className = 'contenthide';
+    document.getElementById('requestcount')!.style.marginTop = '0px';
+    document.getElementById('requestcount')!.style.marginLeft = '0px';
     document.getElementById('conttext')!.className = 'box text-medium';
   }
 };
