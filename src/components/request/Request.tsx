@@ -16,7 +16,6 @@ const onButtonClick = (event: any) => {
     event.target.innerHTML = 'Свернуть';
     event.target.className = 'contenthide fulltext';
     document.getElementById('requestcount')!.style.marginTop = '-25px';
-    document.getElementById('requestcount')!.style.marginLeft = '-10px';
     document.getElementById('header')!.style.marginBottom = '0px';
     document.getElementById('conttext')!.className = 'contenttextshow';
   } else {
@@ -122,12 +121,7 @@ export const Request = (props: { propsForRequest: TTask }) => {
             <div className="box text-medium" id="conttext">
               <input type="checkbox" id="expanded" />
               <p>
-                Пожалуйста, погуляйте с моей собакой, я не смогу ее выгуливать с
-                12.06 по 24.06 потому что уеду на обследование к врачу. Если
-                есть желающие помочь в выгуле собаки, то звоните, 89041627779,
-                Елена. Собаку зовут Айка, порода - немецкая овчарка, возраст -
-                полтора года. Собака очень умная, послушная, добрая, спокойная.
-                {/* {props.propsForRequest.description} */}
+                {props.propsForRequest.description}
                 <label
                   htmlFor="expanded"
                   className="contenthide text-medium"
@@ -149,18 +143,16 @@ export const Request = (props: { propsForRequest: TTask }) => {
             <div className="date">
               <CalendarIcon className="dateicon" color="dark-blue" />
               <p className="datetext">
-                24.10.2022
-                {/* {props.propsForRequest.date
+                {props.propsForRequest.date
                   .toString()
                   .slice(0, 10)
-                  .replace(/-/g, '.')} */}
+                  .replace(/-/g, '.')}
               </p>
             </div>
             <div className="time">
               <ClockIcon className="timeicon" color="dark-blue" />
               <p className="timetext">
-                16:00
-                {/* {props.propsForRequest.date.toString().slice(11, 16)} */}
+                {props.propsForRequest.date.toString().slice(11, 16)}
               </p>
             </div>
             <div className="address">
