@@ -45,6 +45,11 @@
   display: flex;
   color: #000000;
   margin: 41px auto 5px auto;
+  @include respond(small){
+    width: 197px;
+    height: 14px;
+    @include text(12px, 400, 14px);
+  }
 }
 
 .id {
