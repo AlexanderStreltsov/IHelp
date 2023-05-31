@@ -21,12 +21,12 @@ const Dropdown: FC = () => {
   return (
     <div className={styles.container}>
       <TriplexUnionIcon
-        className={`${styles.button} mobileHide`}
+        className={`${styles.button} ${styles.mobileHide}`}
         color="dark-blue"
         onClick={dropdownHandler}
       />
       <MenuIcon
-        className={`${styles.button} mobileVisible`}
+        className={`${styles.button} ${styles.mobileVisible}`}
         color="dark-blue"
         onClick={dropdownHandler}
       />
@@ -38,7 +38,7 @@ const Dropdown: FC = () => {
             </span>
             <Button onClick={() => {}} type="circleSmallEmail" />
           </li>
-          <li className={`${styles.item} mobileVisible`}>
+          <li className={`${styles.item} ${styles.mobileVisible}`}>
             <Navigation items={navigationItems} />
           </li>
           <li className={styles.item}>

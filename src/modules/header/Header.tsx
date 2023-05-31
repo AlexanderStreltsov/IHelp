@@ -45,7 +45,7 @@ const Header: FC = () => {
           className="mobileVisible"
         />
         <Logo />
-        <Navigation items={navigationItems} className="mobileHide" />
+        <Navigation items={navigationItems} className={styles.mobileHide} />
         <Dropdown />
       </div>
     </header>

@@ -22,18 +22,3 @@
   @extend .text-small;
   font-weight: 700;
 }
-
-// селекторы управления видимостью элементов на десктоп версии и мобильной версии
-.mobileHide {
-  @media screen and (max-width: 1023px) {
-    display: none;
-  }
-}
-
-.mobileVisible {
-  display: none;
-
-  @media screen and (max-width: 1023px) {
-    display: block;
-  }
-}

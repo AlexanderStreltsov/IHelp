@@ -39,3 +39,9 @@
     border-image-source: map.get($background_color, horizontalGradient);
   }
 }
+
+.mobileHide {
+  @media screen and (max-width: 1023px) {
+    display: none;
+  }
+}

@@ -71,14 +71,13 @@
     & > .link {
       color: map.get($text_color, primary);
 
-      @media screen and (max-width: 1080px) {
+      @media screen and (max-width: 1023px) {
         color: map.get($text_color, additional);
         @include text(12px, 400, 14px);
       }
     }
 
     & > * {
-
       z-index: 2;
     }
   }
@@ -86,6 +85,20 @@
   &:last-of-type {
     border-top: 1px solid #E0E0E0;
     padding-bottom: 0;
+  }
+}
+
+.mobileHide {
+  @media screen and (max-width: 1023px) {
+    display: none;
+  }
+}
+
+.mobileVisible {
+  display: none;
+
+  @media screen and (max-width: 1023px) {
+    display: block;
   }
 }
 
