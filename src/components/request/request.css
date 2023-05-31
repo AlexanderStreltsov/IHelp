@@ -35,7 +35,7 @@ p {
     flex-direction: column;
     justify-content: flex-start;
     height: 436px;
-    width: auto;
+    width: 365px;
     max-width: 650px;
     margin: 0 25px 0 25px;
     padding: 0;
@@ -79,8 +79,7 @@ p {
 }
 @media (max-width: 960px) {
   .volunteerinfo {
-    width: 310px;
-    height: 60px;
+    width: 390px;
     flex-direction: row;
     flex-wrap: wrap;
     margin-top: 45px;
@@ -91,6 +90,12 @@ p {
 .infotext {
   display: flex;
   flex-direction: column;
+}
+
+@media (max-width: 960px) {
+  .infotext {
+  margin-top: 10px;
+  }
 }
 
 .avatar {
@@ -125,9 +130,13 @@ p {
 }
 @media (max-width: 960px) {
   .text {
-    display: flex;
+    display: inline-block;
     height: 29px;
+    width: 260px;
     margin: 0;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
 
@@ -141,7 +150,7 @@ p {
 }
 @media (max-width: 960px) {
   .teltext {
-    margin: 10px 0 10px 0;
+    margin: 0 0 10px 0;
   }
 }
 
@@ -196,7 +205,7 @@ p {
 @media (max-width: 960px) {
   .contentheader {
     width: 100vw;
-    margin: 20px 0 5px 0;
+    margin: 10px 0 5px 0;
     overflow: hidden;
   }
 }
@@ -251,7 +260,7 @@ p {
   .box p {
     line-height: 29px;
     -webkit-line-clamp: 4;
-    width: 90%;
+    width: 73%;
     margin-top: -5px;
   }
 }
@@ -317,6 +326,14 @@ p {
   left: 24%;
 }
 
+@media (max-width: 960px) {
+  .fulltext{
+    position: relative;
+    top: -22px;
+    left: 36%;
+  }
+}
+
 .requestcount {
   display: flex;
   align-items: center;
@@ -332,9 +349,9 @@ p {
 
 @media (max-width: 960px) {
   .requestcount {
-    margin-right: 20px;
+    margin-right: 8px;
     margin-left: auto;
-    margin-top: 5px;
+    margin-top: -5px;
     border-bottom: 1px solid;
     border-image-source: linear-gradient(
       90deg,
@@ -351,12 +368,6 @@ p {
   }
 }
 
-.requesticon {
-  width: 43px;
-  height: 32px;
-  margin: 0;
-}
-
 .category {
   display: flex;
   flex-direction: column;
@@ -368,7 +379,7 @@ p {
   .category {
     flex-direction: row;
     flex-wrap: wrap;
-    width: 222px;
+    width: 235px;
     justify-content: flex-start;
     top: 0;
   }
@@ -435,7 +446,7 @@ p {
 @media (max-width: 960px) {
   .date {
     max-height: 29px;
-    margin-top: 10px;
+    margin-top: 15px;
     margin-left: 10px;
   }
   .datetext {
@@ -464,7 +475,7 @@ p {
 }
 @media (max-width: 960px) {
   .time {
-    margin: 10px 0 0 0;
+    margin: 15px 0 0 9px;
   }
 }
 
@@ -543,7 +554,7 @@ p {
     display: flex;
     color: #2e3192;
     margin-top: 0;
-    min-width: 150px;
+    min-width: 160px;
   }
   .addressicon {
     margin-top: 10px;

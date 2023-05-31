@@ -20,13 +20,14 @@ const onButtonClick = (event: any) => {
     event.target.innerHTML = 'Свернуть';
     event.target.className = 'contenthide fulltext';
     event.target.parentElement.className = 'contenttextshow';
+    event.target.closest('#request').style.height = 'fit-content';
+    console.log(event.target.parentElement.parentElement.parentElement);
     document.getElementById('requestcount')!.style.marginTop = '-25px';
     document.getElementById('header')!.style.overflowX = 'visible';
   } else {
     event.target.innerHTML = 'Читать';
     event.target.className = 'contenthide';
     document.getElementById('requestcount')!.style.marginTop = '0px';
-    document.getElementById('requestcount')!.style.marginLeft = '0px';
     event.target.parentElement.className = 'box text-medium';
   }
 };
@@ -65,7 +66,7 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
   return (
     <>
       {props && (
-        <div className="request">
+        <div className="request" id="request">
           <div className="categorylogo">
             <p className="logotext">категория</p>
           </div>
@@ -146,7 +147,11 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
             </div>
           )}
           <div className="content">
-            <div className="contentheader text-big" id="header">
+            <div
+              className="contentheader text-big"
+              id="header"
+              style={{ marginTop: isVolunteerNull ? '160px' : '10px' }}
+            >
               {props.propsForRequest.title}
             </div>
             <div className="box text-medium" id="conttext">
