@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable jsx-a11y/alt-text */
-import React from 'react';
+import React, { FC } from 'react';
 import './request.css';
 import { BallsIcon } from '../../ui/icons/balls-icon';
 import { CalendarIcon } from '../../ui/icons/calendar-icon';
@@ -11,8 +11,8 @@ import { ClockIcon } from '../../ui/icons/clock-icon';
 import { Button } from '../../ui/button/button';
 import { TTask } from '../../types';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import moment from 'moment';
 import { FinishedApplicationIcon } from '../../ui/icons/finished-application-icon';
+import { getIsRequestImmediate, getIsRequestFinished } from '../../utils/utils';
 
 const onButtonClick = (event: any) => {
   if (event.target.innerHTML === 'Читать') {
@@ -45,10 +45,10 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
     observer.observe(p);
   });
 
-  const date1 = props.propsForRequest.date;
-  const date2 = new Date();
-  const timeDifference = Math.abs(date1.getTime() - date2.getTime()) / 3600000;
-  console.log(timeDifference);
+  // eslint-disable-next-line @typescript-eslint/no-shadow, @typescript-eslint/no-use-before-define
+  const IsRequestImmediate = getIsRequestImmediate(props.propsForRequest.date);
+  const IsRequestFinished = getIsRequestFinished(props.propsForRequest.date);
+  console.log(IsRequestImmediate);
 
   let data;
 
@@ -57,6 +57,11 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
       ? props.propsForRequest.volunteer
       : props.propsForRequest.recipient;
 
+  console.log(data);
+
+  const isVolunteerNull =
+    props.owner === 'recipient' && props.propsForRequest.volunteer === null;
+
   return (
     <>
       {props && (
@@ -64,18 +69,25 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
           <div className="categorylogo">
             <p className="logotext">категория</p>
           </div>
-          <div className="buttons">
+          <div
+            className="buttons"
+            style={{
+              flexDirection: isVolunteerNull ? 'column' : 'row-reverse',
+              alignItems: isVolunteerNull ? 'flex-end' : 'flex-start',
+              height: isVolunteerNull ? '83px' : '90px',
+            }}
+          >
             {props.propsForRequest.completed === false && (
               <>
                 <Button
                   type="quadrilateralExit"
-                  disabled={timeDifference > 24}
+                  disabled={IsRequestImmediate}
                   children=""
                   onClick={() => {
                     console.log('hello');
                   }}
                 />
-                {timeDifference > 24 && (
+                {IsRequestFinished && (
                   <Button
                     type="quadrilateralApprove"
                     disabled={false}
