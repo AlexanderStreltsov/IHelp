@@ -26,7 +26,7 @@ export const recipientRequest: Story = {
         id: 2,
         name: 'Категория',
       },
-      date: new Date().toString(),
+      date: '2023-05-29T17:30Z',
       description:
         'Пожалуйста, погуляйте с моей собакой, я не смогу ее выгуливать с 12.06 по 24.06 потому что уеду на обследование к врачу. Если есть желающие помочь в выгуле собаки, то звоните, 89041627779, Олег. Собаку зовут Айка, порода - немецкая овчарка, возраст - полтора года. Собака очень умная, послушная, добрая, спокойная.',
       completed: false,
@@ -55,7 +55,7 @@ export const recipientRequest: Story = {
   },
 };
 
-export const volunteerRequest: Story = {
+export const volunteerRequestCompleted: Story = {
   args: {
     propsForRequest: {
       id: 1,
@@ -64,7 +64,7 @@ export const volunteerRequest: Story = {
         id: 2,
         name: 'Категория',
       },
-      date: new Date().toString(),
+      date: '2022-06-30T14:20Z',
       description:
         'Пожалуйста, погуляйте с моими собаками, я не смогу их выгуливать с 18.06 по 28.06 потому что уеду на обследование к врачу. Если есть желающие помочь в выгуле собак, то звоните, 89041627779, Игнат. Собак зовут Айка и Лайка, возраст - полтора года. Собаки очень умные, послушные, добрые, спокойные.',
       completed: true,
@@ -92,3 +92,119 @@ export const volunteerRequest: Story = {
     },
   },
 };
+
+export const volunteerRequestActiveCanConfirm: Story = {
+  args: {
+    propsForRequest: {
+      id: 1,
+      title: 'Ещё Заголовок Заявки',
+      category: {
+        id: 2,
+        name: 'Категория',
+      },
+      date: '2021-05-15T14:20Z',
+      description:
+        'Пожалуйста, погуляйте с моими собаками, я не смогу их выгуливать с 18.06 по 28.06 потому что уеду на обследование к врачу. Если есть желающие помочь в выгуле собак, то звоните, 89041627779, Игнат. Собак зовут Айка и Лайка, возраст - полтора года. Собаки очень умные, послушные, добрые, спокойные.',
+      completed: false,
+      recipient: {
+        id: 1,
+        fullname: 'Игнатьев Игнат Игнатович',
+        role: UserRole.Volunteer,
+        vk: 'https://vk.com/id2222222',
+        photo:
+          'https://images.unsplash.com/photo-1601931935934-17c3717239ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=927&q=80',
+        phone: '1 (223) 443 4435',
+        address: 'ул. Рассеянная, д.30',
+        coordinates: [22.32908767, 22.32908767],
+        approved: true,
+        checked: true,
+        keys: null,
+        adminStatus: 3,
+        scores: 5,
+        completed: 3,
+      },
+      volunteer: null,
+      address: 'address',
+      coordinates: [22.32908767, 22.32908767],
+      chatId: null,
+    },
+  },
+};
+
+export const volunteerRequestActiveNoCancel: Story = {
+  args: {
+    propsForRequest: {
+      id: 1,
+      title: 'Ещё Заголовок Заявки',
+      category: {
+        id: 2,
+        name: 'Категория',
+      },
+      date: new Date(
+        new Date().toString().split('GMT')[0] + ' UTC',
+      ).toISOString(),
+      description:
+        'Пожалуйста, погуляйте с моими собаками, я не смогу их выгуливать с 18.06 по 28.06 потому что уеду на обследование к врачу. Если есть желающие помочь в выгуле собак, то звоните, 89041627779, Игнат. Собак зовут Айка и Лайка, возраст - полтора года. Собаки очень умные, послушные, добрые, спокойные.',
+      completed: false,
+      recipient: {
+        id: 1,
+        fullname: 'Игнатьев Игнат Игнатович',
+        role: UserRole.Volunteer,
+        vk: 'https://vk.com/id2222222',
+        photo:
+          'https://images.unsplash.com/photo-1601931935934-17c3717239ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=927&q=80',
+        phone: '1 (223) 443 4435',
+        address: 'ул. Рассеянная, д.30',
+        coordinates: [22.32908767, 22.32908767],
+        approved: true,
+        checked: true,
+        keys: null,
+        adminStatus: 3,
+        scores: 5,
+        completed: 3,
+      },
+      volunteer: null,
+      address: 'address',
+      coordinates: [22.32908767, 22.32908767],
+      chatId: null,
+    },
+  },
+};
+
+// export const volunteerRequestActiveNoConfirm: Story = {
+//   args: {
+//     propsForRequest: {
+//       id: 1,
+//       title: 'Ещё Заголовок Заявки',
+//       category: {
+//         id: 2,
+//         name: 'Категория',
+//       },
+//       date: '2021-05-15T14:20Z',
+//       description:
+//         'Пожалуйста, погуляйте с моими собаками, я не смогу их выгуливать с 18.06 по 28.06 потому что уеду на обследование к врачу. Если есть желающие помочь в выгуле собак, то звоните, 89041627779, Игнат. Собак зовут Айка и Лайка, возраст - полтора года. Собаки очень умные, послушные, добрые, спокойные.',
+//       completed: false,
+//       recipient: {
+//         id: 1,
+//         fullname: 'Игнатьев Игнат Игнатович',
+//         role: UserRole.Volunteer,
+//         vk: 'https://vk.com/id2222222',
+//         photo:
+//           'https://images.unsplash.com/photo-1601931935934-17c3717239ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=927&q=80',
+//         phone: '1 (223) 443 4435',
+//         address: 'ул. Рассеянная, д.30',
+//         coordinates: [22.32908767, 22.32908767],
+//         approved: true,
+//         checked: true,
+//         keys: null,
+//         adminStatus: 3,
+//         scores: 5,
+//         completed: 3,
+//       },
+//       volunteer: null,
+//       address: 'address',
+//       coordinates: [22.32908767, 22.32908767],
+//       chatId: null,
+//     },
+//   },
+// };

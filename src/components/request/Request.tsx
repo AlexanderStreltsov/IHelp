@@ -10,6 +10,8 @@ import { LocationIcon } from '../../ui/icons/location-icon';
 import { ClockIcon } from '../../ui/icons/clock-icon';
 import { Button } from '../../ui/button/button';
 import { TTask } from '../../types';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import moment from 'moment';
 
 const onButtonClick = (event: any) => {
   if (event.target.innerHTML === 'Читать') {
@@ -41,6 +43,10 @@ export const Request = (props: { propsForRequest: TTask }) => {
     observer.observe(p);
   });
 
+  const date1 = moment(props.propsForRequest.date).toDate();
+  const date2 = moment(new Date()).toDate();
+  const timeDifference = moment(date2).diff(moment(date1), 'hours');
+
   return (
     <>
       {props && (
@@ -52,7 +58,7 @@ export const Request = (props: { propsForRequest: TTask }) => {
             <div className="buttons">
               <Button
                 type="quadrilateralExit"
-                disabled={false}
+                disabled={timeDifference < 24}
                 children=""
                 onClick={() => {
                   console.log('hello');
@@ -98,7 +104,7 @@ export const Request = (props: { propsForRequest: TTask }) => {
             <div className="icons">
               <Button
                 type="circleSmallPhone"
-                disabled={props.propsForRequest.recipient.completed === 0}
+                disabled={props.propsForRequest.completed}
                 children=""
                 onClick={() => {
                   console.log('hello');
@@ -106,7 +112,7 @@ export const Request = (props: { propsForRequest: TTask }) => {
               />
               <Button
                 type="circleSmallEmail"
-                disabled={props.propsForRequest.recipient.completed === 0}
+                disabled={props.propsForRequest.completed}
                 children=""
                 onClick={() => {
                   console.log('hello');
@@ -136,7 +142,9 @@ export const Request = (props: { propsForRequest: TTask }) => {
             <div className="requestcount text-small" id="requestcount">
               {/* {props.propsForRequest.completed &&  */}
               <BallsIcon color="dark-blue" />
-              <div>{props.propsForRequest.recipient.scores}</div>
+              <div className="scores">
+                {props.propsForRequest.recipient.scores}
+              </div>
             </div>
           </div>
           <div className="category">
