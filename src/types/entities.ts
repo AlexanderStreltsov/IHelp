@@ -24,7 +24,7 @@ export type TTask = {
     id: number;
     name: string;
   };
-  date: string;
+  date: Date;
   description: string;
   completed: boolean;
   recipient: TUser;

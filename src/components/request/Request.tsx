@@ -16,17 +16,18 @@ import { FinishedApplicationIcon } from '../../ui/icons/finished-application-ico
 
 const onButtonClick = (event: any) => {
   if (event.target.innerHTML === 'Читать') {
+    console.log(event.target.parentElement);
     event.target.innerHTML = 'Свернуть';
     event.target.className = 'contenthide fulltext';
+    event.target.parentElement.className = 'contenttextshow';
     document.getElementById('requestcount')!.style.marginTop = '-25px';
     document.getElementById('header')!.style.overflowX = 'visible';
-    document.getElementById('conttext')!.className = 'contenttextshow';
   } else {
     event.target.innerHTML = 'Читать';
     event.target.className = 'contenthide';
     document.getElementById('requestcount')!.style.marginTop = '0px';
     document.getElementById('requestcount')!.style.marginLeft = '0px';
-    document.getElementById('conttext')!.className = 'box text-medium';
+    event.target.parentElement.className = 'box text-medium';
   }
 };
 
@@ -44,18 +45,17 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
     observer.observe(p);
   });
 
-  const date1 = moment(props.propsForRequest.date).toDate();
-  const date2 = moment(new Date()).toDate();
-  const timeDifference = moment(date2).diff(moment(date1), 'hours');
+  const date1 = props.propsForRequest.date;
+  const date2 = new Date();
+  const timeDifference = Math.abs(date1.getTime() - date2.getTime()) / 3600000;
+  console.log(timeDifference);
 
   let data;
 
   data =
     props.owner === 'recipient'
-      ? props.propsForRequest.recipient
-      : props.propsForRequest.volunteer;
-
-  console.log(props.owner);
+      ? props.propsForRequest.volunteer
+      : props.propsForRequest.recipient;
 
   return (
     <>
@@ -65,17 +65,17 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
             <p className="logotext">категория</p>
           </div>
           <div className="buttons">
-            <Button
-              type="quadrilateralExit"
-              disabled={timeDifference < 24}
-              children=""
-              onClick={() => {
-                console.log('hello');
-              }}
-            />
             {props.propsForRequest.completed === false && (
               <>
-                {data && (
+                <Button
+                  type="quadrilateralExit"
+                  disabled={timeDifference > 24}
+                  children=""
+                  onClick={() => {
+                    console.log('hello');
+                  }}
+                />
+                {timeDifference > 24 && (
                   <Button
                     type="quadrilateralApprove"
                     disabled={false}
@@ -85,16 +85,17 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
                     }}
                   />
                 )}
-                {props.owner === 'volunteer' && (
-                  <Button
-                    type="quadrilateralEdit"
-                    disabled={false}
-                    children=""
-                    onClick={() => {
-                      console.log('hello');
-                    }}
-                  />
-                )}
+                {props.owner === 'recipient' &&
+                  props.propsForRequest.volunteer === null && (
+                    <Button
+                      type="quadrilateralEdit"
+                      disabled={false}
+                      children=""
+                      onClick={() => {
+                        console.log('hello');
+                      }}
+                    />
+                  )}
               </>
             )}
           </div>
