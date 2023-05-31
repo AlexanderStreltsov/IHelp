@@ -10,8 +10,8 @@ export const StatsIcon = ({ color, ...props }: IIconProps) => (
     {...props}
   >
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M2.79347 46H42.4116C42.6077 46 42.8038 45.8011 43 45.4031V5.59719C43 5.19913 42.8039 5 42.4116 5H18.6591V6.19413H41.8232V44.8059H3.18576V9.39286H2.20511V45.4031C2.20511 45.8011 2.40121 46 2.79347 46Z"
       fill={getColor(color)}
     />
