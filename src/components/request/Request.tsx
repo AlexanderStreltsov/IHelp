@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable jsx-a11y/alt-text */
-import React, { FC } from 'react';
+import React from 'react';
 import './request.css';
 import { BallsIcon } from '../../ui/icons/balls-icon';
 import { CalendarIcon } from '../../ui/icons/calendar-icon';
