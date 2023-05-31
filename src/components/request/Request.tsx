@@ -12,13 +12,14 @@ import { Button } from '../../ui/button/button';
 import { TTask } from '../../types';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import moment from 'moment';
+import { FinishedApplicationIcon } from '../../ui/icons/finished-application-icon';
 
 const onButtonClick = (event: any) => {
   if (event.target.innerHTML === 'Читать') {
     event.target.innerHTML = 'Свернуть';
     event.target.className = 'contenthide fulltext';
     document.getElementById('requestcount')!.style.marginTop = '-25px';
-    document.getElementById('header')!.style.marginBottom = '0px';
+    document.getElementById('header')!.style.overflowX = 'visible';
     document.getElementById('conttext')!.className = 'contenttextshow';
   } else {
     event.target.innerHTML = 'Читать';
@@ -151,8 +152,11 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
               </p>
             </div>
             <div className="requestcount text-small" id="requestcount">
-              {/* {props.propsForRequest.completed &&  */}
-              <BallsIcon color="dark-blue" />
+              {props.propsForRequest.completed ? (
+                <BallsIcon color="dark-blue" />
+              ) : (
+                <FinishedApplicationIcon color="dark-blue" />
+              )}
               <div className="scores">
                 {props.propsForRequest.recipient.scores}
               </div>
@@ -178,7 +182,13 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
               <div>
                 <LocationIcon className="addressicon" color="dark-blue" />
               </div>
-              {data && <p className="addresstext">{data!.address}</p>}
+              {props.owner === 'volunteer' && data ? (
+                <p className="addresstext">{data!.address}</p>
+              ) : (
+                <p className="addresstext">
+                  {props.propsForRequest!.recipient.address}
+                </p>
+              )}
             </div>
           </div>
         </div>

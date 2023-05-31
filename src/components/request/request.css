@@ -53,6 +53,7 @@ p {
 
 @media (max-width: 960px) {
   .buttons {
+    top: 0;
     width: 80px;
   }
 }
@@ -205,7 +206,8 @@ p {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  max-width: 365px;
+  /* max-width: 365px; */
+  width: 99%;
 }
 .box p:not(.truncated) ~ label {
   display: none;
@@ -289,7 +291,7 @@ margin-top: 5px;
   z-index: 100;
   position: relative;
   top: -17px; 
-  left: 83%;
+  left: 86%;
 }
 .contenthide:hover {
   cursor: pointer;
