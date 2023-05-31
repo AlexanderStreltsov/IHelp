@@ -11,8 +11,8 @@ export const ExcelIcon = ({ color, ...props }: IIconProps) => (
     {...props}
   >
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M21.5858 4.17604H13.9882V2.41333L1.5 4.31118V20.9465L13.9882 23.0644V20.4517H21.5858C21.8158 20.4632 22.0412 20.3845 22.2125 20.2328C22.3839 20.0812 22.4872 19.8689 22.5 19.6424V4.98465C22.487 4.75829 22.3836 4.54618 22.2123 4.39467C22.041 4.24316 21.8157 4.16456 21.5858 4.17604V4.17604ZM21.7057 19.7768H13.9628L13.95 18.3818H15.8152V16.7572H13.9357L13.9268 15.7972H15.8152V14.1726H13.9125L13.9035 13.2126H15.8152V11.588H13.8975V10.628H15.8152V9.00336H13.8975V8.04336H15.8152V6.41875H13.8975V4.94182H21.7057V19.7768Z"
       fill={getColor(color)}
     />
@@ -21,8 +21,8 @@ export const ExcelIcon = ({ color, ...props }: IIconProps) => (
       fill={getColor(color)}
     />
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M4.76025 8.80466L6.36975 8.71383L7.3815 11.4528L8.577 8.60084L10.1865 8.51001L8.232 12.3987L10.1865 16.2971L8.48475 16.1841L7.33575 13.2125L6.186 16.0711L4.62225 15.9352L6.43875 12.4918L4.76025 8.80466V8.80466Z"
       fill={ElementColors.partsPrimary}
     />
