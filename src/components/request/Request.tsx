@@ -29,7 +29,7 @@ const onButtonClick = (event: any) => {
   }
 };
 
-export const Request = (props: { propsForRequest: TTask }) => {
+export const Request = (props: { propsForRequest: TTask; owner: string }) => {
   const ps = document.querySelectorAll('p');
   const observer = new ResizeObserver((entries) => {
     for (let entry of entries) {
@@ -47,6 +47,15 @@ export const Request = (props: { propsForRequest: TTask }) => {
   const date2 = moment(new Date()).toDate();
   const timeDifference = moment(date2).diff(moment(date1), 'hours');
 
+  let data;
+
+  data =
+    props.owner === 'recipient'
+      ? props.propsForRequest.recipient
+      : props.propsForRequest.volunteer;
+
+  console.log(props.owner);
+
   return (
     <>
       {props && (
@@ -54,72 +63,74 @@ export const Request = (props: { propsForRequest: TTask }) => {
           <div className="categorylogo">
             <p className="logotext">категория</p>
           </div>
-          {props.propsForRequest.completed === false && (
-            <div className="buttons">
-              <Button
-                type="quadrilateralExit"
-                disabled={timeDifference < 24}
-                children=""
-                onClick={() => {
-                  console.log('hello');
-                }}
-              />
-              <Button
-                type="quadrilateralApprove"
-                disabled={false}
-                children=""
-                onClick={() => {
-                  console.log('hello');
-                }}
-              />
-              {props.propsForRequest.volunteer && (
+          <div className="buttons">
+            <Button
+              type="quadrilateralExit"
+              disabled={timeDifference < 24}
+              children=""
+              onClick={() => {
+                console.log('hello');
+              }}
+            />
+            {props.propsForRequest.completed === false && (
+              <>
+                {data && (
+                  <Button
+                    type="quadrilateralApprove"
+                    disabled={false}
+                    children=""
+                    onClick={() => {
+                      console.log('hello');
+                    }}
+                  />
+                )}
+                {props.owner === 'volunteer' && (
+                  <Button
+                    type="quadrilateralEdit"
+                    disabled={false}
+                    children=""
+                    onClick={() => {
+                      console.log('hello');
+                    }}
+                  />
+                )}
+              </>
+            )}
+          </div>
+          {data && (
+            <div className="volunteer">
+              <div className="volunteerinfo">
+                <div
+                  className="avatar"
+                  style={{
+                    backgroundImage: `url(${data!.photo})`,
+                  }}
+                />
+                <div className="infotext">
+                  <p className="text text-medium">{data!.fullname}</p>
+                  <p className="teltext text-medium">{data!.phone}</p>
+                </div>
+              </div>
+              <div className="icons">
                 <Button
-                  type="quadrilateralEdit"
-                  disabled={false}
+                  type="circleSmallPhone"
+                  disabled={props.propsForRequest.completed}
                   children=""
                   onClick={() => {
                     console.log('hello');
                   }}
                 />
-              )}
-            </div>
-          )}
-          <div className="volunteer">
-            <div className="volunteerinfo">
-              <div
-                className="avatar"
-                style={{
-                  backgroundImage: `url(${props.propsForRequest.recipient.photo})`,
-                }}
-              />
-              <div className="infotext">
-                <p className="text text-medium">
-                  {props.propsForRequest.recipient.fullname}
-                </p>
-                <p className="teltext text-medium">
-                  {props.propsForRequest.recipient.phone}
-                </p>
+                <Button
+                  type="circleSmallEmail"
+                  disabled={props.propsForRequest.completed}
+                  children=""
+                  onClick={() => {
+                    console.log('hello');
+                  }}
+                />
               </div>
             </div>
-            <div className="icons">
-              <Button
-                type="circleSmallPhone"
-                disabled={props.propsForRequest.completed}
-                children=""
-                onClick={() => {
-                  console.log('hello');
-                }}
-              />
-              <Button
-                type="circleSmallEmail"
-                disabled={props.propsForRequest.completed}
-                children=""
-                onClick={() => {
-                  console.log('hello');
-                }}
-              />
-            </div>
-          </div>
+          )}
           <div className="content">
             <div className="contentheader text-big" id="header">
               {props.propsForRequest.title}
@@ -167,9 +178,7 @@ export const Request = (props: { propsForRequest: TTask }) => {
               <div>
                 <LocationIcon className="addressicon" color="dark-blue" />
               </div>
-              <p className="addresstext">
-                {props.propsForRequest.recipient.address}
-              </p>
+              {data && <p className="addresstext">{data!.address}</p>}
             </div>
           </div>
         </div>

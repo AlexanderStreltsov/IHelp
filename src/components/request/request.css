@@ -43,6 +43,7 @@ p {
   flex-direction: row-reverse;
   justify-content: space-between;
   width: 90px;
+  height: 90px;
   position: absolute;
   top: -5px;
   right: 0;
