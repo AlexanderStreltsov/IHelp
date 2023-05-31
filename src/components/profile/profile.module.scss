@@ -50,6 +50,9 @@
     visibility: visible;
     height: 271px;
     width: 295px;
+    @media (max-width: 720px) {
+      width: 354px;
+    }
   }
   .backgroundInfoBox {
     position: absolute;
@@ -66,6 +69,9 @@
     display: grid;
     grid-template-columns: 9% 6% 12% 13% 13% 10% 6% 10% 14% 7%;
     grid-template-rows: 33% 9% 9% 9% 10% 10% 21%;
+    @media (max-width: 720px) {
+      width: 345px;
+    }
 
     .info {
       color: map.get($text_color, primary);
@@ -73,6 +79,9 @@
     .name {
       grid-column: 2/10;
       grid-row: 2;
+      @media (max-width: 720px) {
+        padding-left: 25px;
+      }
     }
     .infoId {
       color: rgba(46, 49, 146, 0.5);
@@ -80,35 +89,59 @@
     .infoIdLabelPosition {
       grid-column: 2;
       grid-row: 3;
+      @media (max-width: 720px) {
+        padding-left: 25px;
+      }
     }
     .infoIdLabelText {
       grid-column: 3/10;
       grid-row: 3;
+      @media (max-width: 720px) {
+        padding-left: 20px;
+      }
     }
     .boldLabelPhone {
       grid-column: 2/3;
       grid-row: 4;
+      @media (max-width: 720px) {
+        padding-left: 26px;
+      }
     }
     .textLabelPhone {
       grid-column: 4/10;
       grid-row: 4;
+      @media (max-width: 720px) {
+        padding-left: 17px;
+      }
     }
     .boldLabelAddress {
       grid-column: 2/3;
       grid-row: 5;
+      @media (max-width: 720px) {
+        padding-left: 26px;
+      }
     }
     .textLabelAddress {
       grid-column: 4/10;
       grid-row: 5/7;
+      @media (max-width: 720px) {
+        padding-left: 17px;
+      }
     }
     .ballsIcon {
       grid-column: 4;
       grid-row: 7;
+      @media (max-width: 720px) {
+        padding-left: 16px;
+      }
     }
     .ballsSum {
       margin-top: 3px;
       grid-column: 5;
       grid-row: 7;
+      @media (max-width: 720px) {
+        padding-left: 8px;
+      }
     }
     .keyIcon {
       grid-column: 6;
@@ -118,15 +151,27 @@
       margin-top: 3px;
       grid-column: 7;
       grid-row: 7;
+      @media (max-width: 720px) {
+        grid-column: 6;
+        margin-left: 30px;
+      }
     }
     .finishIcon {
       grid-column: 8;
       grid-row: 7;
+      @media (max-width: 720px) {
+        grid-column: 7;
+        margin-left: 11px;
+      }
     }
     .finishSum {
       margin-top: 3px;
       grid-column: 9;
       grid-row: 7;
+      @media (max-width: 720px) {
+        grid-column: 8;
+        margin-left: 17px;
+      }
     }
     .signUp {
       width: 196px;
@@ -135,6 +180,9 @@
       margin-left: 3px;
       grid-column: 3/10;
       grid-row: 3;
+      @media (max-width: 720px) {
+        margin-left: 23px;
+      }
     }
     .comeIn {
       width: 196px;
@@ -144,6 +192,9 @@
       margin-left: 3px;
       grid-column: 3/10;
       grid-row: 5;
+      @media (max-width: 720px) {
+        margin-left: 23px;
+      }
     }
     .recipientIcon {
       margin-top: 7px;
@@ -151,6 +202,9 @@
       align-self: center;
       grid-column: 9;
       grid-row: 7;
+      @media (max-width: 720px) {
+        margin-left: 35px;
+      }
     }
     .sumText {
       align-self: center;
@@ -159,6 +213,16 @@
       margin-right: 24px;
       grid-column: 7/10;
       grid-row: 7;
+      color: map.get($text_color, primary);
+      @media (max-width: 720px) {
+        margin-right: 19px;
+      }
     }
+  }
+}
+@media (max-width: 720px) {
+  .container {
+    width: 354px;
+    justify-content: space-between;
   }
 }

@@ -9,10 +9,6 @@
   @include text(16px, 400, 19px);
 }
 
-.text-medium-line {
-  @include text(12px, 400, 14px);
-}
-
 .text-medium-bold {
   @extend .text-medium;
   font-weight: 700;

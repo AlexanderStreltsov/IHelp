@@ -1,8 +1,8 @@
-import { IProfileProps, Profile } from '../ui/profile/profile';
+import { IProfileProps, Profile } from '../components/profile/profile';
 import { Story } from '@storybook/react';
 
 export default {
-  title: 'UI/Profile',
+  title: 'components/Profile',
   component: Profile,
   tags: ['autodocs'],
 };
@@ -31,4 +31,10 @@ export const SignUp = Template.bind({});
 
 SignUp.args = {
   type: 'signUp',
+};
+
+export const NoName = Template.bind({});
+
+NoName.args = {
+  type: 'noName',
 };

@@ -1,59 +1,45 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './profile.module.scss';
-import { ProfileFone } from '../icons/profile-fone';
-import { Button } from '../button/button';
-import { BallsIcon } from '../icons/balls-icon';
-import { KeyIcon } from '../icons/key-icon';
-import { FinishedApplicationIcon } from '../icons/finished-application-icon';
-import { PersonIcon } from '../icons/person-icon';
-import { ProgressIcon } from '../icons/progress-icon';
+import { ProfileFone } from '../../ui/icons/profile-fone';
+import { Button } from '../../ui/button/button';
+import { BallsIcon } from '../../ui/icons/balls-icon';
+import { KeyIcon } from '../../ui/icons/key-icon';
+import { FinishedApplicationIcon } from '../../ui/icons/finished-application-icon';
+import { PersonIcon } from '../../ui/icons/person-icon';
+import { ProgressIcon } from '../../ui/icons/progress-icon';
+import { ProfileFoneMobile } from '../../ui/icons/profile-fone-mobile';
 
 export interface IProfileProps {
-  type?: 'volunteer' | 'recipient' | 'administration' | 'signUp';
+  type?: 'volunteer' | 'recipient' | 'administration' | 'signUp' | 'noName';
   className?: string;
-  // volunteer?: {
-  //   id?: string;
-  //   image?: string;
-  //   name?: string;
-  //   phone?: number;
-  //   address?: string;
-  //   like?: number;
-  //   key?: number;
-  //   heart?: number;
-  // };
-  // recipient?: {
-  //   id?: string;
-  //   image?: string;
-  //   name?: string;
-  //   phone?: number;
-  //   address?: string;
-  //   someQuest?: number;
-  // };
-  // administration?: {
-  //   id?: string;
-  //   image?: string;
-  //   name?: string;
-  //   phone?: number;
-  //   address?: string;
-  // };
 }
 
-export const Profile = ({ type = 'volunteer', className = '', ...props }) => {
+export const Profile = ({
+  type = 'volunteer',
+  className = '',
+  ...props
+}: IProfileProps) => {
   const extClassName = className || '';
   const photo = '';
+  const [width, setWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    window.onresize = () => {
+      setWidth(window.innerWidth);
+    };
+  }, [width]);
   const Information = () => {
     return (
       <>
         <span className={`${styles.info} ${styles.name} text-medium`}>
-          Иванов Иван Иванович
+          {type === 'noName' ? 'ФИО' : 'Иванов Иван Иванович'}
         </span>
         <span
-          className={`${styles.info} ${styles.infoId} ${styles.infoIdLabelPosition} text-medium-line`}
+          className={`${styles.info} ${styles.infoId} ${styles.infoIdLabelPosition} text-small`}
         >
           ID
         </span>
         <span
-          className={`${styles.info} ${styles.infoId} ${styles.infoIdLabelText} text-medium-line`}
+          className={`${styles.info} ${styles.infoId} ${styles.infoIdLabelText} text-small`}
         >
           {112233}
         </span>
@@ -62,9 +48,7 @@ export const Profile = ({ type = 'volunteer', className = '', ...props }) => {
         >
           Тел.:
         </span>
-        <span
-          className={`${styles.info} ${styles.textLabelPhone} text-medium-line`}
-        >
+        <span className={`${styles.info} ${styles.textLabelPhone} text-small`}>
           {'+7(000)000-00-00'}
         </span>
         <span
@@ -73,13 +57,14 @@ export const Profile = ({ type = 'volunteer', className = '', ...props }) => {
           Адрес:
         </span>
         <span
-          className={`${styles.info} ${styles.textLabelAddress} text-medium-line`}
+          className={`${styles.info} ${styles.textLabelAddress} text-small`}
         >
           {'Ул. Потолочного д. 3'}
         </span>
       </>
     );
   };
+
   return (
     <div className={`${styles.container} ${extClassName}`} {...props}>
       <div className={styles.photoBox}>
@@ -89,9 +74,10 @@ export const Profile = ({ type = 'volunteer', className = '', ...props }) => {
           <PersonIcon className={styles.defaultPhoto} color={'white'} />
         )}
       </div>
-      <div className={styles.infoBox}>
-        <div className={styles.backgroundInfoBox}>
-          <ProfileFone />
+      <div className={`${styles.infoBox}`}>
+        <div className={`${styles.backgroundInfoBox} `}>
+          {width > 720 && <ProfileFone />}
+          {width < 721 && <ProfileFoneMobile />}
         </div>
         {type === 'volunteer' && (
           <div className={styles.infoBlock}>
@@ -114,7 +100,7 @@ export const Profile = ({ type = 'volunteer', className = '', ...props }) => {
               className={styles.recipientIcon}
               color={'dark-blue'}
             />
-            <span className={`${styles.sumText} text-medium-line`}>
+            <span className={`${styles.sumText} text-small`}>
               {1} из {5}
             </span>
           </div>
@@ -145,6 +131,11 @@ export const Profile = ({ type = 'volunteer', className = '', ...props }) => {
             >
               Войти
             </Button>
+          </div>
+        )}
+        {type === 'noName' && (
+          <div className={styles.infoBlock}>
+            <Information />
           </div>
         )}
         <Button
