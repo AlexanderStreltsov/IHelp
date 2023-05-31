@@ -47,10 +47,10 @@
     padding-top: 0;
     padding-bottom: 0;
     margin-bottom: 20px;
-    
+
     @media screen and (max-width: 1023px) {
       position: relative;
-      
+
       &::before {
         content: '';
         position: absolute;
@@ -61,10 +61,23 @@
         background-color: map.get($background_color, partsSecondary);
         z-index: 1;
         transform: matrix3d(
-          -1,0,1,0.003,
-          0,1,0,0,
-          0,0,1,0,
-          0,0,0,1);
+          -1,
+          0,
+          1,
+          0.003,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        );
       }
     }
 
@@ -83,7 +96,7 @@
   }
 
   &:last-of-type {
-    border-top: 1px solid #E0E0E0;
+    border-top: 1px solid #e0e0e0;
     padding-bottom: 0;
   }
 }
