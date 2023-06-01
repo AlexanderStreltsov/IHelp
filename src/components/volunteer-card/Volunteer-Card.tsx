@@ -13,7 +13,9 @@ import { TUser } from '../../types';
 import api from '../../api';
 import avatar from '../../images/avatar.svg';
 import figuregreen from '../../images/figuregreen.svg';
-import back from '../../images/back.svg';
+import backgreen from '../../images/backgreen.svg';
+import backorange from '../../images/backgreen.svg';
+import backgrey from '../../images/backgreen.svg';
 import { KeyIcon } from '../../ui/icons/key-icon';
 import { UnionIcon } from '../../ui/icons/union-icon';
 import { FinishedApplicationIcon } from '../../ui/icons/finished-application-icon';
@@ -23,10 +25,19 @@ const onButtonClick = (event: any) => {
 };
 
 export const VolunteerCard = (props: { propsForCard: TUser }) => {
-  const [imgState, setImgState] = useState('');
+  const [volunteerState, setVolunteerState] = useState('');
   useEffect(() => {
-    window.innerWidth > 414 ? setImgState('back') : setImgState('');
-  }, []);
+    props.propsForCard.checked && props.propsForCard.approved
+      ? setVolunteerState('green')
+      : props.propsForCard.checked && !props.propsForCard.approved
+      ? setVolunteerState('grey')
+      : setVolunteerState('red');
+  }, [props.propsForCard.approved, props.propsForCard.checked]);
+
+  const greenBackground = backgreen;
+  const greyBackground = backgrey;
+  const orangeBackground = backorange;
+
   return (
     <>
       <div className="card">
@@ -49,7 +60,11 @@ export const VolunteerCard = (props: { propsForCard: TUser }) => {
             className="underlay"
             style={{
               backgroundImage:
-                imgState === 'back' ? `url(${back})` : `url(${null})`,
+                volunteerState === 'green'
+                  ? `url(${greenBackground})`
+                  : volunteerState === 'grey'
+                  ? `url(${greyBackground})`
+                  : `url(${orangeBackground})`,
             }}
           >
             <div className="underlayitems">

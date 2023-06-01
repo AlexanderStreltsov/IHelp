@@ -18,7 +18,7 @@ export const Page = () => {
   return (
     <div className="page">
       {usersState && usersState[0] && (
-        <VolunteerCard propsForCard={usersState[0]} />
+        <VolunteerCard propsForCard={usersState[9]} />
       )}
     </div>
   );
