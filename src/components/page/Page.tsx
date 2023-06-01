@@ -10,6 +10,7 @@ export const Page = () => {
     async function fetchData() {
       const users = await api.getAllUsers();
       setUsersState(users);
+      console.log(users);
     }
 
     fetchData();
@@ -18,7 +19,7 @@ export const Page = () => {
   return (
     <div className="page">
       {usersState && usersState[0] && (
-        <VolunteerCard propsForCard={usersState[9]} />
+        <VolunteerCard propsForCard={usersState[7]} />
       )}
     </div>
   );

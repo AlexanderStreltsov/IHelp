@@ -1,3 +1,11 @@
+button:hover{
+  cursor: pointer;
+}
+
+button:disabled:hover{
+  cursor: default;
+}
+
 .card {
   display: flex;
   flex-direction: column;
@@ -190,6 +198,11 @@
   margin-left: 30px;
 }
 
+.underlayitem:last-child p{
+  margin-left: 4px;
+}
+
+
 @media screen and (max-width: 414px){
 
   .underlay{
@@ -231,11 +244,33 @@
   padding: 0px 16px;
   width: 108px;
   height: 30px;
-  background: #818c99;
+  background: #2E3192;
   color: #ffffff;
   border: none;
 }
+
+.confirm:disabled{
+  background: #818C99;
+}
 .confirm span {
+  margin-top: 7px;
+  font-family: 'GolosText';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+}
+.halfconfirm{
+  display: flex;
+  padding: 0px 16px;
+  width: 108px;
+  height: 30px;
+  background: linear-gradient(90deg, #ffffff 50%, #2E3192 50%);
+  color: #ffffff;
+  border: 1px solid #2E3192;
+}
+
+.halfconfirm span{
   margin-top: 7px;
   font-family: 'GolosText';
   font-style: normal;
@@ -266,9 +301,18 @@
   display: flex;
   width: 100px;
   height: 30px;
-  border: 1px solid #9798c9;
+  border: 1px solid #2E3192; ;
   background: transparent;
 }
+
+.givekeys:disabled{
+  border: 1px solid #9798c9;
+}
+
+.givekeys:disabled span{
+  color: #9798c9;
+}
+
 .givekeys span {
   padding-top: 6px;
   width: 91px;
@@ -277,5 +321,25 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;
-  color: #9798c9;
+  color: #2E3192;
 } /*# sourceMappingURL=volunteer-card.css.map */
+
+.label{
+  width: 75.27px;
+  height: 11.8px;
+  position: absolute;
+  top: 151px;
+  left: 47px;
+  z-index: 10;
+}
+
+.label:hover{
+  cursor: pointer;
+}
+
+@media screen and (max-width: 414px){
+  .label{
+    top: 174px;
+    left: 31px;
+  }
+}
