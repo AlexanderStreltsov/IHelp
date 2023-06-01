@@ -1,6 +1,6 @@
 /* eslint-disable storybook/prefer-pascal-case */
 import type { Meta, StoryObj } from '@storybook/react';
-import { VolunteerCard } from '../components/volunteer-card/Volunteer-Card';
+import { VolunteerCard } from '../components/card/Card';
 import { UserRole } from '../types/user-role';
 
 const meta = {

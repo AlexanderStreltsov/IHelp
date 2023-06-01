@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { TUser } from '../../types';
 import api from '../../api';
-import { VolunteerCard } from '../volunteer-card/Volunteer-Card';
+import { VolunteerCard } from '../card/Card';
 
 export const Page = () => {
   const [usersState, setUsersState] = useState<TUser[]>();
