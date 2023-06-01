@@ -11,7 +11,7 @@ export type TUser = {
   coordinates: number[];
   approved: boolean | null;
   checked?: boolean | null;
-  keys?: boolean | null;
+  keys?: number | null;
   adminStatus?: number;
   scores?: number | null;
   completed?: number | null;

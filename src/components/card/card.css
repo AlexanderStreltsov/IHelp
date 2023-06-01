@@ -29,8 +29,8 @@ button:disabled:hover{
     background-size: contain;
     background-repeat: no-repeat;
     position: relative;
-    left: 56px;
-    top: 23px;
+    left: 57px;
+    top: 21px;
   }
 }
 
@@ -65,25 +65,31 @@ button:disabled:hover{
 
 .name {
   width: 197px;
-  height: 14px;
+  height: 18px;
   font-family: 'GolosText';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 19px;
-  display: flex;
+  display: inline-block;
   color: #000000;
-  margin: 41px auto 5px auto;
+  margin: 37px auto 2px auto;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 @media screen and (max-width: 414px){
   .name{
-    width: 197px;
+    width: 147px;
     height: 14px;
     font-size: 12px;
     line-height: 14px;
     font-weight: 400;
     margin-top: 31px;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     }
   }
 
@@ -339,7 +345,7 @@ button:disabled:hover{
 
 @media screen and (max-width: 414px){
   .label{
-    top: 174px;
+    top: 172px;
     left: 31px;
   }
 }

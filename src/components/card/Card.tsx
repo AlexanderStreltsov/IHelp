@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState, useEffect } from 'react';
-import './volunteer-card.css';
+import './card.css';
 import { BallsIcon } from '../../ui/icons/balls-icon';
 import { Button } from '../../ui/button/button';
 import { TUser } from '../../types';
@@ -24,6 +24,7 @@ const onButtonClick = (event: any) => {
 
 export const VolunteerCard = (props: { propsForCard: TUser }) => {
   const [volunteerState, setVolunteerState] = useState('');
+  const [hasUnderlay, setHasUnderlay] = useState(true);
   useEffect(() => {
     props.propsForCard.checked === true && props.propsForCard.approved === true
       ? setVolunteerState('approved')
@@ -33,14 +34,17 @@ export const VolunteerCard = (props: { propsForCard: TUser }) => {
       : setVolunteerState('notapproved');
   }, [props.propsForCard.approved, props.propsForCard.checked]);
 
+  useEffect(() => {
+    function handleResize() {
+      window.innerWidth <= 414 ? setHasUnderlay(false) : setHasUnderlay(true);
+    }
+
+    window.addEventListener('resize', handleResize);
+  });
   const greenBackground = backgreen;
   const greyBackground = backgrey;
   const orangeBackground = backorange;
-  const tlabel = textlabel;
   const isVolunteer = props.propsForCard.role === 'volunteer';
-
-  console.log(volunteerState);
-  console.log(props);
 
   return (
     <>
@@ -48,7 +52,7 @@ export const VolunteerCard = (props: { propsForCard: TUser }) => {
         <div className="cardcontent">
           <div
             className="avatar"
-            style={{ backgroundImage: `url(${avatar})` }}
+            style={{ backgroundImage: `url(${props.propsForCard.photo})` }}
           ></div>
           <div
             className="avatarunderlay"
@@ -63,23 +67,24 @@ export const VolunteerCard = (props: { propsForCard: TUser }) => {
                   : `url(${''})`,
             }}
           ></div>
-          <p className="name">Петров Петр Петрович</p>
-          <p className="id">ID 111111114</p>
+          <p className="name">{props.propsForCard.fullname}</p>
+          <p className="id">ID {props.propsForCard.id}</p>
           <div className="phone">
             <p className="phonetext"> Тел.:</p>
-            <p className="phonenumber">+7(000) 000-00-04</p>
+            <p className="phonenumber">{props.propsForCard.phone}</p>
           </div>
           <div
             className="underlay"
             style={{
-              backgroundImage:
-                isVolunteer && volunteerState === 'approved'
+              backgroundImage: hasUnderlay
+                ? isVolunteer && volunteerState === 'approved'
                   ? `url(${greenBackground})`
                   : isVolunteer && volunteerState === 'checked'
                   ? `url(${greyBackground})`
                   : isVolunteer && volunteerState === 'notapproved'
                   ? `url(${orangeBackground})`
-                  : `url(${''})`,
+                  : `url(${''})`
+                : `url(${''})`,
             }}
           >
             <div className="underlayitems">
