@@ -7,7 +7,6 @@ import './card.css';
 import { BallsIcon } from '../../ui/icons/balls-icon';
 import { Button } from '../../ui/button/button';
 import { TUser } from '../../types';
-import avatar from '../../images/avatar.svg';
 import figuregreen from '../../images/figuregreen.svg';
 import figuregrey from '../../images/figuregrey.svg';
 import figureorange from '../../images/figureorange.svg';
@@ -68,10 +67,10 @@ export const VolunteerCard = (props: { propsForCard: TUser }) => {
             }}
           ></div>
           <p className="name">{props.propsForCard.fullname}</p>
-          <p className="id">ID {props.propsForCard.id}</p>
+          <p className="id text-small">ID {props.propsForCard.id}</p>
           <div className="phone">
-            <p className="phonetext"> Тел.:</p>
-            <p className="phonenumber">{props.propsForCard.phone}</p>
+            <p className="phonetext text-small-bold "> Тел.:</p>
+            <p className="phonenumber text-small">{props.propsForCard.phone}</p>
           </div>
           <div
             className="underlay"
@@ -90,17 +89,19 @@ export const VolunteerCard = (props: { propsForCard: TUser }) => {
             <div className="underlayitems">
               <div className="underlayitem">
                 <BallsIcon color="dark-blue" />
-                <p className="underlaynumber">{props.propsForCard.scores}</p>
+                <p className="underlaynumber text-small">
+                  {props.propsForCard.scores}
+                </p>
               </div>
               <div className="underlayitem">
                 <KeyIcon color="dark-blue" />
-                <p className="underlaynumber">
+                <p className="underlaynumber text-small">
                   {props.propsForCard.keys ? props.propsForCard.keys : 0}
                 </p>
               </div>
               <div className="underlayitem">
                 <FinishedApplicationIcon color="dark-blue" />
-                <p className="underlaynumber">
+                <p className="underlaynumber text-small">
                   {props.propsForCard.completed
                     ? props.propsForCard.completed
                     : 0}
