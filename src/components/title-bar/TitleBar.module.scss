@@ -3,7 +3,6 @@
 @import 'src/common/variable';
 
 .container {
-  margin: 30px 0 0;
   height: 89px;
   border: 2px solid map.get($background_color, partsPrimary);
   box-sizing: border-box;
