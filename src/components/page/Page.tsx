@@ -19,7 +19,10 @@ export const Page = () => {
   return (
     <div className="page">
       {tasksState && tasksState[0] && (
-        <Request propsForRequest={tasksState[0]} owner="admin" />
+        <>
+          <Request propsForRequest={tasksState[0]} owner="admin" />
+          <Request propsForRequest={tasksState[3]} owner="admin" />
+        </>
       )}
     </div>
   );

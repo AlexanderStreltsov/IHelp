@@ -2,414 +2,478 @@
 @import '../../common/media';
 @import '../../common/variable';
 
-[type='checkbox'],
-[type='radio'] {
-  box-sizing: border-box;
-  padding: 0;
-  visibility: hidden;
-  display: none;
+[type="checkbox"] {
+	box-sizing: border-box;
+	padding: 0;
+	visibility: hidden;
+	display: none;
 }
-
+[type="radio"] {
+	box-sizing: border-box;
+	padding: 0;
+	visibility: hidden;
+	display: none;
+}
+p {
+	margin: 0;
+}
 .request {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-end;
-  width: 100%;
-  height: 219px;
-  position: relative;
-  margin: 5px auto 0 auto;
-  max-width: 950px;
-  padding: 0 0 27px 0;
-  @include respond(small) {
-    flex-direction: column;
-    justify-content: flex-start;
-    height: 436px;
-    max-width: 650px;
-    margin: 0 auto;
-  }
+	display: flex;
+	flex-direction: row-reverse;
+	position: relative;
+	justify-content: flex-end;
+	width: 100%;
+	max-width: 889px;
+	height: 219px;
+	max-height: fit-content;
+	margin: 5px auto 0 auto;
+	max-width: 950px;
+	padding: 0 0 27px 0;
+	border-bottom: 1px solid;
+	border-image-source: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #2e3192 49.28%, rgba(255, 255, 255, 0) 100%);
 }
-
 .buttons {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  width: 83px;
-  height: 84.04px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin-left: 16px;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+	width: 83px;
+	height: 90px;
+	position: absolute;
+	top: -5px;
+	right: 0;
+	margin-left: 16px;
 }
-
 .volunteer {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
-
 .volunteerinfo {
-  display: flex;
-  flex-direction: column;
-  @include respond(small) {
-    width: 310px;
-    height: 60px;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-top: 45px;
-    margin-left: 10px;
-  }
+	display: flex;
+	flex-direction: column;
 }
-
 .infotext {
-  display: flex;
-  flex-direction: column;
-  margin-left: 5px;
+	display: flex;
+	flex-direction: column;
 }
-
 .avatar {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin: 7.12px auto 2px auto;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  @include respond(small) {
-    width: 60px;
-    height: 60px;
-    margin-left: 0;
-    margin-right: 0;
-  }
+	width: 104px;
+	height: 104px;
+	border-radius: 50%;
+	margin: 5px auto 0 auto;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	margin-bottom: 5px;
 }
-
 .text {
-  display: flex;
-  align-items: center;
-  height: 23px;
-  color: $common;
-  margin: 0 auto 4px auto;
-  padding: 0;
-  @include respond(small) {
-    display: flex;
-    height: 29px;
-    margin: 0;
-  }
+	display: flex;
+	align-items: center;
+	height: 23px;
+	color: #000000;
+	margin: 0 auto 4px auto;
+	padding: 0;
+	overflow-x: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
-
 .teltext {
-  display: flex;
-  align-items: center;
-  height: 16px;
-  color: $primary;
-  margin: 0 auto 8px auto;
-  padding: 0;
-  @include respond(small) {
-    margin: 0 0 10px 0;
-  }
+	display: flex;
+	align-items: center;
+	height: 16px;
+	color: #2e3192;
+	margin: 0 auto 8px auto;
+	padding: 0;
 }
-
 .icons {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  position: relative;
-  left: 8px;
-  width: 72px;
-  margin: 0 auto;
-  @include respond(small) {
-    margin-left: 68px;
-    max-width: 200px;
-  }
+	display: flex;
+	flex-direction: row;
+	gap: 8px;
+	position: relative;
+	left: 9px;
+	width: 70px;
+	margin: 0 auto;
+	padding-right: 10px;
 }
-
 .content {
-  display: flex;
-  flex-direction: column;
-  width: calc(100% - 502px);
-  margin-left: 169px;
-  margin-right: 20px;
-  @include respond(small) {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-left: 10px;
-    max-width: 950px;
-  }
+	display: flex;
+	flex-direction: column;
+	width: calc(100% - 502px);
+	margin-left: 15px;
+	margin-right: 20px;
+	margin-top: 40px;
+	height: fit-content;
 }
-
 .contentheader {
-  display: flex;
-  align-items: center;
-  color: $primaryAdditional;
-  margin: 42px 0 10px 0;
-  @include respond(small) {
-    width: 100vw;
-    margin: 20px 0 5px 0;
-    overflow: hidden;
-  }
+	display: inline-block;
+	margin: 0;
+	color: #9798c9;
+	margin: 2px 0 0 0;
+	overflow-x: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	max-width: 400px;
 }
-
 .box {
-  input {
-    opacity: 0;
-    position: absolute;
-    pointer-events: none;
-    visibility: hidden;
-    display: none;
-  }
-  p {
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    &:not(.truncated) {
-      ~ {
-        label {
-          display: none;
-        }
-      }
-    }
-  }
-  input {
-    &:focus {
-      ~ {
-        label {
-          outline: -webkit-focus-ring-color auto 5px;
-        }
-      }
-    }
-    &:checked {
-      + {
-        p {
-          -webkit-line-clamp: unset;
-        }
-      }
-      ~ {
-        label {
-          display: none;
-        }
-      }
-    }
-  }
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	align-items: center;
+	color: #2c2d2e;
+	white-space: normal;
+	width: 91.4%;
+	margin-top: 10px;
+	p {
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		max-width: 365px;
+		width: 99%;
+		line-height: 19px;
+		margin: 0;
+		&:not(.truncated) {
+			~ {
+				label {
+					display: none;
+				}
+			}
+		}
+	}
+	input {
+		&:checked {
+			+ {
+				p {
+					-webkit-line-clamp: unset;
+				}
+			}
+			~ {
+				label {
+					display: none;
+				}
+			}
+		}
+	}
 }
-
-.box {
-  p {
-    margin: 0;
-  }
-  width: 91.4%;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  align-items: center;
-  color: $commonAdditional;
-  white-space: normal;
-  @include respond(small) {
-    width: 81.3%;
-    line-height: 29px;
-  }
+.boxinput {
+	display: none;
+	visibility: hidden;
 }
-
 .contenttextshow {
-  display: block;
-  align-items: center;
-  width: 91.4%;
-  color: $commonAdditional;
+	display: block;
+	align-items: center;
+	width: 91.4%;
+	color: #2c2d2e;
+	p {
+		font-family: "GolosText";
+		font-style: normal;
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 19px;
+		margin-top: 10px;
+		width: 333px;
+		overflow: visible;
+	}
 }
-
 .contenthide {
-  display: flex;
-  align-items: center;
-  display: flex;
-  background-color: transparent;
-  border: none;
-  color: $primary;
-  width: 64px;
-  height: 15px;
-  z-index: 100;
-  position: relative;
-  left: 81.3%;
-  bottom: 15px;
-  &:hover {
-    cursor: pointer;
-  }
-  @include respond(small) {
-    left: 81.3%;
-    bottom: 22px;
-  }
+	display: flex;
+	align-items: center;
+	background-color: transparent;
+	border: none;
+	color: #2e3192;
+	width: 64px;
+	height: 15px;
+	z-index: 100;
+	position: relative;
+	top: -17px;
+	left: 84%;
+	&:hover {
+		cursor: pointer;
+	}
 }
-
+.fulltext {
+	position: relative;
+	top: -17px;
+	left: 54%;
+}
 .requestcount {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  width: 56px;
-  height: 32px;
-  color: $primary;
-  margin-top: 28px;
-  @include respond(small) {
-    margin-right: 5px;
-    margin-left: auto;
-  }
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	color: #2e3192;
+	svg {
+		width: 53px;
+		height: 42px;
+		padding-top: 35px;
+	}
 }
-
-.requesticon {
-  width: 43px;
-  height: 32px;
-  margin: 0;
-}
-
 .category {
-  display: flex;
-  flex-direction: column;
-  width: 169px;
-  @include respond(small) {
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 222px;
-    justify-content: flex-start;
-  }
+	display: flex;
+	flex-direction: column;
+	width: 169px;
+	position: relative;
+	top: 40px;
 }
-
 .categorylogo {
-  width: 169px;
-  height: 25px;
-  margin: 0 0 10px 0;
-  padding: 0;
-  position: absolute;
-  left: 0;
-  top: 0;
-  background-image: url('../../../images/back.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  @include respond(small) {
-  }
+	width: 169px;
+	height: 25px;
+	margin: 0 0 10px 0;
+	padding: 0;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-image: url("../../../images/back.svg");
+	background-position: center;
+	background-repeat: no-repeat;
 }
-
 .logotext {
-  @include text(12px, 400, 15px);
-  display: flex;
-  align-items: center;
-  text-align: center;
-  color: $secondery;
-  margin: 0;
-  padding: 5px 94px 5px 15px;
-  width: 169px;
-  @include respond(small) {
-    padding: 5px 94px 5px 15px;
-  }
+	font-family: "GolosText";
+	font-style: normal;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 15px;
+	display: flex;
+	align-items: center;
+	text-align: center;
+	color: #ffffff;
+	margin: 0;
+	padding: 5px 94px 5px 15px;
 }
-
 .date {
-  display: flex;
-  flex-direction: row;
-  max-height: 36px;
-  align-items: center;
+	display: flex;
+	flex-direction: row;
+	max-height: 36px;
+	align-items: center;
 }
-
 .dateicon {
-  width: 17px;
-  height: 17px;
-  margin: 0 5px 0px 0;
+	width: 17px;
+	height: 17px;
+	margin: 0 5px 0px 0;
 }
-
 .datetext {
-  display: flex;
-  align-items: center;
-  width: 131px;
-  height: 36px;
-  text-align: center;
-  color: $primary;
-  margin-left: 5px;
-  margin-bottom: 2px;
-  @include text(24px, 400, 29px);
-  @include respond(small) {
-    width: 91px;
-    height: 29px;
-    font-family: 'GolosText';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 19px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: $primary;
-    margin-bottom: 5px;
-    margin-right: 40px;
-  }
+	display: flex;
+	align-items: center;
+	width: 131px;
+	height: 36px;
+	text-align: center;
+	color: #2e3192;
+	margin-bottom: 2px;
 }
-
 .time {
-  display: flex;
-  flex-direction: row;
-  max-height: 29px;
-  align-items: center;
-  margin: 0 5px 5px 0;
-  @include respond(small) {
-    margin: 0;
-  }
+	display: flex;
+	flex-direction: row;
+	max-height: 29px;
+	align-items: center;
+	margin: 5px 5px 5px 0;
 }
-
 .timeicon {
-  width: 17px;
-  height: 17px;
-  margin-right: 5px;
+	width: 17px;
+	height: 17px;
+	margin-right: 5px;
 }
-
 .timetext {
-  display: flex;
-  align-items: center;
-  width: 63px;
-  height: 29px;
-  margin: 0;
-  text-align: center;
-  color: $primary;
-  margin-top: 10px;
-  margin-left: 5px;
-  @include respond(small) {
-    width: 47px;
-    height: 29px;
-    font-family: 'GolosText';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 19px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: $primary;
-  }
+	display: flex;
+	align-items: center;
+	width: 63px;
+	height: 29px;
+	text-align: center;
+	color: #2e3192;
 }
-
 .address {
-  display: flex;
-  flex-direction: row;
-  max-height: 38px;
-  align-items: center;
+	display: flex;
+	flex-direction: row;
+	max-height: 38px;
+	align-items: center;
 }
-
 .addressicon {
-  width: 27px;
-  height: 27px;
-  margin: 0 0px 5px -5px;
+	width: 32px;
+	height: 32px;
+	margin: 16px 0px 5px -8px;
 }
-
 .addresstext {
-  display: flex;
-  align-items: center;
-  width: 131px;
-  height: 38px;
-  color: $primary;
-  @include text(16px, 400, 19px);
-  @include respond(small) {
-    font-family: 'GolosText';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 19px;
-    display: flex;
-    color: $primary;
-    margin-top: 5px;
-  }
+	display: flex;
+	align-items: center;
+	width: 131px;
+	height: 38px;
+	color: #2e3192;
+	margin-top: 10px;
+}
+.scores {
+	margin-top: 30px;
+}
+@media (max-width: 960px) {
+	.request {
+		position: relative;
+		flex-direction: column;
+		justify-content: flex-start;
+		height: 436px;
+		width: 365px;
+		max-width: 650px;
+		margin: 0 25px 0 25px;
+		padding: 0;
+		border: 1px solid rgba(184, 228, 250, 1);
+	}
+	.buttons {
+		top: 0;
+		width: 80px;
+	}
+	.volunteer {
+		margin: 0;
+	}
+	.volunteerinfo {
+		width: 390px;
+		flex-direction: row;
+		flex-wrap: wrap;
+		margin-top: 45px;
+		margin-left: 10px;
+	}
+	.infotext {
+		margin-top: 10px;
+	}
+	.avatar {
+		width: 60px;
+		height: 60px;
+		margin-left: 0;
+		margin-right: 5px;
+	}
+	.text {
+		display: inline-block;
+		height: 29px;
+		width: 260px;
+		margin: 0;
+		overflow-x: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	.teltext {
+		margin: 0 0 10px 0;
+	}
+	.icons {
+		margin-left: 68px;
+		margin-top: 10px;
+		max-width: 200px;
+	}
+	.content {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		margin-left: 10px;
+		max-width: 950px;
+		padding-top: 0;
+	}
+	.contentheader {
+		width: 100vw;
+		margin: 10px 0 5px 0;
+		overflow: hidden;
+	}
+	.box {
+		width: 100%;
+		margin-top: 0;
+		p {
+			line-height: 29px;
+			-webkit-line-clamp: 4;
+			width: 73%;
+			margin-top: -5px;
+		}
+	}
+	.contenttextshow {
+		line-height: 29px;
+		p {
+			font-family: "GolosText";
+			font-style: normal;
+			font-weight: 400;
+			font-size: 16px;
+			line-height: 29px;
+			margin-top: 5px;
+		}
+	}
+	.contenthide {
+		top: -22px;
+		left: auto;
+		right: -200px;
+	}
+	.fulltext {
+		position: relative;
+		top: -22px;
+		left: 36%;
+	}
+	.requestcount {
+		margin-right: 8px;
+		margin-left: auto;
+		margin-top: -5px;
+		border-bottom: 1px solid;
+		border-image-source: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #2e3192 49.28%, rgba(255, 255, 255, 0) 100%);
+		svg {
+			width: 43px;
+			height: 32px;
+			padding-top: 0;
+		}
+	}
+	.category {
+		flex-direction: row;
+		flex-wrap: wrap;
+		width: 235px;
+		justify-content: flex-start;
+		top: 0;
+	}
+	.logotext {
+		padding: 5px 94px 5px 15px;
+	}
+	.date {
+		max-height: 29px;
+		margin-top: 15px;
+		margin-left: 10px;
+	}
+	.datetext {
+		width: 91px;
+		height: 29px;
+		font-family: "GolosText";
+		font-style: normal;
+		font-weight: 700;
+		font-size: 16px;
+		line-height: 19px;
+		display: flex;
+		align-items: center;
+		text-align: center;
+		color: #2e3192;
+		margin-bottom: 0;
+		margin-right: 30px;
+	}
+	.time {
+		margin: 15px 0 0 9px;
+	}
+	.timetext {
+		width: 47px;
+		height: 29px;
+		font-family: "GolosText";
+		font-style: normal;
+		font-weight: 700;
+		font-size: 16px;
+		line-height: 19px;
+		display: flex;
+		align-items: center;
+		text-align: center;
+		color: #2e3192;
+	}
+	.address {
+		margin-left: 10px;
+	}
+	.addresstext {
+		font-family: "GolosText";
+		font-style: normal;
+		font-weight: 700;
+		font-size: 16px;
+		line-height: 19px;
+		display: flex;
+		color: #2e3192;
+		margin-top: 0;
+		min-width: 160px;
+	}
+	.addressicon {
+		margin-top: 10px;
+		margin-right: -2px;
+	}
+	.scores {
+		margin-top: 0;
+	}
 }

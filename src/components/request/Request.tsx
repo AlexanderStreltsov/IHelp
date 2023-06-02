@@ -16,19 +16,16 @@ import { getIsRequestImmediate, getIsRequestFinished } from '../../utils/utils';
 
 const onButtonClick = (event: any) => {
   if (event.target.innerHTML === 'Читать') {
-    console.log(event.target.parentElement);
     event.target.innerHTML = 'Свернуть';
     event.target.className = 'contenthide fulltext';
     event.target.parentElement.className = 'contenttextshow';
-    event.target.closest('#request').style.height = 'fit-content';
-    console.log(event.target.parentElement.parentElement.parentElement);
-    document.getElementById('requestcount')!.style.marginTop = '-25px';
-    document.getElementById('header')!.style.overflowX = 'visible';
+    // document.getElementById('requestcount')!.style.marginTop = '-25px';
+    // document.getElementById('header')!.style.overflowX = 'visible';
   } else {
     event.target.innerHTML = 'Читать';
     event.target.className = 'contenthide';
-    document.getElementById('requestcount')!.style.marginTop = '0px';
     event.target.parentElement.className = 'box text-medium';
+    // document.getElementById('requestcount')!.style.marginTop = '0px';
   }
 };
 
@@ -147,11 +144,7 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
             </div>
           )}
           <div className="content">
-            <div
-              className="contentheader text-big"
-              id="header"
-              style={{ marginTop: isVolunteerNull ? '160px' : '10px' }}
-            >
+            <div className="contentheader text-big" id="header">
               {props.propsForRequest.title}
             </div>
             <div className="box text-medium" id="conttext">
@@ -183,7 +176,7 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
           <div className="category">
             <div className="date">
               <CalendarIcon className="dateicon" color="dark-blue" />
-              <p className="datetext">
+              <p className="datetext text-big">
                 {props.propsForRequest.date
                   .toString()
                   .slice(0, 10)
@@ -192,7 +185,7 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
             </div>
             <div className="time">
               <ClockIcon className="timeicon" color="dark-blue" />
-              <p className="timetext">
+              <p className="timetext text-big">
                 {props.propsForRequest.date.toString().slice(11, 16)}
               </p>
             </div>
@@ -201,7 +194,7 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
                 <LocationIcon className="addressicon" color="dark-blue" />
               </div>
               {props.owner === 'volunteer' && data ? (
-                <p className="addresstext">{data!.address}</p>
+                <p className="addresstext text-medium">{data!.address}</p>
               ) : (
                 <p className="addresstext">
                   {props.propsForRequest!.recipient.address}
