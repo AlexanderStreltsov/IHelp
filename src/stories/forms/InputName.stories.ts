@@ -23,6 +23,7 @@ export const EmptyName: Story = {
 
 export const NameWithValue: Story = {
   args: {
-    initialValue: 'Aleksandr',
+    label: 'Name',
+    initialValue: 'Aleksander',
   },
 };

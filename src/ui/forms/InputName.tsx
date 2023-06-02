@@ -3,6 +3,10 @@ import styles from './inputName.module.scss';
 
 interface Props {
   /**
+   * Label
+   */
+  label?: string;
+  /**
    * Input value
    */
   initialValue: string;
@@ -16,6 +20,7 @@ interface Props {
  * Input field for name
  */
 export const InputName: React.FC<Props> = ({
+  label,
   initialValue,
   onChange,
 }: Props) => {
@@ -29,9 +34,11 @@ export const InputName: React.FC<Props> = ({
 
   return (
     <div className={styles.form}>
-      <label className={styles.label} htmlFor={inputId}>
-        Имя
-      </label>
+      {label && (
+        <label className={styles.label} htmlFor={inputId}>
+          {label}
+        </label>
+      )}
       <input
         className={styles.input}
         id={inputId}
