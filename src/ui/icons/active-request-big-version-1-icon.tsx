@@ -26,8 +26,8 @@ export const ActiveRequestVersion1Icon = ({ color, ...props }: IIconProps) => (
       fill={getColor(color)}
     />
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M13.0284 49.9999H42.5614C42.7076 49.9999 42.8538 49.8189 43 49.4566V13.2245C43 12.8622 42.8538 12.6809 42.5614 12.6809H24.8553V13.7678H42.1228V48.913H13.3209V25.3621H12.5898V49.4566C12.5898 49.8189 12.736 49.9999 13.0284 49.9999Z"
       fill={getColor(color)}
     />
