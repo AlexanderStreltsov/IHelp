@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable jsx-a11y/alt-text */
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './request.css';
 import { BallsIcon } from '../../ui/icons/balls-icon';
 import { CalendarIcon } from '../../ui/icons/calendar-icon';
@@ -14,39 +14,50 @@ import { TTask } from '../../types';
 import { FinishedApplicationIcon } from '../../ui/icons/finished-application-icon';
 import { getIsRequestImmediate, getIsRequestFinished } from '../../utils/utils';
 
-const onButtonClick = (event: any) => {
-  if (event.target.innerHTML === 'Читать') {
-    event.target.innerHTML = 'Свернуть';
-    event.target.className = 'contenthide fulltext';
-    event.target.parentElement.className = 'contenttextshow';
-    // document.getElementById('requestcount')!.style.marginTop = '-25px';
-    // document.getElementById('header')!.style.overflowX = 'visible';
-  } else {
-    event.target.innerHTML = 'Читать';
-    event.target.className = 'contenthide';
-    event.target.parentElement.className = 'box text-medium';
-    // document.getElementById('requestcount')!.style.marginTop = '0px';
-  }
-};
-
 export const Request = (props: { propsForRequest: TTask; owner: string }) => {
-  const ps = document.querySelectorAll('p');
-  const observer = new ResizeObserver((entries) => {
-    for (let entry of entries) {
-      entry.target.classList[
-        entry.target.scrollHeight > entry.contentRect.height ? 'add' : 'remove'
-      ]('truncated');
-    }
-  });
+  const ref = useRef<HTMLParagraphElement>(null);
+  const [isTextTruncated, setIsTextTruncated] = useState(false);
+  const [isTextFullyVisible, setIsTextFullyVisible] = useState(false);
 
-  ps.forEach((p) => {
-    observer.observe(p);
-  });
+  const onButtonClick = () => {
+    isTextFullyVisible
+      ? setIsTextFullyVisible(false)
+      : setIsTextFullyVisible(true);
+  };
+
+  useEffect(() => {
+    ref.current!.className = isTextFullyVisible
+      ? 'contenttextshow'
+      : 'box text-medium';
+
+    [...ref.current!.children].map((child) => {
+      return (child.innerHTML = isTextFullyVisible ? 'Свернуть' : 'Читать');
+    });
+
+    [...ref.current!.children].map((child) => {
+      return (child.className = isTextFullyVisible
+        ? 'contenthide fulltext'
+        : 'contenthide');
+    });
+  }, [isTextFullyVisible]);
+
+  useEffect(() => {
+    if (ref.current !== null && ref.current !== undefined) {
+      ref.current.scrollHeight > ref.current.clientHeight
+        ? setIsTextTruncated(true)
+        : setIsTextTruncated(false);
+
+      [...ref.current.children].map((child) => {
+        return isTextTruncated === false
+          ? child.classList.add('hidden')
+          : child.classList.add('visible');
+      });
+    }
+  }, [isTextTruncated]);
 
   // eslint-disable-next-line @typescript-eslint/no-shadow, @typescript-eslint/no-use-before-define
   const IsRequestImmediate = getIsRequestImmediate(props.propsForRequest.date);
   const IsRequestFinished = getIsRequestFinished(props.propsForRequest.date);
-  console.log(IsRequestImmediate);
 
   let data;
 
@@ -55,10 +66,10 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
       ? props.propsForRequest.volunteer
       : props.propsForRequest.recipient;
 
-  console.log(data);
-
   const isVolunteerNull =
     props.owner === 'recipient' && props.propsForRequest.volunteer === null;
+
+  console.log(isTextTruncated);
 
   return (
     <>
@@ -149,7 +160,7 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
             </div>
             <div className="box text-medium" id="conttext">
               <input type="checkbox" id="expanded" />
-              <p>
+              <p ref={ref}>
                 {props.propsForRequest.description}
                 <label
                   htmlFor="expanded"

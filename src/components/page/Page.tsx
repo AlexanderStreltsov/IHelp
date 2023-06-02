@@ -14,7 +14,6 @@ export const Page = () => {
 
     fetchData();
   }, []);
-  console.log(tasksState);
 
   return (
     <div className="page">

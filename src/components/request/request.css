@@ -13,6 +13,17 @@
 p {
   margin: 0;
 }
+
+.hidden{
+  display: none;
+  visibility: hidden;
+}
+
+.visible{
+  visibility: visible;
+  display: flex;
+}
+
 .request {
   display: flex;
   flex-direction: row-reverse;
