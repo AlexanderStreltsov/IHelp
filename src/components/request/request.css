@@ -14,12 +14,12 @@ p {
   margin: 0;
 }
 
-.hidden{
+.hidden {
   display: none;
   visibility: hidden;
 }
 
-.visible{
+.visible {
   visibility: visible;
   display: flex;
 }
