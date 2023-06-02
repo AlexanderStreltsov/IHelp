@@ -40,6 +40,15 @@ export default {
 //   <ActiveRequestVersion1Icon color="dark-blue" />
 // );
 
-const Template = (args: IIconProps) => <StatsIcon {...args} />;
+const Template = (args: IIconProps) => (
+  <div
+    style={{
+      width: '43px',
+      height: '46px',
+    }}
+  >
+    <StatsIcon {...args} />
+  </div>
+);
 
 export const Stats = Template.bind({});

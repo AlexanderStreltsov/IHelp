@@ -40,6 +40,15 @@ export default {
 //   <ActiveRequestVersion1Icon color="dark-blue" />
 // );
 
-const Template = (args: IIconProps) => <RequestMapIcon {...args} />;
+const Template = (args: IIconProps) => (
+  <div
+    style={{
+      width: '43px',
+      height: '50px',
+    }}
+  >
+    <RequestMapIcon {...args} />
+  </div>
+);
 
 export const RequestMap = Template.bind({});
