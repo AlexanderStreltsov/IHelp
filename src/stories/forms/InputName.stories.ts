@@ -15,8 +15,16 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+export const WithoutLabel: Story = {
+  args: {
+    placeholder: 'Введите имя',
+    initialValue: 'Александр',
+  },
+};
+
 export const EmptyName: Story = {
   args: {
+    placeholder: 'Введите имя',
     initialValue: '',
   },
 };
@@ -24,6 +32,7 @@ export const EmptyName: Story = {
 export const NameWithValue: Story = {
   args: {
     label: 'Name',
-    initialValue: 'Aleksander',
+    placeholder: 'Введите имя',
+    initialValue: 'Александр',
   },
 };

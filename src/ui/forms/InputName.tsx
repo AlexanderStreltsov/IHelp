@@ -7,6 +7,10 @@ interface Props {
    */
   label?: string;
   /**
+   * Placeholder
+   */
+  placeholder: string;
+  /**
    * Input value
    */
   initialValue: string;
@@ -21,6 +25,7 @@ interface Props {
  */
 export const InputName: React.FC<Props> = ({
   label,
+  placeholder,
   initialValue,
   onChange,
 }: Props) => {
@@ -43,7 +48,7 @@ export const InputName: React.FC<Props> = ({
         className={styles.input}
         id={inputId}
         type="text"
-        placeholder="Введите имя"
+        placeholder={placeholder}
         value={value}
         onChange={onInputChange}
       ></input>
