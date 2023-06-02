@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, JSX, useEffect, useState } from 'react';
 import styles from './profile.module.scss';
+import { ProfileInformation } from './profileInformation/profileInformation';
 import { ProfileFone } from '../../ui/icons/profile-fone';
 import { Button } from '../../ui/button/button';
 import { BallsIcon } from '../../ui/icons/balls-icon';
@@ -8,63 +9,47 @@ import { FinishedApplicationIcon } from '../../ui/icons/finished-application-ico
 import { PersonIcon } from '../../ui/icons/person-icon';
 import { ProgressIcon } from '../../ui/icons/progress-icon';
 import { ProfileFoneMobile } from '../../ui/icons/profile-fone-mobile';
+import { getAllUsers } from '../../api';
+import { TUser } from '../../types';
 
 export interface IProfileProps {
-  type?: 'volunteer' | 'recipient' | 'administration' | 'signUp' | 'noName';
+  id?: number;
+  type?: 'volunteer' | 'recipient' | 'admin' | 'chief' | 'signUp' | 'noName';
   className?: string;
 }
 
-export const Profile = ({
-  type = 'volunteer',
+export const Profile: ({
+  id,
+  type,
+  className,
+  ...props
+}: IProfileProps) => any = ({
+  id,
+  type,
   className = '',
   ...props
 }: IProfileProps) => {
   const extClassName = className || '';
-  const photo = '';
   const [width, setWidth] = useState(window.innerWidth);
+  const [one, setData] = useState<TUser[]>();
+
   useEffect(() => {
+    const getData = async () => {
+      const allArray = await getAllUsers();
+      setData(allArray);
+    };
+    getData();
     window.onresize = () => {
       setWidth(window.innerWidth);
     };
   }, [width]);
-  const Information = () => {
-    return (
-      <>
-        <span className={`${styles.info} ${styles.name} text-medium`}>
-          {type === 'noName' ? 'ФИО' : 'Иванов Иван Иванович'}
-        </span>
-        <span
-          className={`${styles.info} ${styles.infoId} ${styles.infoIdLabelPosition} text-small`}
-        >
-          ID
-        </span>
-        <span
-          className={`${styles.info} ${styles.infoId} ${styles.infoIdLabelText} text-small`}
-        >
-          {112233}
-        </span>
-        <span
-          className={`${styles.info} ${styles.boldLabelPhone} text-small-bold`}
-        >
-          Тел.:
-        </span>
-        <span className={`${styles.info} ${styles.textLabelPhone} text-small`}>
-          {'+7(000)000-00-00'}
-        </span>
-        <span
-          className={`${styles.info} ${styles.boldLabelAddress} text-small-bold`}
-        >
-          Адрес:
-        </span>
-        <span
-          className={`${styles.info} ${styles.textLabelAddress} text-small`}
-        >
-          {'Ул. Потолочного д. 3'}
-        </span>
-      </>
-    );
-  };
 
+  const data = one?.find((el) => el.id === id);
+  //если ID нету, перебрасываем на страницу регистрации
+  if (!data) return;
+  const user: TUser = data;
+  const { photo } = user;
+  console.log(user);
   return (
     <div className={`${styles.container} ${extClassName}`} {...props}>
       <div className={styles.photoBox}>
@@ -79,23 +64,27 @@ export const Profile = ({
           {width > 720 && <ProfileFone />}
           {width < 721 && <ProfileFoneMobile />}
         </div>
-        {type === 'volunteer' && (
+        {data.role === 'volunteer' && (
           <div className={styles.infoBlock}>
-            <Information />
+            <ProfileInformation key={id} {...user} />
             <BallsIcon className={styles.ballsIcon} color={'dark-blue'} />
-            <span className={`${styles.ballsSum} text-small`}>{2500}</span>
+            <span className={`${styles.ballsSum} text-small`}>
+              {data.scores}
+            </span>
             <KeyIcon className={styles.keyIcon} color={'dark-blue'} />
-            <span className={`${styles.keySum} text-small`}>{1}</span>
+            <span className={`${styles.keySum} text-small`}>{0}</span>
             <FinishedApplicationIcon
               className={styles.finishIcon}
               color={'dark-blue'}
             />
-            <span className={`${styles.finishSum} text-small`}>{150}</span>
+            <span className={`${styles.finishSum} text-small`}>
+              {data.completed}
+            </span>
           </div>
         )}
-        {type === 'recipient' && (
+        {data.role === 'recipient' && (
           <div className={styles.infoBlock}>
-            <Information />
+            <ProfileInformation key={id} {...user} />
             <ProgressIcon
               className={styles.recipientIcon}
               color={'dark-blue'}
@@ -105,9 +94,9 @@ export const Profile = ({
             </span>
           </div>
         )}
-        {type === 'administration' && (
+        {data.role === ('admin' || 'chief') && (
           <div className={styles.infoBlock}>
-            <Information />
+            <ProfileInformation key={id} {...user} />
           </div>
         )}
         {type === 'signUp' && (
@@ -135,7 +124,7 @@ export const Profile = ({
         )}
         {type === 'noName' && (
           <div className={styles.infoBlock}>
-            <Information />
+            <ProfileInformation />
           </div>
         )}
         <Button
