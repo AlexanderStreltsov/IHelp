@@ -1,0 +1,67 @@
+@import '../../common/_variable';
+@import '../../common/_selectors';
+
+.form {
+  width: 375px;
+  height: 96px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  background: map-get($background_color, 'primary');
+  padding: 12px;
+}
+
+.label {
+  width: 351px;
+  height: 18px;
+  font-family: 'GolosText';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.154px;
+  color: map-get($background_color, 'partsPrimary');
+  margin-bottom: 8px;
+}
+
+.select {
+  width: 351px;
+  height: 44px;
+  padding: 12px;
+  box-sizing: border-box;
+  background: map-get($background_color, 'primary');
+  border: 1px solid map-get($background_color, 'partsSecondary');
+  @extend .text-medium;
+  letter-spacing: -0.32px;
+  appearance: none;
+  background-image: url('../../stories/assets/dropdown.svg');
+  background-repeat: no-repeat;
+  background-position: right 0.7em top 50%, 0 0;
+  background-size: 14px, 7px;
+  outline: none;
+}
+
+.optionEnabled {
+  color: map-get($background_color, 'partsPrimary');
+}
+
+.optionDisabled {
+  color: map-get($text_color, 'ancillary');
+}
+
+.correctInput {
+  border: 1px solid map-get($background_color, 'partsSecondary');
+}
+
+.wrongInput {
+  border: 0.5px solid map-get($background_color, 'errorBorder');
+}
+
+.errorMessage {
+  width: 351px;
+  height: 16px;
+  margin-top: 8px;
+  @extend .text-error-message;
+  letter-spacing: -0.078px;
+  color: map-get($text_color, 'errorMessage');
+}
