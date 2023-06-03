@@ -4,7 +4,7 @@
 
 .header {
   width: 100%;
-  height: 88px;
+  height: 87px;
   border: 1px solid #e0e0e0;
 
   @media screen and (max-width: 1023px) {
@@ -29,7 +29,13 @@
     padding-left: 30px;
   }
 
+  @media screen and (max-width: 1080px) {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
   @media screen and (max-width: 1023px) {
+    justify-content: flex-end;
     align-items: center;
     border: 1px solid;
     border-image-slice: 1;
@@ -40,16 +46,28 @@
   }
 }
 
+.logo {
+  box-sizing: border-box;
+  padding: 0 60px 5px 0;
+
+  @media screen and (max-width: 1023px) {
+    flex-basis: 50%;
+    text-align: center;
+    padding: 2px 0 0;
+  }
+}
+
 .mobileHide {
   @media screen and (max-width: 1023px) {
     display: none;
   }
 }
 
-.mobileVisible {
+.avatar {
   display: none;
 
   @media screen and (max-width: 1023px) {
     display: block;
+    margin-right: auto;
   }
 }

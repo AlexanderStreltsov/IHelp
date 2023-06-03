@@ -4,13 +4,18 @@
 
 .container {
   position: relative;
+  
+  @media screen and (max-width: 1023px) {
+    flex-basis: 25%;
+  }
 }
 
 .button {
-  margin-bottom: 20px;
+  margin: 0 0 20px auto;
   cursor: pointer;
 
   @media screen and (max-width: 1023px) {
+    margin-top: 5px;
     margin-bottom: 0;
   }
 }
@@ -31,6 +36,7 @@
   }
 
   @media screen and (max-width: 1023px) {
+    top: 55px;
     width: 252px;
   }
 }

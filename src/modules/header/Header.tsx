@@ -42,9 +42,11 @@ const Header: FC = () => {
       <div className={styles.container}>
         <PersonPhoto
           pic="http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg"
-          className={styles.mobileVisible}
+          className={styles.avatar}
         />
-        <Logo />
+        <div className={styles.logo}>
+          <Logo />
+        </div>
         <Navigation items={navigationItems} className={styles.mobileHide} />
         <Dropdown />
       </div>
