@@ -17,21 +17,21 @@ import React, {
 import { IProfileProps } from '../profile';
 import { getAllUsers } from '../../../api';
 import { TUser } from '../../../types';
+import { number } from 'prop-types';
 
-export const ProfileElement: ({
+export const ProfileElement = ({
   id,
-  type,
-  className,
-  ...props
-}: IProfileProps) => JSX.Element = ({
-  id: number,
   type,
   className,
   ...props
 }: IProfileProps) => {
   const [width, setWidth] = useState(window.innerWidth);
   const extClassName = className || '';
-  const { photo, id, role, scores, completed }: TUser = props;
+  console.log(props);
+  const data = props;
+  props = { ...props, id: id, approved: null, keys: null };
+  const { photo, role, scores, completed, keys }: TUser = props;
+  console.log(id);
   useEffect(() => {
     window.onresize = () => {
       setWidth(window.innerWidth);
@@ -69,7 +69,7 @@ export const ProfileElement: ({
         )}
         {role === 'recipient' && (
           <div className={styles.infoBlock}>
-            <ProfileInformation key={id} {...props} />
+            <ProfileInformation {...props} />
             <ProgressIcon
               className={styles.recipientIcon}
               color={'dark-blue'}
@@ -81,7 +81,7 @@ export const ProfileElement: ({
         )}
         {role === ('admin' || 'chief') && (
           <div className={styles.infoBlock}>
-            <ProfileInformation key={id} {...props} />
+            <ProfileInformation {...props} />
           </div>
         )}
         {type === 'signUp' && (

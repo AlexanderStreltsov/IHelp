@@ -8,6 +8,7 @@ export const ProfileInformation: React.FC<TUser> = ({
   phone,
   address,
 }) => {
+  console.log(id);
   return (
     <>
       <span className={`${styles.info} ${styles.name} text-medium`}>

@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import styles from './profile.module.scss';
+// import styles from './profile.module.scss';
 // import { ProfileInformation } from './profileInformation/profileInformation';
-import { ProfileFone } from '../../ui/icons/profile-fone';
-import { Button } from '../../ui/button/button';
-import { BallsIcon } from '../../ui/icons/balls-icon';
-import { KeyIcon } from '../../ui/icons/key-icon';
-import { FinishedApplicationIcon } from '../../ui/icons/finished-application-icon';
-import { PersonIcon } from '../../ui/icons/person-icon';
-import { ProgressIcon } from '../../ui/icons/progress-icon';
-import { ProfileFoneMobile } from '../../ui/icons/profile-fone-mobile';
+// import { ProfileFone } from '../../ui/icons/profile-fone';
+// import { Button } from '../../ui/button/button';
+// import { BallsIcon } from '../../ui/icons/balls-icon';
+// import { KeyIcon } from '../../ui/icons/key-icon';
+// import { FinishedApplicationIcon } from '../../ui/icons/finished-application-icon';
+// import { PersonIcon } from '../../ui/icons/person-icon';
+// import { ProgressIcon } from '../../ui/icons/progress-icon';
+// import { ProfileFoneMobile } from '../../ui/icons/profile-fone-mobile';
 import { getAllUsers } from '../../api';
 import { TUser } from '../../types';
 import { ProfileElement } from './profileElement/profileElement';
@@ -19,12 +19,7 @@ export interface IProfileProps {
   className?: string;
 }
 
-export const Profile: ({
-  id,
-  type,
-  className,
-  ...props
-}: IProfileProps) => any = ({
+export const Profile = ({
   id,
   type,
   className = '',
@@ -48,9 +43,10 @@ export const Profile: ({
   if (!data) return <ProfileElement type={'signUp'} />;
   const user: TUser = data;
   // const { photo } = user;
-  // console.log(user);
+  console.log(user);
   return (
-    <ProfileElement {...user} id={user.id} />
+    // <div {...props}>rrrr</div>
+    <ProfileElement {...user} />
     // <div className={`${styles.container} ${extClassName}`} {...props}>
     //   <div className={styles.photoBox}>
     //     {!!photo ? (
