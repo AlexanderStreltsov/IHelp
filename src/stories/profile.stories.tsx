@@ -9,26 +9,26 @@ export default {
 
 const Template: Story<IProfileProps> = (args: any) => <Profile {...args} />;
 
-export const Volunteer = Template.bind({});
+export const User = Template.bind({});
 
-Volunteer.args = {
-  type: 'volunteer',
+User.args = {
+  // type: 'volunteer',
   id: 10,
 };
 
-export const Recipient = Template.bind({});
-
-Recipient.args = {
-  type: 'recipient',
-  id: 6,
-};
-
-export const Administration = Template.bind({});
-
-Administration.args = {
-  type: 'admin',
-  id: 2,
-};
+// export const Recipient = Template.bind({});
+//
+// Recipient.args = {
+//   type: 'recipient',
+//   id: 6,
+// };
+//
+// export const Administration = Template.bind({});
+//
+// Administration.args = {
+//   type: 'admin',
+//   id: 2,
+// };
 
 export const SignUp = Template.bind({});
 
