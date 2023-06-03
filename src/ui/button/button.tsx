@@ -39,8 +39,8 @@ export interface IButtonProps extends HTMLAttributes<HTMLButtonElement> {
     | 'statistics'
     | 'application'
     | 'confirm';
-  children: string;
-  disabled: boolean;
+  children?: string;
+  disabled?: boolean;
   onClick: (() => void) | ((e: React.SyntheticEvent) => void);
 }
 
