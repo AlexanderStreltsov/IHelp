@@ -24,6 +24,19 @@ p {
   display: flex;
 }
 
+.collapse-button {
+  display: block;
+  width: 100%;
+}
+
+.collapse-content.collapsed {
+  display: none;
+}
+
+.collapsed-content.expanded {
+  display: block;
+}
+
 .request {
   display: flex;
   flex-direction: row-reverse;
@@ -135,48 +148,20 @@ p {
   align-items: center;
   color: #2c2d2e;
   white-space: normal;
-  width: 91.4%;
+  width: 100%;
+  max-width: 333px;
   margin-top: 10px;
-}
-.box p {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
   overflow: hidden;
-  max-width: 365px;
-  width: 99%;
-  line-height: 19px;
-  margin: 0;
 }
-.box p:not(.truncated) ~ label {
-  display: none;
-}
-.box input:checked + p {
-  -webkit-line-clamp: unset;
-}
-.box input:checked ~ label {
-  display: none;
-}
-.boxinput {
-  display: none;
-  visibility: hidden;
-}
-.contenttextshow {
+
+.conttextshow {
   display: block;
   align-items: center;
   width: 91.4%;
   color: #2c2d2e;
-}
-.contenttextshow p {
-  font-family: 'GolosText';
-  font-style: normal;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 19px;
   margin-top: 10px;
-  width: 333px;
-  overflow: visible;
 }
+
 .contenthide {
   display: flex;
   align-items: center;
@@ -187,8 +172,8 @@ p {
   height: 15px;
   z-index: 100;
   position: relative;
-  top: -17px;
-  left: 84%;
+  top: -18px;
+  left: 74%;
 }
 .contenthide:hover {
   cursor: pointer;

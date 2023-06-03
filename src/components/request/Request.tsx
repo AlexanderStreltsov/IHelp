@@ -10,52 +10,23 @@ import { LocationIcon } from '../../ui/icons/location-icon';
 import { ClockIcon } from '../../ui/icons/clock-icon';
 import { Button } from '../../ui/button/button';
 import { TTask } from '../../types';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { FinishedApplicationIcon } from '../../ui/icons/finished-application-icon';
 import { getIsRequestImmediate, getIsRequestFinished } from '../../utils/utils';
 
 export const Request = (props: { propsForRequest: TTask; owner: string }) => {
-  const ref = useRef<HTMLParagraphElement>(null);
-  const [isTextTruncated, setIsTextTruncated] = useState(false);
-  const [isTextFullyVisible, setIsTextFullyVisible] = useState(false);
-
-  const onButtonClick = () => {
-    isTextFullyVisible
-      ? setIsTextFullyVisible(false)
-      : setIsTextFullyVisible(true);
-  };
+  const [isCollapsed, setisCollapsed] = useState(true);
+  const [isOverflowing, setIsOverflowing] = useState(true);
+  const ref = useRef<HTMLDivElement>(null);
+  const el = ref.current;
 
   useEffect(() => {
-    ref.current!.className = isTextFullyVisible
-      ? 'contenttextshow'
-      : 'box text-medium';
-
-    [...ref.current!.children].map((child) => {
-      return (child.innerHTML = isTextFullyVisible ? 'Свернуть' : 'Читать');
-    });
-
-    [...ref.current!.children].map((child) => {
-      return (child.className = isTextFullyVisible
-        ? 'contenthide fulltext'
-        : 'contenthide');
-    });
-  }, [isTextFullyVisible]);
-
-  useEffect(() => {
-    if (ref.current !== null && ref.current !== undefined) {
-      ref.current.scrollHeight > ref.current.clientHeight
-        ? setIsTextTruncated(true)
-        : setIsTextTruncated(false);
-
-      [...ref.current.children].map((child) => {
-        return isTextTruncated === false
-          ? child.classList.add('hidden')
-          : child.classList.add('visible');
-      });
+    if (el !== null) {
+      el.clientHeight < el.scrollHeight
+        ? setIsOverflowing(true)
+        : setIsOverflowing(false);
+      el.style.overflow = isOverflowing ? 'hidden' : 'visible';
     }
-  }, [isTextTruncated]);
-
-  // eslint-disable-next-line @typescript-eslint/no-shadow, @typescript-eslint/no-use-before-define
+  }, [el, isOverflowing]);
   const IsRequestImmediate = getIsRequestImmediate(props.propsForRequest.date);
   const IsRequestFinished = getIsRequestFinished(props.propsForRequest.date);
 
@@ -68,8 +39,6 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
 
   const isVolunteerNull =
     props.owner === 'recipient' && props.propsForRequest.volunteer === null;
-
-  console.log(isTextTruncated);
 
   return (
     <>
@@ -158,21 +127,28 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
             <div className="contentheader text-big" id="header">
               {props.propsForRequest.title}
             </div>
-            <div className="box text-medium" id="conttext">
-              <input type="checkbox" id="expanded" />
-              <p ref={ref}>
-                {props.propsForRequest.description}
-                <label
-                  htmlFor="expanded"
-                  className="contenthide text-medium"
-                  id="contenthide"
-                  onClick={onButtonClick}
-                  role="button"
-                >
-                  Читать
-                </label>
-              </p>
+            <div
+              ref={ref}
+              className={`collapse-content ${
+                isCollapsed ? 'box text-medium' : 'conttextshow'
+              }`}
+            >
+              {/* {props.propsForRequest.description} */}
+              Заболел и совсем нет сил даже ходить по квартире. Почти неделю
+              собаку выгуливали соседи, но в пятницу они не смогут. Помогите,
+              пожалуйста! Заболел и совсем нет сил даже ходить по квартире.
+              Почти неделю собаку выгуливали соседи, но в пятницу они не смогут.
+              Помогите, пожалуйста!
             </div>
+            {isOverflowing && (
+              <button
+                className="contenthide text-medium"
+                id="contenthide"
+                onClick={() => setisCollapsed(!isCollapsed)}
+              >
+                {isCollapsed ? 'Читать' : 'Свернуть'}
+              </button>
+            )}
             <div className="requestcount text-small" id="requestcount">
               {props.propsForRequest.completed ? (
                 <BallsIcon color="dark-blue" />
