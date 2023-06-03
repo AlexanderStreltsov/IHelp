@@ -107,6 +107,7 @@ export const ProfileElement = ({
           </div>
         )}
         <Button
+          disabled={!id}
           onClick={() => {
             console.log('tt');
           }}

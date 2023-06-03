@@ -70,7 +70,7 @@
 .search {
   width: 170px;
   height: 33px;
-  background-color: map.get($background_color, primary);
+  background-color: rgba(0, 0, 0, 0);
   overflow: hidden;
   cursor: auto;
 
@@ -379,6 +379,21 @@
 }
 
 .quadrilateralSetting {
+  &:disabled .quadrilateral {
+    background-color: map.get($background_color, inactive);
+    cursor: auto;
+  }
+
+  &:disabled .quadrilateral:hover {
+    background-color: map.get($background_color, inactive);
+    cursor: auto;
+  }
+  &:disabled .quadrilateral:hover .image_hover {
+    display: none;
+  }
+  &:disabled .quadrilateral:hover .image {
+    display: inline;
+  }
   .quadrilateral {
     display: flex;
     margin-top: 7px;
