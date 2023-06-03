@@ -15,6 +15,12 @@ const Dropdown: FC = () => {
   const [menuVisible, setMenuVisible] = useState(false);
   const dropdownId = useId();
 
+  const adminButtonHandler = (e: React.SyntheticEvent<Element, Event>) => {
+    e.stopPropagation();
+
+    console.log('Написать администратору');
+  };
+
   const dropdownHandler = (e: React.MouseEvent) => {
     e.stopPropagation();
 
@@ -57,18 +63,23 @@ const Dropdown: FC = () => {
           id={dropdownId}
           onClick={(e) => clickHandler(e)}
         >
-          <li className={styles.item}>
-            <span className={`${styles.link} text-medium`}>
+          <li className={styles.item} onClick={(e) => adminButtonHandler(e)}>
+            <span className={`${styles.text} text-medium`}>
               Написать администратору
             </span>
-            <Button onClick={() => {}} type="circleSmallEmail" />
+            <Button
+              onClick={(e) => adminButtonHandler(e)}
+              type="circleSmallEmail"
+            />
           </li>
           <li className={`${styles.item} ${styles.mobileVisible}`}>
             <Navigation items={navigationItems} />
           </li>
           <li className={styles.item}>
-            <span className={`${styles.link} text-medium`}>Выйти</span>
-            <ExitIcon color="dark-blue" />
+            <button className={styles.exit} onClick={() => console.log('Exit')}>
+              <span className={`${styles.text} text-medium`}>Выйти</span>
+              <ExitIcon color="dark-blue" />
+            </button>
           </li>
         </ul>
       )}

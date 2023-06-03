@@ -56,6 +56,7 @@
     padding-top: 0;
     padding-bottom: 0;
     margin-bottom: 20px;
+    cursor: pointer;
 
     @media screen and (max-width: 1023px) {
       position: relative;
@@ -90,7 +91,7 @@
       }
     }
 
-    & > .link {
+    & > .text {
       color: map.get($text_color, primary);
 
       @media screen and (max-width: 1023px) {
@@ -124,9 +125,17 @@
   }
 }
 
-.link {
+.text {
   display: inline-block;
   padding-right: 7px;
   text-align: right;
+  
+}
+
+.exit {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: flex-end;
   cursor: pointer;
 }
