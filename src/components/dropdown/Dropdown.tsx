@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState, useId, useCallback } from 'react';
 
 import { Button } from '../../ui/button/button';
 import { Navigation } from '../navigation';
@@ -13,25 +13,50 @@ import { navigationItems } from '../../modules/header/Header';
 
 const Dropdown: FC = () => {
   const [menuVisible, setMenuVisible] = useState(false);
+  const dropdownId = useId();
 
-  const dropdownHandler = () => {
+  const dropdownHandler = (e: React.MouseEvent) => {
+    e.stopPropagation();
+
     setMenuVisible((prev) => !prev);
   };
+
+  const clickHandler = useCallback(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (e: any) => {
+      e.stopPropagation();
+
+      if (e.currentTarget?.id !== dropdownId && menuVisible) {
+        setMenuVisible(false);
+      }
+    },
+    [dropdownId, menuVisible, setMenuVisible],
+  );
+
+  useEffect(() => {
+    document.addEventListener('click', clickHandler);
+
+    return (): void => document.removeEventListener('click', clickHandler);
+  }, [clickHandler]);
 
   return (
     <div className={styles.container}>
       <TriplexUnionIcon
         className={`${styles.button} ${styles.mobileHide}`}
         color="dark-blue"
-        onClick={dropdownHandler}
+        onClick={(e) => dropdownHandler(e)}
       />
       <MenuIcon
         className={`${styles.button} ${styles.mobileVisible}`}
         color="dark-blue"
-        onClick={dropdownHandler}
+        onClick={(e) => dropdownHandler(e)}
       />
       {menuVisible && (
-        <ul className={styles.dropdown}>
+        <ul
+          className={styles.dropdown}
+          id={dropdownId}
+          onClick={(e) => clickHandler(e)}
+        >
           <li className={styles.item}>
             <span className={`${styles.link} text-medium`}>
               Написать администратору
