@@ -18,19 +18,10 @@ export const ProfileElement = ({
   className,
   ...props
 }: IProfileProps) => {
-  const [width, setWidth] = useState(window.innerWidth);
   const extClassName = className || '';
-  // console.log(props);
   const data = props;
   props = { ...props, id: id, approved: null, keys: null };
   const { photo, role, scores, completed }: TUser = props;
-  // console.log(id);
-  useEffect(() => {
-    window.onresize = () => {
-      setWidth(window.innerWidth);
-    };
-    console.log(width);
-  });
   return (
     <div className={`${styles.container} ${extClassName}`} {...props}>
       <div className={styles.photoBox}>
@@ -42,8 +33,8 @@ export const ProfileElement = ({
       </div>
       <div className={`${styles.infoBox}`}>
         <div className={`${styles.backgroundInfoBox} `}>
-          {width > 720 && <ProfileFone />}
-          {width < 721 && <ProfileFoneMobile />}
+          <ProfileFone className={styles.backgroundDesk} />
+          <ProfileFoneMobile className={styles.backgroundMobile} />
         </div>
         {role === 'volunteer' && (
           <div className={styles.infoBlock}>

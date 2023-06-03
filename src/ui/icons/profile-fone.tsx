@@ -1,10 +1,13 @@
-export const ProfileFone = () => (
+import { getColor, IIconProps } from './utils';
+
+export const ProfileFone = ({ ...props }) => (
   <svg
     width="295"
     height="274"
     viewBox="0 0 295 274"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    {...props}
   >
     <path
       d="M-82 -28L-76.5748 121.041L-44.8915 200.219L-52.9208 -28H-82Z"

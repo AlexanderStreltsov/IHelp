@@ -1,4 +1,4 @@
-export const ProfileFoneMobile = () => {
+export const ProfileFoneMobile = ({ ...props }) => {
   return (
     <svg
       width="354"
@@ -6,6 +6,7 @@ export const ProfileFoneMobile = () => {
       viewBox="0 0 354 274"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...props}
     >
       <path
         d="M-98.4001 -28L-91.8899 121.041L-53.8699 200.219L-63.5051 -28H-98.4001Z"
