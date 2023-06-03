@@ -18,7 +18,7 @@ export const CreateEditIcon = ({ color, ...props }: IIconProps) => (
       rx="0.219512"
       fill={getColor(color)}
       stroke={getColor(color)}
-      stroke-width="0.439024"
+      strokeWidth="0.439024"
     />
     <rect
       x="12.9268"
@@ -29,7 +29,7 @@ export const CreateEditIcon = ({ color, ...props }: IIconProps) => (
       transform="rotate(-90 12.9268 22.1465)"
       fill={getColor(color)}
       stroke={getColor(color)}
-      stroke-width="0.439024"
+      strokeWidth="0.439024"
     />
     <path
       fillRule="evenodd"
