@@ -1,4 +1,4 @@
-import { FC, useEffect, useState, useId, useCallback } from 'react';
+import { FC, useEffect, useState, useCallback } from 'react';
 
 import { Button } from '../../ui/button/button';
 import { Navigation } from '../navigation';
@@ -13,7 +13,6 @@ import { navigationItems } from '../../modules/header/Header';
 
 const Dropdown: FC = () => {
   const [menuVisible, setMenuVisible] = useState(false);
-  const dropdownId = useId();
 
   const adminButtonHandler = (e: React.SyntheticEvent<Element, Event>) => {
     e.stopPropagation();
@@ -28,15 +27,14 @@ const Dropdown: FC = () => {
   };
 
   const clickHandler = useCallback(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (e: any) => {
+    (e: MouseEvent | React.MouseEvent<HTMLUListElement, MouseEvent>) => {
       e.stopPropagation();
 
-      if (e.currentTarget?.id !== dropdownId && menuVisible) {
+      if (e.currentTarget === document && menuVisible) {
         setMenuVisible(false);
       }
     },
-    [dropdownId, menuVisible, setMenuVisible],
+    [menuVisible, setMenuVisible],
   );
 
   useEffect(() => {
@@ -58,11 +56,7 @@ const Dropdown: FC = () => {
         onClick={(e) => dropdownHandler(e)}
       />
       {menuVisible && (
-        <ul
-          className={styles.dropdown}
-          id={dropdownId}
-          onClick={(e) => clickHandler(e)}
-        >
+        <ul className={styles.dropdown} onClick={(e) => clickHandler(e)}>
           <li className={styles.item} onClick={(e) => adminButtonHandler(e)}>
             <span className={`${styles.text} text-medium`}>
               Написать администратору
