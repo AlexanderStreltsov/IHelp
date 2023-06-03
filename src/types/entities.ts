@@ -9,7 +9,7 @@ export type TUser = {
   phone?: string;
   address?: string;
   coordinates?: number[];
-  approved?: boolean | null | string;
+  approved?: boolean | null;
   checked?: boolean | null;
   keys?: boolean | null;
   adminStatus?: number;

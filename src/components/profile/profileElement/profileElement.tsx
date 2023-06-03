@@ -8,16 +8,9 @@ import { KeyIcon } from '../../../ui/icons/key-icon';
 import { FinishedApplicationIcon } from '../../../ui/icons/finished-application-icon';
 import { ProgressIcon } from '../../../ui/icons/progress-icon';
 import { Button } from '../../../ui/button/button';
-import React, {
-  HTMLAttributes,
-  JSXElementConstructor,
-  useEffect,
-  useState,
-} from 'react';
+import React, { useEffect, useState } from 'react';
 import { IProfileProps } from '../profile';
-import { getAllUsers } from '../../../api';
 import { TUser } from '../../../types';
-import { number } from 'prop-types';
 
 export const ProfileElement = ({
   id,
@@ -27,16 +20,17 @@ export const ProfileElement = ({
 }: IProfileProps) => {
   const [width, setWidth] = useState(window.innerWidth);
   const extClassName = className || '';
-  console.log(props);
+  // console.log(props);
   const data = props;
   props = { ...props, id: id, approved: null, keys: null };
-  const { photo, role, scores, completed, keys }: TUser = props;
-  console.log(id);
+  const { photo, role, scores, completed }: TUser = props;
+  // console.log(id);
   useEffect(() => {
     window.onresize = () => {
       setWidth(window.innerWidth);
     };
-  }, [width]);
+    console.log(width);
+  });
   return (
     <div className={`${styles.container} ${extClassName}`} {...props}>
       <div className={styles.photoBox}>
