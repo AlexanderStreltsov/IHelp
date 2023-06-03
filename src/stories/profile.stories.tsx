@@ -34,12 +34,12 @@ export const SignUp = Template.bind({});
 
 SignUp.args = {
   type: 'signUp',
-  id: 14,
+  id: undefined,
 };
 
 export const NoName = Template.bind({});
 
 NoName.args = {
   type: 'noName',
-  id: 14,
+  id: undefined,
 };
