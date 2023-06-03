@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import styles from './inputName.module.scss';
+import styles from './inputString.module.scss';
 
 interface Props {
   /**
    * Label
    */
-  label?: string;
+  label: string;
   /**
    * Placeholder
    */
