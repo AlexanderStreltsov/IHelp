@@ -33,3 +33,9 @@ export type TTask = {
   coordinates: number[];
   chatId: number | null;
 };
+
+export type TCategory = {
+  id: number;
+  name: string;
+  scope: number;
+};
