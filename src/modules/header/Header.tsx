@@ -42,7 +42,7 @@ const Header: FC = () => {
       <div className={styles.container}>
         <PersonPhoto
           pic="http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg"
-          className="mobileVisible"
+          className={styles.mobileVisible}
         />
         <Logo />
         <Navigation items={navigationItems} className={styles.mobileHide} />
