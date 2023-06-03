@@ -1,7 +1,7 @@
 import Footer from '../../ui/bot-bar/bot-bar';
 
 export default {
-  title: 'Modules/Header',
+  title: 'UI/Footer',
   component: Footer,
 };
 
