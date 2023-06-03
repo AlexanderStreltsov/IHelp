@@ -1,4 +1,4 @@
-import React, { FC, JSX, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './profile.module.scss';
 import { ProfileInformation } from './profileInformation/profileInformation';
 import { ProfileFone } from '../../ui/icons/profile-fone';

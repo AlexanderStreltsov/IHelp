@@ -1,6 +1,6 @@
-import React from 'react';
 import { TUser } from '../../../types';
 import styles from '../profile.module.scss';
+import React from 'react';
 
 export const ProfileInformation: React.FC<TUser> = ({
   fullname,
