@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
 import styles from './Navigation.module.scss';
+import { NavLink } from 'react-router-dom';
 
 type TNavigationProps = {
   items: {
@@ -18,12 +19,16 @@ const Navigation: FC<TNavigationProps> = ({ items, className }) => {
       {items.length > 0 &&
         items.map(({ title, icon, current }, index) => {
           return (
-            <li
-              className={`${styles.item} ${current ? styles.current : ''}`}
-              key={index}
-            >
-              {icon}
-              <span className={`${styles.link} text-medium`}>{title}</span>
+            <li className={`${styles.item}`} key={index}>
+              <NavLink
+                to={'#'}
+                className={`${styles.link} ${
+                  current ? styles.current : undefined
+                }`}
+              >
+                {icon}
+                <span className={`${styles.text}`}>{title}</span>
+              </NavLink>
             </li>
           );
         })}

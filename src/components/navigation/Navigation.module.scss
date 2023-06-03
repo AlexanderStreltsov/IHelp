@@ -1,69 +1,78 @@
 @use 'sass:map';
+@import 'src/common/selectors';
 @import 'src/common/variable';
 
 .container {
   list-style: none;
   padding: 0;
   margin: 0;
-  height: 52px;
+  height: 51px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   gap: 10px;
 
   @media screen and (max-width: 1023px) {
     flex-direction: column;
     gap: 25px;
-    align-items: flex-end;
     height: unset;
   }
 }
 
 .item {
   min-width: 134px;
+}
+
+.link {
   display: flex;
   flex-direction: column;
   align-items: center;
-  white-space: nowrap;
+  gap: 1px;
+  text-decoration: none;
+  color: map.get($text_color, common);
 
   @media screen and (max-width: 1023px) {
     flex-direction: row-reverse;
+    align-items: center;
     gap: 5px;
-    box-sizing: border-box;
-    padding-bottom: 5px;
-    white-space: break-spaces;
   }
 
   &.current {
     @media screen and (max-width: 1023px) {
       border-bottom: 4px solid map.get($background_color, partsPrimary);
+      padding-bottom: 5px;
     }
+  }
+
+  &:visited {
+    color: map.get($text_color, common);
   }
 }
 
-.link {
-  display: block;
-  box-sizing: border-box;
-  padding: 2px 7px 8px;
+.text {
+  @extend .text-medium;
+  padding: 0 7px 8px;
   border-bottom: 4px solid transparent;
-  transition: border-bottom 0.2s linear;
 
   @media screen and (max-width: 1023px) {
-    transition: unset;
+    border-bottom: unset;
     padding: 0;
     text-align: right;
   }
-
-  &:hover {
-    cursor: pointer;
-    border-bottom: 4px solid map.get($background_color, partsSecondary);
-  }
 }
 
-.current span,
-.current:hover span {
+.link:hover .text {
+  border-bottom: 4px solid map.get($background_color, partsSecondary);
+}
+
+.current > .text {
   border-bottom: 4px solid map.get($background_color, partsPrimary);
 
   @media screen and (max-width: 1023px) {
     border-bottom: unset;
   }
+}
+
+.current:hover .text {
+  cursor: default;
+  border-bottom: 4px solid map.get($background_color, partsPrimary);
 }
