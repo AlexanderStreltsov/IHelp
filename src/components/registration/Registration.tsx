@@ -67,8 +67,7 @@ const Registration: FC = () => {
       <span className={styles.caption}>
         Укажите адрес и мы подберем ближайшее к вам задание
       </span>
-      <Button onClick={() => {}} type="apply" className={styles.button}>
-        <VkIcon color="white" />
+      <Button onClick={() => {}} type="applyVK" className={styles.button}>
         Загегистрироваться через ВКонтакте
       </Button>
     </form>
