@@ -1,0 +1,43 @@
+@import '../../common/_selectors';
+@import '../../common/_variable';
+
+.conteiner {
+  width: 310px;
+  height: 60px;
+  display: grid;
+  grid-template-columns: 60px, 1fr;
+  grid-template-rows: 29px, 38px;
+  grid-template-areas:
+    'avatar name'
+    'avatar phonenumber';
+  gap: 4px;
+}
+
+.avatar {
+  grid-area: avatar;
+  width: 60px;
+  height: 60px;
+  border-radius: 512px;
+}
+
+.name {
+  grid-area: name;
+  width: 245px;
+  height: 28px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.phonenumber {
+  grid-area: phonenumber;
+  width: 245px;
+  height: 32px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+}

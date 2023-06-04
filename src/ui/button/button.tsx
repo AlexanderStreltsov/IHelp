@@ -31,7 +31,9 @@ export interface IButtonProps extends HTMLAttributes<HTMLButtonElement> {
     | 'quadrilateralApprove'
     | 'quadrilateralSetting'
     | 'quadrilateralExcel'
-    | 'bigCard';
+    | 'bigCard'
+    | 'respond'
+    | 'respondUrgent';
   icon?:
     | 'map'
     | 'active'
@@ -142,6 +144,12 @@ export const Button = ({
       )}
       {type === 'apply' && (
         <span className={`${styles.text} text-medium`}>{children}</span>
+      )}
+      {type === 'respond' && (
+        <span className={`${styles.text} text-small`}>{children}</span>
+      )}
+      {type === 'respondUrgent' && (
+        <span className={`${styles.text} text-small`}>{children}</span>
       )}
     </button>
   );
