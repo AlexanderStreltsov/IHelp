@@ -40,13 +40,13 @@ const updateUser = async (
   return checkResponse(res);
 };
 
-const getUser = async (id: number): Promise<TUser> => {
+export const getUser = async (id: number): Promise<TUser> => {
   const res = await fetch(`${config.API_URL}/users/${id}`);
 
   return checkResponse(res);
 };
 
-const getAllUsers = async (): Promise<TUser[]> => {
+export const getAllUsers = async (): Promise<TUser[]> => {
   const res = await fetch(`${config.API_URL}/users`);
 
   return checkResponse(res);

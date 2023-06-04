@@ -52,7 +52,8 @@
   }
 }
 
-.apply {
+.apply,
+.applyVK {
   padding: 8px 16px;
   background-color: map.get($background_color, partsPrimary);
   color: map.get($text_color, additional);
@@ -65,12 +66,15 @@
     background-color: map.get($background_color, inactive);
     cursor: auto;
   }
+  .imageVK {
+    margin-right: 12px;
+  }
 }
 
 .search {
   width: 170px;
   height: 33px;
-  background-color: map.get($background_color, primary);
+  background-color: rgba(0, 0, 0, 0);
   overflow: hidden;
   cursor: auto;
 
@@ -379,6 +383,21 @@
 }
 
 .quadrilateralSetting {
+  &:disabled .quadrilateral {
+    background-color: map.get($background_color, inactive);
+    cursor: auto;
+  }
+
+  &:disabled .quadrilateral:hover {
+    background-color: map.get($background_color, inactive);
+    cursor: auto;
+  }
+  &:disabled .quadrilateral:hover .image_hover {
+    display: none;
+  }
+  &:disabled .quadrilateral:hover .image {
+    display: inline;
+  }
   .quadrilateral {
     display: flex;
     margin-top: 7px;
@@ -386,7 +405,7 @@
     width: 32px;
     height: 32px;
     background-color: map.get($background_color, partsPrimary);
-    transform: skew(-3deg, -10deg);
+    transform: skew(1deg, -10deg);
     cursor: pointer;
     transition: linear, 0.3s;
 
@@ -401,7 +420,7 @@
       overflow: hidden;
       margin-top: 5px;
       margin-left: -5px;
-      transform: skew(3deg, 10deg);
+      transform: skew(-1deg, 10deg);
     }
 
     .image_hover {

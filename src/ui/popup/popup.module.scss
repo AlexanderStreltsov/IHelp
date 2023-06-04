@@ -1,0 +1,68 @@
+@use 'sass:map';
+@import '../../common/variable';
+
+.popup {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: map.get($background_color, popup);
+  position: relative;
+  z-index: 100;
+}
+
+.shadow {
+  box-shadow: 0 0 4px map.get($background_color, popupShadow),
+    0 4px 32px map.get($background_color, popupShadowSecondary);
+}
+
+.width_type_small {
+  max-width: 300px;
+  @media screen and (max-width: 413px) {
+    max-width: 260px;
+  }
+}
+
+.width_type_middle {
+  max-width: 370px;
+  @media screen and (max-width: 768px) {
+    max-width: 300px;
+  }
+  @media screen and (max-width: 413px) {
+    max-width: 280px;
+  }
+}
+
+.width_type_big {
+  max-width: 586px;
+  @media screen and (max-width: 768px) {
+    max-width: 343px;
+  }
+  @media screen and (max-width: 413px) {
+    max-width: 280px;
+  }
+}
+
+@mixin arrow($place) {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 9px solid map.get($background_color, popup);
+  position: absolute;
+  right: $place;
+  top: -9px;
+}
+
+.arrow_type_right::before {
+  @include arrow(14px);
+}
+
+.arrow_type_center::before {
+  @include arrow(14px);
+  right: calc(50% - 10px);
+}
+
+.corners_raduis {
+  border-radius: 10px;
+}
