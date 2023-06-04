@@ -76,3 +76,10 @@
 .rightPhoneFieldStyle {
   @extend .text-small;
 }
+
+.divider {
+  width: 100%;
+  border: none;
+  height: 1px;
+  background: map.get($background_color, horizontalGradient);
+}

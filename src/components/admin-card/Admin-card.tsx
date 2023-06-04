@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import styles from './admin-card.module.scss';
 
 import { PersonIcon } from './../../ui/icons/person-icon';
+import { UpperTriangleIcon } from './../../ui/icons/upper-triangle-icon';
+import { DownTriangleIcon } from './../../ui/icons/down-triangle-icon';
 
 type TAdminCardProps = {
   photo?: string;
@@ -50,6 +52,15 @@ export const AdminCard = (props: TAdminCardProps) => {
             <div
               className={`${styles.rightPhoneFieldStyle}`}
             >{`${props.tel}`}</div>
+          </div>
+        </div>
+        <div className={`${styles.optionalSelectorStyle}`}>
+          <div className={`${styles.upperTriangle}`}>
+            <UpperTriangleIcon color="dark-blue" />
+          </div>
+          <hr className={`${styles.divider}`} />
+          <div className={`${styles.downTriangle}`}>
+            <DownTriangleIcon color="dark-blue" />
           </div>
         </div>
       </div>
