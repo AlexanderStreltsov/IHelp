@@ -1,4 +1,4 @@
-// @use 'sass:map';
+@use 'sass:map';
 @import 'src/common/selectors';
 @import 'src/common/variable';
 
@@ -7,25 +7,45 @@
   width: 267px;
   margin: auto;
   position: relative;
+  overflow: hidden;
+  height: 298px;
+  box-sizing: border-box;
 }
 
 .adminPhoto {
-  border: solid green 2px;
+  // border: solid green 2px;
   height: 62px;
   width: 62px;
-  background-image: url('./user_avatar_placeholder.png');
+  background-color: map.get($background_color, partsSecondary);
+  // background-image: url('./../../ui/icons/person-icon.tsx');
   background-size: contain;
   border-radius: 50%;
   margin: auto;
   overflow: hidden;
-  // z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  position: relative;
+
+  // object-fit: none;
 }
 
 .adminInfo {
-  border: solid blue 2px;
+  border: solid map.get($background_color, partsActivePrimary) 1px;
+  position: relative;
+  top: -31px;
+  box-sizing: border-box;
 }
 
 .imageStyle {
   height: 100%;
   width: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.imagePlaceholderStyle {
+  height: 44.18px;
+  width: 26.35px;
 }

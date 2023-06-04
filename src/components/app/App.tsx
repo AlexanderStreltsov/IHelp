@@ -4,8 +4,8 @@ import { AdminCard } from '../admin-card/Admin-card';
 import './App.scss';
 
 const stab = {
-  // photo:
-  //   'https://img.freepik.com/free-photo/smiley-man-relaxing-outdoors_23-2148739334.jpg?size=626&ext=jpg&ga=GA1.1.109385392.1683700311',
+  photo:
+    'https://img.freepik.com/free-photo/smiley-man-relaxing-outdoors_23-2148739334.jpg?size=626&ext=jpg&ga=GA1.1.109385392.1683700311',
   name: 'Иван',
   surname: 'Иван',
   patronymic: 'Иван',
