@@ -23,6 +23,12 @@ type TAdminCardProps = {
 export const AdminCard = (props: TAdminCardProps) => {
   const [isInfoOpen, setInfoOpen] = useState(true);
   const adminInfoBlockHeight = { height: `${isInfoOpen ? 267 : 128}px` };
+  const upperTriangleVisibility = isInfoOpen ? 'visible' : 'hidden';
+  const downTriangleVisibility = isInfoOpen ? 'hidden' : 'visible';
+
+  function toggleRightsArea() {
+    setInfoOpen(!isInfoOpen);
+  }
   return (
     <div className={`${styles.adminCard}`}>
       <div className={`${styles.adminPhoto}`}>
@@ -56,17 +62,25 @@ export const AdminCard = (props: TAdminCardProps) => {
         </div>
 
         <div className={`${styles.optionalSelectorStyle}`}>
-          <div className={`${styles.upperTriangleBox}`}>
+          <div
+            style={{ visibility: upperTriangleVisibility }}
+            className={`${styles.upperTriangleBox}`}
+          >
             <UpperTriangleIcon
               className={`${styles.upperTriangle}`}
               color="dark-blue"
+              onClick={() => toggleRightsArea()}
             />
           </div>
           <hr className={`${styles.divider}`} />
-          <div className={`${styles.downTriangleBox}`}>
+          <div
+            style={{ visibility: downTriangleVisibility }}
+            className={`${styles.downTriangleBox}`}
+          >
             <DownTriangleIcon
               className={`${styles.downTriangle}`}
               color="dark-blue"
+              onClick={() => toggleRightsArea()}
             />
           </div>
         </div>
