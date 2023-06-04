@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import { AdminCard } from '../admin-card/Admin-card';
+
 import './App.scss';
 
 const stab = {
