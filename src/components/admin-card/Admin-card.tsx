@@ -2,56 +2,25 @@ import React, { useState, useEffect } from 'react';
 import styles from './admin-card.module.scss';
 import { ElementColors } from './../../common/variables';
 
-// import { Checkmark } from '../icons/checkmark';
-
 import { PersonIcon } from './../../ui/icons/person-icon';
 import { UpperTriangleIcon } from './../../ui/icons/upper-triangle-icon';
 import { DownTriangleIcon } from './../../ui/icons/down-triangle-icon';
+import { Checkbox } from './../../ui/checkbox/checkbox';
 
-interface ICheckbox {
-  type?: 'checkbox' | 'radio';
-  name: string;
-  value: string;
-  check?: boolean;
-  form?: 'checkbox' | 'button';
-  label: string | null;
-}
-
-export const Checkbox = ({
-  type = 'checkbox',
-  name,
-  value,
-  check = false,
-  form = 'checkbox',
-  label = null,
-}: ICheckbox) => {
-  // верстка input
-  const input = (
-    <input
-      type={type}
-      name={name}
-      value={value}
-      defaultChecked={check}
-      className={styles.input}
-    />
-  );
-
-  // вёрстка внешнего оформления input в виде checkbox
-  const checkbox = (
-    <label className={`${styles.label} text-small`}>
-      {input}
-      <span
-        className={`${styles.fakeChekbox} ${
-          label && styles.fakeChekboxWithLabel
-        }`}
-      >
-        {/* {<Checkmark color="white" className={styles.checkmark} />} */}
-      </span>
-      {label}
-    </label>
-  );
-
-  return checkbox;
+export const stabAdminCardProps = {
+  photo:
+    'https://img.freepik.com/free-photo/smiley-man-relaxing-outdoors_23-2148739334.jpg?size=626&ext=jpg&ga=GA1.1.109385392.1683700311',
+  name: 'Иван',
+  surname: 'Иван',
+  patronymic: 'Иван',
+  personalID: 111111111,
+  tel: '+7(000) 000-00-04',
+  rights: {
+    verify_accounts: true,
+    create_request: true,
+    allot_key: false,
+    settle_dispute: false,
+  },
 };
 
 type TAdminRights = {
@@ -63,12 +32,12 @@ type TAdminRights = {
 
 type TAdminCardProps = {
   photo?: string;
-  name: string;
-  surname: string;
-  patronymic: string;
-  personalID: number;
-  tel: string;
-  rights: TAdminRights;
+  name?: string;
+  surname?: string;
+  patronymic?: string;
+  personalID?: number;
+  tel?: string;
+  rights?: TAdminRights;
 };
 
 export const AdminCard = (props: TAdminCardProps) => {
