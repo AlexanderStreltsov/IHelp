@@ -3,7 +3,6 @@
 @import 'src/common/variable';
 
 .adminCard {
-  // background: red;
   width: 267px;
   margin: auto;
   position: relative;
@@ -13,11 +12,9 @@
 }
 
 .adminPhoto {
-  // border: solid green 2px;
   height: 62px;
   width: 62px;
   background-color: map.get($background_color, partsSecondary);
-  // background-image: url('./../../ui/icons/person-icon.tsx');
   background-size: contain;
   border-radius: 50%;
   margin: auto;
@@ -48,4 +45,34 @@
 .imagePlaceholderStyle {
   height: 44.18px;
   width: 26.35px;
+}
+
+.commonInfoAdminStyle {
+  margin-top: 41px;
+  margin-left: 30px;
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+}
+
+.nameFieldStyle {
+  @extend .text-medium;
+}
+
+.idFieldStyle {
+  @extend .text-small;
+  color: rgba($color: map.get($text_color, common), $alpha: 0.5);
+}
+
+.phoneFieldStyle {
+  display: flex;
+  gap: 12px;
+}
+
+.leftPhoneFieldStyle {
+  @extend .text-small-bold;
+}
+
+.rightPhoneFieldStyle {
+  @extend .text-small;
 }

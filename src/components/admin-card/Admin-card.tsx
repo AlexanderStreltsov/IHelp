@@ -38,7 +38,20 @@ export const AdminCard = (props: TAdminCardProps) => {
         )}
       </div>
       <div style={adminInfoBlockHeight} className={`${styles.adminInfo}`}>
-        adminInfo
+        <div className={`${styles.commonInfoAdminStyle}`}>
+          <div
+            className={`${styles.nameFieldStyle}`}
+          >{`${props.surname} ${props.name} ${props.patronymic}`}</div>
+          <div
+            className={`${styles.idFieldStyle}`}
+          >{`ID ${props.personalID}`}</div>
+          <div className={`${styles.phoneFieldStyle}`}>
+            <div className={`${styles.leftPhoneFieldStyle}`}>{`Тел.:`}</div>
+            <div
+              className={`${styles.rightPhoneFieldStyle}`}
+            >{`${props.tel}`}</div>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -10,7 +10,7 @@ const stab = {
   surname: 'Иван',
   patronymic: 'Иван',
   personalID: 111111111,
-  tel: 'Иван',
+  tel: '+7(000) 000-00-04',
   rights: {
     verify_accounts: true,
     create_request: true,
