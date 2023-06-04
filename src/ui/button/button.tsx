@@ -16,11 +16,13 @@ import { ExecutedRequestIcon } from '../icons/executed-request-icon';
 import { StatsIcon } from '../icons/stats-icon';
 import { CreateEditIcon } from '../icons/create-edit-icon';
 import { ApproveIcon } from '../icons/approve-icon';
+import { VkIcon } from '../icons/vk-icon';
 
 export interface IButtonProps extends HTMLAttributes<HTMLButtonElement> {
   type?:
     | 'block'
     | 'apply'
+    | 'applyVK'
     | 'search'
     | 'circleSmallPhone'
     | 'circleSmallEmail'
@@ -51,8 +53,10 @@ export const Button = ({
   disabled = false,
   children,
   icon,
+  className = '',
   ...props
 }: IButtonProps) => {
+  const extClassName = className || '';
   const Rectangle = () => {
     return (
       <div className={styles.over}>
@@ -91,7 +95,7 @@ export const Button = ({
 
   return (
     <button
-      className={`${styles.button} ${styles[type]} text-small`}
+      className={`${styles.button} ${styles[type]} ${extClassName} text-small`}
       disabled={disabled}
       {...props}
     >
@@ -143,7 +147,13 @@ export const Button = ({
         <span className={`${styles.text} text-medium`}>{children}</span>
       )}
       {type === 'apply' && (
-        <span className={`${styles.text} text-medium`}>{children}</span>
+        <span className={`${styles.text} text-small`}>{children}</span>
+      )}
+      {type === 'applyVK' && (
+        <>
+          <VkIcon color={'white'} className={styles.imageVK} />
+          <span className={`${styles.text} text-medium`}>{children}</span>
+        </>
       )}
       {type === 'respond' && (
         <span className={`${styles.text} text-small`}>{children}</span>

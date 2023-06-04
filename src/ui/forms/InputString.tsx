@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
-import styles from './inputName.module.scss';
+import styles from './inputString.module.scss';
 
 interface Props {
+  /**
+   * Label
+   */
+  label: string;
+  /**
+   * Placeholder
+   */
+  placeholder: string;
   /**
    * Input value
    */
@@ -16,6 +24,8 @@ interface Props {
  * Input field for name
  */
 export const InputName: React.FC<Props> = ({
+  label,
+  placeholder,
   initialValue,
   onChange,
 }: Props) => {
@@ -29,14 +39,16 @@ export const InputName: React.FC<Props> = ({
 
   return (
     <div className={styles.form}>
-      <label className={styles.label} htmlFor={inputId}>
-        Имя
-      </label>
+      {label && (
+        <label className={styles.label} htmlFor={inputId}>
+          {label}
+        </label>
+      )}
       <input
         className={styles.input}
         id={inputId}
         type="text"
-        placeholder="Введите имя"
+        placeholder={placeholder}
         value={value}
         onChange={onInputChange}
       ></input>
