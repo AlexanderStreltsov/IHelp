@@ -82,4 +82,32 @@
   border: none;
   height: 1px;
   background: map.get($background_color, horizontalGradient);
+  margin: -4px 0 -4px;
+}
+
+.optionalSelectorStyle {
+  margin: 0 8px 0;
+  position: relative;
+}
+
+.upperTriangleBox {
+  position: relative;
+  display: flex;
+  justify-content: end;
+}
+
+.downTriangleBox {
+  position: relative;
+  display: flex;
+  justify-content: end;
+}
+
+.upperTriangle {
+  // position: relative;
+  // margin-left: auto;
+}
+
+.downTriangle {
+  // position: relative;
+  // right: 0px;
 }

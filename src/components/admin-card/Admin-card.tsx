@@ -54,13 +54,20 @@ export const AdminCard = (props: TAdminCardProps) => {
             >{`${props.tel}`}</div>
           </div>
         </div>
+
         <div className={`${styles.optionalSelectorStyle}`}>
-          <div className={`${styles.upperTriangle}`}>
-            <UpperTriangleIcon color="dark-blue" />
+          <div className={`${styles.upperTriangleBox}`}>
+            <UpperTriangleIcon
+              className={`${styles.upperTriangle}`}
+              color="dark-blue"
+            />
           </div>
           <hr className={`${styles.divider}`} />
-          <div className={`${styles.downTriangle}`}>
-            <DownTriangleIcon color="dark-blue" />
+          <div className={`${styles.downTriangleBox}`}>
+            <DownTriangleIcon
+              className={`${styles.downTriangle}`}
+              color="dark-blue"
+            />
           </div>
         </div>
       </div>
