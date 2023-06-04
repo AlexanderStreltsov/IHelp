@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './admin-card.module.scss';
 
 type TAdminCardProps = {
+  photo?: string;
   name: string;
   surname: string;
   patronymic: string;
@@ -16,12 +17,19 @@ type TAdminCardProps = {
 };
 
 export const AdminCard = (props: TAdminCardProps) => {
-  const [isInfoOpen, setInfoOpen] = useState(false);
+  const [isInfoOpen, setInfoOpen] = useState(true);
+  // const adminInfoBlockHeight = isInfoOpen ? 267 : 128;
+  const adminInfoBlockHeight = { height: `${isInfoOpen ? 267 : 128}px` };
   return (
     <div className={`${styles.adminCard}`}>
-      adminCard
-      <div className={`${styles.adminPhoto} `}>adminPhoto</div>
-      <div className={`${styles.adminInfo}`}>adminInfo</div>
+      <div className={`${styles.adminPhoto}`}>
+        {props.photo && (
+          <img className={`${styles.imageStyle}`} src={props.photo}></img>
+        )}
+      </div>
+      <div style={adminInfoBlockHeight} className={`${styles.adminInfo}`}>
+        adminInfo
+      </div>
     </div>
   );
 };
