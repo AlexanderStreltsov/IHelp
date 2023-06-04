@@ -4,14 +4,18 @@
 $background_color: (
   primary: #fbfdff,
   popup: #fff,
+  popupShadow: #0000000a,
+  popupShadowSecondary: #00000029,
   miracle: #009245,
   inactive: #818c99,
+  inactiveSecondary: #818c99,
   partsPrimary: #2e3192,
   partsSecondary: #9798c9,
   partsAdditional: #00000080,
   partsActivePrimary: #0071bc,
   partsActiveSecondary: #0091c7,
   partsActiveAdditional: #00a99d,
+  colorBorder: #e0e0e0,
   errorBorder: #e64646,
   horizontalGradient: linear-gradient(to right, #fff, #2e3192, #fff),
 );

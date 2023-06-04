@@ -52,7 +52,8 @@
   }
 }
 
-.apply {
+.apply,
+.applyVK {
   padding: 8px 16px;
   background-color: map.get($background_color, partsPrimary);
   color: map.get($text_color, additional);
@@ -64,6 +65,9 @@
   &:disabled {
     background-color: map.get($background_color, inactive);
     cursor: auto;
+  }
+  .imageVK {
+    margin-right: 12px;
   }
 }
 
