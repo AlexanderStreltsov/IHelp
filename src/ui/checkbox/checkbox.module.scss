@@ -1,0 +1,67 @@
+@use 'sass:map';
+@import '../../common/variable';
+
+.input {
+  margin: 0;
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  clip-path: inset(0 0 0 0);
+  visibility: hidden;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  color: map.get($text_color, common);
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.fakeChekbox {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  border: 2px solid map.get($background_color, inactiveSecondary);
+  border-radius: 4px;
+}
+
+// в случае, если есть ярлык, который справа, включается правый margin
+.fakeChekboxWithLabel {
+  margin-right: 14px;
+}
+
+.checkmark {
+  display: inline;
+  visibility: hidden;
+}
+
+.input:checked + .fakeChekbox {
+  border: none;
+  background-color: map.get($background_color, partsPrimary);
+}
+
+.input:checked + .fakeChekbox .checkmark {
+  visibility: visible;
+}
+
+.fakeButton {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 66px;
+  height: 24px;
+  border: 1px solid map.get($background_color, partsPrimary);
+  color: map.get($text_color, primary);
+}
+
+.input:checked + .fakeButton {
+  background-color: map.get($background_color, partsPrimary);
+  color: map.get($text_color, additional);
+}

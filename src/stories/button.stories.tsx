@@ -31,8 +31,6 @@ export default {
   },
 };
 
-// export default meta;
-
 const Template: Story<IButtonProps> = (args) => <Button {...args} />;
 
 export const Block = Template.bind({});
@@ -48,6 +46,13 @@ export const Apply = Template.bind({});
 Apply.args = {
   children: 'Применить',
   type: 'apply',
+};
+
+export const ApplyVK = Template.bind({});
+
+ApplyVK.args = {
+  children: 'Применить',
+  type: 'applyVK',
 };
 
 export const Search = Template.bind({});

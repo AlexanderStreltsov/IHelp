@@ -1,9 +1,9 @@
-@import '../src/vendor/normalize.css';
-@import '../src/common/variable';
-@import '../src/scss/mixins/fonts';
-@import '../src/scss/mixins/text';
-@import '../src/vendor/fonts';
-@import '../src/common/selectors';
+@import './vendor/normalize.css';
+@import './common/variable';
+@import './scss/mixins/fonts';
+@import './scss/mixins/text';
+@import './vendor/fonts';
+@import './common/selectors';
 
 body {
   margin: 0;
