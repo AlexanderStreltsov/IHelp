@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import styles from './filter.module.scss';
 import { Popup } from '../../ui/popup/popup';
 import { Checkbox } from '../../ui/checkbox/checkbox';
@@ -12,19 +12,27 @@ interface IFilter {
     | 'activeApplicationsVolunteer'
     | 'recipient'
     | 'admin';
+  currentConditions: { [name: string]: string[] };
 }
 /**
  * Данный компонент представляет собой инструмент для фильтрации отображаемого
  * контента. После его применения он возвращает объект типа `{ [name: string]: string[] }`,
  * содержащий выбранные
- * параметры фильтрации. Для работы фильтра в параметр sendResult необходимо передать функцию,
- * которая будет получать результат выбора фильтров в качестве аргумента и закрывать фильтр.
+ * параметры фильтрации.
+ * Также компонент принимает данные о ранее сделанном выборе, чтобы при новой фильтрации
+ * состояние фильтра соответствовало текущей выборке.
+ * Для работы фильтра в параметр sendResult необходимо передать функцию,
+ * которая будет получать результат выбора фильтров в качестве аргумента и закрывать фильтр,
+ * а в параметр currentConditions передается объект, содержащий информацию о ранее
+ * сделанном выборе.
  * Предполагается, что открытие и закрытие фильтра обеспечивается переменной состояния
- * родительского компонента.
+ * родительского компонента, информация о ранее выбранных пунктах в фильтре также хранится в
+ * переменной состояния родительского компонента.
  */
 export const Filter = ({
   sendResult,
   type = 'volunteerApplicationMap',
+  currentConditions,
 }: IFilter) => {
   const refForm = useRef<HTMLFormElement>(null);
   // блок "категория"
@@ -220,6 +228,23 @@ export const Filter = ({
     sendResult(result);
   };
 
+  useEffect(() => {
+    if (Object.keys(currentConditions).length !== 0) {
+      const list =
+        refForm.current && Array.prototype.slice.call(refForm.current.elements);
+      list?.forEach((item) => {
+        if (
+          currentConditions.hasOwnProperty(item.name) &&
+          currentConditions[item.name].includes(item.value)
+        ) {
+          item.checked = true;
+        } else {
+          item.checked = false;
+        }
+      });
+    }
+  }, []);
+
   // виды фильтров
   // фильтр карты заявок волонтёра
   const filterVolunteerApplicationCard = (
@@ -292,8 +317,13 @@ export const Filter = ({
 //   };
 //   return (
 //     <>
+//       <button onClick={() => setIsShowFilter(true)}>Вызвать фильтр</button>
 //       {isShowFilter && (
-//         <Filter sendResult={getResult} type="activeApplicationsVolunteer" />
+//         <Filter
+//           sendResult={getResult}
+//           currentConditions={filter}
+//           type="volunteerApplicationMap"
+//         />
 //       )}
 //     </>
 //   );

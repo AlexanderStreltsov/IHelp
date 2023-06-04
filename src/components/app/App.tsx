@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
 
 import './App.scss';
-import { FilterVolunteerApplicationMap } from '../filters/FilterVolunteerApplicationMap';
+import { Filter } from '../filters/filter';
 
 const App = () => {
   const [filter, setFilter] = useState<{ [name: string]: string[] }>({});
@@ -23,9 +23,10 @@ const App = () => {
               <button onClick={() => setIsShowFilter(true)}>Drück mich</button>
               <h1>IHelp</h1>
               {isShowFilter && (
-                <FilterVolunteerApplicationMap
+                <Filter
                   sendResult={getResult}
                   currentConditions={filter}
+                  type="volunteerApplicationMap"
                 />
               )}
             </>

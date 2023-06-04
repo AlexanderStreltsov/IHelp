@@ -25,6 +25,10 @@ const meta: Meta<typeof Filter> = {
         type: 'radio',
       },
     },
+    currentConditions: {
+      description:
+        'Здесь указывается переменная, в которую сохраняется условия фильтрации. Позволяет восстановить ранее сделанный выбор при повторном вызове фильтра.',
+    },
   },
 };
 export default meta;
@@ -38,6 +42,7 @@ export const FilterVolunteerApplicationMap: Story = {
     sendResult: (result: { [name: string]: string[] }) => {
       console.log(result);
     },
+    currentConditions: {},
   },
 };
 
@@ -48,6 +53,7 @@ export const FilterCompletedVolunteerApplications: Story = {
     sendResult: (result: { [name: string]: string[] }) => {
       console.log(result);
     },
+    currentConditions: {},
   },
 };
 
@@ -58,6 +64,7 @@ export const FilterActiveApplicationsVolunteer: Story = {
     sendResult: (result: { [name: string]: string[] }) => {
       console.log(result);
     },
+    currentConditions: {},
   },
 };
 
@@ -68,6 +75,7 @@ export const FilterRecipient: Story = {
     sendResult: (result: { [name: string]: string[] }) => {
       console.log(result);
     },
+    currentConditions: {},
   },
 };
 
@@ -78,6 +86,7 @@ export const FilterAdmin: Story = {
     sendResult: (result: { [name: string]: string[] }) => {
       console.log(result);
     },
+    currentConditions: {},
   },
 };
 
@@ -93,9 +102,14 @@ export const FilterWork: Story = {
       };
       return (
         <>
+          <button onClick={() => setIsShowFilter(true)}>Вызвать фильтр</button>
           <code>{JSON.stringify(filter)}</code>
           {isShowFilter && (
-            <Filter sendResult={getResult} type="activeApplicationsVolunteer" />
+            <Filter
+              sendResult={getResult}
+              currentConditions={filter}
+              type="volunteerApplicationMap"
+            />
           )}
         </>
       );
