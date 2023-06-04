@@ -4,7 +4,7 @@
 .formPhoneNumber {
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   background: map-get($background_color, 'primary');
   padding: 12px;
 }
@@ -38,6 +38,10 @@
 .input:focus {
   outline: none;
   border: 1px solid map-get($background_color, 'partsActiveSecondary');
+}
+
+.input::placeholder {
+  color: map-get($text_color, 'primaryAdditional');
 }
 
 .inputPhoneNumber {
