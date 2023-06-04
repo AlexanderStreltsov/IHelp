@@ -16,11 +16,13 @@ import { ExecutedRequestIcon } from '../icons/executed-request-icon';
 import { StatsIcon } from '../icons/stats-icon';
 import { CreateEditIcon } from '../icons/create-edit-icon';
 import { ApproveIcon } from '../icons/approve-icon';
+import { VkIcon } from '../icons/vk-icon';
 
 export interface IButtonProps extends HTMLAttributes<HTMLButtonElement> {
   type?:
     | 'block'
     | 'apply'
+    | 'applyVK'
     | 'search'
     | 'circleSmallPhone'
     | 'circleSmallEmail'
@@ -144,6 +146,12 @@ export const Button = ({
       )}
       {type === 'apply' && (
         <span className={`${styles.text} text-medium`}>{children}</span>
+      )}
+      {type === 'applyVK' && (
+        <>
+          <VkIcon color={'white'} className={styles.imageVK} />
+          <span className={`${styles.text} text-medium`}>{children}</span>
+        </>
       )}
     </button>
   );
