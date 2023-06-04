@@ -93,13 +93,13 @@
 .upperTriangleBox {
   position: relative;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .downTriangleBox {
   position: relative;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .upperTriangle {
