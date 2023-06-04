@@ -1,0 +1,21 @@
+@use 'sass:map';
+@import 'src/common/selectors';
+@import 'src/common/variable';
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.caption {
+  @extend .text-small;
+
+  box-sizing: border-box;
+  padding: 0 0 30px 12px;
+}
+
+.button {
+  margin-left: 12px;
+}

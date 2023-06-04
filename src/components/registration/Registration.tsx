@@ -3,8 +3,11 @@ import { YMaps, withYMaps } from '@pbe/react-yandex-maps';
 
 import { InputString } from '../../ui/forms/InputString';
 import { InputPhoneNumber } from '../../ui/forms/InputPhoneNumber';
+
 import { Button } from '../../ui/button/button';
 import { VkIcon } from '../../ui/icons/vk-icon';
+
+import styles from './Registration.module.scss';
 
 function MapSuggestComponent(props: any) {
   const { ymaps } = props;
@@ -50,7 +53,7 @@ const Registration: FC = () => {
   }, []);
 
   return (
-    <form onChange={(e) => handleFormChange(e)}>
+    <form onChange={(e) => handleFormChange(e)} className={styles.form}>
       <InputString
         label="ФИО"
         placeholder="ФИО"
@@ -61,9 +64,11 @@ const Registration: FC = () => {
       <YMaps enterprise query={{ apikey: 'api-key' }}>
         <SuggestComponent />
       </YMaps>
-      <span>Укажите адрес и мы подберем ближайшее к вам задание</span>
-      <VkIcon color="dark-blue" />
-      <Button onClick={() => {}} type="apply">
+      <span className={styles.caption}>
+        Укажите адрес и мы подберем ближайшее к вам задание
+      </span>
+      <Button onClick={() => {}} type="apply" className={styles.button}>
+        <VkIcon color="white" />
         Загегистрироваться через ВКонтакте
       </Button>
     </form>
