@@ -41,7 +41,6 @@ export const Filter = ({
         value="1"
         label="Категория 1"
         moduleOutStyles={styles.checkboxCategory}
-        check={true}
       />
       <Checkbox
         name="category"
@@ -60,7 +59,6 @@ export const Filter = ({
         value="5"
         label="Категория 5"
         moduleOutStyles={styles.checkboxCategory}
-        check={true}
       />
       <Checkbox
         name="category"
@@ -89,7 +87,6 @@ export const Filter = ({
         type="radio"
         name="radius"
         value="1"
-        check={true}
         form="button"
         label="1 км"
         moduleOutStyles={`${styles.checkboxRadius} ${
@@ -111,6 +108,7 @@ export const Filter = ({
         value="5"
         form="button"
         label="5 км"
+        check={true}
         moduleOutStyles={styles.checkboxRadius}
       />
     </fieldset>
@@ -138,7 +136,6 @@ export const Filter = ({
         type={type === 'recipient' ? 'checkbox' : 'radio'}
         name="sorting"
         value="date"
-        check={true}
         form="checkbox"
         label="По дате"
         moduleOutStyles={styles.checkboxShow}
@@ -206,7 +203,7 @@ export const Filter = ({
   );
 
   // определение выбранных полей и их значений, закрытие окна
-  const useFilter = (e: React.SyntheticEvent<Element, Event>) => {
+  const collectSelection = (e: React.SyntheticEvent<Element, Event>) => {
     e.preventDefault();
     const result: { [name: string]: string[] } = {};
     const list =
@@ -273,7 +270,7 @@ export const Filter = ({
     >
       <form name="filter" className={styles.form} ref={refForm}>
         {content(type)}
-        <Button type="apply" disabled={false} onClick={useFilter}>
+        <Button type="apply" disabled={false} onClick={collectSelection}>
           Применить
         </Button>
       </form>
