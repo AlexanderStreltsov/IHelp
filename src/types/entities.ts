@@ -1,9 +1,9 @@
 import { UserRole } from './user-role';
 
 export type TUser = {
-  id?: number;
+  id?: number | null;
   fullname?: string;
-  role?: UserRole;
+  role?: UserRole | null;
   vk?: string;
   photo?: string;
   phone?: string;

@@ -1,14 +1,13 @@
-import { TUser } from '../../../types';
-import styles from '../profile.module.scss';
 import React from 'react';
+import styles from '../profile.module.scss';
+import { IProfileProps } from '../profile';
 
-export const ProfileInformation: React.FC<TUser> = ({
+export const ProfileInformation: React.FC<IProfileProps> = ({
   fullname,
   id,
   phone,
   address,
 }) => {
-  // console.log(id);
   return (
     <>
       <span className={`${styles.info} ${styles.name} text-medium`}>
@@ -22,7 +21,7 @@ export const ProfileInformation: React.FC<TUser> = ({
       <span
         className={`${styles.info} ${styles.infoId} ${styles.infoIdLabelText} text-small`}
       >
-        {id}
+        {id ? id : '112233'}
       </span>
       <span
         className={`${styles.info} ${styles.boldLabelPhone} text-small-bold`}
@@ -30,7 +29,7 @@ export const ProfileInformation: React.FC<TUser> = ({
         Тел.:
       </span>
       <span className={`${styles.info} ${styles.textLabelPhone} text-small`}>
-        {phone}
+        {phone ? phone : '+7 (000) 000-00-00'}
       </span>
       <span
         className={`${styles.info} ${styles.boldLabelAddress} text-small-bold`}
@@ -38,7 +37,7 @@ export const ProfileInformation: React.FC<TUser> = ({
         Адрес:
       </span>
       <span className={`${styles.info} ${styles.textLabelAddress} text-small`}>
-        {address}
+        {address ? address : 'Воронеж, улица Генерала Лизюкова, 4'}
       </span>
     </>
   );

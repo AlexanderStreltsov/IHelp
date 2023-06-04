@@ -79,7 +79,7 @@
     background-color: map.get($background_color, primary);
     display: grid;
     grid-template-columns: 9% 6% 12% 13% 13% 10% 6% 10% 14% 7%;
-    grid-template-rows: 31% 13% 8% 8% 10% 10% 21%;
+    grid-template-rows: 31% auto 8% 8% 10% 10% 21%;
     @media (max-width: 720px) {
       width: 345px;
     }
@@ -90,6 +90,7 @@
     .name {
       grid-column: 2/10;
       grid-row: 2;
+      margin-bottom: 2px;
       @media (max-width: 720px) {
         padding-left: 25px;
       }

@@ -1,3 +1,4 @@
+import React from 'react';
 import styles from '../profile.module.scss';
 import { PersonIcon } from '../../../ui/icons/person-icon';
 import { ProfileFone } from '../../../ui/icons/profile-fone';
@@ -8,25 +9,16 @@ import { KeyIcon } from '../../../ui/icons/key-icon';
 import { FinishedApplicationIcon } from '../../../ui/icons/finished-application-icon';
 import { ProgressIcon } from '../../../ui/icons/progress-icon';
 import { Button } from '../../../ui/button/button';
-import React, { useEffect, useState } from 'react';
 import { IProfileProps } from '../profile';
-import { TUser } from '../../../types';
 
-export const ProfileElement = ({
-  id,
-  type,
-  className,
-  ...props
-}: IProfileProps) => {
+export const ProfileElement = (props: IProfileProps) => {
+  const { className, type, role }: IProfileProps = props;
   const extClassName = className || '';
-  const data = props;
-  props = { ...props, id: id, approved: null, keys: null };
-  const { photo, role, scores, completed }: TUser = props;
   return (
-    <div className={`${styles.container} ${extClassName}`} {...props}>
+    <div className={`${styles.container} ${extClassName}`}>
       <div className={styles.photoBox}>
-        {!!photo ? (
-          <img alt="photo" src={photo} className={styles.photo} />
+        {!!props.photo ? (
+          <img alt="photo" src={props.photo} className={styles.photo} />
         ) : (
           <PersonIcon className={styles.defaultPhoto} color={'white'} />
         )}
@@ -38,9 +30,11 @@ export const ProfileElement = ({
         </div>
         {role === 'volunteer' && (
           <div className={styles.infoBlock}>
-            <ProfileInformation key={id} {...props} />
+            <ProfileInformation {...props} />
             <BallsIcon className={styles.ballsIcon} color={'dark-blue'} />
-            <span className={`${styles.ballsSum} text-small`}>{scores}</span>
+            <span className={`${styles.ballsSum} text-small`}>
+              {props.scores ? props.scores : 0}
+            </span>
             <KeyIcon className={styles.keyIcon} color={'dark-blue'} />
             <span className={`${styles.keySum} text-small`}>{0}</span>
             <FinishedApplicationIcon
@@ -48,7 +42,7 @@ export const ProfileElement = ({
               color={'dark-blue'}
             />
             <span className={`${styles.finishSum} text-small`}>
-              {completed}
+              {props.completed ? props.completed : 0}
             </span>
           </div>
         )}
@@ -64,7 +58,12 @@ export const ProfileElement = ({
             </span>
           </div>
         )}
-        {role === ('admin' || 'chief') && (
+        {role === 'admin' && (
+          <div className={styles.infoBlock}>
+            <ProfileInformation {...props} />
+          </div>
+        )}
+        {role === 'chief' && (
           <div className={styles.infoBlock}>
             <ProfileInformation {...props} />
           </div>
@@ -98,7 +97,7 @@ export const ProfileElement = ({
           </div>
         )}
         <Button
-          disabled={!id}
+          disabled={!props.id}
           onClick={() => {
             console.log('tt');
           }}
