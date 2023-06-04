@@ -10,8 +10,8 @@ export const ExecutedRequestIcon = ({ color, ...props }: IIconProps) => (
     {...props}
   >
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M13.0284 50H42.5614C42.7076 50 42.8538 49.819 43 49.4567V13.2247C43 12.8624 42.8538 12.6812 42.5614 12.6812H26.9969L26.5 13.7681H42.1228V48.9131H13.3209V25.3623H12.5898V49.4567C12.5898 49.819 12.736 50 13.0284 50Z"
       fill={getColor(color)}
     />
