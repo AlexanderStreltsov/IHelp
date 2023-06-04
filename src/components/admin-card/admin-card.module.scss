@@ -3,7 +3,7 @@
 @import 'src/common/variable';
 
 .adminCard {
-  width: 267px;
+  width: 276px;
   margin: auto;
   position: relative;
   overflow: hidden;
@@ -112,4 +112,10 @@
   // position: relative;
   // right: 0px;
   cursor: pointer;
+}
+
+.adminRightsArea {
+  margin: 12px 33px 0;
+  height: 122px;
+  border: solid red 2px;
 }

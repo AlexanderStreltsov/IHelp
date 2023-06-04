@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './admin-card.module.scss';
+import { ElementColors } from './../../common/variables';
 
 import { PersonIcon } from './../../ui/icons/person-icon';
 import { UpperTriangleIcon } from './../../ui/icons/upper-triangle-icon';
@@ -22,6 +23,8 @@ type TAdminCardProps = {
 
 export const AdminCard = (props: TAdminCardProps) => {
   const [isInfoOpen, setInfoOpen] = useState(true);
+  const [adminRights, setAdminRights] = useState(props.rights);
+
   const adminInfoBlockHeight = { height: `${isInfoOpen ? 267 : 128}px` };
   const upperTriangleVisibility = isInfoOpen ? 'visible' : 'hidden';
   const downTriangleVisibility = isInfoOpen ? 'hidden' : 'visible';
@@ -29,6 +32,9 @@ export const AdminCard = (props: TAdminCardProps) => {
   function toggleRightsArea() {
     setInfoOpen(!isInfoOpen);
   }
+
+  function changeAdminRights() {}
+
   return (
     <div className={`${styles.adminCard}`}>
       <div className={`${styles.adminPhoto}`}>
@@ -40,7 +46,7 @@ export const AdminCard = (props: TAdminCardProps) => {
           ></img>
         ) : (
           <PersonIcon
-            color="white"
+            color={ElementColors.primary}
             className={`${styles.imagePlaceholderStyle}`}
           />
         )}
@@ -68,7 +74,7 @@ export const AdminCard = (props: TAdminCardProps) => {
           >
             <UpperTriangleIcon
               className={`${styles.upperTriangle}`}
-              color="dark-blue"
+              color={ElementColors.partsPrimary}
               onClick={() => toggleRightsArea()}
             />
           </div>
@@ -79,11 +85,13 @@ export const AdminCard = (props: TAdminCardProps) => {
           >
             <DownTriangleIcon
               className={`${styles.downTriangle}`}
-              color="dark-blue"
+              color={ElementColors.partsPrimary}
               onClick={() => toggleRightsArea()}
             />
           </div>
         </div>
+
+        {isInfoOpen && <div className={`${styles.adminRightsArea}`}></div>}
       </div>
     </div>
   );
