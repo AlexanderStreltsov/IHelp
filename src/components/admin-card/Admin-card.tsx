@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styles from './admin-card.module.scss';
 import { ElementColors } from './../../common/variables';
 
@@ -42,7 +42,7 @@ type TAdminCardProps = {
 
 export const AdminCard = (props: TAdminCardProps) => {
   const [isInfoOpen, setInfoOpen] = useState(true);
-  const [adminRights, setAdminRights] = useState(props.rights);
+  // const [adminRights, setAdminRights] = useState(props.rights);
 
   const adminInfoBlockHeight = { height: `${isInfoOpen ? 267 : 128}px` };
   const upperTriangleVisibility = isInfoOpen ? 'visible' : 'hidden';
