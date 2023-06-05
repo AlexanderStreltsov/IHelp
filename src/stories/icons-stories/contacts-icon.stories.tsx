@@ -40,6 +40,15 @@ export default {
 //   <ActiveRequestVersion1Icon color="dark-blue" />
 // );
 
-const Template = (args: IIconProps) => <ContactsIcon {...args} />;
+const Template = (args: IIconProps) => (
+  <div
+    style={{
+      width: '43px',
+      height: '43px',
+    }}
+  >
+    <ContactsIcon {...args} />
+  </div>
+);
 
 export const Contacts = Template.bind({});
