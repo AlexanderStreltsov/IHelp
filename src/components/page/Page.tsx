@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { TUser } from '../../types';
 import api from '../../api';
+import styles from './page.module.scss';
 import { VolunteerCard } from '../card/Card';
 
 export const Page = () => {
@@ -17,7 +18,7 @@ export const Page = () => {
   }, []);
 
   return (
-    <div className="page">
+    <div className={styles.page}>
       {usersState && usersState[0] && (
         <VolunteerCard propsForCard={usersState[7]} />
       )}

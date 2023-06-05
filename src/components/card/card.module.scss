@@ -98,6 +98,15 @@ button {
   left: 0;
   top: 96px;
 }
+.backgreen{
+  background-image: url('../../images/backgreen.svg');
+}
+.backorange{
+  background-image: url('../../images/backorange.svg');
+}
+.backgrey{
+  background-image: url('../../images/backgrey.svg');
+}
 .underlayitems {
   display: flex;
   flex-direction: row;
@@ -269,6 +278,7 @@ button {
   }
   .underlay {
     top: 126px;
+    background-image: none;
   }
   .underlayitems {
     gap: 5px;

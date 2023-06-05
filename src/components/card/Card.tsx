@@ -10,9 +10,6 @@ import { TUser } from '../../types';
 import figuregreen from '../../images/figuregreen.svg';
 import figuregrey from '../../images/figuregrey.svg';
 import figureorange from '../../images/figureorange.svg';
-import backgreen from '../../images/backgreen.svg';
-import backorange from '../../images/backorange.svg';
-import backgrey from '../../images/backgrey.svg';
 import textlabel from '../../images/texthalf.svg';
 import { KeyIcon } from '../../ui/icons/key-icon';
 import { FinishedApplicationIcon } from '../../ui/icons/finished-application-icon';
@@ -23,7 +20,6 @@ const onButtonClick = (event: any) => {
 
 export const VolunteerCard = (props: { propsForCard: TUser }) => {
   const [volunteerState, setVolunteerState] = useState('');
-  const [hasUnderlay, setHasUnderlay] = useState(true);
   useEffect(() => {
     props.propsForCard.checked === true && props.propsForCard.approved === true
       ? setVolunteerState('approved')
@@ -33,16 +29,6 @@ export const VolunteerCard = (props: { propsForCard: TUser }) => {
       : setVolunteerState('notapproved');
   }, [props.propsForCard.approved, props.propsForCard.checked]);
 
-  useEffect(() => {
-    function handleResize() {
-      window.innerWidth <= 414 ? setHasUnderlay(false) : setHasUnderlay(true);
-    }
-
-    window.addEventListener('resize', handleResize);
-  });
-  const greenBackground = backgreen;
-  const greyBackground = backgrey;
-  const orangeBackground = backorange;
   const isVolunteer = props.propsForCard.role === 'volunteer';
 
   return (
@@ -77,18 +63,17 @@ export const VolunteerCard = (props: { propsForCard: TUser }) => {
             </p>
           </div>
           <div
-            className={styles.underlay}
-            style={{
-              backgroundImage: hasUnderlay
-                ? isVolunteer && volunteerState === 'approved'
-                  ? `url(${greenBackground})`
-                  : isVolunteer && volunteerState === 'checked'
-                  ? `url(${greyBackground})`
-                  : isVolunteer && volunteerState === 'notapproved'
-                  ? `url(${orangeBackground})`
-                  : `url(${''})`
-                : `url(${''})`,
-            }}
+            className={`
+            ${styles.underlay} 
+            ${
+              isVolunteer && volunteerState === 'approved'
+                ? styles.backgreen
+                : isVolunteer && volunteerState === 'checked'
+                ? styles.backgrey
+                : isVolunteer && volunteerState === 'notapproved'
+                ? styles.backorange
+                : ''
+            }`}
           >
             <div className={styles.underlayitems}>
               <div className={styles.underlayitem}>
