@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState, useEffect } from 'react';
-import './card.css';
+import styles from './card.module.scss';
 import { BallsIcon } from '../../ui/icons/balls-icon';
 import { Button } from '../../ui/button/button';
 import { TUser } from '../../types';
@@ -47,14 +47,14 @@ export const VolunteerCard = (props: { propsForCard: TUser }) => {
 
   return (
     <>
-      <div className="card">
-        <div className="cardcontent">
+      <div className={styles.card}>
+        <div className={styles.cardcontent}>
           <div
-            className="avatar"
+            className={styles.avatar}
             style={{ backgroundImage: `url(${props.propsForCard.photo})` }}
           ></div>
           <div
-            className="avatarunderlay"
+            className={styles.avatarunderlay}
             style={{
               backgroundImage:
                 isVolunteer && volunteerState === 'approved'
@@ -66,14 +66,18 @@ export const VolunteerCard = (props: { propsForCard: TUser }) => {
                   : `url(${''})`,
             }}
           ></div>
-          <p className="name">{props.propsForCard.fullname}</p>
-          <p className="id text-small">ID {props.propsForCard.id}</p>
-          <div className="phone">
-            <p className="phonetext text-small-bold "> Тел.:</p>
-            <p className="phonenumber text-small">{props.propsForCard.phone}</p>
+          <p className={styles.name}>{props.propsForCard.fullname}</p>
+          <p className={`${styles.id} text-small`}>
+            ID {props.propsForCard.id}
+          </p>
+          <div className={styles.phone}>
+            <p className={`${styles.phonetext} text-small-bold`}> Тел.:</p>
+            <p className={`${styles.phonenumber} text-small`}>
+              {props.propsForCard.phone}
+            </p>
           </div>
           <div
-            className="underlay"
+            className={styles.underlay}
             style={{
               backgroundImage: hasUnderlay
                 ? isVolunteer && volunteerState === 'approved'
@@ -86,22 +90,22 @@ export const VolunteerCard = (props: { propsForCard: TUser }) => {
                 : `url(${''})`,
             }}
           >
-            <div className="underlayitems">
-              <div className="underlayitem">
+            <div className={styles.underlayitems}>
+              <div className={styles.underlayitem}>
                 <BallsIcon color="dark-blue" />
-                <p className="underlaynumber text-small">
+                <p className={`${styles.underlaynumber} text-small`}>
                   {props.propsForCard.scores}
                 </p>
               </div>
-              <div className="underlayitem">
+              <div className={styles.underlayitem}>
                 <KeyIcon color="dark-blue" />
-                <p className="underlaynumber text-small">
+                <p className={`${styles.underlaynumber} text-small`}>
                   {props.propsForCard.keys ? props.propsForCard.keys : 0}
                 </p>
               </div>
-              <div className="underlayitem">
+              <div className={styles.underlayitem}>
                 <FinishedApplicationIcon color="dark-blue" />
-                <p className="underlaynumber text-small">
+                <p className={`${styles.underlaynumber} text-small`}>
                   {props.propsForCard.completed
                     ? props.propsForCard.completed
                     : 0}
@@ -109,10 +113,12 @@ export const VolunteerCard = (props: { propsForCard: TUser }) => {
               </div>
             </div>
           </div>
-          <div className="buttons">
+          <div className={styles.buttons}>
             <Button
               className={
-                volunteerState === 'checked' ? 'halfconfirm' : 'confirm'
+                volunteerState === 'checked'
+                  ? styles.halfconfirm
+                  : styles.confirm
               }
               type="block"
               children={volunteerState === 'checked' ? '' : 'Подтвердить'}
@@ -120,17 +126,21 @@ export const VolunteerCard = (props: { propsForCard: TUser }) => {
               onClick={onButtonClick}
             />
             {volunteerState === 'checked' && (
-              <img src={textlabel} className="label" onClick={onButtonClick} />
+              <img
+                src={textlabel}
+                className={styles.label}
+                onClick={onButtonClick}
+              />
             )}
             <Button
-              className="block"
+              className={styles.block}
               type="block"
               children={'Заблокировать'}
               disabled={false}
               onClick={onButtonClick}
             />
             <Button
-              className="givekeys"
+              className={styles.givekeys}
               type="block"
               children={'Дать ключи'}
               disabled={volunteerState === 'approved'}
