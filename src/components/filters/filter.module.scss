@@ -1,0 +1,99 @@
+@import '../../common/variable';
+
+.popup {
+  padding: 0 32px 34px 30px;
+  @media screen and (max-width: 413px) {
+    padding: 0 27px 34px;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.fieldset:last-of-type {
+  margin-bottom: 8px;
+}
+
+.fieldsetActiveApplications {
+  margin-bottom: 14px;
+}
+
+.fildsetCategory {
+  @media screen and (max-width: 768px) {
+    justify-content: space-between;
+  }
+}
+
+.fieldsetTideData {
+  min-height: 347px;
+  @media screen and (max-width: 768px) {
+    min-height: 170px;
+  }
+}
+
+.fildsetShow {
+  flex-direction: column;
+}
+
+.fildsetShow:last-of-type {
+  min-height: 203px;
+}
+
+.fildsetUsers {
+  flex-direction: column;
+}
+
+.legend {
+  display: block;
+  width: 100%;
+  color: map-get($text_color, common);
+  padding: 20px 0 4px;
+  border-bottom: 1px solid map-get($background_color, colorBorder);
+}
+
+.checkboxCategory {
+  margin: 12px 25px 0 0;
+  width: 107px;
+  @media screen and (max-width: 768px) {
+    margin-right: 0;
+  }
+}
+
+.checkboxCategoryRecipient:last-of-type {
+  margin-bottom: 17px;
+}
+
+.checkboxShow {
+  margin-top: 12px;
+}
+
+.checkboxRadius {
+  margin: 12px 9px 0 0;
+}
+
+.checkboxRadiusActiveApplicationsVolunteer {
+  margin-bottom: 7px;
+}
+
+.checkboxUsers {
+  margin-top: 12px;
+}
+
+.checkboxUsers:last-of-type {
+  margin-bottom: 36px;
+}

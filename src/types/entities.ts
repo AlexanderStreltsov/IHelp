@@ -1,15 +1,15 @@
 import { UserRole } from './user-role';
 
 export type TUser = {
-  id: number;
-  fullname: string;
-  role: UserRole;
-  vk: string;
-  photo: string;
-  phone: string;
-  address: string;
-  coordinates: number[];
-  approved: boolean | null;
+  id?: number | null;
+  fullname?: string;
+  role?: UserRole | null;
+  vk?: string;
+  photo?: string;
+  phone?: string;
+  address?: string;
+  coordinates?: number[];
+  approved?: boolean | null;
   checked?: boolean | null;
   keys?: boolean | null;
   adminStatus?: number;
@@ -32,4 +32,10 @@ export type TTask = {
   address: string;
   coordinates: number[];
   chatId: number | null;
+};
+
+export type TCategory = {
+  id: number;
+  name: string;
+  scope: number;
 };
