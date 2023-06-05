@@ -40,6 +40,15 @@ export default {
 //   <ActiveRequestVersion1Icon color="dark-blue" />
 // );
 
-const Template = (args: IIconProps) => <ActiveRequestVersion2Icon {...args} />;
+const Template = (args: IIconProps) => (
+  <div
+    style={{
+      width: '40px',
+      height: '48px',
+    }}
+  >
+    <ActiveRequestVersion2Icon {...args} />
+  </div>
+);
 
 export const ActiveRequestVersion2 = Template.bind({});
