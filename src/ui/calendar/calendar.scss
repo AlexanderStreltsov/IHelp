@@ -1,0 +1,211 @@
+@use 'sass:map';
+@import 'react-datepicker/dist/react-datepicker';
+@import '../../common/variable';
+@import '../../scss/mixins/text';
+@import '../../scss/mixins/media';
+
+.custom-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  @include text(12px, 400, 14px);
+}
+
+.popper-header,
+.popper-button {
+  display: none;
+}
+
+.react-datepicker {
+  border-radius: 10px;
+  border-color: map.get($background_color, colorBorder);
+
+  &__input-container input {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid map.get($background_color, colorBorder);
+    color: map.get($text_color, ancillary);
+    @include text(12px, 400, 14px);
+  }
+
+  &__triangle {
+    display: none;
+  }
+
+  &__header {
+    padding: 10px 0 0;
+    background: inherit;
+    border-bottom: none;
+  }
+
+  &__navigation {
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    border: 1.5px solid map.get($background_color, partsSecondary);
+    top: 16px;
+
+    &--previous {
+      left: 15px;
+    }
+
+    &--next {
+      right: 15px;
+    }
+  }
+
+  &__navigation-icon {
+    &::before {
+      border-color: map.get($text_color, inactive);
+      border-width: 1.5px 1.5px 0 0;
+      height: 5px;
+      width: 5px;
+      top: 9px;
+    }
+
+    &--previous {
+      left: -3px;
+    }
+
+    &--next {
+      left: 3px;
+    }
+  }
+
+  &__current-month {
+    margin: 0 0 10px;
+    color: map.get($text_color, primary);
+    text-transform: capitalize;
+    @include text(16px, 600, 22px);
+  }
+
+  &__day-names {
+    margin: 10px 12px 0;
+    display: flex;
+    gap: 19.3px;
+    justify-content: center;
+    @include text(12px, 400, 16px);
+  }
+
+  &__day-name {
+    margin: 0;
+    width: 24px;
+    text-transform: uppercase;
+    color: map.get($text_color, inactive);
+
+    &:nth-child(6),
+    &:nth-child(7) {
+      color: map.get($text_color, mainRed);
+    }
+  }
+
+  &__month {
+    margin: 0 12px 7px;
+  }
+
+  &__week {
+    display: flex;
+    gap: 19.3px;
+    justify-content: center;
+  }
+
+  &__day {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+    @include text(10px, 400, 14px);
+
+    &:hover,
+    &--keyboard-selected {
+      background: map.get($background_color, partsSecondary);
+      border-radius: 2px;
+    }
+
+    &--selected {
+      background: map.get($background_color, partsPrimary) !important;
+    }
+
+    &--outside-month {
+      color: map.get($text_color, inactive);
+    }
+  }
+}
+
+@include media('max', 'md') {
+  .react-datepicker-popper {
+    width: 100vw;
+    height: 100vh;
+    padding: 0 !important;
+    transform: none !important;
+    background: map.get($background_color, popup);
+
+    > div {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .popper-header {
+    display: block;
+    margin: 0 0 22px;
+    @include text(24px, 400, 29px);
+
+    &:after {
+      content: '';
+      display: block;
+      height: 1px;
+      width: 80%;
+      margin: 3px auto 0;
+      background: map.get($background_color, horizontalGradient);
+    }
+  }
+
+  .popper-button {
+    display: block;
+    background: map.get($background_color, partsPrimary);
+    margin: 0 auto;
+
+    > span {
+      color: map.get($text_color, secondery) !important;
+      @include text(12px, 400, 14px);
+    }
+  }
+
+  .react-datepicker {
+    border-radius: 0;
+    border: none;
+
+    &__month-container {
+      margin: 19px 0;
+    }
+
+    &__navigation {
+      top: 66px;
+    }
+
+    &__day-names {
+      gap: 1.3px;
+    }
+
+    &__week {
+      gap: 1.3px;
+      margin-top: 4.43px;
+    }
+
+    &__day {
+      @include text(14px, 400, 19px);
+
+      &--outside-month {
+        @include text(10px, 400, 14px);
+      }
+    }
+
+    &__children-container {
+      margin: 0 auto;
+    }
+  }
+}
