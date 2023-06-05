@@ -1,4 +1,4 @@
-@import '../src/vendor/normalize.css';
+@import './vendor/normalize.css';
 @font-face {
   font-family: GolosText;
   src: url(../../vendor/fonts/GolosText-Regular.woff2) format('woff2'),

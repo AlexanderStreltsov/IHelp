@@ -7,6 +7,7 @@ import type {
   TTask,
   TCreateTaskRequest,
   TUpdateTaskRequest,
+  TCategory,
 } from '../types';
 
 const checkResponse = <T>(res: Response): Promise<T> =>
@@ -39,13 +40,13 @@ const updateUser = async (
   return checkResponse(res);
 };
 
-const getUser = async (id: number): Promise<TUser> => {
+export const getUser = async (id: number): Promise<TUser> => {
   const res = await fetch(`${config.API_URL}/users/${id}`);
 
   return checkResponse(res);
 };
 
-const getAllUsers = async (): Promise<TUser[]> => {
+export const getAllUsers = async (): Promise<TUser[]> => {
   const res = await fetch(`${config.API_URL}/users`);
 
   return checkResponse(res);
@@ -98,6 +99,12 @@ const deleteTask = async (id: number): Promise<unknown> => {
   return checkResponse(res);
 };
 
+const getAllCategories = async (): Promise<TCategory[]> => {
+  const res = await fetch(`${config.API_URL}/category`);
+
+  return checkResponse(res);
+};
+
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
   createUser,
@@ -109,6 +116,7 @@ export default {
   getTask,
   getAllTasks,
   deleteTask,
+  getAllCategories,
 };
 
 //
