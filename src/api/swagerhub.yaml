@@ -38,7 +38,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Task'
-              examples: 
+              examples:
                 NewTask:
                   $ref: '#/components/examples/createTaskResponseExample'
         '400':
@@ -59,7 +59,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Task'
-              examples: 
+              examples:
                 schema:
                   $ref: '#/components/examples/allTasksResponseExample'
         '400':
@@ -81,9 +81,9 @@ paths:
           description: ''
           content:
             application/json:
-              schema: 
+              schema:
                 $ref: '#/components/schemas/Task'
-              examples: 
+              examples:
                 FindTask:
                   $ref: '#/components/examples/updateTaskResponseExample'
         '404':
@@ -110,9 +110,9 @@ paths:
           description: ''
           content:
             application/json:
-              schema: 
+              schema:
                 $ref: '#/components/schemas/Task'
-              examples: 
+              examples:
                 UpdatedTask:
                   $ref: '#/components/examples/updateTaskResponseExample'
         '400':
@@ -158,11 +158,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
-              examples: 
+              examples:
                 NewUser:
                   $ref: '#/components/examples/createUserResponseExample'
         '400':
-          $ref: '#/components/responses/BadRequest' 
+          $ref: '#/components/responses/BadRequest'
     get:
       tags:
         - users
@@ -178,7 +178,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/User'
-              examples: 
+              examples:
                 schema:
                   $ref: '#/components/examples/allUsersResponseExample'
 
@@ -201,10 +201,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
-              examples: 
+              examples:
                 FindUser:
                   $ref: '#/components/examples/updateUserResponseExample'
-                  
+
     patch:
       tags:
         - users
@@ -229,7 +229,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
-              examples: 
+              examples:
                 UpdatedUser:
                   $ref: '#/components/examples/updateUserResponseExample'
 components:
@@ -352,7 +352,7 @@ components:
           items:
             type: number
           example:
-            - 59.941871, 
+            - 59.941871,
             - 30.223494
         chatId:
           type: integer
@@ -548,14 +548,14 @@ components:
         completed:
           type: integer
           example: 100
-          
+
     TaskCategory:
       type: object
       properties:
-        id: 
+        id:
           type: number
           example: 1
-        name: 
+        name:
           type: string
           example: 'Название категории 1'
       example:
@@ -596,9 +596,9 @@ components:
         address: ул. Нахимова, д. 9
         coordinates: [59.941871, 30.223494]
         chatId: null
-    
+
     allTasksResponseExample:
-      value: 
+      value:
         - id: 12
           title: Выгулять собаку (новая задача)
           category:
@@ -1158,9 +1158,9 @@ components:
         address: ул. Нахимова, д. 9
         coordinates: [59.941871, 30.223494]
         chatId: null
-    
+
     createUserResponseExample:
-      value: 
+      value:
         id: 7
         fullname: 'Петров Петр Петрович'
         role: 'volunteer'
@@ -1175,9 +1175,9 @@ components:
         adminStatus: null
         scores: 0
         completed: 0
-        
+
     updateUserResponseExample:
-      value: 
+      value:
         id: 7
         fullname: 'Петров Петр Петрович'
         role: 'volunteer'
@@ -1244,7 +1244,7 @@ components:
           phone: '+7 (916) 123-45-67'
           address: 'ул. Нахимова, д. 9'
           coordinates: [59.941871, 30.223494]
-          approved: true    
+          approved: true
         - id: 5
           fullname: 'Иванов Иван Иванович'
           role: 'recipient'
@@ -1303,7 +1303,7 @@ components:
           checked: true
           keys: true
           scores: 600
-          completed: 20  
+          completed: 20
         - id: 10
           fullname: 'Петров Петр Петрович'
           role: 'volunteer'
