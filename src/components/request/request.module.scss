@@ -190,10 +190,13 @@ p {
   z-index: 100;
   position: relative;
   top: -17px;
-  left: 84%;
+  left: 80%;
   &:hover {
     cursor: pointer;
   }
+}
+.contenthideleft{
+  left: 37%;
 }
 .contenthidehidden{
   display: none;
@@ -210,6 +213,7 @@ p {
   align-items: center;
   flex-direction: row;
   color: #2e3192;
+  height: 42px;
   svg {
     width: 53px;
     height: 42px;
@@ -376,13 +380,15 @@ p {
     margin: 10px 0 5px 0;
     overflow: hidden;
   }
+  .contentheadernoinfo{
+    margin-top: 10px;
+  }
   .box {
     width: 100%;
     margin-top: 0;
     line-height: 29px;
     -webkit-line-clamp: 4;
     width: 73%;
-    margin-top: -5px;
   }
   .contenttextshow {
     line-height: 29px;
@@ -406,7 +412,7 @@ p {
   .requestcount {
     margin-right: 8px;
     margin-left: auto;
-    margin-top: -5px;
+    margin-top: -20px;
     border-bottom: 1px solid;
     border-image-source: linear-gradient(
       90deg,
@@ -425,7 +431,7 @@ p {
     flex-wrap: wrap;
     width: 235px;
     justify-content: flex-start;
-    top: 0;
+    top: -10px;
   }
   .logotext {
     padding: 5px 94px 5px 15px;
@@ -486,5 +492,8 @@ p {
   }
   .scores {
     margin-top: 0;
+  }
+  .contentheadernoinfo{
+    margin-top: 120px;
   }
 }

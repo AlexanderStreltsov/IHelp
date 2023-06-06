@@ -33,7 +33,7 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
           !isClicked && isOverflowing
             ? `${styles.contenthide}`
             : isClicked && !isOverflowing
-            ? `${styles.contenthide}`
+            ? `${styles.contenthide} ${styles.contenthideleft}`
             : !isClicked && !isOverflowing
             ? `${styles.contenthidehidden}`
             : `${styles.contenthide}`;
@@ -85,15 +85,18 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
                     console.log('hello');
                   }}
                 />
-                {IsRequestFinished && (
-                  <Button
-                    type="quadrilateralApprove"
-                    disabled={false}
-                    children=""
-                    onClick={() => {
-                      console.log('hello');
-                    }}
-                  />
+                {IsRequestFinished && !isVolunteerNull && (
+                  <>
+                    <Button
+                      type="quadrilateralApprove"
+                      disabled={false}
+                      children=""
+                      onClick={() => {
+                        console.log('hello');
+                      }}
+                    />
+                    ,
+                  </>
                 )}
                 {props.owner === 'recipient' &&
                   props.propsForRequest.volunteer === null && (
@@ -148,7 +151,14 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
             </div>
           )}
           <div className={styles.content}>
-            <div className={`${styles.contentheader} text-big`} id="header">
+            <div
+              className={
+                !isVolunteerNull
+                  ? `${styles.contentheader} text-big`
+                  : `${styles.contentheader} text-big ${styles.contentheadernoinfo}`
+              }
+              id="header"
+            >
               {props.propsForRequest.title}
             </div>
             <div
