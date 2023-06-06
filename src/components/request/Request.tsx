@@ -179,7 +179,11 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
               {isCollapsed ? 'Читать' : 'Свернуть'}
             </button>
             <div
-              className={`${styles.requestcount} text-small`}
+              className={
+                props.propsForRequest.completed
+                  ? `${styles.requestcount} text-small`
+                  : `${styles.requestcountapproved} text-small`
+              }
               id="requestcount"
             >
               {props.propsForRequest.completed ? (
@@ -187,7 +191,9 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
               ) : (
                 <FinishedApplicationIcon color="dark-blue" />
               )}
-              <div className={styles.scores}>
+              <div
+                className={props.propsForRequest.completed ? styles.scores : ''}
+              >
                 {props.propsForRequest.recipient.scores}
               </div>
             </div>
