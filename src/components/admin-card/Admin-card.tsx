@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { MouseEvent, useState } from 'react';
 import styles from './admin-card.module.scss';
 import { ElementColors } from './../../common/variables';
 
@@ -16,10 +16,10 @@ export const stabAdminCardProps = {
   personalID: 111111111,
   tel: '+7(000) 000-00-04',
   rights: {
-    verify_accounts: true,
+    verify_accounts: false,
     create_request: true,
     allot_key: false,
-    settle_dispute: false,
+    settle_dispute: true,
   },
 };
 
@@ -32,17 +32,26 @@ type TAdminRights = {
 
 type TAdminCardProps = {
   photo?: string;
-  name?: string;
-  surname?: string;
+  name: string;
+  surname: string;
   patronymic?: string;
-  personalID?: number;
-  tel?: string;
-  rights?: TAdminRights;
+  personalID: number;
+  tel: string;
+  rights: TAdminRights;
 };
 
 export const AdminCard = (props: TAdminCardProps) => {
   const [isInfoOpen, setInfoOpen] = useState(true);
-  // const [adminRights, setAdminRights] = useState(props.rights);
+  const [verifyAccounts, setVerifyAccounts] = useState(
+    props.rights.verify_accounts,
+  );
+  const [createRequest, setCreateRequest] = useState(
+    props.rights.create_request,
+  );
+  const [allotKey, setAllotKey] = useState(props.rights.allot_key);
+  const [settleDispute, setSettleDispute] = useState(
+    props.rights.settle_dispute,
+  );
 
   const adminInfoBlockHeight = { height: `${isInfoOpen ? 267 : 128}px` };
   const upperTriangleVisibility = isInfoOpen ? 'visible' : 'hidden';
@@ -50,6 +59,12 @@ export const AdminCard = (props: TAdminCardProps) => {
 
   function toggleRightsArea() {
     setInfoOpen(!isInfoOpen);
+  }
+
+  function toggleVerifyAccounts(e: MouseEvent) {
+    console.log('click!');
+    console.log(e.target);
+    setVerifyAccounts((prevState) => !prevState);
   }
 
   // function changeAdminRights(e: React.ChangeEvent<HTMLInputElement>) {
@@ -101,6 +116,7 @@ export const AdminCard = (props: TAdminCardProps) => {
           <div
             style={{ visibility: upperTriangleVisibility }}
             className={`${styles.upperTriangleBox}`}
+            onClick={(e) => toggleVerifyAccounts(e)}
           >
             <UpperTriangleIcon
               className={`${styles.upperTriangle}`}
@@ -122,31 +138,57 @@ export const AdminCard = (props: TAdminCardProps) => {
         </div>
 
         {isInfoOpen && (
-          <div className={`${styles.adminRightsArea}`}>
-            <Checkbox
-              name={'verify_accounts'}
-              value={'true'}
-              label={'Подтверждать аккаунты'}
-              check={true}
-            />
-            <Checkbox
-              name={'create_request'}
-              value={'true'}
-              label={'Создавать заявки'}
-              check={true}
-            />
-            <Checkbox
-              name={'allot_key'}
-              value={'false'}
-              label={'Раздавать ключи'}
-              check={false}
-            />
-            <Checkbox
-              name={'settle_dispute'}
-              value={'false'}
-              label={'Решать споры'}
-              check={false}
-            />
+          <div
+            className={`${styles.adminRightsArea}`}
+            onClick={toggleVerifyAccounts}
+          >
+            <div>
+              <Checkbox
+                name={'verify_accounts'}
+                value={'true'}
+                label={'Подтверждать аккаунты'}
+                check={verifyAccounts}
+              />
+            </div>
+            <div
+              onClick={() => {
+                console.log(createRequest);
+                setCreateRequest(!createRequest);
+              }}
+            >
+              <Checkbox
+                name={'create_request'}
+                value={'true'}
+                label={'Создавать заявки'}
+                check={createRequest}
+              />
+            </div>
+            <div
+              onClick={() => {
+                console.log(allotKey);
+                setAllotKey(!allotKey);
+              }}
+            >
+              <Checkbox
+                name={'allot_key'}
+                value={'false'}
+                label={'Раздавать ключи'}
+                check={allotKey}
+              />
+            </div>
+            <div
+              onClick={() => {
+                console.log(settleDispute);
+                setSettleDispute(!settleDispute);
+              }}
+            >
+              <Checkbox
+                name={'settle_dispute'}
+                value={'false'}
+                label={'Решать споры'}
+                check={settleDispute}
+              />
+            </div>
           </div>
         )}
       </div>
