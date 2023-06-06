@@ -7,22 +7,6 @@ import { UpperTriangleIcon } from './../../ui/icons/upper-triangle-icon';
 import { DownTriangleIcon } from './../../ui/icons/down-triangle-icon';
 import { Checkbox } from './../../ui/checkbox/checkbox';
 
-export const stabAdminCardProps = {
-  photo:
-    'https://img.freepik.com/free-photo/smiley-man-relaxing-outdoors_23-2148739334.jpg?size=626&ext=jpg&ga=GA1.1.109385392.1683700311',
-  name: 'Иван',
-  surname: 'Иван',
-  patronymic: 'Иван',
-  personalID: 111111111,
-  tel: '+7(000) 000-00-04',
-  rights: {
-    verify_accounts: false,
-    create_request: true,
-    allot_key: false,
-    settle_dispute: true,
-  },
-};
-
 export type TAdminRights = {
   verify_accounts: boolean;
   create_request: boolean;
@@ -30,7 +14,7 @@ export type TAdminRights = {
   settle_dispute: boolean;
 };
 
-type TAdminCardProps = {
+export type TAdminCardProps = {
   photo?: string;
   name: string;
   surname: string;
@@ -60,25 +44,6 @@ export const AdminCard = (props: TAdminCardProps) => {
   function toggleRightsArea() {
     setInfoOpen(!isInfoOpen);
   }
-
-  function toggleVerifyAccounts(e: MouseEvent) {
-    console.log('click!');
-    console.log(e.target);
-    setVerifyAccounts((prevState) => !prevState);
-  }
-
-  // function changeAdminRights(e: React.ChangeEvent<HTMLInputElement>) {
-  //   if (e.target?.name) {
-  //     const { name } = e.target;
-  //     let changingValue;
-  //     if (adminRights[name] && adminRights[name] === true) {
-  //       changingValue = true;
-  //     } else {
-  //       changingValue = false;
-  //     }
-  //     setAdminRights({ ...adminRights, [name]: changingValue });
-  //   }
-  // }
 
   return (
     <div className={`${styles.adminCard}`}>
@@ -116,7 +81,6 @@ export const AdminCard = (props: TAdminCardProps) => {
           <div
             style={{ visibility: upperTriangleVisibility }}
             className={`${styles.upperTriangleBox}`}
-            onClick={(e) => toggleVerifyAccounts(e)}
           >
             <UpperTriangleIcon
               className={`${styles.upperTriangle}`}
@@ -138,10 +102,7 @@ export const AdminCard = (props: TAdminCardProps) => {
         </div>
 
         {isInfoOpen && (
-          <div
-            className={`${styles.adminRightsArea}`}
-            onClick={toggleVerifyAccounts}
-          >
+          <div className={`${styles.adminRightsArea}`}>
             <div>
               <Checkbox
                 name={'verify_accounts'}
@@ -153,7 +114,6 @@ export const AdminCard = (props: TAdminCardProps) => {
             <div
               onClick={() => {
                 console.log(createRequest);
-                setCreateRequest(!createRequest);
               }}
             >
               <Checkbox
@@ -166,7 +126,6 @@ export const AdminCard = (props: TAdminCardProps) => {
             <div
               onClick={() => {
                 console.log(allotKey);
-                setAllotKey(!allotKey);
               }}
             >
               <Checkbox
@@ -179,7 +138,6 @@ export const AdminCard = (props: TAdminCardProps) => {
             <div
               onClick={() => {
                 console.log(settleDispute);
-                setSettleDispute(!settleDispute);
               }}
             >
               <Checkbox
