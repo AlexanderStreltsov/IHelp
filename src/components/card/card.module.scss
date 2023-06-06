@@ -154,7 +154,6 @@ button {
     background: #818c99;
   }
   span {
-    margin-top: 7px;
     font-family: 'GolosText';
     font-style: normal;
     font-weight: 400;
@@ -187,7 +186,6 @@ button {
   border: 1px solid #2e3192;
   background-color: transparent;
   span {
-    margin-top: 7px;
     color: #2e3192;
     font-family: 'GolosText';
     font-style: normal;
@@ -202,15 +200,16 @@ button {
   height: 30px;
   border: 1px solid #2e3192;
   background: transparent;
+  padding: 0 !important;
   &:disabled {
+    padding: 0 !important;
     border: 1px solid #9798c9;
     span {
       color: #9798c9;
     }
   }
   span {
-    padding-top: 6px;
-    width: 91px;
+    width: 99px;
     font-family: 'GolosText';
     font-style: normal;
     font-weight: 400;
