@@ -1,4 +1,38 @@
-@import '../../common/variable';
+@use 'sass:map';
+@import 'src/common/variable';
+
+.app {
+  min-height: 100vh;
+}
+
+.content {
+  width: 100%;
+  max-width: 1440px;
+  box-sizing: border-box;
+  margin: 30px auto 0 auto;
+  padding: 0 93px;
+  
+  @media screen and (max-width: 1200px) {
+    margin-top: 20px;
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+
+  @media screen and (max-width: 1080px) {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  @media screen and (max-width: 1023px) {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+
+  @media screen and (max-width: 767px) {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
 
 .height {
   padding-left: 80px;
