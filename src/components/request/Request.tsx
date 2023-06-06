@@ -18,15 +18,28 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
   const [isOverflowing, setIsOverflowing] = useState(true);
   const ref = useRef<HTMLDivElement>(null);
   const el = ref.current;
+  // setTimeout(() => {
+  //   const hideButton = el?.nextElementSibling;
+  //   if (hideButton !== null && hideButton !== undefined) {
+  //     hideButton.style.display = isOverflowing ? 'flex' : 'none';
+  //   }
+  //   console.log(hideButton);
+  // }, 1000);
 
   useEffect(() => {
     if (el !== null) {
-      el.clientHeight < el.scrollHeight
+      el.scrollHeight !== Math.max(el.offsetHeight, el.clientHeight)
         ? setIsOverflowing(true)
         : setIsOverflowing(false);
       el.style.overflow = isOverflowing ? 'hidden' : 'visible';
     }
   }, [el, isOverflowing]);
+
+  const onButtonClick = () => {
+    setisCollapsed(isCollapsed === true ? false : true);
+    setIsOverflowing(isOverflowing === true ? false : true);
+  };
+
   const IsRequestImmediate = getIsRequestImmediate(props.propsForRequest.date);
   const IsRequestFinished = getIsRequestFinished(props.propsForRequest.date);
 
@@ -136,25 +149,18 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
               className={`collapse-content ${
                 isCollapsed
                   ? `${styles.box} text-medium`
-                  : `${styles.conttextshow}`
+                  : `${styles.contenttextshow}`
               }`}
             >
-              {/* {props.propsForRequest.description} */}
-              Заболел и совсем нет сил даже ходить по квартире. Почти неделю
-              собаку выгуливали соседи, но в пятницу они не смогут. Помогите,
-              пожалуйста! Заболел и совсем нет сил даже ходить по квартире.
-              Почти неделю собаку выгуливали соседи, но в пятницу они не смогут.
-              Помогите, пожалуйста!
+              {props.propsForRequest.description}
             </div>
-            {isOverflowing && (
-              <button
-                className={`${styles.contenthide} text-medium`}
-                id="contenthide"
-                onClick={() => setisCollapsed(!isCollapsed)}
-              >
-                {isCollapsed ? 'Читать' : 'Свернуть'}
-              </button>
-            )}
+            <button
+              className={`${styles.contenthide} text-medium`}
+              id="contenthide"
+              onClick={onButtonClick}
+            >
+              {isCollapsed ? 'Читать' : 'Свернуть'}
+            </button>
             <div
               className={`${styles.requestcount} text-small`}
               id="requestcount"

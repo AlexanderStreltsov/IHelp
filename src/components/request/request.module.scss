@@ -128,6 +128,7 @@ p {
   white-space: normal;
   width: 91.4%;
   margin-top: 10px;
+  overflow: hidden;
   p {
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -169,16 +170,14 @@ p {
   align-items: center;
   width: 91.4%;
   color: #2c2d2e;
-  p {
-    font-family: 'GolosText';
-    font-style: normal;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 19px;
-    margin-top: 10px;
-    width: 333px;
-    overflow: visible;
-  }
+  margin-top: 10px;
+  font-family: 'GolosText';
+  font-style: normal;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  width: 333px;
+  overflow: visible;
 }
 .contenthide {
   display: flex;
@@ -311,7 +310,7 @@ p {
     position: relative;
     flex-direction: column;
     justify-content: flex-start;
-    height: 436px;
+    height: fit-content;
     width: 365px;
     max-width: 650px;
     margin: 0 25px 0 25px;
@@ -365,6 +364,7 @@ p {
     margin-left: 10px;
     max-width: 950px;
     padding-top: 0;
+    margin-top: 0;
   }
   .contentheader {
     width: 100vw;
@@ -374,28 +374,24 @@ p {
   .box {
     width: 100%;
     margin-top: 0;
-    p {
-      line-height: 29px;
-      -webkit-line-clamp: 4;
-      width: 73%;
-      margin-top: -5px;
-    }
+    line-height: 29px;
+    -webkit-line-clamp: 4;
+    width: 73%;
+    margin-top: -5px;
   }
   .contenttextshow {
     line-height: 29px;
-    p {
-      font-family: 'GolosText';
-      font-style: normal;
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 29px;
-      margin-top: 5px;
-    }
+    font-family: 'GolosText';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 29px;
+    margin-top: 5px;
   }
   .contenthide {
     top: -22px;
     left: auto;
-    right: -200px;
+    right: -170px;
   }
   .fulltext {
     position: relative;
