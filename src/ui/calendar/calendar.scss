@@ -137,11 +137,15 @@
 
 @include media('max', 'md') {
   .react-datepicker-popper {
-    width: 100vw;
-    height: 100vh;
-    padding: 0 !important;
+    width: 300px;
+    height: auto;
+    padding: 30px 0 !important;
     transform: none !important;
     background: map.get($background_color, popup);
+    margin: 0 auto;
+    inset: auto 0 !important;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.04),
+      0px 4px 32px rgba(0, 0, 0, 0.16);
 
     > div {
       display: flex;
@@ -179,12 +183,30 @@
     border-radius: 0;
     border: none;
 
+    &__tab-loop__start {
+      &:before {
+        content: '';
+        width: 100vw;
+        height: 100vh;
+        background: map.get($text_color, common);
+        opacity: 0.35;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+
     &__month-container {
-      margin: 19px 0;
+      margin: 0 0 19px;
+    }
+
+    &__header {
+      padding: 0 !important;
     }
 
     &__navigation {
-      top: 66px;
+      top: 58px;
     }
 
     &__day-names {
