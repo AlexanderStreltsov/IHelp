@@ -16,12 +16,11 @@ export const Page = () => {
 
     fetchData();
   }, []);
+  const props = usersState && usersState[7];
 
   return (
     <div className={styles.page}>
-      {usersState && usersState[0] && (
-        <VolunteerCard propsForCard={usersState[7]} />
-      )}
+      {usersState && usersState[0] && <VolunteerCard {...props} />}
     </div>
   );
 };

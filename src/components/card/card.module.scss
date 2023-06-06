@@ -15,6 +15,10 @@ button {
     }
   }
 }
+.cardcontainer {
+  display: flex;
+  padding: 31px 0 0 0;
+}
 .card {
   display: flex;
   flex-direction: column;
@@ -22,7 +26,6 @@ button {
   width: 276px;
   height: 258px;
   border: 1px solid map.get($background_color, partsActivePrimary);
-  margin: 50px 0 0 0;
 }
 .cardcontent {
   display: flex;
