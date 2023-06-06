@@ -195,6 +195,11 @@ p {
     cursor: pointer;
   }
 }
+.contenthidehidden{
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+}
 .fulltext {
   position: relative;
   top: -17px;

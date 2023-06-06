@@ -16,28 +16,35 @@ import { getIsRequestImmediate, getIsRequestFinished } from '../../utils/utils';
 export const Request = (props: { propsForRequest: TTask; owner: string }) => {
   const [isCollapsed, setisCollapsed] = useState(true);
   const [isOverflowing, setIsOverflowing] = useState(true);
+  const [isClicked, setIsClicked] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-  const el = ref.current;
-  // setTimeout(() => {
-  //   const hideButton = el?.nextElementSibling;
-  //   if (hideButton !== null && hideButton !== undefined) {
-  //     hideButton.style.display = isOverflowing ? 'flex' : 'none';
-  //   }
-  //   console.log(hideButton);
-  // }, 1000);
 
   useEffect(() => {
+    const el = ref.current;
+
     if (el !== null) {
       el.scrollHeight !== Math.max(el.offsetHeight, el.clientHeight)
         ? setIsOverflowing(true)
         : setIsOverflowing(false);
       el.style.overflow = isOverflowing ? 'hidden' : 'visible';
+      const hideButton = el.nextElementSibling;
+      if (hideButton !== null) {
+        hideButton.className =
+          !isClicked && isOverflowing
+            ? `${styles.contenthide}`
+            : isClicked && !isOverflowing
+            ? `${styles.contenthide}`
+            : !isClicked && !isOverflowing
+            ? `${styles.contenthidehidden}`
+            : `${styles.contenthide}`;
+      }
     }
-  }, [el, isOverflowing]);
+  }, [ref, isOverflowing, setIsOverflowing, isClicked]);
 
   const onButtonClick = () => {
     setisCollapsed(isCollapsed === true ? false : true);
     setIsOverflowing(isOverflowing === true ? false : true);
+    setIsClicked(true);
   };
 
   const IsRequestImmediate = getIsRequestImmediate(props.propsForRequest.date);
