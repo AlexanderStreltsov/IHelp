@@ -23,7 +23,7 @@ export const stabAdminCardProps = {
   },
 };
 
-type TAdminRights = {
+export type TAdminRights = {
   verify_accounts: boolean;
   create_request: boolean;
   allot_key: boolean;
