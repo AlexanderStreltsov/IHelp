@@ -85,7 +85,7 @@ export const VolunteerCard = (props: { propsForCard: TUser }) => {
               <div className={styles.underlayitem}>
                 <KeyIcon color="dark-blue" />
                 <p className={`${styles.underlaynumber} text-small`}>
-                  {props.propsForCard.keys ? props.propsForCard.keys : 0}
+                  {props.propsForCard.keys ? 1 : 0}
                 </p>
               </div>
               <div className={styles.underlayitem}>
