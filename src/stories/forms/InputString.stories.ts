@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { InputName as InputString } from '../../ui/forms/InputString';
+import { InputString } from '../../ui/forms/InputString';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
@@ -19,6 +19,7 @@ export const EmptyName: Story = {
   args: {
     label: 'Name',
     placeholder: 'Введите имя',
+    name: 'fullName',
     initialValue: '',
   },
 };
@@ -27,6 +28,7 @@ export const NameWithValue: Story = {
   args: {
     label: 'Name',
     placeholder: 'Введите имя',
+    name: 'fullName',
     initialValue: 'Александр',
   },
 };

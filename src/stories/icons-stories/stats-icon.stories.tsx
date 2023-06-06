@@ -34,12 +34,40 @@ export default {
       },
     },
   },
+  parameters: {
+    backgrounds: {
+      default: 'grey',
+      values: [
+        {
+          name: 'grey',
+          value: '#DCDCDC',
+        },
+        {
+          name: 'white',
+          value: '#fff',
+        },
+        {
+          name: 'black',
+          value: '#000',
+        },
+      ],
+    },
+  },
 };
 
 // export const ActiveRequest = () => (
 //   <ActiveRequestVersion1Icon color="dark-blue" />
 // );
 
-const Template = (args: IIconProps) => <StatsIcon {...args} />;
+const Template = (args: IIconProps) => (
+  <div
+    style={{
+      width: '43px',
+      height: '46px',
+    }}
+  >
+    <StatsIcon {...args} />
+  </div>
+);
 
 export const Stats = Template.bind({});
