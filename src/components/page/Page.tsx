@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { TTask } from '../../types';
 import api from '../../api';
+import styles from './page.module.scss';
 import { Request } from '../request/Request';
 
 export const Page = () => {
@@ -16,7 +17,7 @@ export const Page = () => {
   }, []);
 
   return (
-    <div className="page">
+    <div className={styles.page}>
       {tasksState && tasksState[0] && (
         <>
           <Request propsForRequest={tasksState[0]} owner="admin" />

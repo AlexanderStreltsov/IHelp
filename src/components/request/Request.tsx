@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState, useRef, useEffect } from 'react';
-import './request.css';
+import styles from './request.module.scss';
 import { BallsIcon } from '../../ui/icons/balls-icon';
 import { CalendarIcon } from '../../ui/icons/calendar-icon';
 import { LocationIcon } from '../../ui/icons/location-icon';
@@ -43,12 +43,12 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
   return (
     <>
       {props && (
-        <div className="request" id="request">
-          <div className="categorylogo">
-            <p className="logotext">категория</p>
+        <div className={styles.request} id="request">
+          <div className={styles.categorylogo}>
+            <p className={styles.logotext}>категория</p>
           </div>
           <div
-            className="buttons"
+            className={styles.buttons}
             style={{
               flexDirection: isVolunteerNull ? 'column' : 'row-reverse',
               alignItems: isVolunteerNull ? 'flex-end' : 'flex-start',
@@ -90,20 +90,24 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
             )}
           </div>
           {data && (
-            <div className="volunteer">
-              <div className="volunteerinfo">
+            <div className={styles.volunteer}>
+              <div className={styles.volunteerinfo}>
                 <div
-                  className="avatar"
+                  className={styles.avatar}
                   style={{
                     backgroundImage: `url(${data!.photo})`,
                   }}
                 />
-                <div className="infotext">
-                  <p className="text text-medium">{data!.fullname}</p>
-                  <p className="teltext text-medium">{data!.phone}</p>
+                <div className={styles.infotext}>
+                  <p className={`${styles.text} text-medium`}>
+                    {data!.fullname}
+                  </p>
+                  <p className={`${styles.teltext} text-medium`}>
+                    {data!.phone}
+                  </p>
                 </div>
               </div>
-              <div className="icons">
+              <div className={styles.icons}>
                 <Button
                   type="circleSmallPhone"
                   disabled={props.propsForRequest.completed}
@@ -123,14 +127,16 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
               </div>
             </div>
           )}
-          <div className="content">
-            <div className="contentheader text-big" id="header">
+          <div className={styles.content}>
+            <div className={`${styles.contentheader} text-big`} id="header">
               {props.propsForRequest.title}
             </div>
             <div
               ref={ref}
               className={`collapse-content ${
-                isCollapsed ? 'box text-medium' : 'conttextshow'
+                isCollapsed
+                  ? `${styles.box} text-medium`
+                  : `${styles.conttextshow}`
               }`}
             >
               {/* {props.propsForRequest.description} */}
@@ -142,48 +148,56 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
             </div>
             {isOverflowing && (
               <button
-                className="contenthide text-medium"
+                className={`${styles.contenthide} text-medium`}
                 id="contenthide"
                 onClick={() => setisCollapsed(!isCollapsed)}
               >
                 {isCollapsed ? 'Читать' : 'Свернуть'}
               </button>
             )}
-            <div className="requestcount text-small" id="requestcount">
+            <div
+              className={`${styles.requestcount} text-small`}
+              id="requestcount"
+            >
               {props.propsForRequest.completed ? (
                 <BallsIcon color="dark-blue" />
               ) : (
                 <FinishedApplicationIcon color="dark-blue" />
               )}
-              <div className="scores">
+              <div className={styles.scores}>
                 {props.propsForRequest.recipient.scores}
               </div>
             </div>
           </div>
-          <div className="category">
-            <div className="date">
-              <CalendarIcon className="dateicon" color="dark-blue" />
-              <p className="datetext text-big">
+          <div className={styles.category}>
+            <div className={styles.date}>
+              <CalendarIcon className={styles.dateicon} color="dark-blue" />
+              <p className={`${styles.datetext} text-big`}>
                 {props.propsForRequest.date
                   .toString()
                   .slice(0, 10)
                   .replace(/-/g, '.')}
               </p>
             </div>
-            <div className="time">
-              <ClockIcon className="timeicon" color="dark-blue" />
-              <p className="timetext text-big">
+            <div className={styles.time}>
+              <ClockIcon className={styles.timeicon} color="dark-blue" />
+              <p className={`${styles.timetext} text-big`}>
                 {props.propsForRequest.date.toString().slice(11, 16)}
               </p>
             </div>
-            <div className="address">
+            <div className={styles.address}>
               <div>
-                <LocationIcon className="addressicon" color="dark-blue" />
+                <LocationIcon
+                  className={styles.addressicon}
+                  color="dark-blue"
+                />
               </div>
               {props.owner === 'volunteer' && data ? (
-                <p className="addresstext text-medium">{data!.address}</p>
+                <p className={`${styles.addresstext} text-medium`}>
+                  {data!.address}
+                </p>
               ) : (
-                <p className="addresstext">
+                <p className={styles.addresstext}>
                   {props.propsForRequest!.recipient.address}
                 </p>
               )}
