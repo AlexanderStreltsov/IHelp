@@ -1,4 +1,8 @@
+@use 'sass:map';
 @import '../../scss/mixins/fonts';
+@import '../../common//selectors';
+@import '../../scss/mixins/text';
+@import '../../common/variable';
 @import '../../common/media';
 
 button {
@@ -17,15 +21,15 @@ button {
   position: relative;
   width: 276px;
   height: 258px;
-  border: 1px solid #0071bc;
-  margin: 50px auto 0 auto;
+  border: 1px solid map.get($background_color, partsActivePrimary);
+  margin: 50px 0 0 0;
 }
 .cardcontent {
   display: flex;
   flex-direction: column;
-  width: 140px;
   justify-content: flex-start;
   margin-left: 30px;
+  max-width: 197px;
 }
 .avatar {
   position: absolute;
@@ -44,23 +48,18 @@ button {
 .name {
   width: 197px;
   height: 18px;
-  font-family: 'GolosText';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
   display: inline-block;
-  color: #000000;
+  color: map.get($text_color, common);
   margin: 37px auto 2px auto;
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  @extend .text-medium;
 }
 .id {
-  width: 197px;
   height: 11px;
-  display: flex;
-  color: rgba(0, 0, 0, 0.5);
+  color: map.get($text_color, common);
+  opacity: 0.5;
   margin-top: 0;
   margin-bottom: 7px;
 }
@@ -68,22 +67,14 @@ button {
   display: flex;
   flex-direction: row;
   margin: 0 0 7px -3px;
-  width: 160px;
 }
 .phonetext {
-  width: 41px;
-  height: 11px;
-  right: 205px;
-  bottom: 169px;
-  display: flex;
-  color: #000000;
+  color: map.get($text_color, common);
   margin: 0 12px 0 0;
 }
 .phonenumber {
-  width: 159px;
-  height: 15px;
   display: flex;
-  color: #000000;
+  color: map.get($text_color, common);
   margin: 0;
 }
 .underlay {
@@ -132,7 +123,7 @@ button {
 .underlaynumber {
   height: 15px;
   display: flex;
-  color: #2e3192;
+  color: map.get($text_color, primary);
   margin-bottom: 11px;
   margin-left: 2px;
 }
@@ -143,79 +134,31 @@ button {
   margin-top: 40px;
 }
 .confirm {
-  display: flex;
-  padding: 0px 16px;
-  width: 108px;
-  height: 30px;
-  background: #2e3192;
-  color: #ffffff;
-  border: none;
-  &:disabled {
-    background: #818c99;
-  }
+  max-width: 108px;
   span {
-    font-family: 'GolosText';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 14px;
+    @extend .text-small;
   }
 }
-.halfconfirm {
-  display: flex;
-  padding: 0px 16px;
-  width: 108px;
-  height: 30px;
-  background: linear-gradient(90deg, #ffffff 50%, #2e3192 50%);
-  color: #ffffff;
-  border: 1px solid #2e3192;
-  span {
-    margin-top: 7px;
-    font-family: 'GolosText';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 14px;
-  }
-}
+
 .block {
-  display: flex;
-  padding: 0px 16px;
-  width: 123px;
-  height: 30px;
-  border: 1px solid #2e3192;
-  background-color: transparent;
+  max-width: 123px;
   span {
-    color: #2e3192;
-    font-family: 'GolosText';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 14px;
+    color: map.get($text_color, primary);
+    @extend .text-small;
   }
 }
 .givekeys {
-  display: flex;
-  width: 100px;
-  height: 30px;
-  border: 1px solid #2e3192;
-  background: transparent;
-  padding: 0 !important;
-  &:disabled {
-    padding: 0 !important;
-    border: 1px solid #9798c9;
-    span {
-      color: #9798c9;
-    }
-  }
+  max-width: 100px;
+  padding: 8px 8px !important;
   span {
-    width: 99px;
-    font-family: 'GolosText';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 14px;
-    color: #2e3192;
+    width: 100%;
+    @extend .text-small;
+    color: map.get($text_color, primary);
+  }
+  &:disabled {
+    span {
+      color: map.get($text_color, primaryAdditional);
+    }
   }
 }
 .label {
