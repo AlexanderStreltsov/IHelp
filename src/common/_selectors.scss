@@ -26,3 +26,12 @@
 .text-error-message {
   @include text(13px, 400, 16px);
 }
+
+.page-container {
+  display: flex;
+  gap: 20px;
+}
+
+.page-content {
+  flex-grow: 1;
+}
