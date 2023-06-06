@@ -33,7 +33,7 @@ const preview: Preview = {
     },
     reactRouter: {
       routePath: '/',
-    }
+    },
   },
 };
 
