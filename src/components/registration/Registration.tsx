@@ -3,11 +3,20 @@ import { YMaps, withYMaps } from '@pbe/react-yandex-maps';
 
 import { InputString } from '../../ui/forms/InputString';
 import { InputPhoneNumber } from '../../ui/forms/InputPhoneNumber';
-
 import { Button } from '../../ui/button/button';
-import { VkIcon } from '../../ui/icons/vk-icon';
 
 import styles from './Registration.module.scss';
+
+type TRegistrationFormData = {
+  fullName: string;
+  phone: string;
+  address: string;
+};
+
+export type TRegistrationProps = {
+  className?: string;
+  onButtonClick: (data: TRegistrationFormData) => void;
+};
 
 function MapSuggestComponent(props: any) {
   const { ymaps } = props;
@@ -16,7 +25,6 @@ function MapSuggestComponent(props: any) {
     const suggestView = new ymaps.SuggestView('suggest');
   }, [ymaps.SuggestView]);
 
-  // return <input type="text" id="suggest" />;
   return (
     <InputString
       id="suggest"
@@ -28,8 +36,11 @@ function MapSuggestComponent(props: any) {
   );
 }
 
-const Registration: FC = () => {
-  const [state, setState] = useState({
+const Registration: FC<TRegistrationProps> = ({
+  onButtonClick,
+  className = '',
+}) => {
+  const [state, setState] = useState<TRegistrationFormData>({
     fullName: '',
     phone: '',
     address: '',
@@ -44,6 +55,12 @@ const Registration: FC = () => {
     }));
   };
 
+  const handleButtonClick = (e: React.SyntheticEvent<Element, Event>) => {
+    e.preventDefault();
+
+    onButtonClick(state);
+  };
+
   const SuggestComponent = useMemo(() => {
     return withYMaps(MapSuggestComponent, true, [
       'SuggestView',
@@ -53,7 +70,10 @@ const Registration: FC = () => {
   }, []);
 
   return (
-    <form onChange={(e) => handleFormChange(e)} className={styles.form}>
+    <form
+      onChange={(e) => handleFormChange(e)}
+      className={`${styles.form} + className`}
+    >
       <InputString
         label="ФИО"
         placeholder="ФИО"
@@ -67,7 +87,11 @@ const Registration: FC = () => {
       <span className={styles.caption}>
         Укажите адрес и мы подберем ближайшее к вам задание
       </span>
-      <Button onClick={() => {}} type="applyVK" className={styles.button}>
+      <Button
+        onClick={(e) => handleButtonClick(e)}
+        type="applyVK"
+        className={styles.button}
+      >
         Загегистрироваться через ВКонтакте
       </Button>
     </form>
