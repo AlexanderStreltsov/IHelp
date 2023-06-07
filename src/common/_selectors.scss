@@ -26,3 +26,24 @@
 .text-error-message {
   @include text(13px, 400, 16px);
 }
+
+.page-container {
+  display: flex;
+  gap: 20px;
+  position: relative;
+
+  @media screen and (max-width: 720px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+}
+
+.page-content {
+  flex-grow: 1;
+
+  @media screen and (max-width: 720px) {
+    width: 100%;
+    max-width: 352px;
+  }
+}

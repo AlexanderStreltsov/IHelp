@@ -1,5 +1,14 @@
 @use 'sass:map';
 @import 'src/common/selectors';
+@import 'src/common/variable';
+
+.header {
+  @extend .text-big;
+
+  color: map.get($text_color, primary);
+  margin-left: 15px;
+  margin-top: 60px;
+}
 
 .form {
   display: flex;

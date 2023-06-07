@@ -18,10 +18,12 @@ export type TRegistrationProps = {
   onButtonClick: (data: TRegistrationFormData) => void;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function MapSuggestComponent(props: any) {
   const { ymaps } = props;
 
   useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const suggestView = new ymaps.SuggestView('suggest');
   }, [ymaps.SuggestView]);
 
@@ -70,31 +72,34 @@ const Registration: FC<TRegistrationProps> = ({
   }, []);
 
   return (
-    <form
-      onChange={(e) => handleFormChange(e)}
-      className={`${styles.form} + className`}
-    >
-      <InputString
-        label="ФИО"
-        placeholder="ФИО"
-        initialValue=""
-        name="fullName"
-      />
-      <InputPhoneNumber name="phone" />
-      <YMaps enterprise query={{ apikey: 'api-key' }}>
-        <SuggestComponent />
-      </YMaps>
-      <span className={styles.caption}>
-        Укажите адрес и мы подберем ближайшее к вам задание
-      </span>
-      <Button
-        onClick={(e) => handleButtonClick(e)}
-        type="applyVK"
-        className={styles.button}
+    <>
+      <h2 className={styles.header}>Зарегистрироваться</h2>
+      <form
+        onChange={(e) => handleFormChange(e)}
+        className={`${styles.form} + className`}
       >
-        Загегистрироваться через ВКонтакте
-      </Button>
-    </form>
+        <InputString
+          label="ФИО"
+          placeholder="ФИО"
+          initialValue=""
+          name="fullName"
+        />
+        <InputPhoneNumber name="phone" />
+        <YMaps enterprise query={{ apikey: 'api-key' }}>
+          <SuggestComponent />
+        </YMaps>
+        <span className={styles.caption}>
+          Укажите адрес и мы подберем ближайшее к вам задание
+        </span>
+        <Button
+          onClick={(e) => handleButtonClick(e)}
+          type="applyVK"
+          className={styles.button}
+        >
+          Загегистрироваться через ВКонтакте
+        </Button>
+      </form>
+    </>
   );
 };
 

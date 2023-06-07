@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import { TUser } from '../../types';
 import { ProfileElement } from './profileElement/profileElement';
 

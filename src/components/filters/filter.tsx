@@ -1,8 +1,9 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import styles from './filter.module.scss';
 import { Popup } from '../../ui/popup/popup';
 import { Checkbox } from '../../ui/checkbox/checkbox';
 import { Button } from '../../ui/button/button';
+import { Calendar } from '../../ui/calendar';
 
 interface IFilter {
   sendResult: (result: { [name: string]: string[] }) => void;
@@ -13,6 +14,7 @@ interface IFilter {
     | 'recipient'
     | 'admin';
   currentConditions: { [name: string]: string[] };
+  moduleOutStyles?: string;
 }
 /**
  * Данный компонент представляет собой инструмент для фильтрации отображаемого
@@ -33,7 +35,9 @@ export const Filter = ({
   sendResult,
   type = 'volunteerApplicationMap',
   currentConditions,
+  moduleOutStyles,
 }: IFilter) => {
+  const [date, setDate] = useState<Date | null>(null);
   const refForm = useRef<HTMLFormElement>(null);
   // блок "категория"
   const fildsetCategory = (
@@ -128,6 +132,7 @@ export const Filter = ({
       <legend className={`${styles.legend} text-small-bold`}>
         Дата и время
       </legend>
+      <Calendar passSelectedDate={setDate} incomingDate={date} inline={false} />
     </fieldset>
   );
 
@@ -225,6 +230,10 @@ export const Filter = ({
         }
       }
     });
+    if (date !== null) {
+      result.date = [];
+      result.date.push(date.toISOString());
+    }
     sendResult(result);
   };
 
@@ -242,7 +251,11 @@ export const Filter = ({
           item.checked = false;
         }
       });
+      if (currentConditions?.date) {
+        setDate(new Date(currentConditions.date[0]));
+      }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // виды фильтров
@@ -291,7 +304,7 @@ export const Filter = ({
       arrow="right"
       widthPopup="middle"
       shadow={true}
-      moduleOutStyles={styles.popup}
+      moduleOutStyles={`${styles.popup} ${moduleOutStyles}`}
     >
       <form name="filter" className={styles.form} ref={refForm}>
         {content(type)}
