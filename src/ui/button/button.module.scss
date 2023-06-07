@@ -54,7 +54,7 @@
 
 .apply,
 .applyVK {
-  padding: 8px 16px;
+  padding: 8px 14px 8px 16px;
   background-color: map.get($background_color, partsPrimary);
   color: map.get($text_color, additional);
 
@@ -67,7 +67,7 @@
     cursor: auto;
   }
   .imageVK {
-    margin-right: 12px;
+    margin-right: 10px;
   }
 }
 

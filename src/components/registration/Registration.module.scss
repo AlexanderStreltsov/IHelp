@@ -1,0 +1,33 @@
+@use 'sass:map';
+@import 'src/common/selectors';
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 383px;
+  gap: 2px;
+
+  @media screen and (max-width: 768px) {
+    max-width: 364px;
+  }
+}
+
+.caption {
+  @extend .text-small;
+
+  box-sizing: border-box;
+  padding: 0 0 30px 12px;
+
+  @media screen and (max-width: 768px) {
+    padding-bottom: 20px;
+  }
+}
+
+.button {
+  margin: 0 12px;
+
+  @media screen and (max-width: 768px) {
+    margin: 0;
+  }
+}
