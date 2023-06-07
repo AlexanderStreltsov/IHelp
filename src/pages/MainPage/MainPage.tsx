@@ -5,6 +5,8 @@ import { TitleBar } from '../../components/title-bar';
 import { Filter } from '../../components/filters/filter';
 import { RequestMapIcon } from '../../ui/icons/request-map-icon';
 
+import styles from './MainPage.module.scss';
+
 const MainPage: FC = () => {
   const [filter, setFilter] = useState({});
   const [isShowFilter, setIsShowFilter] = useState(false);
@@ -33,6 +35,7 @@ const MainPage: FC = () => {
           sendResult={getResult}
           currentConditions={filter}
           type="volunteerApplicationMap"
+          moduleOutStyles={styles.filter}
         />
       )}
     </div>
