@@ -156,10 +156,10 @@ export const Button = ({
         </>
       )}
       {type === 'respond' && (
-        <span className={`${styles.text} text-small`}>{children}</span>
+        <span className={`${styles.text}`}>{children}</span>
       )}
       {type === 'respondUrgent' && (
-        <span className={`${styles.text} text-small`}>{children}</span>
+        <span className={`${styles.text}`}>{children}</span>
       )}
     </button>
   );
