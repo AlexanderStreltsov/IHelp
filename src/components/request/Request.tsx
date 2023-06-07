@@ -19,40 +19,47 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
   const [isClicked, setIsClicked] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const el = ref.current;
+  // useEffect(() => {
+  //   const el = ref.current;
 
-    if (el !== null) {
-      el.scrollHeight !== Math.max(el.offsetHeight, el.clientHeight)
-        ? setIsOverflowing(true)
-        : setIsOverflowing(false);
-      el.style.overflow = isOverflowing ? 'hidden' : 'visible';
-      const hideButton = el.nextElementSibling;
-      if (hideButton !== null) {
-        hideButton.className =
-          !isClicked && isOverflowing
-            ? `${styles.contenthide}`
-            : isClicked && !isOverflowing
-            ? `${styles.contenthide} ${styles.contenthideleft}`
-            : !isClicked && !isOverflowing
-            ? `${styles.contenthidehidden}`
-            : `${styles.contenthide}`;
-      }
-    }
-  }, [ref, isOverflowing, setIsOverflowing, isClicked]);
+  // if (el !== null) {
+  //   el.scrollHeight !== Math.max(el.offsetHeight, el.clientHeight)
+  //     ? setIsOverflowing(true)
+  //     : setIsOverflowing(false);
+  //   el.style.overflow = isOverflowing ? 'hidden' : 'visible';
+  // const hideButton = el.nextElementSibling;
+  // if (hideButton !== null) {
+  //   hideButton.className =
+  //     !isClicked && isOverflowing
+  //       ? `${styles.contenthide}`
+  //       : isClicked && !isOverflowing
+  //       ? `${styles.contenthide} ${styles.contenthideleft}`
+  //       : !isClicked && !isOverflowing
+  //       ? `${styles.contenthidehidden}`
+  //       : `${styles.contenthide}`;
+  // }
+  //   }
+  // }, [ref, isOverflowing, setIsOverflowing, isClicked]);
 
   const onButtonClick = () => {
     setisCollapsed(isCollapsed === true ? false : true);
     setIsOverflowing(isOverflowing === true ? false : true);
     setIsClicked(true);
   };
+  /* <button
+                className={`${styles.contenthide} text-medium`}
+                id="contenthide"
+                onClick={onButtonClick}
+              >
+                {isCollapsed ? 'Читать' : 'Свернуть'}
+              </button> */
 
   const IsRequestImmediate = getIsRequestImmediate(props.propsForRequest.date);
   const IsRequestFinished = getIsRequestFinished(props.propsForRequest.date);
 
-  let data;
+  let datta;
 
-  data =
+  datta =
     props.owner === 'recipient'
       ? props.propsForRequest.volunteer
       : props.propsForRequest.recipient;
@@ -63,73 +70,103 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
   return (
     <>
       {props && (
-        <div className={styles.request} id="request">
-          <div className={styles.categorylogo}>
-            <p className={styles.logotext}>категория</p>
-          </div>
-          <div
-            className={styles.buttons}
-            style={{
-              flexDirection: isVolunteerNull ? 'column' : 'row-reverse',
-              alignItems: isVolunteerNull ? 'flex-end' : 'flex-start',
-              height: isVolunteerNull ? '83px' : '90px',
-            }}
-          >
-            {props.propsForRequest.completed === false && (
-              <>
-                <Button
-                  type="quadrilateralExit"
-                  disabled={IsRequestImmediate}
-                  children=""
-                  onClick={() => {
-                    console.log('hello');
-                  }}
-                />
-                {IsRequestFinished && !isVolunteerNull && (
-                  <>
-                    <Button
-                      type="quadrilateralApprove"
-                      disabled={false}
-                      children=""
-                      onClick={() => {
-                        console.log('hello');
-                      }}
-                    />
-                    ,
-                  </>
+        <>
+          <div className={styles.request}>
+            <div className={styles.logo}>
+              <span className={styles.logotext}>категория</span>
+            </div>
+            <div className={styles.postinfo}>
+              <div className={styles.date}>
+                <CalendarIcon className={styles.dateicon} color="dark-blue" />
+                <p className={`${styles.datetext} text-big`}>
+                  {props.propsForRequest.date
+                    .toString()
+                    .slice(0, 10)
+                    .replace(/-/g, '.')}
+                </p>
+              </div>
+              <div className={styles.time}>
+                <ClockIcon className={styles.timeicon} color="dark-blue" />
+                <p className={`${styles.timetext} text-big`}>
+                  {props.propsForRequest.date.toString().slice(11, 16)}
+                </p>
+              </div>
+              <div className={styles.address}>
+                <div>
+                  <LocationIcon
+                    className={styles.addressicon}
+                    color="dark-blue"
+                  />
+                </div>
+                {props.owner === 'volunteer' && datta ? (
+                  <p className={`${styles.addresstext} text-medium`}>
+                    {datta!.address}
+                  </p>
+                ) : (
+                  <p className={styles.addresstext}>
+                    {props.propsForRequest!.recipient.address}
+                  </p>
                 )}
-                {props.owner === 'recipient' &&
-                  props.propsForRequest.volunteer === null && (
-                    <Button
-                      type="quadrilateralEdit"
-                      disabled={false}
-                      children=""
-                      onClick={() => {
-                        console.log('hello');
-                      }}
-                    />
-                  )}
-              </>
-            )}
-          </div>
-          {data && (
-            <div className={styles.volunteer}>
-              <div className={styles.volunteerinfo}>
+              </div>
+            </div>
+            <div className={styles.description}>
+              <div
+                className={
+                  !isVolunteerNull
+                    ? `${styles.contentheader} text-big`
+                    : `${styles.contentheader} text-big ${styles.contentheadernoinfo}`
+                }
+                id="header"
+              >
+                {props.propsForRequest.title}
+              </div>
+              <div
+                ref={ref}
+                className={`collapse-content ${
+                  isCollapsed
+                    ? `${styles.box} text-medium`
+                    : `${styles.contenttextshow}`
+                }`}
+              >
+                {props.propsForRequest.description}
+              </div>
+              <div
+                className={
+                  props.propsForRequest.completed
+                    ? `${styles.requestcount} text-small`
+                    : `${styles.requestcountapproved} text-small`
+                }
+                id="requestcount"
+              >
+                {props.propsForRequest.completed ? (
+                  <BallsIcon color="dark-blue" />
+                ) : (
+                  <FinishedApplicationIcon color="dark-blue" />
+                )}
                 <div
-                  className={styles.avatar}
-                  style={{
-                    backgroundImage: `url(${data!.photo})`,
-                  }}
-                />
-                <div className={styles.infotext}>
-                  <p className={`${styles.text} text-medium`}>
-                    {data!.fullname}
-                  </p>
-                  <p className={`${styles.teltext} text-medium`}>
-                    {data!.phone}
-                  </p>
+                  className={
+                    props.propsForRequest.completed
+                      ? styles.scores
+                      : styles.scoresapproved
+                  }
+                >
+                  {props.propsForRequest.recipient.scores}
                 </div>
               </div>
+            </div>
+            <div className={styles.user}>
+              <div
+                className={styles.avatar}
+                style={{
+                  backgroundImage: `url(${datta ? datta!.photo : ''})`,
+                }}
+              />
+              <p className={`${styles.text} text-medium`}>
+                {datta && datta!.fullname}
+              </p>
+              <p className={`${styles.teltext} text-medium`}>
+                {datta && datta!.phone}
+              </p>
               <div className={styles.icons}>
                 <Button
                   type="circleSmallPhone"
@@ -149,90 +186,48 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
                 />
               </div>
             </div>
-          )}
-          <div className={styles.content}>
-            <div
-              className={
-                !isVolunteerNull
-                  ? `${styles.contentheader} text-big`
-                  : `${styles.contentheader} text-big ${styles.contentheadernoinfo}`
-              }
-              id="header"
-            >
-              {props.propsForRequest.title}
-            </div>
-            <div
-              ref={ref}
-              className={`collapse-content ${
-                isCollapsed
-                  ? `${styles.box} text-medium`
-                  : `${styles.contenttextshow}`
-              }`}
-            >
-              {props.propsForRequest.description}
-            </div>
-            <button
-              className={`${styles.contenthide} text-medium`}
-              id="contenthide"
-              onClick={onButtonClick}
-            >
-              {isCollapsed ? 'Читать' : 'Свернуть'}
-            </button>
-            <div
-              className={
-                props.propsForRequest.completed
-                  ? `${styles.requestcount} text-small`
-                  : `${styles.requestcountapproved} text-small`
-              }
-              id="requestcount"
-            >
-              {props.propsForRequest.completed ? (
-                <BallsIcon color="dark-blue" />
-              ) : (
-                <FinishedApplicationIcon color="dark-blue" />
+            <div className={styles.buttons}>
+              {IsRequestFinished && !isVolunteerNull && (
+                <div>
+                  <Button
+                    type="quadrilateralApprove"
+                    disabled={false}
+                    children=""
+                    onClick={() => {
+                      console.log('hello');
+                    }}
+                  />
+                </div>
               )}
-              <div
-                className={props.propsForRequest.completed ? styles.scores : ''}
-              >
-                {props.propsForRequest.recipient.scores}
-              </div>
+              {props.propsForRequest.completed === false && (
+                <div>
+                  <Button
+                    type="quadrilateralExit"
+                    disabled={IsRequestImmediate}
+                    children=""
+                    onClick={() => {
+                      console.log('hello');
+                    }}
+                  />
+                </div>
+              )}
+              {props.owner === 'recipient' &&
+                props.propsForRequest.volunteer === null &&
+                props.propsForRequest.completed === false && (
+                  <div>
+                    <Button
+                      type="quadrilateralEdit"
+                      disabled={false}
+                      children=""
+                      onClick={() => {
+                        console.log('hello');
+                      }}
+                    />
+                  </div>
+                )}
             </div>
           </div>
-          <div className={styles.category}>
-            <div className={styles.date}>
-              <CalendarIcon className={styles.dateicon} color="dark-blue" />
-              <p className={`${styles.datetext} text-big`}>
-                {props.propsForRequest.date
-                  .toString()
-                  .slice(0, 10)
-                  .replace(/-/g, '.')}
-              </p>
-            </div>
-            <div className={styles.time}>
-              <ClockIcon className={styles.timeicon} color="dark-blue" />
-              <p className={`${styles.timetext} text-big`}>
-                {props.propsForRequest.date.toString().slice(11, 16)}
-              </p>
-            </div>
-            <div className={styles.address}>
-              <div>
-                <LocationIcon
-                  className={styles.addressicon}
-                  color="dark-blue"
-                />
-              </div>
-              {props.owner === 'volunteer' && data ? (
-                <p className={`${styles.addresstext} text-medium`}>
-                  {data!.address}
-                </p>
-              ) : (
-                <p className={styles.addresstext}>
-                  {props.propsForRequest!.recipient.address}
-                </p>
-              )}
-            </div>
-          </div>
-        </div>
+        </>
       )}
     </>
   );
