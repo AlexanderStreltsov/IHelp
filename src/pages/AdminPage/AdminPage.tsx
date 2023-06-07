@@ -10,6 +10,7 @@ import type { TUser } from '../../types';
 
 const AdminPage: FC = () => {
   const [profile, setProfile] = useState<TUser>();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [usersList, setUsersList] = useState<TUser[]>();
 
   useEffect(() => {
