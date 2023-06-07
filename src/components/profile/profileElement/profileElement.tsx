@@ -18,6 +18,7 @@ export const ProfileElement = (props: IProfileProps) => {
     <div className={`${styles.container} ${extClassName}`}>
       <div className={styles.photoBox}>
         {!!props.photo ? (
+          // eslint-disable-next-line jsx-a11y/img-redundant-alt
           <img alt="photo" src={props.photo} className={styles.photo} />
         ) : (
           <PersonIcon className={styles.defaultPhoto} color={'white'} />
