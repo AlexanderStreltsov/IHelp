@@ -34,12 +34,40 @@ export default {
       },
     },
   },
+  parameters: {
+    backgrounds: {
+      default: 'grey',
+      values: [
+        {
+          name: 'grey',
+          value: '#DCDCDC',
+        },
+        {
+          name: 'white',
+          value: '#fff',
+        },
+        {
+          name: 'black',
+          value: '#000',
+        },
+      ],
+    },
+  },
 };
 
 // export const ActiveRequest = () => (
 //   <ActiveRequestVersion1Icon color="dark-blue" />
 // );
 
-const Template = (args: IIconProps) => <RequestMapIcon {...args} />;
+const Template = (args: IIconProps) => (
+  <div
+    style={{
+      width: '43px',
+      height: '50px',
+    }}
+  >
+    <RequestMapIcon {...args} />
+  </div>
+);
 
 export const RequestMap = Template.bind({});

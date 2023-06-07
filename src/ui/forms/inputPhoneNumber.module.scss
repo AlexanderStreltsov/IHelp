@@ -2,17 +2,15 @@
 @import '../../common/_selectors';
 
 .formPhoneNumber {
-  width: 375px;
-  height: 120px;
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   background: map-get($background_color, 'primary');
   padding: 12px;
 }
 
 .labelPhoneNumber {
-  width: 351px;
+  width: 100%;
   height: 18px;
   font-family: 'GolosText';
   font-style: normal;
@@ -25,7 +23,7 @@
 }
 
 .input {
-  width: 351px;
+  width: 100%;
   height: 44px;
   padding: 12px;
   box-sizing: border-box;
@@ -42,8 +40,12 @@
   border: 1px solid map-get($background_color, 'partsActiveSecondary');
 }
 
+.input::placeholder {
+  color: map-get($text_color, 'primaryAdditional');
+}
+
 .inputPhoneNumber {
-  width: 351px;
+  width: 100%;
   height: 44px;
   padding: 12px;
   box-sizing: border-box;

@@ -1,4 +1,4 @@
-import type { TUser, TTask } from './entities';
+import type { TUser, TTask, TCategory } from './entities';
 import type {
   TCreateUserRequest,
   TUpdateUserRequest,
@@ -9,6 +9,7 @@ import type {
 export type {
   TUser,
   TTask,
+  TCategory,
   TCreateUserRequest,
   TUpdateUserRequest,
   TCreateTaskRequest,

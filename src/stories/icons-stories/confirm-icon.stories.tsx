@@ -34,12 +34,40 @@ export default {
       },
     },
   },
+  parameters: {
+    backgrounds: {
+      default: 'grey',
+      values: [
+        {
+          name: 'grey',
+          value: '#DCDCDC',
+        },
+        {
+          name: 'white',
+          value: '#fff',
+        },
+        {
+          name: 'black',
+          value: '#000',
+        },
+      ],
+    },
+  },
 };
 
 // export const ActiveRequest = () => (
 //   <ActiveRequestVersion1Icon color="dark-blue" />
 // );
 
-const Template = (args: IIconProps) => <ConfirmIcon {...args} />;
+const Template = (args: IIconProps) => (
+  <div
+    style={{
+      width: '43px',
+      height: '50px',
+    }}
+  >
+    <ConfirmIcon {...args} />
+  </div>
+);
 
 export const Confirm = Template.bind({});
