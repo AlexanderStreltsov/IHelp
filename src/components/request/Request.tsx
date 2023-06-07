@@ -1,7 +1,3 @@
-/* eslint-disable prefer-const */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
-/* eslint-disable jsx-a11y/alt-text */
 import React, { useState, useRef, useEffect } from 'react';
 import styles from './request.module.scss';
 import { BallsIcon } from '../../ui/icons/balls-icon';
@@ -19,47 +15,37 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
   const [isClicked, setIsClicked] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  // useEffect(() => {
-  //   const el = ref.current;
+  useEffect(() => {
+    const el = ref.current;
 
-  // if (el !== null) {
-  //   el.scrollHeight !== Math.max(el.offsetHeight, el.clientHeight)
-  //     ? setIsOverflowing(true)
-  //     : setIsOverflowing(false);
-  //   el.style.overflow = isOverflowing ? 'hidden' : 'visible';
-  // const hideButton = el.nextElementSibling;
-  // if (hideButton !== null) {
-  //   hideButton.className =
-  //     !isClicked && isOverflowing
-  //       ? `${styles.contenthide}`
-  //       : isClicked && !isOverflowing
-  //       ? `${styles.contenthide} ${styles.contenthideleft}`
-  //       : !isClicked && !isOverflowing
-  //       ? `${styles.contenthidehidden}`
-  //       : `${styles.contenthide}`;
-  // }
-  //   }
-  // }, [ref, isOverflowing, setIsOverflowing, isClicked]);
+    if (el !== null) {
+      el.scrollHeight !== Math.max(el.offsetHeight, el.clientHeight)
+        ? setIsOverflowing(true)
+        : setIsOverflowing(false);
+      el.style.overflow = isOverflowing ? 'hidden' : 'visible';
+      console.log(el.scrollHeight);
+      console.log(Math.max(el.offsetHeight, el.clientHeight));
+      const hideButton = el.nextElementSibling;
+      if (hideButton !== null) {
+        hideButton.className =
+          !isClicked && !isOverflowing
+            ? `${styles.contenthidehidden}`
+            : `${styles.contenthide}`;
+      }
+      console.log(isOverflowing);
+    }
+  }, [ref, isOverflowing, setIsOverflowing, isClicked]);
 
   const onButtonClick = () => {
     setisCollapsed(isCollapsed === true ? false : true);
     setIsOverflowing(isOverflowing === true ? false : true);
     setIsClicked(true);
   };
-  /* <button
-                className={`${styles.contenthide} text-medium`}
-                id="contenthide"
-                onClick={onButtonClick}
-              >
-                {isCollapsed ? 'Читать' : 'Свернуть'}
-              </button> */
 
   const IsRequestImmediate = getIsRequestImmediate(props.propsForRequest.date);
   const IsRequestFinished = getIsRequestFinished(props.propsForRequest.date);
 
-  let datta;
-
-  datta =
+  const propsdata =
     props.owner === 'recipient'
       ? props.propsForRequest.volunteer
       : props.propsForRequest.recipient;
@@ -78,7 +64,7 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
             <div className={styles.postinfo}>
               <div className={styles.date}>
                 <CalendarIcon className={styles.dateicon} color="dark-blue" />
-                <p className={`${styles.datetext} text-big`}>
+                <p className={`${styles.datetext}`}>
                   {props.propsForRequest.date
                     .toString()
                     .slice(0, 10)
@@ -87,7 +73,7 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
               </div>
               <div className={styles.time}>
                 <ClockIcon className={styles.timeicon} color="dark-blue" />
-                <p className={`${styles.timetext} text-big`}>
+                <p className={`${styles.timetext}`}>
                   {props.propsForRequest.date.toString().slice(11, 16)}
                 </p>
               </div>
@@ -98,13 +84,11 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
                     color="dark-blue"
                   />
                 </div>
-                {props.owner === 'volunteer' && datta ? (
-                  <p className={`${styles.addresstext} text-medium`}>
-                    {datta!.address}
-                  </p>
+                {props.owner === 'volunteer' && propsdata ? (
+                  <p className={`${styles.addresstext}`}>{propsdata.address}</p>
                 ) : (
                   <p className={styles.addresstext}>
-                    {props.propsForRequest!.recipient.address}
+                    {props.propsForRequest.recipient.address}
                   </p>
                 )}
               </div>
@@ -113,28 +97,35 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
               <div
                 className={
                   !isVolunteerNull
-                    ? `${styles.contentheader} text-big`
-                    : `${styles.contentheader} text-big ${styles.contentheadernoinfo}`
+                    ? `${styles.contentheader}`
+                    : `${styles.contentheader} ${styles.contentheadernoinfo}`
                 }
                 id="header"
               >
                 {props.propsForRequest.title}
               </div>
-              <div
-                ref={ref}
-                className={`collapse-content ${
-                  isCollapsed
-                    ? `${styles.box} text-medium`
-                    : `${styles.contenttextshow}`
-                }`}
-              >
-                {props.propsForRequest.description}
+              <div>
+                <div
+                  ref={ref}
+                  className={`collapse-content ${
+                    isCollapsed ? `${styles.box}` : `${styles.contenttextshow}`
+                  }`}
+                >
+                  {props.propsForRequest.description}
+                </div>
+                <button
+                  className={`${styles.contenthide}`}
+                  id="contenthide"
+                  onClick={onButtonClick}
+                >
+                  {isCollapsed ? 'Читать' : 'Свернуть'}
+                </button>
               </div>
               <div
                 className={
                   props.propsForRequest.completed
-                    ? `${styles.requestcount} text-small`
-                    : `${styles.requestcountapproved} text-small`
+                    ? `${styles.requestcount}`
+                    : `${styles.requestcountapproved}`
                 }
                 id="requestcount"
               >
@@ -158,37 +149,39 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
               <div
                 className={styles.avatar}
                 style={{
-                  backgroundImage: `url(${datta ? datta!.photo : ''})`,
+                  backgroundImage: `url(${propsdata ? propsdata.photo : ''})`,
                 }}
               />
-              <p className={`${styles.text} text-medium`}>
-                {datta && datta!.fullname}
+              <p className={`${styles.text}`}>
+                {propsdata && propsdata.fullname}
               </p>
-              <p className={`${styles.teltext} text-medium`}>
-                {datta && datta!.phone}
+              <p className={`${styles.teltext}`}>
+                {propsdata && propsdata.phone}
               </p>
-              <div className={styles.icons}>
-                <Button
-                  type="circleSmallPhone"
-                  disabled={props.propsForRequest.completed}
-                  children=""
-                  onClick={() => {
-                    console.log('hello');
-                  }}
-                />
-                <Button
-                  type="circleSmallEmail"
-                  disabled={props.propsForRequest.completed}
-                  children=""
-                  onClick={() => {
-                    console.log('hello');
-                  }}
-                />
-              </div>
+              {!isVolunteerNull && (
+                <div className={styles.icons}>
+                  <Button
+                    type="circleSmallPhone"
+                    disabled={props.propsForRequest.completed}
+                    children=""
+                    onClick={() => {
+                      console.log('hello');
+                    }}
+                  />
+                  <Button
+                    type="circleSmallEmail"
+                    disabled={props.propsForRequest.completed}
+                    children=""
+                    onClick={() => {
+                      console.log('hello');
+                    }}
+                  />
+                </div>
+              )}
             </div>
             <div className={styles.buttons}>
               {IsRequestFinished && !isVolunteerNull && (
-                <div>
+                <div className={styles.approvebutton}>
                   <Button
                     type="quadrilateralApprove"
                     disabled={false}
@@ -200,7 +193,7 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
                 </div>
               )}
               {props.propsForRequest.completed === false && (
-                <div>
+                <div className={styles.closebutton}>
                   <Button
                     type="quadrilateralExit"
                     disabled={IsRequestImmediate}
@@ -214,7 +207,7 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
               {props.owner === 'recipient' &&
                 props.propsForRequest.volunteer === null &&
                 props.propsForRequest.completed === false && (
-                  <div>
+                  <div className={styles.editbutton}>
                     <Button
                       type="quadrilateralEdit"
                       disabled={false}
