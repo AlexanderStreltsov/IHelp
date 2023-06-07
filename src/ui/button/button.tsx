@@ -44,6 +44,7 @@ export interface IButtonProps extends HTMLAttributes<HTMLButtonElement> {
   children?: string;
   disabled?: boolean;
   onClick: (() => void) | ((e: React.SyntheticEvent) => void);
+  active?: true | false | null;
 }
 
 export const Button = ({
@@ -52,9 +53,12 @@ export const Button = ({
   children,
   icon,
   className = '',
+  active,
   ...props
 }: IButtonProps) => {
   const extClassName = className || '';
+  const activeClass = active ? styles.active : '';
+  console.log(!activeClass);
   const Rectangle = () => {
     return (
       <div className={styles.over}>
@@ -93,7 +97,7 @@ export const Button = ({
 
   return (
     <button
-      className={`${styles.button} ${styles[type]} ${extClassName} text-small`}
+      className={`${styles.button} ${styles[type]} ${extClassName} ${activeClass} text-small`}
       disabled={disabled}
       {...props}
     >

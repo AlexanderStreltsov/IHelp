@@ -122,4 +122,5 @@ BigCard.args = {
   children: 'Обозначение карточки',
   type: 'bigCard',
   icon: 'map',
+  active: true,
 };
