@@ -243,6 +243,7 @@ export const Filter = ({
         }
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // виды фильтров
@@ -295,7 +296,12 @@ export const Filter = ({
     >
       <form name="filter" className={styles.form} ref={refForm}>
         {content(type)}
-        <Button type="apply" disabled={false} onClick={collectSelection}>
+        <Button
+          type="apply"
+          disabled={false}
+          onClick={collectSelection}
+          className={styles.buttonAply}
+        >
           Применить
         </Button>
       </form>

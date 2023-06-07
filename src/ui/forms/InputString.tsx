@@ -2,39 +2,34 @@ import React, { useState } from 'react';
 import styles from './inputString.module.scss';
 
 interface Props {
-  /**
-   * Label
-   */
   label: string;
-  /**
-   * Placeholder
-   */
   placeholder: string;
-  /**
-   * Input value
-   */
   initialValue: string;
-  /**
-   * Change handler
-   */
-  onChange: (value: string) => void;
+  id?: string;
+  name: string;
+  onChange?: (value: string) => void;
 }
 
 /**
  * Input field for name
  */
-export const InputName: React.FC<Props> = ({
+export const InputString: React.FC<Props> = ({
   label,
   placeholder,
   initialValue,
+  id,
+  name,
   onChange,
 }: Props) => {
   const [value, setValue] = useState(initialValue);
 
-  const inputId = `input-name-${Math.random()}`;
+  const inputId = id ? id : `input-name-${Math.random()}`;
   const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.currentTarget.value);
-    onChange(e.currentTarget.value);
+
+    if (onChange) {
+      onChange(e.currentTarget.value);
+    }
   };
 
   return (
@@ -47,6 +42,7 @@ export const InputName: React.FC<Props> = ({
       <input
         className={styles.input}
         id={inputId}
+        name={name}
         type="text"
         placeholder={placeholder}
         value={value}

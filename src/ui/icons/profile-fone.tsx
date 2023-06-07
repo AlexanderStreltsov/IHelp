@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { getColor, IIconProps } from './utils';
 
 export const ProfileFone = ({ ...props }) => (
