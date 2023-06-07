@@ -88,7 +88,7 @@ const ChiefPage: FC = () => {
             moduleOutStyles={styles.filter}
           />
         )}
-        <div className="catalog">
+        <div className="catalog catalog-column">
           {adminsList &&
             adminsList?.map((item) => {
               const rightConfig = {
