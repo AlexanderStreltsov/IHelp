@@ -18,6 +18,9 @@
   5. Logo
   6. Рамка попапов
   7. Footer
+  8. Calendar
+  9. ApplicationTooltip
+  10. UserInfo
 - Modules
   1. Header
 - Components
@@ -27,6 +30,9 @@
   4. Navigation
   5. Profile
   6. Registration
+  7. AdminCard
+  8. VolunteerCard
+  9. RecipientCard
 
 Дополнительно был разработан сервер для генерирования фиктивных ответов API.
 
