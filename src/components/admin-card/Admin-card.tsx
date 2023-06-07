@@ -16,9 +16,7 @@ export type TAdminRights = {
 
 export type TAdminCardProps = {
   photo?: string;
-  name: string;
-  surname: string;
-  patronymic?: string;
+  fullName: string;
   personalID: number;
   tel: string;
   rights: TAdminRights;
@@ -52,7 +50,7 @@ export const AdminCard = (props: TAdminCardProps) => {
           <img
             className={`${styles.imageStyle}`}
             src={props.photo}
-            alt={`${props.surname} ${props.name} ${props.patronymic}`}
+            alt={`${props.fullName}`}
           ></img>
         ) : (
           <PersonIcon
@@ -65,7 +63,7 @@ export const AdminCard = (props: TAdminCardProps) => {
         <div className={`${styles.commonInfoAdminStyle}`}>
           <div
             className={`${styles.nameFieldStyle}`}
-          >{`${props.surname} ${props.name} ${props.patronymic}`}</div>
+          >{`${props.fullName}`}</div>
           <div
             className={`${styles.idFieldStyle}`}
           >{`ID ${props.personalID}`}</div>

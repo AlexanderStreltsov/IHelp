@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 
 import { PersonPhoto } from '../../components/person-photo';
 import { Navigation } from '../../components/navigation';
@@ -15,23 +16,22 @@ import styles from './Header.module.scss';
 export const navigationItems = [
   {
     title: 'Личный кабинет',
-    url: '/my/',
+    url: '/profile',
     icon: <PersonIcon color="dark-blue" />,
-    current: true,
   },
   {
     title: 'Блог',
-    url: '/blog/',
+    url: '/blog',
     icon: <BlogIcon color="dark-blue" />,
   },
   {
     title: 'Политика конфиденциальности',
-    url: '/privacy/',
+    url: '/privacy',
     icon: <PrivacyIcon color="dark-blue" />,
   },
   {
     title: 'Контакты',
-    url: '/contacts/',
+    url: '/contacts',
     icon: <ContactsLocationSmIcon color="dark-blue" />,
   },
 ];
@@ -45,7 +45,9 @@ const Header: FC = () => {
           className={styles.avatar}
         />
         <div className={styles.logo}>
-          <Logo />
+          <Link to="/">
+            <Logo />
+          </Link>
         </div>
         <Navigation items={navigationItems} className={styles.mobileHide} />
         <Dropdown />
