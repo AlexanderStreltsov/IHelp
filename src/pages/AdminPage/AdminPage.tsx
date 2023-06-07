@@ -10,12 +10,17 @@ import type { TUser } from '../../types';
 
 const AdminPage: FC = () => {
   const [profile, setProfile] = useState<TUser>();
+  const [usersList, setUsersList] = useState<TUser[]>();
 
   useEffect(() => {
     const getData = async () => {
-      const data = (await getAllUsers()).filter((user) => user.id === 2);
+      const data = await getAllUsers();
 
-      setProfile(data[0]);
+      const adminData = data.filter((user) => user.id === 2)[0];
+      const usersData = data.filter((user) => user.role === 'volunteer');
+
+      setProfile(adminData);
+      setUsersList(usersData);
     };
 
     getData();

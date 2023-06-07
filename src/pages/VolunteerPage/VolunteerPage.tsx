@@ -5,7 +5,7 @@ import { TitleBar } from '../../components/title-bar';
 import { Filter } from '../../components/filters/filter';
 import { ActiveRequestVersion1Icon } from '../../ui/icons/active-request-big-version-1-icon';
 
-import { getUser } from '../../api';
+import { getAllUsers } from '../../api';
 
 import type { TUser } from '../../types';
 
@@ -16,9 +16,9 @@ const VolunteerPage: FC = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const user = await getUser(7);
+      const data = (await getAllUsers()).filter((user) => user.id === 7);
 
-      setProfile(user);
+      setProfile(data[0]);
     };
 
     getData();
@@ -47,7 +47,7 @@ const VolunteerPage: FC = () => {
         <Filter
           sendResult={getResult}
           currentConditions={filter}
-          type="volunteerApplicationMap"
+          type="activeApplicationsVolunteer"
         />
       )}
     </div>
