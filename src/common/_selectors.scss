@@ -41,3 +41,12 @@
 .page-content {
   flex-grow: 1;
 }
+
+.catalog {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 34px;
+}
