@@ -1,5 +1,5 @@
 @use 'sass:map';
-@import './src/scss/mixins/text';
+@import 'src/common/selectors';
 @import 'src/common/variable';
 
 .header {

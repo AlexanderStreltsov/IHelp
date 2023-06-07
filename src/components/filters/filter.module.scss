@@ -1,4 +1,5 @@
 @import '../../common/variable';
+@import '../../common/selectors';
 
 .popup {
   padding: 0 32px 34px 30px;
@@ -11,6 +12,9 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  .buttonAply span {
+    @extend .text-small;
+  }
 }
 
 .fieldset {
