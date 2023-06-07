@@ -25,6 +25,8 @@ export const getColor = (color: TIconColor) => {
       return ElementColors.partsActiveSecondary;
     case ElementColors.partsActiveAdditional:
       return ElementColors.partsActiveAdditional;
+    case ElementColors.urgent:
+      return ElementColors.urgent;
 
     default:
       // eslint-disable-next-line no-case-declarations, @typescript-eslint/no-unused-vars
