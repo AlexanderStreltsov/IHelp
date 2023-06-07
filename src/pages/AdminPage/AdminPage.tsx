@@ -7,6 +7,8 @@ import { ConfirmIcon } from '../../ui/icons/confirm-icon';
 import { getAllUsers } from '../../api';
 
 import type { TUser } from '../../types';
+import { Sidebar } from '../../components/sidebar';
+import { Button } from '../../ui/button/button';
 
 const AdminPage: FC = () => {
   const [profile, setProfile] = useState<TUser>();
@@ -29,7 +31,20 @@ const AdminPage: FC = () => {
 
   return (
     <div className="page-container">
-      <Profile type="volunteer" {...profile} />
+      <div>
+        <Profile type="admin" {...profile} />
+        <Sidebar>
+          <Button icon="confirm" onClick={() => {}} type="bigCard">
+            Подтверждение / Блокировка
+          </Button>
+          <Button icon="statistics" onClick={() => {}} type="bigCard">
+            Статистика
+          </Button>
+          <Button icon="application" onClick={() => {}} type="bigCard">
+            Создание / Редактирование заявки
+          </Button>
+        </Sidebar>
+      </div>
       <div className="page-content">
         <TitleBar
           title="Подтверждение / Блокировка"

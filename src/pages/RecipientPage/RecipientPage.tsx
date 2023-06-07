@@ -8,6 +8,8 @@ import { ExecutedRequestIcon } from '../../ui/icons/executed-request-icon';
 import { getAllUsers } from '../../api';
 
 import type { TUser } from '../../types';
+import { Sidebar } from '../../components/sidebar';
+import { Button } from '../../ui/button/button';
 
 const RecipientPage: FC = () => {
   const [profile, setProfile] = useState<TUser>();
@@ -35,7 +37,17 @@ const RecipientPage: FC = () => {
 
   return (
     <div className="page-container">
-      <Profile type="volunteer" {...profile} />
+      <div>
+        <Profile type="recipient" {...profile} />
+        <Sidebar>
+          <Button icon="active" onClick={() => {}} type="bigCard">
+            Активные заявки
+          </Button>
+          <Button icon="completed" onClick={() => {}} type="bigCard">
+            Завершенные заявки
+          </Button>
+        </Sidebar>
+      </div>
       <div className="page-content">
         <TitleBar
           title="Завершенные заявки"
