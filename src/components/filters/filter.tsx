@@ -243,6 +243,7 @@ export const Filter = ({
         }
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // виды фильтров
