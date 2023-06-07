@@ -1,4 +1,4 @@
-@use "sass:map";
+@use 'sass:map';
 @import '../../scss/mixins/text';
 @import '../../common/media';
 @import '../../common/variable';
@@ -19,24 +19,24 @@
 // p {
 //   margin: 0;
 // }
-.request{
+.request {
   display: grid;
-  grid-template-areas: 
-  'logo . user button'
-  'postinfo desc user button';
+  grid-template-areas:
+    'logo . user button'
+    'postinfo desc user button';
   max-width: 889px;
-  @media screen and (max-width: 768px){
-    grid-template-areas: 
-    'logo button'
-    'user button'
-    'desc desc'
-    'postinfo postinfo';
+  @media screen and (max-width: 768px) {
+    grid-template-areas:
+      'logo button'
+      'user button'
+      'desc desc'
+      'postinfo postinfo';
     max-width: 365px;
     border: 1px solid rgba(184, 228, 250, 1);
   }
 }
 
-.logo{
+.logo {
   grid-area: logo;
   width: 169px;
   height: 25px;
@@ -45,7 +45,7 @@
   background-image: url('../../../images/back.svg');
   background-position: center;
   background-repeat: no-repeat;
-  span{
+  span {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -57,16 +57,16 @@
   }
 }
 
-.postinfo{
+.postinfo {
   display: grid;
   grid-area: postinfo;
   grid-template-rows: 36px 29px 28px;
   grid-gap: 5px;
   max-width: 165px;
-  @media screen and (max-width: 768px){
-    grid-template-areas: 
-    'date time'
-    'address address';
+  @media screen and (max-width: 768px) {
+    grid-template-areas:
+      'date time'
+      'address address';
     margin-left: 5px;
     margin-top: 5px;
     max-width: 270px;
@@ -77,54 +77,55 @@
   display: grid;
   grid-template-rows: 27px 65px 50px;
   grid-area: desc;
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     grid-template-rows: auto;
     margin-left: 10px;
-    border-bottom: 1px solid map-get($map: $background_color, $key: horizontalGradient);
+    border-bottom: 1px solid
+      map-get($map: $background_color, $key: horizontalGradient);
     // linear-gradient(to right, #fff, #2e3192, #fff);
-}
+  }
 }
 
-.user{
+.user {
   display: grid;
   grid-area: user;
   margin-left: 88px;
-  @media screen and (max-width: 768px){
-    grid-template-areas: 
-    'photo name'
-    'photo phone'
-    '. icons';
+  @media screen and (max-width: 768px) {
+    grid-template-areas:
+      'photo name'
+      'photo phone'
+      '. icons';
     margin: 12px 0 0 9px;
     height: 107px;
   }
 }
 
-.buttons{
+.buttons {
   display: grid;
-  grid-template-areas: 
-  'approve close'
-  '. edit';
+  grid-template-areas:
+    'approve close'
+    '. edit';
   grid-gap: 19px;
   grid-area: button;
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     margin-right: 0;
     margin-left: auto;
-    grid-template-areas: 
-    'close'
-    'approve'
-    'edit'
+    grid-template-areas:
+      'close'
+      'approve'
+      'edit';
   }
 }
 
-.buttons:nth-child(1){
+.buttons:nth-child(1) {
   grid-area: approve;
 }
 
-.buttons:nth-child(2){
+.buttons:nth-child(2) {
   grid-area: close;
 }
 
-.buttons:nth-child(3){
+.buttons:nth-child(3) {
   grid-area: edit;
   @media screen and (max-width: 768px) {
     grid-row: 3;
@@ -136,7 +137,7 @@
   flex-direction: column;
   max-width: 181px;
   margin-left: 45px;
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     max-width: 245px;
   }
 }
@@ -152,7 +153,7 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     width: 60px;
     height: 60px;
     grid-area: photo;
@@ -170,7 +171,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   max-width: 181px;
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     font-size: 20px;
     line-height: 24px;
     grid-area: name;
@@ -185,7 +186,7 @@
   color: #2e3192;
   margin: 0 auto 12px auto;
   padding: 0;
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     grid-area: phone;
     margin: 0;
   }
@@ -196,7 +197,7 @@
   gap: 8px;
   width: 70px;
   margin: 0 auto;
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     grid-area: icons;
     margin: 14px 0 0 0;
   }
@@ -206,7 +207,7 @@
   color: #9798c9;
   margin: 0;
   max-width: 400px;
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     margin-top: 20px;
   }
 }
@@ -251,7 +252,7 @@
       }
     }
   }
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     line-height: 29px;
     -webkit-line-clamp: 4;
     height: 108px;
@@ -320,19 +321,19 @@
     width: 51px;
     height: 41px;
   }
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     margin-right: 5px;
     margin-left: auto;
     margin-top: 3px;
   }
 }
-.requestcountapproved{
+.requestcountapproved {
   @extend .requestcount;
   svg {
     width: 42px;
     height: 32px;
   }
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     margin-top: 5px;
   }
 }
@@ -342,7 +343,7 @@
   max-height: 36px;
   align-items: center;
   margin-left: 2px;
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     grid-area: date;
   }
 }
@@ -359,7 +360,7 @@
   text-align: center;
   color: #2e3192;
   margin: 0;
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     width: 91px;
     height: 29px;
     font-family: 'GolosText';
@@ -375,7 +376,7 @@
   max-height: 29px;
   align-items: center;
   margin: 5px 5px 5px 2px;
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     grid-area: time;
   }
 }
@@ -392,7 +393,7 @@
   text-align: center;
   color: #2e3192;
   margin: 0;
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     width: 47px;
     height: 29px;
     font-family: 'GolosText';
@@ -407,7 +408,7 @@
   flex-direction: row;
   max-height: 38px;
   align-items: center;
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     grid-area: address;
   }
 }
@@ -415,7 +416,7 @@
   width: 26px;
   height: 26px;
   padding-top: 10px;
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     width: 26px;
     height: 26px;
     padding-top: 5px;
@@ -429,7 +430,7 @@
   color: #2e3192;
   padding-top: 10px;
   margin: 0;
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     font-family: 'GolosText';
     font-style: normal;
     font-weight: 700;
@@ -443,6 +444,6 @@
   margin: 10px 0 0 0;
 }
 
-.scoresapproved{
+.scoresapproved {
   margin: 10px 0 0 0;
 }
