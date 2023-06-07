@@ -4,7 +4,7 @@ import { Request } from '../components/request/Request';
 import { UserRole } from '../types/user-role';
 
 const meta = {
-  title: 'Example/Request',
+  title: 'Components/Request',
   component: Request,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
   tags: ['autodocs'],
@@ -16,12 +16,6 @@ const meta = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
-
-const myDate = new Date();
-myDate.setHours(myDate.getHours() + 25);
-
-const mySecondDate = new Date();
-mySecondDate.setHours(myDate.getHours() - 25);
 
 export const recipientRequestCompleted: Story = {
   args: {
@@ -143,7 +137,7 @@ export const recipientRequestActiveNoCancel: Story = {
         id: 2,
         name: 'Категория',
       },
-      date: '2023-05-31T17:50Z',
+      date: '2023-06-07T19:00Z',
       description:
         'Пожалуйста, погуляйте с моей собакой, я не смогу ее выгуливать с 12.06 по 24.06 потому что уеду на обследование к врачу. Если есть желающие помочь в выгуле собаки, то звоните, 89041627779, Олег. Собаку зовут Айка, порода - немецкая овчарка, возраст - полтора года. Собака очень умная, послушная, добрая, спокойная.',
       completed: false,
@@ -182,7 +176,7 @@ export const recipientRequestActiveNoConfirm: Story = {
         id: 2,
         name: 'Категория',
       },
-      date: '2023-06-02T17:50Z',
+      date: '2023-06-09T17:50Z',
       description:
         'Пожалуйста, погуляйте с моей собакой, я не смогу ее выгуливать с 12.06 по 24.06 потому что уеду на обследование к врачу. Если есть желающие помочь в выгуле собаки, то звоните, 89041627779, Олег. Собаку зовут Айка, порода - немецкая овчарка, возраст - полтора года. Собака очень умная, послушная, добрая, спокойная.',
       completed: false,
@@ -347,7 +341,7 @@ export const volunteerRequestActiveNoCancel: Story = {
         id: 2,
         name: 'Категория',
       },
-      date: '2023-05-31T17:50Z',
+      date: '2023-06-07T19:00Z',
       description:
         'Пожалуйста, погуляйте с моими собаками, я не смогу их выгуливать с 18.06 по 28.06 потому что уеду на обследование к врачу. Если есть желающие помочь в выгуле собак, то звоните, 89041627779, Игнат. Собак зовут Айка и Лайка, возраст - полтора года. Собаки очень умные, послушные, добрые, спокойные.',
       completed: false,
@@ -402,7 +396,7 @@ export const volunteerRequestActiveNoConfirm: Story = {
         id: 2,
         name: 'Категория',
       },
-      date: '2023-06-02T17:50Z',
+      date: '2023-06-09T17:50Z',
       description:
         'Пожалуйста, погуляйте с моими собаками, я не смогу их выгуливать с 18.06 по 28.06 потому что уеду на обследование к врачу. Если есть желающие помочь в выгуле собак, то звоните, 89041627779, Игнат. Собак зовут Айка и Лайка, возраст - полтора года. Собаки очень умные, послушные, добрые, спокойные.',
       completed: false,

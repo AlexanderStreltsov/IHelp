@@ -115,6 +115,13 @@
   }
 }
 
+.buttonshidden {
+  @extend .buttons;
+  opacity: 0;
+  cursor: default;
+  pointer-events: none;
+}
+
 .approvebutton {
   grid-area: approve;
   margin-right: 19px;

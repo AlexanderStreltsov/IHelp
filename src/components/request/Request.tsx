@@ -7,7 +7,7 @@ import { ClockIcon } from '../../ui/icons/clock-icon';
 import { Button } from '../../ui/button/button';
 import { TTask } from '../../types';
 import { FinishedApplicationIcon } from '../../ui/icons/finished-application-icon';
-import { getIsRequestImmediate, getIsRequestFinished } from '../../utils/utils';
+import { getIsRequestImmediate, getIsDeadlinePassed } from '../../utils/utils';
 
 export const Request = (props: { propsForRequest: TTask; owner: string }) => {
   const [isCollapsed, setisCollapsed] = useState(true);
@@ -23,8 +23,6 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
         ? setIsOverflowing(true)
         : setIsOverflowing(false);
       el.style.overflow = isOverflowing ? 'hidden' : 'visible';
-      console.log(el.scrollHeight);
-      console.log(Math.max(el.offsetHeight, el.clientHeight));
       const hideButton = el.nextElementSibling;
       if (hideButton !== null) {
         hideButton.className =
@@ -32,7 +30,6 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
             ? `${styles.contenthidehidden}`
             : `${styles.contenthide}`;
       }
-      console.log(isOverflowing);
     }
   }, [ref, isOverflowing, setIsOverflowing, isClicked]);
 
@@ -43,7 +40,7 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
   };
 
   const IsRequestImmediate = getIsRequestImmediate(props.propsForRequest.date);
-  const IsRequestFinished = getIsRequestFinished(props.propsForRequest.date);
+  const IsDeadlinePassed = getIsDeadlinePassed(props.propsForRequest.date);
 
   const propsdata =
     props.owner === 'recipient'
@@ -179,31 +176,41 @@ export const Request = (props: { propsForRequest: TTask; owner: string }) => {
                 </div>
               )}
             </div>
-            <div className={styles.buttons}>
-              {IsRequestFinished && !isVolunteerNull && (
-                <div className={styles.approvebutton}>
-                  <Button
-                    type="quadrilateralApprove"
-                    disabled={false}
-                    children=""
-                    onClick={() => {
-                      console.log('hello');
-                    }}
-                  />
-                </div>
-              )}
-              {props.propsForRequest.completed === false && (
-                <div className={styles.closebutton}>
-                  <Button
-                    type="quadrilateralExit"
-                    disabled={IsRequestImmediate}
-                    children=""
-                    onClick={() => {
-                      console.log('hello');
-                    }}
-                  />
-                </div>
-              )}
+            <div
+              className={
+                props.propsForRequest.completed === false
+                  ? styles.buttons
+                  : styles.buttonshidden
+              }
+            >
+              <div className={styles.closebutton}>
+                <Button
+                  type="quadrilateralExit"
+                  disabled={IsRequestImmediate}
+                  children=""
+                  onClick={() => {
+                    console.log('hello');
+                  }}
+                />
+              </div>
+              <div
+                className={styles.approvebutton}
+                style={{
+                  opacity:
+                    IsDeadlinePassed && !isVolunteerNull && !IsRequestImmediate
+                      ? '1'
+                      : '0',
+                }}
+              >
+                <Button
+                  type="quadrilateralApprove"
+                  disabled={false}
+                  children=""
+                  onClick={() => {
+                    console.log('hello');
+                  }}
+                />
+              </div>
               {props.owner === 'recipient' &&
                 props.propsForRequest.volunteer === null &&
                 props.propsForRequest.completed === false && (
