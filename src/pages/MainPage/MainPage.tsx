@@ -4,6 +4,8 @@ import { Profile } from '../../components/profile/profile';
 import { TitleBar } from '../../components/title-bar';
 import { Filter } from '../../components/filters/filter';
 import { RequestMapIcon } from '../../ui/icons/request-map-icon';
+import { Sidebar } from '../../components/sidebar';
+import { Button } from '../../ui/button/button';
 
 import styles from './MainPage.module.scss';
 
@@ -22,7 +24,20 @@ const MainPage: FC = () => {
 
   return (
     <div className="page-container">
-      <Profile type="signUp" />
+      <div>
+        <Profile type="signUp" />
+        <Sidebar isBlocked>
+          <Button icon="map" onClick={() => {}} type="bigCard">
+            Карта заявок
+          </Button>
+          <Button icon="active" onClick={() => {}} type="bigCard">
+            Активные заявки
+          </Button>
+          <Button icon="completed" onClick={() => {}} type="bigCard">
+            Завершенные заявки
+          </Button>
+        </Sidebar>
+      </div>
       <div className="page-content">
         <TitleBar
           title="Карта заявок"

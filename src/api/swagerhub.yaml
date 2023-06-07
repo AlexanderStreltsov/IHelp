@@ -38,7 +38,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Task'
-              examples: 
+              examples:
                 NewTask:
                   $ref: '#/components/examples/createTaskResponseExample'
         '400':
@@ -59,12 +59,11 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Task'
-              examples: 
+              examples:
                 schema:
                   $ref: '#/components/examples/allTasksResponseExample'
         '400':
           $ref: '#/components/responses/BadRequest'
-                  
   /tasks/{id}:
     get:
       tags:
@@ -82,14 +81,13 @@ paths:
           description: ''
           content:
             application/json:
-              schema: 
+              schema:
                 $ref: '#/components/schemas/Task'
-              examples: 
+              examples:
                 FindTask:
                   $ref: '#/components/examples/updateTaskResponseExample'
         '404':
           $ref: '#/components/responses/NotFound'
-          
     patch:
       tags:
         - tasks
@@ -112,16 +110,15 @@ paths:
           description: ''
           content:
             application/json:
-              schema: 
+              schema:
                 $ref: '#/components/schemas/Task'
-              examples: 
+              examples:
                 UpdatedTask:
                   $ref: '#/components/examples/updateTaskResponseExample'
         '400':
           $ref: '#/components/responses/BadRequest'
         '404':
           $ref: '#/components/responses/NotFound'
-          
     delete:
       tags:
         - tasks
@@ -161,12 +158,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
-              examples: 
+              examples:
                 NewUser:
                   $ref: '#/components/examples/createUserResponseExample'
         '400':
-          $ref: '#/components/responses/BadRequest' 
-          
+          $ref: '#/components/responses/BadRequest'
     get:
       tags:
         - users
@@ -182,7 +178,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/User'
-              examples: 
+              examples:
                 schema:
                   $ref: '#/components/examples/allUsersResponseExample'
 
@@ -205,10 +201,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
-              examples: 
+              examples:
                 FindUser:
                   $ref: '#/components/examples/updateUserResponseExample'
-                  
+
     patch:
       tags:
         - users
@@ -233,11 +229,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
-              examples: 
+              examples:
                 UpdatedUser:
                   $ref: '#/components/examples/updateUserResponseExample'
-                
-
 components:
   responses:
     DeleteSuccess:
@@ -250,7 +244,6 @@ components:
               message:
                 type: string
                 example: 'Объект удален успешно'
-                
     NotFound:
       description: 'Error 400. Requested object does not exist'
       content:
@@ -261,7 +254,6 @@ components:
               message:
                 type: string
                 example: 'Запрашиваемый объект не найден'
-    
     BadRequest:
       description: 'Error 400. Bad Request'
       content:
@@ -272,7 +264,6 @@ components:
               message:
                 type: string
                 example: 'Запрос не может быть выполнен'
-                
   schemas:
     Task:
       type: object
@@ -361,13 +352,12 @@ components:
           items:
             type: number
           example:
-            - 59.941871, 
+            - 59.941871,
             - 30.223494
         chatId:
           type: integer
           nullable: true
           example: null
-        
     UpdateTaskDto:
       type: object
       properties:
@@ -477,7 +467,6 @@ components:
           type: integer
           description: 'Колличество выполненных заявок (только для role=volunteer)'
           example: 100
-          
     CreateUserDto:
       type: object
       required:
@@ -559,14 +548,14 @@ components:
         completed:
           type: integer
           example: 100
-          
+
     TaskCategory:
       type: object
       properties:
-        id: 
+        id:
           type: number
           example: 1
-        name: 
+        name:
           type: string
           example: 'Название категории 1'
       example:
@@ -582,7 +571,6 @@ components:
           name: 'Название категории 5'
         - id: 6
           name: 'Название категории 6'
-  
   examples:
     createTaskResponseExample:
       value:
@@ -608,9 +596,9 @@ components:
         address: ул. Нахимова, д. 9
         coordinates: [59.941871, 30.223494]
         chatId: null
-    
+
     allTasksResponseExample:
-      value: 
+      value:
         - id: 12
           title: Выгулять собаку (новая задача)
           category:
@@ -1170,9 +1158,9 @@ components:
         address: ул. Нахимова, д. 9
         coordinates: [59.941871, 30.223494]
         chatId: null
-    
+
     createUserResponseExample:
-      value: 
+      value:
         id: 7
         fullname: 'Петров Петр Петрович'
         role: 'volunteer'
@@ -1187,9 +1175,9 @@ components:
         adminStatus: null
         scores: 0
         completed: 0
-        
+
     updateUserResponseExample:
-      value: 
+      value:
         id: 7
         fullname: 'Петров Петр Петрович'
         role: 'volunteer'
@@ -1204,7 +1192,6 @@ components:
         adminStatus: null
         scores: 2500
         completed: 100
-    
     allUsersResponseExample:
       value:
         - id: 1
@@ -1257,7 +1244,7 @@ components:
           phone: '+7 (916) 123-45-67'
           address: 'ул. Нахимова, д. 9'
           coordinates: [59.941871, 30.223494]
-          approved: true    
+          approved: true
         - id: 5
           fullname: 'Иванов Иван Иванович'
           role: 'recipient'
@@ -1316,7 +1303,7 @@ components:
           checked: true
           keys: true
           scores: 600
-          completed: 20  
+          completed: 20
         - id: 10
           fullname: 'Петров Петр Петрович'
           role: 'volunteer'
