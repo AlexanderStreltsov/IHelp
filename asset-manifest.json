@@ -1,19 +1,20 @@
 {
   "files": {
-    "main.css": "/IHelp/static/css/main.4b83a144.css",
-    "main.js": "/IHelp/static/js/main.a1c11c25.js",
+    "main.css": "/IHelp/static/css/main.424fb7db.css",
+    "main.js": "/IHelp/static/js/main.0b2591cf.js",
     "static/js/787.d975495b.chunk.js": "/IHelp/static/js/787.d975495b.chunk.js",
     "static/media/GolosText-Bold.ttf": "/IHelp/static/media/GolosText-Bold.9093234c5dda5e169a98.ttf",
     "static/media/GolosText-Regular.ttf": "/IHelp/static/media/GolosText-Regular.623a6c2cc440e00489d6.ttf",
     "static/media/GolosText-Bold.woff2": "/IHelp/static/media/GolosText-Bold.5d6b8bf193f76a280bb3.woff2",
     "static/media/GolosText-Regular.woff2": "/IHelp/static/media/GolosText-Regular.7abba679137406db4649.woff2",
+    "static/media/footer.png": "/IHelp/static/media/footer.58bd0915726342c4bd14.png",
     "index.html": "/IHelp/index.html",
-    "main.4b83a144.css.map": "/IHelp/static/css/main.4b83a144.css.map",
-    "main.a1c11c25.js.map": "/IHelp/static/js/main.a1c11c25.js.map",
+    "main.424fb7db.css.map": "/IHelp/static/css/main.424fb7db.css.map",
+    "main.0b2591cf.js.map": "/IHelp/static/js/main.0b2591cf.js.map",
     "787.d975495b.chunk.js.map": "/IHelp/static/js/787.d975495b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4b83a144.css",
-    "static/js/main.a1c11c25.js"
+    "static/css/main.424fb7db.css",
+    "static/js/main.0b2591cf.js"
   ]
 }
