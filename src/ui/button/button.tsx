@@ -58,7 +58,6 @@ export const Button = ({
 }: IButtonProps) => {
   const extClassName = className || '';
   const activeClass = active ? styles.active : '';
-  console.log(!activeClass);
   const Rectangle = () => {
     return (
       <div className={styles.over}>
