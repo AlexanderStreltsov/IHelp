@@ -518,3 +518,6 @@
     height: 48px;
   }
 }
+.active {
+  background-color: map.get($background_color, partsActivePrimary);
+}
