@@ -1,3 +1,4 @@
+@use 'sass:map';
 @import '../../common/_selectors';
 @import '../../common/_variable';
 
@@ -65,4 +66,12 @@
 .button {
   width: 146px;
   height: 30px;
+}
+
+.urgent {
+  background-color: map.get($background_color, urgent) !important;
+
+  &:hover {
+    opacity: 0.7;
+  }
 }

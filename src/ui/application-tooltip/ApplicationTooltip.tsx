@@ -28,7 +28,6 @@ interface Props {
 
 export const ApplicationTooltip: React.FC<Props> = ({ application }) => {
   const { name, phoneNumber, avatarUrl } = application.applicant;
-  const respondType = application.isUrgent ? 'respondUrgent' : 'respond';
   const ballsColor = application.isUrgent
     ? ElementColors.urgent
     : ElementColors.partsPrimary;
@@ -50,7 +49,11 @@ export const ApplicationTooltip: React.FC<Props> = ({ application }) => {
         <BallsIcon color={ballsColor} />
       </div>
       <div className={styles.button}>
-        <Button onClick={() => {}} type={respondType}>
+        <Button
+          onClick={() => {}}
+          type="respond"
+          className={application.isUrgent ? styles.urgent : ''}
+        >
           Откликнуться
         </Button>
       </div>
