@@ -7,6 +7,8 @@ import { RequestMapIcon } from '../../ui/icons/request-map-icon';
 import { Sidebar } from '../../components/sidebar';
 import { Button } from '../../ui/button/button';
 
+import styles from './MainPage.module.scss';
+
 const MainPage: FC = () => {
   const [filter, setFilter] = useState({});
   const [isShowFilter, setIsShowFilter] = useState(false);
@@ -48,6 +50,7 @@ const MainPage: FC = () => {
           sendResult={getResult}
           currentConditions={filter}
           type="volunteerApplicationMap"
+          moduleOutStyles={styles.filter}
         />
       )}
     </div>

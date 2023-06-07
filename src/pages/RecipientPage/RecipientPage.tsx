@@ -13,6 +13,8 @@ import { getAllUsers } from '../../api';
 
 import type { TUser } from '../../types';
 
+import styles from './RecipientPage.module.scss';
+
 const RecipientPage: FC = () => {
   const [profile, setProfile] = useState<TUser>();
   const [filter, setFilter] = useState({});
@@ -74,6 +76,7 @@ const RecipientPage: FC = () => {
           sendResult={getResult}
           currentConditions={filter}
           type="recipient"
+          moduleOutStyles={styles.filter}
         />
       )}
     </div>
