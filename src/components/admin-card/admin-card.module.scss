@@ -1,0 +1,123 @@
+@use 'sass:map';
+@import 'src/common/selectors';
+@import 'src/common/variable';
+
+.adminCard {
+  width: 276px;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+  height: 298px;
+  box-sizing: border-box;
+}
+
+.adminPhoto {
+  height: 62px;
+  width: 62px;
+  background-color: map.get($background_color, partsSecondary);
+  background-size: contain;
+  border-radius: 50%;
+  margin: auto;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  position: relative;
+
+  // object-fit: none;
+}
+
+.adminInfo {
+  border: solid map.get($background_color, partsActivePrimary) 1px;
+  position: relative;
+  top: -31px;
+  box-sizing: border-box;
+}
+
+.imageStyle {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.imagePlaceholderStyle {
+  height: 44.18px;
+  width: 26.35px;
+}
+
+.commonInfoAdminStyle {
+  margin-top: 41px;
+  margin-left: 30px;
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+}
+
+.nameFieldStyle {
+  @extend .text-medium;
+}
+
+.idFieldStyle {
+  @extend .text-small;
+  color: rgba($color: map.get($text_color, common), $alpha: 0.5);
+}
+
+.phoneFieldStyle {
+  display: flex;
+  gap: 12px;
+}
+
+.leftPhoneFieldStyle {
+  @extend .text-small-bold;
+}
+
+.rightPhoneFieldStyle {
+  @extend .text-small;
+}
+
+.divider {
+  width: 100%;
+  border: none;
+  height: 1px;
+  background: map.get($background_color, horizontalGradient);
+  margin: -4px 0 -4px;
+}
+
+.optionalSelectorStyle {
+  margin: 0 8px 0;
+  position: relative;
+}
+
+.upperTriangleBox {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.downTriangleBox {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.upperTriangle {
+  // position: relative;
+  // margin-left: auto;
+  cursor: pointer;
+}
+
+.downTriangle {
+  // position: relative;
+  // right: 0px;
+  cursor: pointer;
+}
+
+.adminRightsArea {
+  margin: 12px 33px 0;
+  height: 122px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
