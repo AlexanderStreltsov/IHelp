@@ -34,6 +34,25 @@ export default {
       },
     },
   },
+  parameters: {
+    backgrounds: {
+      default: 'grey',
+      values: [
+        {
+          name: 'grey',
+          value: '#DCDCDC',
+        },
+        {
+          name: 'white',
+          value: '#fff',
+        },
+        {
+          name: 'black',
+          value: '#000',
+        },
+      ],
+    },
+  },
 };
 
 // export const ActiveRequest = () => (

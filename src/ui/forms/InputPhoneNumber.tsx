@@ -2,26 +2,19 @@ import React, { useEffect, useRef, useState } from 'react';
 import styles from './inputPhoneNumber.module.scss';
 
 interface Props {
-  /**
-   * Input value
-   */
-  initialValue: string;
-  /**
-   * Error message
-   */
+  initialValue?: string;
   errorMessage?: string;
-  /**
-   * Change handler
-   */
-  onChange: (value: string) => void;
+  name: string;
+  onChange?: (value: string) => void;
 }
 
 /**
  * Input field for name
  */
 export const InputPhoneNumber: React.FC<Props> = ({
-  initialValue,
+  initialValue = '',
   errorMessage,
+  name,
   onChange,
 }: Props) => {
   const [value, setValue] = useState(initialValue);
@@ -54,7 +47,10 @@ export const InputPhoneNumber: React.FC<Props> = ({
       setError(undefined);
       inputRef.current?.setCustomValidity('');
     }
-    onChange(currentValue);
+
+    if (onChange) {
+      onChange(currentValue);
+    }
   };
 
   return (
@@ -67,6 +63,7 @@ export const InputPhoneNumber: React.FC<Props> = ({
           error ? styles.wrongInput : styles.correctInput
         }`}
         id={inputId}
+        name={name}
         type="tel"
         placeholder="+7 (000) 000 00 00"
         value={value}

@@ -2,8 +2,6 @@ import { getColor, IIconProps } from './utils';
 
 export const ActiveRequestVersion2Icon = ({ color, ...props }: IIconProps) => (
   <svg
-    width="40"
-    height="48"
     viewBox="0 0 40 48"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
