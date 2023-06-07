@@ -1,0 +1,40 @@
+@use 'sass:map';
+@import 'src/common/variable';
+
+.aside {
+  width: 295px;
+  border: 2px solid map.get($background_color, partsActivePrimary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 30px 0 88px;
+  padding: 30px 10px 37px;
+  box-sizing: border-box;
+  z-index: 1;
+  position: relative;
+
+  @media screen and (max-width: 720px) {
+    width: 352px;
+    margin-bottom: 0;
+  }
+}
+
+.blocked {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(46, 49, 146, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.blockedIcon {
+  width: 156px;
+  height: 195px;
+}
