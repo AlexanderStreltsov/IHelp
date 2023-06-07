@@ -205,6 +205,7 @@ paths:
               examples:
                 FindUser:
                   $ref: '#/components/examples/updateUserResponseExample'
+
     patch:
       tags:
         - users
@@ -548,6 +549,7 @@ components:
         completed:
           type: integer
           example: 100
+
     TaskCategory:
       type: object
       properties:
@@ -595,6 +597,7 @@ components:
         address: ул. Нахимова, д. 9
         coordinates: [59.941871, 30.223494]
         chatId: null
+
     allTasksResponseExample:
       value:
         - id: 12
@@ -1156,6 +1159,7 @@ components:
         address: ул. Нахимова, д. 9
         coordinates: [59.941871, 30.223494]
         chatId: null
+
     createUserResponseExample:
       value:
         id: 7
@@ -1172,6 +1176,7 @@ components:
         adminStatus: null
         scores: 0
         completed: 0
+
     updateUserResponseExample:
       value:
         id: 7

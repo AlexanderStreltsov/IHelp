@@ -10,10 +10,15 @@ import { FinishedApplicationIcon } from '../../../ui/icons/finished-application-
 import { ProgressIcon } from '../../../ui/icons/progress-icon';
 import { Button } from '../../../ui/button/button';
 import { IProfileProps } from '../profile';
+import { useNavigate } from 'react-router-dom';
 
 export const ProfileElement = (props: IProfileProps) => {
   const { className, type, role }: IProfileProps = props;
   const extClassName = className || '';
+  const navigate = useNavigate();
+  const handelClickRegistration = () => {
+    navigate('/registration');
+  };
   return (
     <div className={`${styles.container} ${extClassName}`}>
       <div className={styles.photoBox}>
@@ -75,7 +80,7 @@ export const ProfileElement = (props: IProfileProps) => {
               className={`${styles.signUp}`}
               disabled={false}
               onClick={() => {
-                console.log('tt');
+                handelClickRegistration();
               }}
               type="apply"
             >

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+
 import { TTask } from '../../types';
 import api from '../../api';
 import styles from './page.module.scss';
@@ -15,7 +16,7 @@ export const Page = () => {
 
     fetchData();
   }, []);
-
+  
   return (
     <div className={styles.page}>
       {tasksState && tasksState[0] && (
