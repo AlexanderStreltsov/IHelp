@@ -13,6 +13,8 @@ import { getAllUsers } from '../../api';
 
 import type { TUser } from '../../types';
 
+import styles from './VolunteerPage.module.scss';
+
 const VolunteerPage: FC = () => {
   const [profile, setProfile] = useState<TUser>();
   const [filter, setFilter] = useState({});
@@ -77,6 +79,7 @@ const VolunteerPage: FC = () => {
           sendResult={getResult}
           currentConditions={filter}
           type="activeApplicationsVolunteer"
+          moduleOutStyles={styles.filter}
         />
       )}
     </div>
