@@ -1,0 +1,79 @@
+@use "sass:map";
+@import "../../scss/mixins/fonts";
+@import "../../common//selectors";
+@import "../../scss/mixins/text";
+@import "../../common/variable";
+
+.cardcontainer {
+    display: flex;
+    padding: 31px 0 0 0;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 276px;
+    height: 128px;
+    border: 1px solid map.get($background_color, partsActivePrimary);
+}
+
+.cardcontent {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 30px;
+    max-width: 197px;
+}
+
+.avatar {
+    position: absolute;
+    top: -31px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 62px;
+    height: 62px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 31px;
+    z-index: 50;
+}
+
+.name {
+    width: 197px;
+    height: 18px;
+    display: inline-block;
+    color: map.get($text_color, common);
+    margin: 37px auto 2px auto;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    @extend .text-medium;
+}
+
+.id {
+    height: 11px;
+    color: map.get($text_color, common);
+    opacity: 0.5;
+    margin-top: 0;
+    margin-bottom: 7px;
+}
+
+.phone {
+    display: flex;
+    flex-direction: row;
+    margin: 0 0 7px -3px;
+}
+
+.phonetext {
+    color: map.get($text_color, common);
+    margin: 0 12px 0 0;
+}
+
+.phonenumber {
+    display: flex;
+    color: map.get($text_color, common);
+    margin: 0;
+}
