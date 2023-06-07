@@ -33,8 +33,7 @@ export interface IButtonProps extends HTMLAttributes<HTMLButtonElement> {
     | 'quadrilateralApprove'
     | 'quadrilateralSetting'
     | 'quadrilateralExcel'
-    | 'bigCard'
-    | 'respond';
+    | 'bigCard';
   icon?:
     | 'map'
     | 'active'
@@ -156,9 +155,6 @@ export const Button = ({
           <VkIcon color={'white'} className={styles.imageVK} />
           <span className={`${styles.text} text-medium`}>{children}</span>
         </>
-      )}
-      {type === 'respond' && (
-        <span className={`${styles.text}`}>{children}</span>
       )}
     </button>
   );

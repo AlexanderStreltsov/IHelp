@@ -13,6 +13,25 @@
   align-items: center;
   background: map-get($background_color, 'popup');
   gap: 16px;
+  .urgent {
+    padding: 8px 32px;
+    background-color: map.get($background_color, urgent) !important;
+    @extend .text-small;
+
+    &:hover {
+      opacity: 0.7;
+    }
+    & span {
+      @extend .text-small;
+    }
+  }
+  .urgentFalse {
+    padding: 8px 32px;
+    @extend .text-small;
+    & span {
+      @extend .text-small;
+    }
+  }
 }
 
 .header {
@@ -66,12 +85,4 @@
 .button {
   width: 146px;
   height: 30px;
-}
-
-.urgent {
-  background-color: map.get($background_color, urgent) !important;
-
-  &:hover {
-    opacity: 0.7;
-  }
 }

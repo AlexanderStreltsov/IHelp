@@ -51,8 +51,8 @@ export const ApplicationTooltip: React.FC<Props> = ({ application }) => {
       <div className={styles.button}>
         <Button
           onClick={() => {}}
-          type="respond"
-          className={application.isUrgent ? styles.urgent : ''}
+          type="apply"
+          className={application.isUrgent ? styles.urgent : styles.urgentFalse}
         >
           Откликнуться
         </Button>

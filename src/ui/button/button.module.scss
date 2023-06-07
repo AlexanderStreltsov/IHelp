@@ -71,23 +71,6 @@
   }
 }
 
-.respond {
-  width: 146px;
-  height: 30px;
-  padding: 8px 32px;
-  background-color: map.get($background_color, partsPrimary);
-  color: map.get($text_color, additional);
-
-  &:hover {
-    background-color: map.get($background_color, partsActivePrimary);
-  }
-
-  &:disabled {
-    background-color: map.get($background_color, inactive);
-    cursor: auto;
-  }
-}
-
 .search {
   width: 170px;
   height: 33px;
