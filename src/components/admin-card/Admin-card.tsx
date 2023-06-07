@@ -1,11 +1,13 @@
-import React, { MouseEvent, useState } from 'react';
-import styles from './admin-card.module.scss';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { useState } from 'react';
 import { ElementColors } from './../../common/variables';
 
 import { PersonIcon } from './../../ui/icons/person-icon';
 import { UpperTriangleIcon } from './../../ui/icons/upper-triangle-icon';
 import { DownTriangleIcon } from './../../ui/icons/down-triangle-icon';
 import { Checkbox } from './../../ui/checkbox/checkbox';
+
+import styles from './admin-card.module.scss';
 
 export type TAdminRights = {
   verify_accounts: boolean;

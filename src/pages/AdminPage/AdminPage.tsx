@@ -4,18 +4,24 @@ import { useLocation } from 'react-router-dom';
 import { Profile } from '../../components/profile/profile';
 import { TitleBar } from '../../components/title-bar';
 import { Sidebar } from '../../components/sidebar';
+import { Filter } from '../../components/filters/filter';
+import { VolunteerCard } from '../../components/card/Card';
 
 import { ConfirmIcon } from '../../ui/icons/confirm-icon';
 import { Button } from '../../ui/button/button';
 
 import { getAllUsers } from '../../api';
 
+import styles from './AdminPage.module.scss';
+
 import type { TUser } from '../../types';
 
 const AdminPage: FC = () => {
   const [profile, setProfile] = useState<TUser>();
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [usersList, setUsersList] = useState<TUser[]>();
+
+  const [filter, setFilter] = useState({});
+  const [isShowFilter, setIsShowFilter] = useState(false);
 
   const { pathname } = useLocation();
 
@@ -32,6 +38,15 @@ const AdminPage: FC = () => {
 
     getData();
   }, []);
+
+  const filterToggle = () => {
+    setIsShowFilter((prev) => !prev);
+  };
+
+  const getResult = (result: { [name: string]: string[] }) => {
+    setFilter({ ...result });
+    setIsShowFilter(false);
+  };
 
   return (
     <div className="page-container">
@@ -63,7 +78,22 @@ const AdminPage: FC = () => {
         <TitleBar
           title="Подтверждение / Блокировка"
           icon={<ConfirmIcon color="dark-blue" />}
+          filterHandler={filterToggle}
         />
+        {isShowFilter && (
+          <Filter
+            sendResult={getResult}
+            currentConditions={filter}
+            type="admin"
+            moduleOutStyles={styles.filter}
+          />
+        )}
+        <div className="catalog">
+          {usersList &&
+            usersList?.map((item) => {
+              return <VolunteerCard {...item} />;
+            })}
+        </div>
       </div>
     </div>
   );

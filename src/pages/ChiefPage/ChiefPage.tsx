@@ -5,14 +5,16 @@ import { Profile } from '../../components/profile/profile';
 import { TitleBar } from '../../components/title-bar';
 import { Filter } from '../../components/filters/filter';
 import { Sidebar } from '../../components/sidebar';
+import { AdminCard } from '../../components/admin-card/Admin-card';
 
 import { ConfirmIcon } from '../../ui/icons/confirm-icon';
 import { Button } from '../../ui/button/button';
 
 import { getAllUsers } from '../../api';
 
+import styles from './ChiefPage.module.scss';
+
 import type { TUser } from '../../types';
-import { AdminCard } from '../../components/admin-card/Admin-card';
 
 const ChiefPage: FC = () => {
   const [profile, setProfile] = useState<TUser>();
@@ -20,6 +22,7 @@ const ChiefPage: FC = () => {
 
   const [filter, setFilter] = useState({});
   const [isShowFilter, setIsShowFilter] = useState(false);
+
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -82,6 +85,7 @@ const ChiefPage: FC = () => {
             sendResult={getResult}
             currentConditions={filter}
             type="admin"
+            moduleOutStyles={styles.filter}
           />
         )}
         <div className="catalog">
