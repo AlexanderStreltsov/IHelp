@@ -20,50 +20,22 @@ export const Default: Story = {
     items: [
       {
         title: 'Личный кабинет',
-        url: '/my/',
+        url: '/profile',
         icon: <PersonIcon color="dark-blue" />,
       },
       {
         title: 'Блог',
-        url: '/blog/',
+        url: '/blog',
         icon: <BlogIcon color="dark-blue" />,
       },
       {
         title: 'Политика конфиденциальности',
-        url: '/privacy/',
+        url: '/privacy',
         icon: <PrivacyIcon color="dark-blue" />,
       },
       {
         title: 'Контакты',
-        url: '/contacts/',
-        icon: <ContactsLocationSmIcon color="dark-blue" />,
-      },
-    ],
-  },
-};
-
-export const Current: Story = {
-  args: {
-    items: [
-      {
-        title: 'Личный кабинет',
-        url: '/my/',
-        icon: <PersonIcon color="dark-blue" />,
-        current: true,
-      },
-      {
-        title: 'Блог',
-        url: '/blog/',
-        icon: <BlogIcon color="dark-blue" />,
-      },
-      {
-        title: 'Политика конфиденциальности',
-        url: '/privacy/',
-        icon: <PrivacyIcon color="dark-blue" />,
-      },
-      {
-        title: 'Контакты',
-        url: '/contacts/',
+        url: '/contacts',
         icon: <ContactsLocationSmIcon color="dark-blue" />,
       },
     ],
