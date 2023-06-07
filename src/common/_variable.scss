@@ -17,6 +17,7 @@ $background_color: (
   partsActiveAdditional: #00a99d,
   colorBorder: #e0e0e0,
   errorBorder: #e64646,
+  urgent: #d60080,
   horizontalGradient: linear-gradient(to right, #fff, #2e3192, #fff),
 );
 
@@ -31,6 +32,7 @@ $text_color: (
   secondery: #fff,
   additional: #fbfdff,
   errorMessage: #f37920,
+  urgent: #d60080,
   gradient: linear-gradient(to right, #2e3192 50%, #fff 50%),
   inactive: #9f9b9b,
   mainRed: #fd6868,

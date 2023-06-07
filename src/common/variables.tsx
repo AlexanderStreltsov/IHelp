@@ -7,4 +7,5 @@ export enum ElementColors {
   partsActivePrimary = '#0071bc',
   partsActiveSecondary = '#0091c7',
   partsActiveAdditional = '#00a99d',
+  urgent = '#d60080',
 }
