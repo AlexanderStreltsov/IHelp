@@ -1,4 +1,5 @@
 import { FC, useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import { Profile } from '../../components/profile/profile';
 import { Sidebar } from '../../components/sidebar';
@@ -11,15 +12,13 @@ import { ActiveRequestVersion1Icon } from '../../ui/icons/active-request-big-ver
 import { getAllUsers } from '../../api';
 
 import type { TUser } from '../../types';
-import { useLocation } from 'react-router-dom';
 
 const VolunteerPage: FC = () => {
   const [profile, setProfile] = useState<TUser>();
   const [filter, setFilter] = useState({});
   const [isShowFilter, setIsShowFilter] = useState(false);
 
-  const location = useLocation();
-  console.log(location);
+  const { pathname } = useLocation();
 
   useEffect(() => {
     const getData = async () => {
@@ -45,10 +44,20 @@ const VolunteerPage: FC = () => {
       <div>
         <Profile type="volunteer" {...profile} />
         <Sidebar>
-          <Button icon="map" onClick={() => {}} type="bigCard">
+          <Button
+            icon="map"
+            onClick={() => {}}
+            type="bigCard"
+            active={pathname === '/volunteer/map'}
+          >
             Карта заявок
           </Button>
-          <Button icon="active" onClick={() => {}} type="bigCard">
+          <Button
+            icon="active"
+            onClick={() => {}}
+            type="bigCard"
+            active={pathname === '/volunteer'}
+          >
             Активные заявки
           </Button>
           <Button icon="completed" onClick={() => {}} type="bigCard">

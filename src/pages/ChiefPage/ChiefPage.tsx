@@ -1,19 +1,23 @@
 import { FC, useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import { Profile } from '../../components/profile/profile';
 import { TitleBar } from '../../components/title-bar';
+import { Sidebar } from '../../components/sidebar';
+
 import { ConfirmIcon } from '../../ui/icons/confirm-icon';
+import { Button } from '../../ui/button/button';
 
 import { getAllUsers } from '../../api';
 
 import type { TUser } from '../../types';
-import { Sidebar } from '../../components/sidebar';
-import { Button } from '../../ui/button/button';
 
 const ChiefPage: FC = () => {
   const [profile, setProfile] = useState<TUser>();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [adminsList, setAdminsList] = useState<TUser[]>();
+
+  const { pathname } = useLocation();
 
   useEffect(() => {
     const getData = async () => {
@@ -34,10 +38,20 @@ const ChiefPage: FC = () => {
       <div>
         <Profile type="chief" {...profile} />
         <Sidebar>
-          <Button icon="confirm" onClick={() => {}} type="bigCard">
+          <Button
+            icon="confirm"
+            onClick={() => {}}
+            type="bigCard"
+            active={pathname === '/chief'}
+          >
             Подтверждение / Блокировка
           </Button>
-          <Button icon="statistics" onClick={() => {}} type="bigCard">
+          <Button
+            icon="statistics"
+            onClick={() => {}}
+            type="bigCard"
+            active={pathname === '/chief/stat'}
+          >
             Статистика
           </Button>
           <Button icon="application" onClick={() => {}} type="bigCard">
