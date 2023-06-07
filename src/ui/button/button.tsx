@@ -34,8 +34,7 @@ export interface IButtonProps extends HTMLAttributes<HTMLButtonElement> {
     | 'quadrilateralSetting'
     | 'quadrilateralExcel'
     | 'bigCard'
-    | 'respond'
-    | 'respondUrgent';
+    | 'respond';
   icon?:
     | 'map'
     | 'active'
