@@ -163,6 +163,7 @@ paths:
                   $ref: '#/components/examples/createUserResponseExample'
         '400':
           $ref: '#/components/responses/BadRequest'
+
     get:
       tags:
         - users
