@@ -137,13 +137,18 @@
 
 @include media('max', 'md') {
   .react-datepicker-popper {
+    position: fixed !important;
+    inset: 0 !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
     width: 300px;
-    height: auto;
+    box-sizing: border-box;
+    min-height: 390px !important;
+    max-height: 390px !important;
     padding: 30px 0 !important;
-    transform: none !important;
     background: map.get($background_color, popup);
     margin: 0 auto;
-    inset: auto 0 !important;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.04),
       0px 4px 32px rgba(0, 0, 0, 0.16);
 
@@ -191,7 +196,7 @@
         background: map.get($text_color, common);
         opacity: 0.35;
         display: block;
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
       }
