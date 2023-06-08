@@ -56,8 +56,8 @@ const Dropdown: FC = () => {
         onClick={(e) => dropdownHandler(e)}
       />
       {menuVisible && (
-        <ul className={styles.dropdown} onClick={(e) => clickHandler(e)}>
-          <li className={styles.item} onClick={(e) => adminButtonHandler(e)}>
+        <ul className={styles.dropdown} onClick={clickHandler}>
+          <li className={styles.item} onClick={adminButtonHandler}>
             <span className={`${styles.text} text-medium`}>
               Написать администратору
             </span>

@@ -6,6 +6,7 @@ import { ActiveRequestVersion1Icon } from '../ui/icons/active-request-big-versio
 const meta: Meta<typeof TitleBar> = {
   title: 'Components/TitleBar',
   component: TitleBar,
+  tags: ['autodocs'],
 };
 
 export default meta;

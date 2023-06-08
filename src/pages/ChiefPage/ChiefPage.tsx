@@ -3,19 +3,25 @@ import { useLocation } from 'react-router-dom';
 
 import { Profile } from '../../components/profile/profile';
 import { TitleBar } from '../../components/title-bar';
+import { Filter } from '../../components/filters/filter';
 import { Sidebar } from '../../components/sidebar';
+import { AdminCard } from '../../components/admin-card/Admin-card';
 
 import { ConfirmIcon } from '../../ui/icons/confirm-icon';
 import { Button } from '../../ui/button/button';
 
 import { getAllUsers } from '../../api';
 
+import styles from './ChiefPage.module.scss';
+
 import type { TUser } from '../../types';
 
 const ChiefPage: FC = () => {
   const [profile, setProfile] = useState<TUser>();
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [adminsList, setAdminsList] = useState<TUser[]>();
+
+  const [filter, setFilter] = useState({});
+  const [isShowFilter, setIsShowFilter] = useState(false);
 
   const { pathname } = useLocation();
 
@@ -32,6 +38,15 @@ const ChiefPage: FC = () => {
 
     getData();
   }, []);
+
+  const filterToggle = () => {
+    setIsShowFilter((prev) => !prev);
+  };
+
+  const getResult = (result: { [name: string]: string[] }) => {
+    setFilter({ ...result });
+    setIsShowFilter(false);
+  };
 
   return (
     <div className="page-container">
@@ -63,7 +78,38 @@ const ChiefPage: FC = () => {
         <TitleBar
           title="Подтверждение / Блокировка"
           icon={<ConfirmIcon color="dark-blue" />}
+          filterHandler={filterToggle}
         />
+        {isShowFilter && (
+          <Filter
+            sendResult={getResult}
+            currentConditions={filter}
+            type="admin"
+            moduleOutStyles={styles.filter}
+          />
+        )}
+        <div className="catalog catalog-column">
+          {adminsList &&
+            adminsList?.map((item, index) => {
+              const rightConfig = {
+                verify_accounts: !!(item.adminStatus && item.adminStatus > 0),
+                create_request: !!(item.adminStatus && item.adminStatus > 1),
+                allot_key: !!(item.adminStatus && item.adminStatus > 2),
+                settle_dispute: !!(item.adminStatus && item.adminStatus > 3),
+              };
+
+              return (
+                <AdminCard
+                  photo={item.photo}
+                  fullName={item.fullname || ''}
+                  personalID={item.id || 0}
+                  tel={item.phone || ''}
+                  rights={rightConfig}
+                  key={index}
+                />
+              );
+            })}
+        </div>
       </div>
     </div>
   );

@@ -10,6 +10,7 @@ import { ContactsLocationSmIcon } from '../ui/icons/contacts-location-sm-icon';
 const meta: Meta<typeof Navigation> = {
   title: 'Components/Navigation',
   component: Navigation,
+  tags: ['autodocs'],
 };
 
 export default meta;
