@@ -1,58 +1,52 @@
+---
 openapi: 3.0.3
-
 info:
-  description: 'Образец API, с которым работает фронтенд часть проекта ЯПомогаю.'
-  version: 1.1.0
-  title: 'ЯПомогаю, некоммерческая организация'
+  title: "ЯПомогаю, некоммерческая организация"
+  description: "Образец API, с которым работает фронтенд часть проекта ЯПомогаю."
   contact:
     email: web77@yandex.ru
-
+  version: 1.1.0
 servers:
-  - description: SwaggerHub API Auto Mocking
-    url: https://virtserver.swaggerhub.com/WEB77_1/IHelp/1.1.0
-
+- url: https://virtserver.swaggerhub.com/WEB77_1/IHelp/1.1.0
+  description: SwaggerHub API Auto Mocking
 tags:
-  - name: tasks
-    description: 'Интерфейс для работы с заявками'
-  - name: users
-    description: 'Интерфейс для работы с пользователями'
-
+- name: category
+  description: Интерфейс для работы с категориями
+- name: tasks
+  description: Интерфейс для работы с заявками
+- name: users
+  description: Интерфейс для работы с пользователями
 paths:
-  /tasks:
-    post:
+  /category:
+    get:
       tags:
-        - tasks
-      summary: 'Добавление новой заявки'
-      operationId: TasksController_createOne
+      - category
+      summary: Получить все категории
+      operationId: CategoryController_findMany
       parameters: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CreateTaskDto'
       responses:
-        '201':
-          description: 'Заявка добавлена успешно'
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Task'
-              examples:
-                NewTask:
-                  $ref: '#/components/examples/createTaskResponseExample'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-
+                $ref: '#/components/schemas/TaskCategory'
+        "400":
+          description: Error 400. Bad Request
+          content:
+            applecation/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+  /tasks:
     get:
       tags:
-        - tasks
-      summary: 'Показать все заявки'
+      - tasks
+      summary: Показать все заявки
       operationId: TasksController_findMany
       parameters: []
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
@@ -62,23 +56,57 @@ paths:
               examples:
                 schema:
                   $ref: '#/components/examples/allTasksResponseExample'
-        '400':
-          $ref: '#/components/responses/BadRequest'
+        "400":
+          description: Error 400. Bad Request
+          content:
+            applecation/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+    post:
+      tags:
+      - tasks
+      summary: Добавление новой заявки
+      operationId: TasksController_createOne
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTaskDto'
+        required: true
+      responses:
+        "201":
+          description: Заявка добавлена успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+              examples:
+                NewTask:
+                  $ref: '#/components/examples/createTaskResponseExample'
+        "400":
+          description: Error 400. Bad Request
+          content:
+            applecation/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
   /tasks/{id}:
     get:
       tags:
-        - tasks
-      summary: 'Показать все данные по выбранной заявки'
+      - tasks
+      summary: Показать все данные по выбранной заявки
       operationId: TasksController_findOne
       parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: integer
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
@@ -86,28 +114,66 @@ paths:
               examples:
                 FindTask:
                   $ref: '#/components/examples/updateTaskResponseExample'
-        '404':
-          $ref: '#/components/responses/NotFound'
+        "404":
+          description: Error 400. Requested object does not exist
+          content:
+            applecation/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+    delete:
+      tags:
+      - tasks
+      summary: Удаление заявки
+      operationId: TasksController_deleteOne
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "204":
+          description: No content 204. Successful delete request
+          content:
+            applecation/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_204'
+        "400":
+          description: Error 400. Bad Request
+          content:
+            applecation/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+        "404":
+          description: Error 400. Requested object does not exist
+          content:
+            applecation/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
     patch:
       tags:
-        - tasks
-      summary: 'Редактирование заявки'
+      - tasks
+      summary: Редактирование заявки
       operationId: TasksController_updateOne
       parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: integer
-      requestBody:
+      - name: id
+        in: path
         required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/UpdateTaskDto'
+        required: true
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
@@ -115,64 +181,28 @@ paths:
               examples:
                 UpdatedTask:
                   $ref: '#/components/examples/updateTaskResponseExample'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '404':
-          $ref: '#/components/responses/NotFound'
-    delete:
-      tags:
-        - tasks
-      summary: 'Удаление заявки'
-      operationId: TasksController_deleteOne
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: integer
-      responses:
-        '204':
-          $ref: '#/components/responses/DeleteSuccess'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '404':
-          $ref: '#/components/responses/NotFound'
-
-  /users:
-    post:
-      tags:
-        - users
-      summary: 'Добавить нового пользователя'
-      operationId: UsersController_createOne
-      parameters: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CreateUserDto'
-      responses:
-        '201':
-          description: 'Пользователь успешно добавлен'
+        "400":
+          description: Error 400. Bad Request
           content:
-            application/json:
+            applecation/json:
               schema:
-                $ref: '#/components/schemas/User'
-              examples:
-                NewUser:
-                  $ref: '#/components/examples/createUserResponseExample'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-
+                $ref: '#/components/schemas/inline_response_400'
+        "404":
+          description: Error 400. Requested object does not exist
+          content:
+            applecation/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+  /users:
     get:
       tags:
-        - users
-      summary: 'Показать всех пользователей на площадке'
+      - users
+      summary: Показать всех пользователей на площадке
       operationId: UsersController_findMany
       parameters: []
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
@@ -182,22 +212,51 @@ paths:
               examples:
                 schema:
                   $ref: '#/components/examples/allUsersResponseExample'
-
+    post:
+      tags:
+      - users
+      summary: Добавить нового пользователя
+      operationId: UsersController_createOne
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserDto'
+        required: true
+      responses:
+        "201":
+          description: Пользователь успешно добавлен
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                NewUser:
+                  $ref: '#/components/examples/createUserResponseExample'
+        "400":
+          description: Error 400. Bad Request
+          content:
+            applecation/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
   /users/{id}:
     get:
       tags:
-        - users
-      summary: 'Показать данные выбранного пользователя'
+      - users
+      summary: Показать данные выбранного пользователя
       operationId: UsersController_findOne
       parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: integer
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
@@ -205,27 +264,28 @@ paths:
               examples:
                 FindUser:
                   $ref: '#/components/examples/updateUserResponseExample'
-
     patch:
       tags:
-        - users
-      summary: 'Обновить данные выбранного пользователя'
+      - users
+      summary: Обновить данные выбранного пользователя
       operationId: UsersController_updateOne
       parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: integer
-      requestBody:
+      - name: id
+        in: path
         required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/UpdateUserDto'
+        required: true
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
@@ -234,37 +294,6 @@ paths:
                 UpdatedUser:
                   $ref: '#/components/examples/updateUserResponseExample'
 components:
-  responses:
-    DeleteSuccess:
-      description: 'No content 204. Successful delete request'
-      content:
-        applecation/json:
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                example: 'Объект удален успешно'
-    NotFound:
-      description: 'Error 400. Requested object does not exist'
-      content:
-        applecation/json:
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                example: 'Запрашиваемый объект не найден'
-    BadRequest:
-      description: 'Error 400. Bad Request'
-      content:
-        applecation/json:
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                example: 'Запрос не может быть выполнен'
   schemas:
     Task:
       type: object
@@ -274,72 +303,71 @@ components:
           example: 1
         title:
           type: string
-          description: 'Заголовок для заявки'
-          example: 'Выгулять собаку'
+          description: Заголовок для заявки
+          example: Выгулять собаку
         category:
           type: object
-          description: 'Тип заявки (категория)'
-          allOf:
-            - $ref: '#/components/schemas/TaskCategory'
+          description: Тип заявки (категория)
           example:
             id: 1
-            name: 'Категория 1'
+            name: Категория 1
+          allOf:
+          - $ref: '#/components/schemas/TaskCategory'
         date:
           type: string
-          description: 'Дата и время выполнения заявки'
+          description: Дата и время выполнения заявки
           format: date-time
-          example: '2023-05-31T17:30:00Z'
         description:
           type: string
-          description: 'Описание заявки от реципиента'
-          example: 'Заболел и совсем нет сил даже ходить по квартире. Почти неделю собаку выгуливали соседи, но в пятницу они не смогут. Помогите, пожалуйста!'
+          description: Описание заявки от реципиента
+          example: "Заболел и совсем нет сил даже ходить по квартире. Почти неделю собаку выгуливали соседи, но в пятницу они не смогут. Помогите, пожалуйста!"
         completed:
           type: boolean
-          description: 'Статус заявки - выполнена (true) / не выполнена (false)'
-          default: false
+          description: Статус заявки - выполнена (true) / не выполнена (false)
           example: false
+          default: false
         recipient:
           $ref: '#/components/schemas/User'
         volunteer:
           $ref: '#/components/schemas/User'
         address:
           type: string
-          description: 'Адрес выполнения заявки'
-          example: 'ул. Нахимова, д. 9'
+          description: Адрес выполнения заявки
+          example: "ул. Нахимова, д. 9"
         coordinates:
           type: array
-          description: 'Координаты указанного в заявке адреса (по данным Яндекс.Карт)'
+          description: Координаты указанного в заявке адреса (по данным Яндекс.Карт)
+          example:
+          - 59.830065
+          - 30.033465
           items:
             type: number
-          example: [59.830065, 30.033465]
         chatId:
           type: integer
-          description: 'Идентификатор чата в базе данных, если таковой был'
+          description: "Идентификатор чата в базе данных, если таковой был"
           nullable: true
-          default: null
           example: 2533
-
     CreateTaskDto:
-      type: object
       required:
-        - title
-        - categoryId
-        - date
-        - description
-        - recipientId
-        - address
-        - coordinates
+      - address
+      - categoryId
+      - coordinates
+      - date
+      - description
+      - recipientId
+      - title
+      type: object
       properties:
         title:
           type: string
-          example: 'Выгулять собаку (новая задача)'
+          example: Выгулять собаку (новая задача)
         categoryId:
           type: integer
           example: 2
         date:
           type: string
           format: date-time
-          example: '2023-05-31T17:30Z'
+          example: 2023-05-31T17:30:00Z
         description:
           type: string
         recipientId:
@@ -347,31 +375,30 @@ components:
           example: 4
         address:
           type: string
-          example: 'ул. Нахимова, д. 9'
+          example: "ул. Нахимова, д. 9"
         coordinates:
           type: array
+          example:
+          - "59.941871,"
+          - 30.223494
           items:
             type: number
-          example:
-            - 59.941871,
-            - 30.223494
         chatId:
           type: integer
           nullable: true
-          example: null
     UpdateTaskDto:
       type: object
       properties:
         title:
           type: string
-          example: 'Выгулять собаку (новая задача)'
+          example: Выгулять собаку (новая задача)
         categoryId:
           type: integer
           example: 2
         date:
           type: string
           format: date-time
-          example: 2023-05-31T17:30Z
+          example: 2023-05-31T17:30:00Z
         description:
           type: string
         completed:
@@ -385,16 +412,16 @@ components:
           example: 7
         address:
           type: string
-          example: ул. Нахимова, д. 9
+          example: "ул. Нахимова, д. 9"
         coordinates:
           type: array
+          example:
+          - 59.941871
+          - 30.223494
           items:
             type: number
-          example: [59.941871, 30.223494]
         chatId:
           type: integer
-          example: null
-
     User:
       type: object
       properties:
@@ -403,137 +430,140 @@ components:
           example: 7
         fullname:
           type: string
-          example: 'Петров Петр Петрович'
+          example: Петров Петр Петрович
         role:
           type: string
-          description: 'Роль пользователя'
+          description: Роль пользователя
+          example: volunteer
           enum:
-            - chief
-            - admin
-            - recipient
-            - volunteer
-          example: 'volunteer'
+          - chief
+          - admin
+          - recipient
+          - volunteer
         vk:
           type: string
-          description: 'Ссылка на профиль пользователя в ВК'
+          description: Ссылка на профиль пользователя в ВК
           format: url
-          example: 'https://vk.com/id123456789'
+          example: https://vk.com/id123456789
         photo:
           type: string
-          description: 'Ссылка на фотографию пользователя'
+          description: Ссылка на фотографию пользователя
           format: url
-          example: 'http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg'
+          example: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
         phone:
           type: string
-          description: 'Телефон пользователя'
-          example: '+7 (926) 123-45-67'
+          description: Телефон пользователя
+          example: +7 (926) 123-45-67
         address:
           type: string
-          description: 'Адрес пользователя'
-          example: 'ул. Кораблестроителей, 19к1'
+          description: Адрес пользователя
+          example: "ул. Кораблестроителей, 19к1"
         coordinates:
           type: array
-          description: 'Координаты адреса пользователя (по данным Яндекс.Карт)'
+          description: Координаты адреса пользователя (по данным Яндекс.Карт)
+          example:
+          - 59.942575
+          - 30.216757
           items:
             type: number
-          example: [59.942575, 30.216757]
         approved:
           type: boolean
-          description: 'Статус подтверждения пользователя'
-          default: false
+          description: Статус подтверждения пользователя
           example: true
+          default: false
         checked:
           type: boolean
-          description: 'Статус проверки пользователя (только для волонтера)'
-          default: false
+          description: Статус проверки пользователя (только для волонтера)
           example: true
+          default: false
         keys:
           type: boolean
-          description: 'Статус наличия ключей (только для волонтера)'
-          default: false
+          description: Статус наличия ключей (только для волонтера)
           example: true
+          default: false
         adminStatus:
-          type: integer
-          description: 'Уровень прав администратора. По умолчанию null для всех пользователей.'
-          default: null
-          minimum: 0
           maximum: 5
-          example: null
+          minimum: 0
+          type: integer
+          description: Уровень прав администратора. По умолчанию null для всех пользователей.
         scores:
           type: integer
-          description: 'Всего баллов (только для role=volunteer)'
+          description: Всего баллов (только для role=volunteer)
           example: 2500
           default: 0
         completed:
           type: integer
-          description: 'Колличество выполненных заявок (только для role=volunteer)'
+          description: Колличество выполненных заявок (только для role=volunteer)
           example: 100
     CreateUserDto:
-      type: object
       required:
-        - fullname
-        - role
-        - vk
-        - photo
-        - phone
-        - address
-        - coordinates
+      - address
+      - coordinates
+      - fullname
+      - phone
+      - photo
+      - role
+      - vk
+      type: object
       properties:
         fullname:
           type: string
-          example: 'Петров Петр Петрович'
+          example: Петров Петр Петрович
         role:
           type: string
+          example: volunteer
           enum:
-            - admin
-            - recipient
-            - volunteer
-          example: 'volunteer'
+          - admin
+          - recipient
+          - volunteer
         vk:
           type: string
           format: url
-          example: 'https://vk.com/id123456789'
+          example: https://vk.com/id123456789
         photo:
           type: string
           format: url
-          example: 'http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg'
+          example: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
         phone:
           type: string
-          example: '+7 (926) 123-45-67'
+          example: +7 (926) 123-45-67
         address:
           type: string
-          example: 'ул. Кораблестроителей, 19к1'
+          example: "ул. Кораблестроителей, 19к1"
         coordinates:
           type: array
+          example:
+          - 59.942575
+          - 30.216757
           items:
             type: number
-          example: [59.942575, 30.216757]
-
     UpdateUserDto:
       type: object
       properties:
         fullname:
           type: string
-          example: 'Петров Петр Петрович'
+          example: Петров Петр Петрович
         vk:
           type: string
           format: url
-          example: 'https://vk.com/id123456789'
+          example: https://vk.com/id123456789
         photo:
           type: string
           format: url
-          example: 'http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg'
+          example: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
         phone:
           type: string
-          example: '+7 (926) 123-45-67'
+          example: +7 (926) 123-45-67
         address:
           type: string
-          example: 'ул. Кораблестроителей, 19к1'
+          example: "ул. Кораблестроителей, 19к1"
         coordinates:
           type: array
+          example:
+          - 59.942575
+          - 30.216757
           items:
             type: number
-          example: [59.942575, 30.216757]
         approved:
           type: boolean
           example: true
@@ -549,7 +579,6 @@ components:
         completed:
           type: integer
           example: 100
-
     TaskCategory:
       type: object
       properties:
@@ -558,20 +587,66 @@ components:
           example: 1
         name:
           type: string
-          example: 'Название категории 1'
+          example: Название категории 1
+        scope:
+          type: number
+          example: 10
       example:
-        - id: 1
-          name: 'Название категории 1'
-        - id: 2
-          name: 'Название категории 2'
-        - id: 3
-          name: 'Название категории 3'
-        - id: 4
-          name: 'Название категории 4'
-        - id: 5
-          name: 'Название категории 5'
-        - id: 6
-          name: 'Название категории 6'
+      - id: 1
+        name: Название категории 1
+        scope: 10
+      - id: 2
+        name: Название категории 2
+        scope: 20
+      - id: 3
+        name: Название категории 3
+        scope: 30
+      - id: 4
+        name: Название категории 4
+        scope: 40
+      - id: 5
+        name: Название категории 5
+        scope: 50
+      - id: 6
+        name: Название категории 6
+        scope: 60
+    inline_response_400:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Запрос не может быть выполнен
+    inline_response_404:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Запрашиваемый объект не найден
+    inline_response_204:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Объект удален успешно
+  responses:
+    DeleteSuccess:
+      description: No content 204. Successful delete request
+      content:
+        applecation/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_204'
+    NotFound:
+      description: Error 400. Requested object does not exist
+      content:
+        applecation/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_404'
+    BadRequest:
+      description: Error 400. Bad Request
+      content:
+        applecation/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_400'
   examples:
     createTaskResponseExample:
       value:
@@ -581,547 +656,620 @@ components:
           id: 2
           name: Название категории 2
         date: 2023-05-31T17:30Z
-        description: Заболел и совсем нет сил даже ходить по квартире. Почти неделю собаку выгуливали соседи, но в пятницу они не смогут. Помогите, пожалуйста!
+        description: "Заболел и совсем нет сил даже ходить по квартире. Почти неделю собаку выгуливали соседи, но в пятницу они не смогут. Помогите, пожалуйста!"
         completed: false
         recipient:
           id: 4
-          fullname: Иванов Иван Иванович
+          fullname: Реципиентов Алексей Борисович
           role: recipient
           vk: https://vk.com/id123456789
-          photo: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
+          photo: https://tengu.ucoz.net/novosti/morio-higaonna.jpg
           phone: +7 (916) 123-45-67
-          address: ул. Нахимова, д. 9
-          coordinates: [59.941871, 30.223494]
+          address: "ул. Нахимова, д. 9"
+          coordinates:
+          - 59.941871
+          - 30.223494
           approved: true
-        volunteer: null
-        address: ул. Нахимова, д. 9
-        coordinates: [59.941871, 30.223494]
-        chatId: null
-
+        address: "ул. Нахимова, д. 9"
+        coordinates:
+        - 59.941871
+        - 30.223494
     allTasksResponseExample:
       value:
-        - id: 12
-          title: Выгулять собаку (новая задача)
-          category:
-            id: 2
-            name: Название категории 2
-          date: 2023-05-31T17:30Z
-          description: Заболел и совсем нет сил даже ходить по квартире. Почти неделю собаку выгуливали соседи, но в пятницу они не смогут. Помогите, пожалуйста!
-          completed: false
-          recipient:
-            id: 4
-            fullname: Иванов Иван Иванович
-            role: recipient
-            vk: https://vk.com/id123456789
-            photo: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
-            phone: +7 (916) 123-45-67
-            address: ул. Нахимова, д. 9
-            coordinates: [59.941871, 30.223494]
-            approved: true
-          volunteer: null
-          address: ул. Нахимова, д. 9
-          coordinates: [59.941871, 30.223494]
-          chatId: null
-        - id: 14
-          title: Название задачи 14
-          category:
-            id: 1
-            name: Название категории 1
-          date: 2023-05-31T17:30Z
-          description: ‘Описание’
-          completed: false
-          recipient:
-            id: 4
-            fullname: Иванов Иван Иванович
-            role: recipient
-            vk: https://vk.com/id123456789
-            photo: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
-            phone: +7 (916) 123-45-67
-            address: ул. Нахимова, д. 9
-            coordinates: [59.941871, 30.223494]
-            approved: true
-          volunteer:
-            id: 7
-            fullname: Петров Петр Петрович
-            role: volunteer
-            vk: https://vk.com/id123456789
-            photo: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
-            phone: +7 (926) 123-45-67
-            address: ул. Кораблестроителей, 19к1
-            coordinates: [59.942575, 30.216757]
-            approved: true
-            checked: true
-            keys: true
-            scores: 2500
-            completed: 100
-          address: ул. Нахимова, д. 9
-          coordinates: [59.941871, 30.223494]
-          chatId: null
-        - id: 15
-          title: Задача 15
-          category:
-            id: 2
-            name: Название категории 2
-          date: 2023-05-31T17:30Z
-          description: ‘Описание’
-          completed: true
-          recipient:
-            id: 4
-            fullname: Иванов Иван Иванович
-            role: recipient
-            vk: https://vk.com/id123456789
-            photo: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
-            phone: +7 (916) 123-45-67
-            address: ул. Нахимова, д. 9
-            coordinates: [59.941871, 30.223494]
-            approved: true
-          volunteer:
-            id: 7
-            fullname: Петров Петр Петрович
-            role: volunteer
-            vk: https://vk.com/id123456789
-            photo: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
-            phone: +7 (926) 123-45-67
-            address: ул. Кораблестроителей, 19к1
-            coordinates: [59.942575, 30.216757]
-            approved: true
-            checked: true
-            keys: true
-            scores: 2500
-            completed: 100
-          address: ул. Нахимова, д. 9
-          coordinates: [59.941871, 30.223494]
-          ChatId: 5678
-        - id: 16
-          title: Достаточно длинное название для задачи 16
-          category:
-            id: 3
-            name: Название категории 3
-          date: 2023-05-31T17:30Z
-          description: ‘Описание’
-          completed: false
-          recipient:
-            id: 4
-            fullname: Иванов Иван Иванович
-            role: recipient
-            vk: https://vk.com/id123456789
-            photo: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
-            phone: +7 (916) 123-45-67
-            address: ул. Нахимова, д. 9
-            coordinates: [59.941871, 30.223494]
-            approved: true
-          volunteer:
-            id: 7
-            fullname: Петров Петр Петрович
-            role: volunteer
-            vk: https://vk.com/id123456789
-            photo: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
-            phone: +7 (926) 123-45-67
-            address: ул. Кораблестроителей, 19к1
-            coordinates: [59.942575, 30.216757]
-            approved: true
-            checked: true
-            keys: true
-            scores: 2500
-            completed: 100
-          address: ул. Нахимова, д. 9
-          coordinates: [59.941871, 30.223494]
-          chatId: null
-        - id: 17
-          title: Название задачи 17
-          category:
-            id: 4
-            name: Название категории 4
-          date: 2023-05-31T17:30Z
-          description: ‘Описание’
-          completed: true
-          recipient:
-            id: 4
-            fullname: Иванов Иван Иванович
-            role: recipient
-            vk: https://vk.com/id123456789
-            photo: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
-            phone: +7 (916) 123-45-67
-            address: ул. Нахимова, д. 9
-            coordinates: [59.941871, 30.223494]
-            approved: true
-          volunteer:
-            id: 7
-            fullname: Петров Петр Петрович
-            role: volunteer
-            vk: https://vk.com/id123456789
-            photo: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
-            phone: +7 (926) 123-45-67
-            address: ул. Кораблестроителей, 19к1
-            coordinates: [59.942575, 30.216757]
-            approved: true
-            checked: true
-            keys: true
-            scores: 2500
-            completed: 100
-          address: ул. Нахимова, д. 9
-          coordinates: [59.941871, 30.223494]
-          chatId: null
-        - id: 18
-          title: Задача 18
-          category:
-            id: 5
-            name: Название категории 5
-          date: 2023-05-31T17:30Z
-          description: ‘Описание’
-          completed: false
-          recipient:
-            id: 4
-            fullname: Иванов Иван Иванович
-            role: recipient
-            vk: https://vk.com/id123456789
-            photo: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
-            phone: +7 (916) 123-45-67
-            address: ул. Нахимова, д. 9
-            coordinates: [59.941871, 30.223494]
-            approved: true
-          volunteer:
-            id: 7
-            fullname: Петров Петр Петрович
-            role: volunteer
-            vk: https://vk.com/id123456789
-            photo: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
-            phone: +7 (926) 123-45-67
-            address: ул. Кораблестроителей, 19к1
-            coordinates: [59.942575, 30.216757]
-            approved: true
-            checked: true
-            keys: true
-            scores: 2500
-            completed: 100
-          address: ул. Нахимова, д. 9
-          coordinates: [59.941871, 30.223494]
-          chatId: null
-        - id: 19
-          title: Достаточно длинное название для задачи 19
-          category:
-            id: 6
-            name: Название категории 6
-          date: 2023-05-31T17:30Z
-          description: ‘Описание’
-          completed: true
-          recipient:
-            id: 4
-            fullname: Иванов Иван Иванович
-            role: recipient
-            vk: https://vk.com/id123456789
-            photo: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
-            phone: +7 (916) 123-45-67
-            address: ул. Нахимова, д. 9
-            coordinates: [59.941871, 30.223494]
-            approved: true
-          volunteer:
-            id: 7
-            fullname: Петров Петр Петрович
-            role: volunteer
-            vk: https://vk.com/id123456789
-            photo: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
-            phone: +7 (926) 123-45-67
-            address: ул. Кораблестроителей, 19к1
-            coordinates: [59.942575, 30.216757]
-            approved: true
-            checked: true
-            keys: true
-            scores: 2500
-            completed: 100
-          address: ул. Нахимова, д. 9
-          coordinates: [59.941871, 30.223494]
-          chatId: null
-        - id: 20
-          title: Название задачи 20
-          category:
-            id: 1
-            name: Название категории 1
-          date: 2023-05-31T17:30Z
-          description: ‘Описание’
-          completed: false
-          recipient:
-            id: 4
-            fullname: Иванов Иван Иванович
-            role: recipient
-            vk: https://vk.com/id123456789
-            photo: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
-            phone: +7 (916) 123-45-67
-            address: ул. Нахимова, д. 9
-            coordinates: [59.941871, 30.223494]
-            approved: true
-          volunteer:
-            id: 7
-            fullname: Петров Петр Петрович
-            role: volunteer
-            vk: https://vk.com/id123456789
-            photo: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
-            phone: +7 (926) 123-45-67
-            address: ул. Кораблестроителей, 19к1
-            coordinates: [59.942575, 30.216757]
-            approved: true
-            checked: true
-            keys: true
-            scores: 2500
-            completed: 100
-          address: ул. Нахимова, д. 9
-          coordinates: [59.941871, 30.223494]
-          ChatId: 3302
-        - id: 21
-          title: Задача 21
-          category:
-            id: 2
-            name: Название категории 2
-          date: 2023-05-31T17:30Z
-          description: ‘Описание’
-          completed: true
-          recipient:
-            id: 4
-            fullname: Иванов Иван Иванович
-            role: recipient
-            vk: https://vk.com/id123456789
-            photo: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
-            phone: +7 (916) 123-45-67
-            address: ул. Нахимова, д. 9
-            coordinates: [59.941871, 30.223494]
-            approved: true
-          volunteer:
-            id: 7
-            fullname: Петров Петр Петрович
-            role: volunteer
-            vk: https://vk.com/id123456789
-            photo: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
-            phone: +7 (926) 123-45-67
-            address: ул. Кораблестроителей, 19к1
-            coordinates: [59.942575, 30.216757]
-            approved: true
-            checked: true
-            keys: true
-            scores: 2500
-            completed: 100
-          address: ул. Нахимова, д. 9
-          coordinates: [59.941871, 30.223494]
-          chatId: null
-        - id: 22
-          title: Достаточно длинное название для задачи 22
-          category:
-            id: 3
-            name: Название категории 3
-          date: 2023-05-31T17:30Z
-          description: ‘Описание’
-          completed: false
-          recipient:
-            id: 4
-            fullname: Иванов Иван Иванович
-            role: recipient
-            vk: https://vk.com/id123456789
-            photo: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
-            phone: +7 (916) 123-45-67
-            address: ул. Нахимова, д. 9
-            coordinates: [59.941871, 30.223494]
-            approved: true
-          volunteer:
-            id: 7
-            fullname: Петров Петр Петрович
-            role: volunteer
-            vk: https://vk.com/id123456789
-            photo: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
-            phone: +7 (926) 123-45-67
-            address: ул. Кораблестроителей, 19к1
-            coordinates: [59.942575, 30.216757]
-            approved: true
-            checked: true
-            keys: true
-            scores: 2500
-            completed: 100
-          address: ул. Нахимова, д. 9
-          coordinates: [59.941871, 30.223494]
-          chatId: null
-        - id: 23
-          title: Название задачи 23
-          category:
-            id: 4
-            name: Название категории 4
-          date: 2023-05-31T17:30Z
-          description: ‘Описание’
-          completed: true
-          recipient:
-            id: 4
-            fullname: Иванов Иван Иванович
-            role: recipient
-            vk: https://vk.com/id123456789
-            photo: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
-            phone: +7 (916) 123-45-67
-            address: ул. Нахимова, д. 9
-            coordinates: [59.941871, 30.223494]
-            approved: true
-          volunteer:
-            id: 7
-            fullname: Петров Петр Петрович
-            role: volunteer
-            vk: https://vk.com/id123456789
-            photo: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
-            phone: +7 (926) 123-45-67
-            address: ул. Кораблестроителей, 19к1
-            coordinates: [59.942575, 30.216757]
-            approved: true
-            checked: true
-            keys: true
-            scores: 2500
-            completed: 100
-          address: ул. Нахимова, д. 9
-          coordinates: [59.941871, 30.223494]
-          chatId: null
-        - id: 24
-          title: Задача 24
-          category:
-            id: 5
-            name: Название категории 5
-          date: 2023-05-31T17:30Z
-          description: ‘Описание’
-          completed: false
-          recipient:
-            id: 4
-            fullname: Иванов Иван Иванович
-            role: recipient
-            vk: https://vk.com/id123456789
-            photo: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
-            phone: +7 (916) 123-45-67
-            address: ул. Нахимова, д. 9
-            coordinates: [59.941871, 30.223494]
-            approved: true
-          volunteer: null
-          address: ул. Нахимова, д. 9
-          coordinates: [59.941871, 30.223494]
-          chatId: null
-        - id: 25
-          title: Достаточно длинное название для задачи 25
-          category:
-            id: 6
-            name: Название категории 6
-          date: 2023-05-31T17:30Z
-          description: ‘Описание’
-          completed: true
-          recipient:
-            id: 4
-            fullname: Иванов Иван Иванович
-            role: recipient
-            vk: https://vk.com/id123456789
-            photo: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
-            phone: +7 (916) 123-45-67
-            address: ул. Нахимова, д. 9
-            coordinates: [59.941871, 30.223494]
-            approved: true
-          volunteer:
-            id: 7
-            fullname: Петров Петр Петрович
-            role: volunteer
-            vk: https://vk.com/id123456789
-            photo: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
-            phone: +7 (926) 123-45-67
-            address: ул. Кораблестроителей, 19к1
-            coordinates: [59.942575, 30.216757]
-            approved: true
-            checked: true
-            keys: true
-            scores: 2500
-            completed: 100
-          address: ул. Нахимова, д. 9
-          coordinates: [59.941871, 30.223494]
-          chatId: null
-        - id: 26
-          title: Название задачи 26
-          category:
-            id: 1
-            name: Название категории 1
-          date: 2023-05-31T17:30Z
-          description: ‘Описание’
-          completed: false
-          recipient:
-            id: 4
-            fullname: Иванов Иван Иванович
-            role: recipient
-            vk: https://vk.com/id123456789
-            photo: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
-            phone: +7 (916) 123-45-67
-            address: ул. Нахимова, д. 9
-            coordinates: [59.941871, 30.223494]
-            approved: true
-          volunteer:
-            id: 7
-            fullname: Петров Петр Петрович
-            role: volunteer
-            vk: https://vk.com/id123456789
-            photo: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
-            phone: +7 (926) 123-45-67
-            address: ул. Кораблестроителей, 19к1
-            coordinates: [59.942575, 30.216757]
-            approved: true
-            checked: true
-            keys: true
-            scores: 2500
-            completed: 100
-          address: ул. Нахимова, д. 9
-          coordinates: [59.941871, 30.223494]
-          chatId: null
-        - id: 27
-          title: Задача 27
-          category:
-            id: 2
-            name: Название категории 2
-          date: 2023-05-31T17:30Z
-          description: ‘Описание’
-          completed: true
-          recipient:
-            id: 4
-            fullname: Иванов Иван Иванович
-            role: recipient
-            vk: https://vk.com/id123456789
-            photo: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
-            phone: +7 (916) 123-45-67
-            address: ул. Нахимова, д. 9
-            coordinates: [59.941871, 30.223494]
-            approved: true
-          volunteer:
-            id: 7
-            fullname: Петров Петр Петрович
-            role: volunteer
-            vk: https://vk.com/id123456789
-            photo: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
-            phone: +7 (926) 123-45-67
-            address: ул. Кораблестроителей, 19к1
-            coordinates: [59.942575, 30.216757]
-            approved: true
-            checked: true
-            keys: true
-            scores: 2500
-            completed: 100
-          address: ул. Нахимова, д. 9
-          coordinates: [59.941871, 30.223494]
-          chatId: null
-        - id: 28
-          title: Достаточно длинное название для задачи 28
-          category:
-            id: 3
-            name: Название категории 3
-          date: 2023-05-31T17:30Z
-          description: ‘Описание’
-          completed: false
-          recipient:
-            id: 4
-            fullname: Иванов Иван Иванович
-            role: recipient
-            vk: https://vk.com/id123456789
-            photo: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
-            phone: +7 (916) 123-45-67
-            address: ул. Нахимова, д. 9
-            coordinates: [59.941871, 30.223494]
-            approved: true
-          volunteer: null
-          address: ул. Нахимова, д. 9
-          coordinates: [59.941871, 30.223494]
-          chatId: null
-
+      - id: 12
+        title: Выгулять собаку (новая задача)
+        category:
+          id: 2
+          name: Название категории 2
+        date: 2023-06-04T19:30Z
+        description: "Заболел и совсем нет сил даже ходить по квартире. Почти неделю собаку выгуливали соседи, но в пятницу они не смогут. Помогите, пожалуйста!"
+        completed: false
+        recipient:
+          id: 5
+          fullname: Реципиентов Игорь Витальевич
+          role: recipient
+          vk: https://vk.com/id123456789
+          photo: https://w0.peakpx.com/wallpaper/216/581/HD-wallpaper-jean-claude-van-damme-hand-face-man-actor.jpg
+          phone: +7 (916) 123-45-67
+          address: "ул. Наличная, 28/16В"
+          coordinates:
+          - 59.941335
+          - 30.227995
+          approved: true
+        address: "ул. Наличная, 28/16В"
+        coordinates:
+        - 59.941335
+        - 30.227995
+      - id: 14
+        title: Название задачи 14
+        category:
+          id: 1
+          name: Название категории 1
+        date: 2023-05-31T17:30Z
+        description: ‘Описание задачи 14’
+        completed: false
+        recipient:
+          id: 4
+          fullname: Реципиентов Алексей Борисович
+          role: recipient
+          vk: https://vk.com/id123456789
+          photo: https://tengu.ucoz.net/novosti/morio-higaonna.jpg
+          phone: +7 (916) 123-45-67
+          address: "ул. Нахимова, д. 9"
+          coordinates:
+          - 59.941871
+          - 30.223494
+          approved: true
+        volunteer:
+          id: 7
+          fullname: Волонтеров Петр Петрович
+          role: volunteer
+          vk: https://vk.com/id123456789
+          photo: https://www.kinogallery.com/img/wallpaper/kinogallery-wallpaper-1600x1200-19242.jpg
+          phone: +7 (926) 123-45-67
+          address: "ул. Кораблестроителей, 19к1"
+          coordinates:
+          - 59.942575
+          - 30.216757
+          approved: true
+          checked: true
+          keys: true
+          scores: 2500
+          completed: 100
+        address: "ул. Нахимова, д. 9"
+        coordinates:
+        - 59.941871
+        - 30.223494
+      - id: 15
+        title: Задача 15
+        category:
+          id: 2
+          name: Название категории 2
+        date: 2023-05-31T17:30Z
+        description: ‘Описание’
+        completed: true
+        recipient:
+          id: 4
+          fullname: Реципиентов Алексей Борисович
+          role: recipient
+          vk: https://vk.com/id123456789
+          photo: https://tengu.ucoz.net/novosti/morio-higaonna.jpg
+          phone: +7 (916) 123-45-67
+          address: "ул. Нахимова, д. 9"
+          coordinates:
+          - 59.941871
+          - 30.223494
+          approved: true
+        volunteer:
+          id: 7
+          fullname: Волонтеров Петр Петрович
+          role: volunteer
+          vk: https://vk.com/id123456789
+          photo: https://www.kinogallery.com/img/wallpaper/kinogallery-wallpaper-1600x1200-19242.jpg
+          phone: +7 (926) 123-45-67
+          address: "ул. Кораблестроителей, 19к1"
+          coordinates:
+          - 59.942575
+          - 30.216757
+          approved: true
+          checked: true
+          keys: true
+          scores: 2500
+          completed: 100
+        address: "ул. Нахимова, д. 9"
+        coordinates:
+        - 59.941871
+        - 30.223494
+        ChatId: 5678
+      - id: 16
+        title: Достаточно длинное название для задачи 16
+        category:
+          id: 3
+          name: Название категории 3
+        date: 2023-05-31T17:30Z
+        description: ‘Описание’
+        completed: false
+        recipient:
+          id: 4
+          fullname: Реципиентов Алексей Борисович
+          role: recipient
+          vk: https://vk.com/id123456789
+          photo: https://tengu.ucoz.net/novosti/morio-higaonna.jpg
+          phone: +7 (916) 123-45-67
+          address: "ул. Нахимова, д. 9"
+          coordinates:
+          - 59.941871
+          - 30.223494
+          approved: true
+        volunteer:
+          id: 7
+          fullname: Волонтеров Петр Петрович
+          role: volunteer
+          vk: https://vk.com/id123456789
+          photo: https://www.kinogallery.com/img/wallpaper/kinogallery-wallpaper-1600x1200-19242.jpg
+          phone: +7 (926) 123-45-67
+          address: "ул. Кораблестроителей, 19к1"
+          coordinates:
+          - 59.942575
+          - 30.216757
+          approved: true
+          checked: true
+          keys: true
+          scores: 2500
+          completed: 100
+        address: "ул. Нахимова, д. 9"
+        coordinates:
+        - 59.941871
+        - 30.223494
+      - id: 17
+        title: Название задачи 17
+        category:
+          id: 4
+          name: Название категории 4
+        date: 2023-05-31T17:30Z
+        description: ‘Описание’
+        completed: true
+        recipient:
+          id: 4
+          fullname: Реципиентов Алексей Борисович
+          role: recipient
+          vk: https://vk.com/id123456789
+          photo: https://tengu.ucoz.net/novosti/morio-higaonna.jpg
+          phone: +7 (916) 123-45-67
+          address: "ул. Нахимова, д. 9"
+          coordinates:
+          - 59.941871
+          - 30.223494
+          approved: true
+        volunteer:
+          id: 7
+          fullname: Волонтеров Петр Петрович
+          role: volunteer
+          vk: https://vk.com/id123456789
+          photo: https://www.kinogallery.com/img/wallpaper/kinogallery-wallpaper-1600x1200-19242.jpg
+          phone: +7 (926) 123-45-67
+          address: "ул. Кораблестроителей, 19к1"
+          coordinates:
+          - 59.942575
+          - 30.216757
+          approved: true
+          checked: true
+          keys: true
+          scores: 2500
+          completed: 100
+        address: "ул. Нахимова, д. 9"
+        coordinates:
+        - 59.941871
+        - 30.223494
+      - id: 18
+        title: Задача 18
+        category:
+          id: 5
+          name: Название категории 5
+        date: 2023-06-11T08:30Z
+        description: ‘Описание задачи 18’
+        completed: false
+        recipient:
+          id: 4
+          fullname: Реципиентов Алексей Борисович
+          role: recipient
+          vk: https://vk.com/id123456789
+          photo: https://tengu.ucoz.net/novosti/morio-higaonna.jpg
+          phone: +7 (916) 123-45-67
+          address: "ул. Нахимова, д. 9"
+          coordinates:
+          - 59.941871
+          - 30.223494
+          approved: true
+        volunteer:
+          id: 7
+          fullname: Волонтеров Петр Петрович
+          role: volunteer
+          vk: https://vk.com/id123456789
+          photo: https://www.kinogallery.com/img/wallpaper/kinogallery-wallpaper-1600x1200-19242.jpg
+          phone: +7 (926) 123-45-67
+          address: "ул. Кораблестроителей, 19к1"
+          coordinates:
+          - 59.942575
+          - 30.216757
+          approved: true
+          checked: true
+          keys: true
+          scores: 2500
+          completed: 100
+        address: "ул. Нахимова, д. 9"
+        coordinates:
+        - 59.941871
+        - 30.223494
+      - id: 19
+        title: Достаточно длинное название для задачи 19
+        category:
+          id: 6
+          name: Название категории 6
+        date: 2023-05-31T17:30Z
+        description: ‘Описание задачи 19’
+        completed: true
+        recipient:
+          id: 4
+          fullname: Реципиентов Алексей Борисович
+          role: recipient
+          vk: https://vk.com/id123456789
+          photo: https://tengu.ucoz.net/novosti/morio-higaonna.jpg
+          phone: +7 (916) 123-45-67
+          address: "ул. Нахимова, д. 9"
+          coordinates:
+          - 59.941871
+          - 30.223494
+          approved: true
+        volunteer:
+          id: 7
+          fullname: Волонтеров Петр Петрович
+          role: volunteer
+          vk: https://vk.com/id123456789
+          photo: https://www.kinogallery.com/img/wallpaper/kinogallery-wallpaper-1600x1200-19242.jpg
+          phone: +7 (926) 123-45-67
+          address: "ул. Кораблестроителей, 19к1"
+          coordinates:
+          - 59.942575
+          - 30.216757
+          approved: true
+          checked: true
+          keys: true
+          scores: 2500
+          completed: 100
+        address: "ул. Нахимова, д. 9"
+        coordinates:
+        - 59.941871
+        - 30.223494
+      - id: 20
+        title: Название задачи 20
+        category:
+          id: 1
+          name: Название категории 1
+        date: 2023-05-31T17:30Z
+        description: ‘Описание задачи 20’
+        completed: false
+        recipient:
+          id: 4
+          fullname: Реципиентов Алексей Борисович
+          role: recipient
+          vk: https://vk.com/id123456789
+          photo: https://tengu.ucoz.net/novosti/morio-higaonna.jpg
+          phone: +7 (916) 123-45-67
+          address: "ул. Нахимова, д. 9"
+          coordinates:
+          - 59.941871
+          - 30.223494
+          approved: true
+        volunteer:
+          id: 7
+          fullname: Волонтеров Петр Петрович
+          role: volunteer
+          vk: https://vk.com/id123456789
+          photo: https://www.kinogallery.com/img/wallpaper/kinogallery-wallpaper-1600x1200-19242.jpg
+          phone: +7 (926) 123-45-67
+          address: "ул. Кораблестроителей, 19к1"
+          coordinates:
+          - 59.942575
+          - 30.216757
+          approved: true
+          checked: true
+          keys: true
+          scores: 2500
+          completed: 100
+        address: "ул. Нахимова, д. 9"
+        coordinates:
+        - 59.941871
+        - 30.223494
+        ChatId: 3302
+      - id: 21
+        title: Задача 21
+        category:
+          id: 2
+          name: Название категории 2
+        date: 2023-05-27T14:10Z
+        description: ‘Описание’
+        completed: true
+        recipient:
+          id: 4
+          fullname: Реципиентов Алексей Борисович
+          role: recipient
+          vk: https://vk.com/id123456789
+          photo: https://tengu.ucoz.net/novosti/morio-higaonna.jpg
+          phone: +7 (916) 123-45-67
+          address: "ул. Нахимова, д. 9"
+          coordinates:
+          - 59.941871
+          - 30.223494
+          approved: true
+        volunteer:
+          id: 7
+          fullname: Волонтеров Петр Петрович
+          role: volunteer
+          vk: https://vk.com/id123456789
+          photo: https://www.kinogallery.com/img/wallpaper/kinogallery-wallpaper-1600x1200-19242.jpg
+          phone: +7 (926) 123-45-67
+          address: "ул. Кораблестроителей, 19к1"
+          coordinates:
+          - 59.942575
+          - 30.216757
+          approved: true
+          checked: true
+          keys: true
+          scores: 2500
+          completed: 100
+        address: "ул. Нахимова, д. 9"
+        coordinates:
+        - 59.941871
+        - 30.223494
+      - id: 22
+        title: Достаточно длинное название для задачи 22
+        category:
+          id: 3
+          name: Название категории 3
+        date: 2023-06-03T13:40Z
+        description: ‘Описание’
+        completed: false
+        recipient:
+          id: 4
+          fullname: Реципиентов Алексей Борисович
+          role: recipient
+          vk: https://vk.com/id123456789
+          photo: https://tengu.ucoz.net/novosti/morio-higaonna.jpg
+          phone: +7 (916) 123-45-67
+          address: "ул. Нахимова, д. 9"
+          coordinates:
+          - 59.941871
+          - 30.223494
+          approved: true
+        volunteer:
+          id: 7
+          fullname: Волонтеров Петр Петрович
+          role: volunteer
+          vk: https://vk.com/id123456789
+          photo: https://www.kinogallery.com/img/wallpaper/kinogallery-wallpaper-1600x1200-19242.jpg
+          phone: +7 (926) 123-45-67
+          address: "ул. Кораблестроителей, 19к1"
+          coordinates:
+          - 59.942575
+          - 30.216757
+          approved: true
+          checked: true
+          keys: true
+          scores: 2500
+          completed: 100
+        address: "ул. Нахимова, д. 9"
+        coordinates:
+        - 59.941871
+        - 30.223494
+      - id: 23
+        title: Название задачи 23
+        category:
+          id: 4
+          name: Название категории 4
+        date: 2023-05-31T17:30Z
+        description: ‘Описание’
+        completed: true
+        recipient:
+          id: 4
+          fullname: Реципиентов Алексей Борисович
+          role: recipient
+          vk: https://vk.com/id123456789
+          photo: https://tengu.ucoz.net/novosti/morio-higaonna.jpg
+          phone: +7 (916) 123-45-67
+          address: "ул. Нахимова, д. 9"
+          coordinates:
+          - 59.941871
+          - 30.223494
+          approved: true
+        volunteer:
+          id: 7
+          fullname: Волонтеров Петр Петрович
+          role: volunteer
+          vk: https://vk.com/id123456789
+          photo: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
+          phone: +7 (926) 123-45-67
+          address: "ул. Кораблестроителей, 19к1"
+          coordinates:
+          - 59.942575
+          - 30.216757
+          approved: true
+          checked: true
+          keys: true
+          scores: 2500
+          completed: 100
+        address: "ул. Нахимова, д. 9"
+        coordinates:
+        - 59.941871
+        - 30.223494
+      - id: 24
+        title: Задача 24
+        category:
+          id: 5
+          name: Название категории 5
+        date: 2023-06-02T07:00Z
+        description: ‘Описание задачи 24’
+        completed: false
+        recipient:
+          id: 6
+          fullname: Реципиентов Иван Николаевич
+          role: recipient
+          vk: https://vk.com/id123456789
+          photo: https://i.ytimg.com/vi/IeelNKvu65A/hqdefault.jpg
+          phone: +7 (916) 123-45-67
+          address: "переулок Каховского, 3"
+          coordinates:
+          - 59.95252
+          - 30.243239
+          approved: true
+        address: "переулок Каховского, 3"
+        coordinates:
+        - 59.95252
+        - 30.243239
+      - id: 25
+        title: Достаточно длинное название для задачи 25
+        category:
+          id: 6
+          name: Название категории 6
+        date: 2023-06-01T09:15Z
+        description: ‘Описание задачи 25’
+        completed: true
+        recipient:
+          id: 4
+          fullname: Реципиентов Алексей Борисович
+          role: recipient
+          vk: https://vk.com/id123456789
+          photo: https://tengu.ucoz.net/novosti/morio-higaonna.jpg
+          phone: +7 (916) 123-45-67
+          address: "ул. Нахимова, д. 9"
+          coordinates:
+          - 59.941871
+          - 30.223494
+          approved: true
+        volunteer:
+          id: 7
+          fullname: Волонтеров Петр Петрович
+          role: volunteer
+          vk: https://vk.com/id123456789
+          photo: https://www.kinogallery.com/img/wallpaper/kinogallery-wallpaper-1600x1200-19242.jpg
+          phone: +7 (926) 123-45-67
+          address: "ул. Кораблестроителей, 19к1"
+          coordinates:
+          - 59.942575
+          - 30.216757
+          approved: true
+          checked: true
+          keys: true
+          scores: 2500
+          completed: 100
+        address: "ул. Нахимова, д. 9"
+        coordinates:
+        - 59.941871
+        - 30.223494
+      - id: 26
+        title: Название задачи 26
+        category:
+          id: 1
+          name: Название категории 1
+        date: 2023-06-06T11:00Z
+        description: ‘Описание задачи 26’
+        completed: false
+        recipient:
+          id: 5
+          fullname: Реципиентов Игорь Витальевич
+          role: recipient
+          vk: https://vk.com/id123456789
+          photo: https://w0.peakpx.com/wallpaper/216/581/HD-wallpaper-jean-claude-van-damme-hand-face-man-actor.jpg
+          phone: +7 (916) 123-45-67
+          address: "ул. Наличная, 28/16В"
+          coordinates:
+          - 59.941335
+          - 30.227995
+          approved: true
+        volunteer:
+          id: 10
+          fullname: Волонтеров Михаил Владимирович
+          role: volunteer
+          vk: https://vk.com/id123456789
+          photo: https://i.pinimg.com/originals/5d/6c/ce/5d6cce581aa563d2d6eaf31bb01b5429.jpg
+          phone: +7 (926) 123-45-67
+          address: "ул. Нахимова, 15Б"
+          coordinates:
+          - 59.941322
+          - 30.219811
+          approved: true
+          checked: true
+          keys: false
+          scores: 30
+          completed: 3
+        address: "ул. Нахимова, д. 9"
+        coordinates:
+        - 59.941871
+        - 30.223494
+      - id: 27
+        title: Задача 27
+        category:
+          id: 2
+          name: Название категории 2
+        date: 2023-05-31T17:30Z
+        description: "‘Описание задачи 27 (срок задачи прошел, задача завершена волонтером)’"
+        completed: true
+        recipient:
+          id: 4
+          fullname: Реципиентов Алексей Борисович
+          role: recipient
+          vk: https://vk.com/id123456789
+          photo: https://tengu.ucoz.net/novosti/morio-higaonna.jpg
+          phone: +7 (916) 123-45-67
+          address: "ул. Нахимова, д. 9"
+          coordinates:
+          - 59.941871
+          - 30.223494
+          approved: true
+        volunteer:
+          id: 7
+          fullname: Волонтеров Петр Петрович
+          role: volunteer
+          vk: https://vk.com/id123456789
+          photo: https://www.kinogallery.com/img/wallpaper/kinogallery-wallpaper-1600x1200-19242.jpg
+          phone: +7 (926) 123-45-67
+          address: "ул. Кораблестроителей, 19к1"
+          coordinates:
+          - 59.942575
+          - 30.216757
+          approved: true
+          checked: true
+          keys: true
+          scores: 2500
+          completed: 100
+        address: "ул. Нахимова, д. 9"
+        coordinates:
+        - 59.941871
+        - 30.223494
+      - id: 28
+        title: Достаточно длинное название для задачи 28
+        category:
+          id: 3
+          name: Название категории 3
+        date: 2023-05-30T12:30Z
+        description: "‘Описание задачи 28 (срок задачи прошел, ее никто из волонтеров не взял в работу)’"
+        completed: false
+        recipient:
+          id: 4
+          fullname: Реципиентов Алексей Борисович
+          role: recipient
+          vk: https://vk.com/id123456789
+          photo: https://tengu.ucoz.net/novosti/morio-higaonna.jpg
+          phone: +7 (916) 123-45-67
+          address: "ул. Нахимова, д. 9"
+          coordinates:
+          - 59.941871
+          - 30.223494
+          approved: true
+        address: "ул. Нахимова, д. 9"
+        coordinates:
+        - 59.941871
+        - 30.223494
     updateTaskResponseExample:
       value:
         id: 12
@@ -1130,204 +1278,225 @@ components:
           id: 2
           name: Название категории 2
         date: 2023-05-31T17:30Z
-        description: Заболел и совсем нет сил даже ходить по квартире. Почти неделю собаку выгуливали соседи, но в пятницу они не смогут. Помогите, пожалуйста!
+        description: "Заболел и совсем нет сил даже ходить по квартире. Почти неделю собаку выгуливали соседи, но в пятницу они не смогут. Помогите, пожалуйста!"
         completed: false
         recipient:
           id: 4
-          fullname: Иванов Иван Иванович
+          fullname: Реципиентов Алексей Борисович
           role: recipient
           vk: https://vk.com/id123456789
-          photo: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
+          photo: https://tengu.ucoz.net/novosti/morio-higaonna.jpg
           phone: +7 (916) 123-45-67
-          address: ул. Нахимова, д. 9
-          coordinates: [59.941871, 30.223494]
+          address: "ул. Нахимова, д. 9"
+          coordinates:
+          - 59.941871
+          - 30.223494
           approved: true
         volunteer:
           id: 7
-          fullname: Петров Петр Петрович
+          fullname: Волонтеров Петр Петрович
           role: volunteer
           vk: https://vk.com/id123456789
-          photo: http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg
+          photo: https://www.kinogallery.com/img/wallpaper/kinogallery-wallpaper-1600x1200-19242.jpg
           phone: +7 (926) 123-45-67
-          address: ул. Кораблестроителей, 19к1
-          coordinates: [59.942575, 30.216757]
+          address: "ул. Кораблестроителей, 19к1"
+          coordinates:
+          - 59.942575
+          - 30.216757
           approved: true
           checked: true
           keys: true
           scores: 2500
           completed: 100
-        address: ул. Нахимова, д. 9
-        coordinates: [59.941871, 30.223494]
-        chatId: null
-
+        address: "ул. Нахимова, д. 9"
+        coordinates:
+        - 59.941871
+        - 30.223494
     createUserResponseExample:
       value:
         id: 7
-        fullname: 'Петров Петр Петрович'
-        role: 'volunteer'
-        vk: 'https://vk.com/id123456789'
-        photo: 'http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg'
-        phone: '+7 (926) 123-45-67'
-        address: 'ул. Кораблестроителей, 19к1'
-        coordinates: [59.942575, 30.216757]
+        fullname: Волонтеров Петр Петрович
+        role: volunteer
+        vk: https://vk.com/id123456789
+        photo: https://www.kinogallery.com/img/wallpaper/kinogallery-wallpaper-1600x1200-19242.jpg
+        phone: +7 (926) 123-45-67
+        address: "ул. Кораблестроителей, 19к1"
+        coordinates:
+        - 59.942575
+        - 30.216757
         approved: false
         checked: false
         keys: false
-        adminStatus: null
         scores: 0
         completed: 0
-
     updateUserResponseExample:
       value:
         id: 7
-        fullname: 'Петров Петр Петрович'
-        role: 'volunteer'
-        vk: 'https://vk.com/id123456789'
-        photo: 'http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg'
-        phone: '+7 (926) 123-45-67'
-        address: 'ул. Кораблестроителей, 19к1'
-        coordinates: [59.942575, 30.216757]
+        fullname: Волонтеров Петр Петрович
+        role: volunteer
+        vk: https://vk.com/id123456789
+        photo: https://www.kinogallery.com/img/wallpaper/kinogallery-wallpaper-1600x1200-19242.jpg
+        phone: +7 (926) 123-45-67
+        address: "ул. Кораблестроителей, 19к1"
+        coordinates:
+        - 59.942575
+        - 30.216757
         approved: true
         checked: true
         keys: true
-        adminStatus: null
         scores: 2500
         completed: 100
     allUsersResponseExample:
       value:
-        - id: 1
-          fullname: 'Админов Админ Админович'
-          role: 'chief'
-          vk: 'https://vk.com/id123456789'
-          photo: 'http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg'
-          phone: '+7 (901) 123-44-55'
-          address: 'ул. Поселковая, д. 5'
-          coordinates: [59.821539, 30.178031]
-          approved: null
-          checked: null
-          keys: null
-          adminStatus: 5
-          scores: null
-          completed: null
-        - id: 2
-          fullname: 'Семенов Семен Семенович'
-          role: 'admin'
-          vk: 'https://vk.com/id123456789'
-          photo: 'http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg'
-          phone: '+7 (902) 123-44-55'
-          address: 'ул. Поселковая, д. 5'
-          coordinates: [59.821539, 30.178031]
-          approved: null
-          checked: null
-          keys: null
-          adminStatus: 2
-          scores: null
-          completed: null
-        - id: 3
-          fullname: 'Семенов Семен Семеновичеч'
-          role: 'admin'
-          vk: 'https://vk.com/id123456789'
-          photo: 'http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg'
-          phone: '+7 (902) 123-44-55'
-          address: 'ул. Поселковая, д. 5'
-          coordinates: [59.821539, 30.178031]
-          approved: null
-          checked: null
-          keys: null
-          adminStatus: 3
-          scores: null
-          completed: null
-        - id: 4
-          fullname: 'Иванов Иван Иванович'
-          role: 'recipient'
-          vk: 'https://vk.com/id123456789'
-          photo: 'http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg'
-          phone: '+7 (916) 123-45-67'
-          address: 'ул. Нахимова, д. 9'
-          coordinates: [59.941871, 30.223494]
-          approved: true
-        - id: 5
-          fullname: 'Иванов Иван Иванович'
-          role: 'recipient'
-          vk: 'https://vk.com/id123456789'
-          photo: 'http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg'
-          phone: '+7 (916) 123-45-67'
-          address: 'ул. Нахимова, д. 9'
-          coordinates: [59.941871, 30.223494]
-          approved: true
-
-        - id: 6
-          fullname: 'Иванов Иван Иванович'
-          role: 'recipient'
-          vk: 'https://vk.com/id123456789'
-          photo: 'http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg'
-          phone: '+7 (916) 123-45-67'
-          address: 'ул. Нахимова, д. 9'
-          coordinates: [59.941871, 30.223494]
-          approved: false
-
-        - id: 7
-          fullname: 'Петров Петр Петрович'
-          role: 'volunteer'
-          vk: 'https://vk.com/id123456789'
-          photo: 'http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg'
-          phone: '+7 (926) 123-45-67'
-          address: 'ул. Кораблестроителей, 19к1'
-          coordinates: [59.942575, 30.216757]
-          approved: true
-          checked: true
-          keys: true
-          scores: 2500
-          completed: 100
-        - id: 8
-          fullname: 'Петров Петр Петрович'
-          role: 'volunteer'
-          vk: 'https://vk.com/id123456789'
-          photo: 'http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg'
-          phone: '+7 (926) 123-45-67'
-          address: 'ул. Кораблестроителей, 19к1'
-          coordinates: [59.942575, 30.216757]
-          approved: true
-          checked: false
-          keys: false
-          scores: 0
-          completed: 0
-        - id: 9
-          fullname: 'Петров Петр Петрович'
-          role: 'volunteer'
-          vk: 'https://vk.com/id123456789'
-          photo: 'http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg'
-          phone: '+7 (926) 123-45-67'
-          address: 'ул. Кораблестроителей, 19к1'
-          coordinates: [59.942575, 30.216757]
-          approved: true
-          checked: true
-          keys: true
-          scores: 600
-          completed: 20
-        - id: 10
-          fullname: 'Петров Петр Петрович'
-          role: 'volunteer'
-          vk: 'https://vk.com/id123456789'
-          photo: 'http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg'
-          phone: '+7 (926) 123-45-67'
-          address: 'ул. Кораблестроителей, 19к1'
-          coordinates: [59.942575, 30.216757]
-          approved: true
-          checked: true
-          keys: false
-          scores: 30
-          completed: 3
-        - id: 11
-          fullname: 'Петров Петр Петрович'
-          role: 'volunteer'
-          vk: 'https://vk.com/id123456789'
-          photo: 'http://webmg.ru/wp-content/uploads/2022/01/100-20220105_151754.jpg'
-          phone: '+7 (926) 123-45-67'
-          address: 'ул. Кораблестроителей, 19к1'
-          coordinates: [59.942575, 30.216757]
-          approved: false
-          checked: false
-          keys: false
-          scores: 0
-          completed: 0
+      - id: 1
+        fullname: Админов Главный Админович
+        role: chief
+        vk: https://vk.com/id123456789
+        photo: https://www.amica.it/wp-content/uploads/2020/07/mel-gibson-4.jpg
+        phone: +7 (901) 123-44-55
+        address: "ул. Поселковая, д. 5"
+        coordinates:
+        - 59.821539
+        - 30.178031
+        adminStatus: 5
+      - id: 2
+        fullname: Админов Семен Семенович
+        role: admin
+        vk: https://vk.com/id123456789
+        photo: https://w-dog.ru/wallpapers/4/16/424328707515423/mel-gibson-xrabroe-serdce-geroj-akter-muzhchina-lico-fon-voin-mel-gibson-chelovek-soldat-direktor.jpg
+        phone: +7 (902) 123-44-55
+        address: "ул. Стойкости, 17"
+        coordinates:
+        - 59.828347
+        - 30.21187
+        adminStatus: 2
+      - id: 3
+        fullname: Админов Тахир Рахимович
+        role: admin
+        vk: https://vk.com/id123456789
+        photo: https://cdn.ananasposter.ru/image/cache/catalog/poster/film/82/13481-1000x830.jpg
+        phone: +7 (902) 123-44-55
+        address: "ул. Новостроек, 10"
+        coordinates:
+        - 59.87542
+        - 30.267817
+        adminStatus: 3
+      - id: 4
+        fullname: Реципиентов Алексей Борисович
+        role: recipient
+        vk: https://vk.com/id123456789
+        photo: https://tengu.ucoz.net/novosti/morio-higaonna.jpg
+        phone: +7 (916) 123-45-67
+        address: "ул. Нахимова, д. 9"
+        coordinates:
+        - 59.941871
+        - 30.223494
+        approved: true
+      - id: 5
+        fullname: Реципиентов Игорь Витальевич
+        role: recipient
+        vk: https://vk.com/id123456789
+        photo: https://w0.peakpx.com/wallpaper/216/581/HD-wallpaper-jean-claude-van-damme-hand-face-man-actor.jpg
+        phone: +7 (916) 123-45-67
+        address: "ул. Наличная, 28/16В"
+        coordinates:
+        - 59.941335
+        - 30.227995
+        approved: true
+      - id: 6
+        fullname: Реципиентов Иван Николаевич
+        role: recipient
+        vk: https://vk.com/id123456789
+        photo: https://i.ytimg.com/vi/IeelNKvu65A/hqdefault.jpg
+        phone: +7 (916) 123-45-67
+        address: "переулок Каховского, 3"
+        coordinates:
+        - 59.95252
+        - 30.243239
+        approved: true
+      - id: 7
+        fullname: Волонтеров Петр Петрович
+        role: volunteer
+        vk: https://vk.com/id123456789
+        photo: https://www.kinogallery.com/img/wallpaper/kinogallery-wallpaper-1600x1200-19242.jpg
+        phone: +7 (926) 123-45-67
+        address: "ул. Кораблестроителей, 19к1"
+        coordinates:
+        - 59.942575
+        - 30.216757
+        approved: true
+        checked: true
+        keys: true
+        scores: 2500
+        completed: 100
+      - id: 8
+        fullname: Волонтеров Сергей Петрович
+        role: volunteer
+        vk: https://vk.com/id123456789
+        photo: http://samlib.ru/img/l/lisa_alisa/saljutpodnowyjgod/damon-1280.jpg
+        phone: +7 (926) 123-45-67
+        address: "ул. Наличная, 18"
+        coordinates:
+        - 59.936733
+        - 30.232343
+        approved: true
+        checked: false
+        keys: false
+        scores: 0
+        completed: 0
+      - id: 9
+        fullname: Волонтеров Владимир Михайлович
+        role: volunteer
+        vk: https://vk.com/id123456789
+        photo: ""
+        phone: +7 (926) 123-45-67
+        address: "ул. Железноводская, 58"
+        coordinates:
+        - 59.949059
+        - 30.239359
+        approved: true
+        checked: true
+        keys: true
+        scores: 600
+        completed: 20
+      - id: 10
+        fullname: Волонтеров Михаил Владимирович
+        role: volunteer
+        vk: https://vk.com/id123456789
+        photo: https://i.pinimg.com/originals/5d/6c/ce/5d6cce581aa563d2d6eaf31bb01b5429.jpg
+        phone: +7 (926) 123-45-67
+        address: "ул. Нахимова, 15Б"
+        coordinates:
+        - 59.941322
+        - 30.219811
+        approved: true
+        checked: true
+        keys: false
+        scores: 30
+        completed: 3
+      - id: 11
+        fullname: Волонтеров Николай Викторович
+        role: volunteer
+        vk: https://vk.com/id123456789
+        photo: https://www.zastavki.com/pictures/originals/2014/Men___Male_Celebrity_Famous_Jean-Claude_Van_Damme_057175_.jpg
+        phone: +7 (926) 123-45-67
+        address: "переулок Пирогова, 10"
+        coordinates:
+        - 59.928929
+        - 30.303175
+        approved: false
+        checked: false
+        keys: false
+        scores: 0
+        completed: 0
+      - id: 12
+        fullname: Реципиентов Никонор Иванович
+        role: recipient
+        vk: https://vk.com/id123456789
+        photo: https://sun9-39.userapi.com/YKBp1zncmlbhHpt5OpyCdKS9zvh3cnz_4zh-pA/OFWinfVcpPU.jpg
+        phone: +7 (916) 123-45-67
+        address: "переулок Декабристов, 8"
+        coordinates:
+        - 59.950398
+        - 30.248782
+        approved: false
