@@ -90,7 +90,7 @@ const ChiefPage: FC = () => {
         )}
         <div className="catalog catalog-column">
           {adminsList &&
-            adminsList?.map((item) => {
+            adminsList?.map((item, index) => {
               const rightConfig = {
                 verify_accounts: !!(item.adminStatus && item.adminStatus > 0),
                 create_request: !!(item.adminStatus && item.adminStatus > 1),
@@ -105,6 +105,7 @@ const ChiefPage: FC = () => {
                   personalID={item.id || 0}
                   tel={item.phone || ''}
                   rights={rightConfig}
+                  key={index}
                 />
               );
             })}

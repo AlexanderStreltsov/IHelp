@@ -29,7 +29,7 @@ const VolunteerPage: FC = () => {
     const getData = async () => {
       const data = (await api.getAllUsers()).filter((user) => user.id === 7);
       const tasks = (await api.getAllTasks()).filter(
-        (task) => task.volunteer?.id === 7,
+        (_, index) => index === 0 || index === 3 || index === 15,
       );
 
       setTasksState(tasks);
@@ -82,8 +82,10 @@ const VolunteerPage: FC = () => {
         />
         <div className="catalog catalog-column">
           {tasksState &&
-            tasksState?.map((item) => {
-              return <Request propsForRequest={item} owner="admin" />;
+            tasksState?.map((item, index) => {
+              return (
+                <Request propsForRequest={item} owner="admin" key={index} />
+              );
             })}
         </div>
       </div>

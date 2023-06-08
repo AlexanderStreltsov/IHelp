@@ -90,8 +90,8 @@ const AdminPage: FC = () => {
         )}
         <div className="catalog">
           {usersList &&
-            usersList?.map((item) => {
-              return <VolunteerCard {...item} />;
+            usersList?.map((item, index) => {
+              return <VolunteerCard {...item} key={index} />;
             })}
         </div>
       </div>
