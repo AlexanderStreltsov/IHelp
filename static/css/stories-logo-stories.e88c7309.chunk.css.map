@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/stories-logo-stories.e88c7309.chunk.css","mappings":"AAAA","sources":["webpack://ihelp/./src/ui/logo/Logo.module.scss"],"sourcesContent":[".logo {\n  width: 135px;\n  height: 36px;\n}\n"],"names":[],"sourceRoot":""}
