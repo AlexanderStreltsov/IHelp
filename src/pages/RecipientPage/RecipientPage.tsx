@@ -24,7 +24,14 @@ const RecipientPage: FC = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const data = (await getAllUsers()).filter((user) => user.id === 4);
+      let data = new Array<TUser>();
+
+      try {
+        data = await getAllUsers();
+      } catch (err) {
+        // TODO Exception handling
+      }
+      data = data.filter((user) => user.id === 4);
 
       setProfile(data[0]);
     };

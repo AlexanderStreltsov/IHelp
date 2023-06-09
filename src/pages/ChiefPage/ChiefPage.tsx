@@ -27,7 +27,13 @@ const ChiefPage: FC = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const data = await getAllUsers();
+      let data = new Array<TUser>();
+
+      try {
+        data = await getAllUsers();
+      } catch (err) {
+        // TODO Exception handling
+      }
 
       const chiefData = data.filter((user) => user.id === 1)[0];
       const adminsData = data.filter((user) => user.role === 'admin');
