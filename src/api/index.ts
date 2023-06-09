@@ -1,5 +1,5 @@
+/* eslint-disable @typescript-eslint/no-throw-literal */
 import { config } from '../utils/constants';
-
 import type {
   TUser,
   TCreateUserRequest,
@@ -23,7 +23,7 @@ const createUser = async (data: TCreateUserRequest): Promise<TUser> => {
       body: JSON.stringify(data),
     });
 
-    return checkResponse(res);
+    return await checkResponse(res);
   } catch (err) {
     //TODO Exception handling
     throw 'API exception';
@@ -43,7 +43,7 @@ const updateUser = async (
       body: JSON.stringify(data),
     });
 
-    return checkResponse(res);
+    return await checkResponse(res);
   } catch (err) {
     //TODO Exception handling
     throw 'API exception';
@@ -54,7 +54,7 @@ export const getUser = async (id: number): Promise<TUser> => {
   try {
     const res = await fetch(`${config.API_URL}/users/${id}`);
 
-    return checkResponse(res);
+    return await checkResponse(res);
   } catch (err) {
     //TODO Exception handling
     throw 'API exception';
@@ -64,7 +64,7 @@ export const getUser = async (id: number): Promise<TUser> => {
 export const getAllUsers = async (): Promise<TUser[]> => {
   try {
     const res = await fetch(`${config.API_URL}/users`);
-    return checkResponse(res);
+    return await checkResponse(res);
   } catch (err) {
     //TODO Exception handling
     throw 'API exception';
@@ -81,7 +81,7 @@ const createTask = async (data: TCreateTaskRequest): Promise<TTask> => {
       body: JSON.stringify(data),
     });
 
-    return checkResponse(res);
+    return await checkResponse(res);
   } catch (err) {
     //TODO Exception handling
     throw 'API exception';
@@ -101,7 +101,7 @@ const updateTask = async (
       body: JSON.stringify(data),
     });
 
-    return checkResponse(res);
+    return await checkResponse(res);
   } catch (err) {
     //TODO Exception handling
     throw 'API exception';
@@ -112,7 +112,7 @@ const getTask = async (id: number): Promise<TTask> => {
   try {
     const res = await fetch(`${config.API_URL}/tasks/${id}`);
 
-    return checkResponse(res);
+    return await checkResponse(res);
   } catch (err) {
     //TODO Exception handling
     throw 'API exception';
@@ -123,7 +123,7 @@ const getAllTasks = async (): Promise<TTask[]> => {
   try {
     const res = await fetch(`${config.API_URL}/tasks`);
 
-    return checkResponse(res);
+    return await checkResponse(res);
   } catch (err) {
     //TODO Exception handling
     throw 'API exception';
@@ -136,7 +136,7 @@ const deleteTask = async (id: number): Promise<unknown> => {
       method: 'DELETE',
     });
 
-    return checkResponse(res);
+    return await checkResponse(res);
   } catch (err) {
     //TODO Exception handling
     throw 'API exception';
@@ -147,7 +147,7 @@ const getAllCategories = async (): Promise<TCategory[]> => {
   try {
     const res = await fetch(`${config.API_URL}/category`);
 
-    return checkResponse(res);
+    return await checkResponse(res);
   } catch (err) {
     //TODO Exception handling
     throw 'API exception';
