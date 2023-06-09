@@ -25,7 +25,7 @@ const App = () => {
       <div className={styles.app}>
         <Header />
 
-        <div className={styles.content}>
+        <main className={styles.content}>
           <Routes>
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/blog" element={<BlogPage />} />
@@ -40,7 +40,7 @@ const App = () => {
 
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
-        </div>
+        </main>
 
         <Footer />
       </div>

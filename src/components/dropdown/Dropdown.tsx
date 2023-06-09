@@ -62,7 +62,7 @@ const Dropdown: FC = () => {
               Написать администратору
             </span>
             <Button
-              onClick={(e) => adminButtonHandler(e)}
+              onClick={adminButtonHandler}
               type="circleSmallEmail"
             />
           </li>

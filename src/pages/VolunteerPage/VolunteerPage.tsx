@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-
+import { nanoid } from 'nanoid';
 import { Profile } from '../../components/profile/profile';
 import { Sidebar } from '../../components/sidebar';
 import { TitleBar } from '../../components/title-bar';
@@ -84,7 +84,7 @@ const VolunteerPage: FC = () => {
           {tasksState &&
             tasksState?.map((item, index) => {
               return (
-                <Request propsForRequest={item} owner="admin" key={index} />
+                <Request propsForRequest={item} owner="admin" key={nanoid()} />
               );
             })}
         </div>
