@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-throw-literal */
+/* eslint-disable no-throw-literal */
 import { config } from '../utils/constants';
 import type {
   TUser,
