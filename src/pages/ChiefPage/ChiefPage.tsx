@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-
+import { nanoid } from 'nanoid';
 import { Profile } from '../../components/profile/profile';
 import { TitleBar } from '../../components/title-bar';
 import { Filter } from '../../components/filters/filter';
@@ -111,7 +111,7 @@ const ChiefPage: FC = () => {
                   personalID={item.id || 0}
                   tel={item.phone || ''}
                   rights={rightConfig}
-                  key={index}
+                  key={nanoid()}
                 />
               );
             })}

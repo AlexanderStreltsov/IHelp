@@ -6,7 +6,7 @@ import { TitleBar } from '../../components/title-bar';
 import { Sidebar } from '../../components/sidebar';
 import { Filter } from '../../components/filters/filter';
 import { VolunteerCard } from '../../components/card/Card';
-
+import { nanoid } from 'nanoid';
 import { ConfirmIcon } from '../../ui/icons/confirm-icon';
 import { Button } from '../../ui/button/button';
 
@@ -97,7 +97,7 @@ const AdminPage: FC = () => {
         <div className="catalog">
           {usersList &&
             usersList?.map((item, index) => {
-              return <VolunteerCard {...item} key={index} />;
+              return <VolunteerCard {...item} key={nanoid()} />;
             })}
         </div>
       </div>
