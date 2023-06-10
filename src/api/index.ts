@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-throw-literal */
+/* eslint-disable no-throw-literal */
 import { config } from '../utils/constants';
-
 import type {
   TUser,
   TCreateUserRequest,
@@ -14,95 +15,144 @@ const checkResponse = <T>(res: Response): Promise<T> =>
   res.ok ? res.json() : Promise.reject(res);
 
 const createUser = async (data: TCreateUserRequest): Promise<TUser> => {
-  const res = await fetch(`${config.API_URL}/users`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json;charset=utf-8',
-    },
-    body: JSON.stringify(data),
-  });
+  try {
+    const res = await fetch(`${config.API_URL}/users`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify(data),
+    });
 
-  return checkResponse(res);
+    return await checkResponse(res);
+  } catch (err) {
+    //TODO Exception handling
+    throw 'API exception';
+  }
 };
 
 const updateUser = async (
   id: number,
   data: TUpdateUserRequest,
 ): Promise<TUser> => {
-  const res = await fetch(`${config.API_URL}/users/${id}`, {
-    method: 'PATCH',
-    headers: {
-      'Content-Type': 'application/json;charset=utf-8',
-    },
-    body: JSON.stringify(data),
-  });
+  try {
+    const res = await fetch(`${config.API_URL}/users/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify(data),
+    });
 
-  return checkResponse(res);
+    return await checkResponse(res);
+  } catch (err) {
+    //TODO Exception handling
+    throw 'API exception';
+  }
 };
 
 export const getUser = async (id: number): Promise<TUser> => {
-  const res = await fetch(`${config.API_URL}/users/${id}`);
+  try {
+    const res = await fetch(`${config.API_URL}/users/${id}`);
 
-  return checkResponse(res);
+    return await checkResponse(res);
+  } catch (err) {
+    //TODO Exception handling
+    throw 'API exception';
+  }
 };
 
 export const getAllUsers = async (): Promise<TUser[]> => {
-  const res = await fetch(`${config.API_URL}/users`);
-
-  return checkResponse(res);
+  try {
+    const res = await fetch(`${config.API_URL}/users`);
+    return await checkResponse(res);
+  } catch (err) {
+    //TODO Exception handling
+    throw 'API exception';
+  }
 };
 
 const createTask = async (data: TCreateTaskRequest): Promise<TTask> => {
-  const res = await fetch(`${config.API_URL}/tasks`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json;charset=utf-8',
-    },
-    body: JSON.stringify(data),
-  });
+  try {
+    const res = await fetch(`${config.API_URL}/tasks`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify(data),
+    });
 
-  return checkResponse(res);
+    return await checkResponse(res);
+  } catch (err) {
+    //TODO Exception handling
+    throw 'API exception';
+  }
 };
 
 const updateTask = async (
   id: number,
   data: TUpdateTaskRequest,
 ): Promise<TTask> => {
-  const res = await fetch(`${config.API_URL}/task/${id}`, {
-    method: 'PATCH',
-    headers: {
-      'Content-Type': 'application/json;charset=utf-8',
-    },
-    body: JSON.stringify(data),
-  });
+  try {
+    const res = await fetch(`${config.API_URL}/task/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify(data),
+    });
 
-  return checkResponse(res);
+    return await checkResponse(res);
+  } catch (err) {
+    //TODO Exception handling
+    throw 'API exception';
+  }
 };
 
 const getTask = async (id: number): Promise<TTask> => {
-  const res = await fetch(`${config.API_URL}/tasks/${id}`);
+  try {
+    const res = await fetch(`${config.API_URL}/tasks/${id}`);
 
-  return checkResponse(res);
+    return await checkResponse(res);
+  } catch (err) {
+    //TODO Exception handling
+    throw 'API exception';
+  }
 };
 
 const getAllTasks = async (): Promise<TTask[]> => {
-  const res = await fetch(`${config.API_URL}/tasks`);
+  try {
+    const res = await fetch(`${config.API_URL}/tasks`);
 
-  return checkResponse(res);
+    return await checkResponse(res);
+  } catch (err) {
+    //TODO Exception handling
+    throw 'API exception';
+  }
 };
 
 const deleteTask = async (id: number): Promise<unknown> => {
-  const res = await fetch(`${config.API_URL}/task/${id}`, {
-    method: 'DELETE',
-  });
+  try {
+    const res = await fetch(`${config.API_URL}/task/${id}`, {
+      method: 'DELETE',
+    });
 
-  return checkResponse(res);
+    return await checkResponse(res);
+  } catch (err) {
+    //TODO Exception handling
+    throw 'API exception';
+  }
 };
 
 const getAllCategories = async (): Promise<TCategory[]> => {
-  const res = await fetch(`${config.API_URL}/category`);
+  try {
+    const res = await fetch(`${config.API_URL}/category`);
 
-  return checkResponse(res);
+    return await checkResponse(res);
+  } catch (err) {
+    //TODO Exception handling
+    throw 'API exception';
+  }
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export

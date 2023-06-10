@@ -61,10 +61,7 @@ const Dropdown: FC = () => {
             <span className={`${styles.text} text-medium`}>
               Написать администратору
             </span>
-            <Button
-              onClick={(e) => adminButtonHandler(e)}
-              type="circleSmallEmail"
-            />
+            <Button onClick={adminButtonHandler} type="circleSmallEmail" />
           </li>
           <li className={`${styles.item} ${styles.mobileVisible}`}>
             <Navigation items={navigationItems} />

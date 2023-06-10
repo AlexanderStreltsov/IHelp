@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-
+import { nanoid } from 'nanoid';
 import { Profile } from '../../components/profile/profile';
 import { TitleBar } from '../../components/title-bar';
 import { Filter } from '../../components/filters/filter';
@@ -27,7 +27,13 @@ const ChiefPage: FC = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const data = await getAllUsers();
+      let data = new Array<TUser>();
+
+      try {
+        data = await getAllUsers();
+      } catch (err) {
+        // TODO Exception handling
+      }
 
       const chiefData = data.filter((user) => user.id === 1)[0];
       const adminsData = data.filter((user) => user.role === 'admin');
@@ -105,7 +111,7 @@ const ChiefPage: FC = () => {
                   personalID={item.id || 0}
                   tel={item.phone || ''}
                   rights={rightConfig}
-                  key={index}
+                  key={nanoid()}
                 />
               );
             })}
