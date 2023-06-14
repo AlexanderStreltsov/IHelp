@@ -94,7 +94,7 @@ const updateTask = async (
   data: TUpdateTaskRequest,
 ): Promise<TTask> => {
   try {
-    const res = await fetch(`${config.API_URL}/task/${id}`, {
+    const res = await fetch(`${config.API_URL}/tasks/${id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
