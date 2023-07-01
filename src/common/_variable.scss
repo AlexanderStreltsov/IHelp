@@ -1,0 +1,39 @@
+@import '../scss/mixins/text';
+
+// цвета фонов страниц и их элементов
+$background_color: (
+  primary: #fbfdff,
+  popup: #fff,
+  popupShadow: #0000000a,
+  popupShadowSecondary: #00000029,
+  miracle: #009245,
+  inactive: #818c99,
+  inactiveSecondary: #818c99,
+  partsPrimary: #2e3192,
+  partsSecondary: #9798c9,
+  partsAdditional: #00000080,
+  partsActivePrimary: #0071bc,
+  partsActiveSecondary: #0091c7,
+  partsActiveAdditional: #00a99d,
+  colorBorder: #e0e0e0,
+  errorBorder: #e64646,
+  urgent: #d60080,
+  horizontalGradient: linear-gradient(to right, #fff, #2e3192, #fff),
+);
+
+// цвета текстов
+$text_color: (
+  primary: #2e3192,
+  primaryAdditional: #9798c9,
+  common: #000,
+  commonSecondary: #00000080,
+  commonAdditional: #2c2d2e,
+  ancillary: #818c99,
+  secondery: #fff,
+  additional: #fbfdff,
+  errorMessage: #f37920,
+  urgent: #d60080,
+  gradient: linear-gradient(to right, #2e3192 50%, #fff 50%),
+  inactive: #9f9b9b,
+  mainRed: #fd6868,
+);

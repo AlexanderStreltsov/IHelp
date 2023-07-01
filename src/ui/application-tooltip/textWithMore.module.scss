@@ -1,0 +1,19 @@
+@import '../../common/_selectors';
+@import '../../common/_variable';
+
+.textCollapsed {
+  position: relative;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+
+.readMore {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background: map-get($background_color, 'popup');
+  border: transparent;
+  color: map-get($text_color, 'primary');
+}

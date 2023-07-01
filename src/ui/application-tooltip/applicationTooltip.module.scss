@@ -1,0 +1,88 @@
+@use 'sass:map';
+@import '../../common/_selectors';
+@import '../../common/_variable';
+
+.conteiner {
+  width: 370px;
+  min-height: 299px;
+  box-sizing: border-box;
+  padding: 30px 30px 20px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  background: map-get($background_color, 'popup');
+  gap: 16px;
+  .urgent {
+    padding: 8px 32px;
+    background-color: map.get($background_color, urgent) !important;
+    @extend .text-small;
+
+    &:hover {
+      opacity: 0.7;
+    }
+    & span {
+      @extend .text-small;
+    }
+  }
+  .urgentFalse {
+    padding: 8px 32px;
+    @extend .text-small;
+    & span {
+      @extend .text-small;
+    }
+  }
+}
+
+.header {
+  width: 310px;
+  height: 64px;
+  background: map-get($background_color, 'partsSecondary');
+}
+
+.request {
+  width: 310px;
+  height: 76px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.border {
+  width: 280px;
+  height: 1px;
+  background: linear-gradient(to right, #fff, #2e3192, #fff);
+}
+
+.status {
+  width: 310px;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px 0px;
+  gap: 4px;
+  box-sizing: border-box;
+}
+
+.counter {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  color: #2e3192;
+}
+
+.counterUrgent {
+  @extend .counter;
+  color: map-get($text_color, 'urgent');
+}
+
+.button {
+  width: 146px;
+  height: 30px;
+}

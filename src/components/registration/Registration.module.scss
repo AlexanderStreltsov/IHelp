@@ -1,0 +1,43 @@
+@use 'sass:map';
+@import 'src/common/selectors';
+@import 'src/common/variable';
+
+.header {
+  @extend .text-big;
+
+  color: map.get($text_color, primary);
+  margin-left: 15px;
+  margin-top: 60px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 383px;
+  gap: 2px;
+  margin-bottom: 50px;
+
+  @media screen and (max-width: 768px) {
+    max-width: 364px;
+  }
+}
+
+.caption {
+  @extend .text-small;
+
+  box-sizing: border-box;
+  padding: 0 0 30px 12px;
+
+  @media screen and (max-width: 768px) {
+    padding-bottom: 20px;
+  }
+}
+
+.button {
+  margin: 0 12px;
+
+  @media screen and (max-width: 768px) {
+    margin: 0;
+  }
+}

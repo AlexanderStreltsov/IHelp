@@ -1,0 +1,240 @@
+@use 'sass:map';
+@import '../../scss/mixins/fonts';
+@import '../../common//selectors';
+@import '../../scss/mixins/text';
+@import '../../common/variable';
+@import '../../common/media';
+
+button {
+  &:hover {
+    cursor: pointer;
+  }
+  &:disabled {
+    &:hover {
+      cursor: default;
+    }
+  }
+}
+.cardcontainer {
+  display: flex;
+  padding: 31px 0 0 0;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 276px;
+  height: 258px;
+  border: 1px solid map.get($background_color, partsActivePrimary);
+}
+.cardcontent {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 30px;
+  max-width: 197px;
+}
+.avatar {
+  position: absolute;
+  top: -31px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 62px;
+  height: 62px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 31px;
+  z-index: 50;
+}
+.name {
+  width: 197px;
+  height: 18px;
+  display: inline-block;
+  color: map.get($text_color, common);
+  margin: 37px auto 2px auto;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  @extend .text-medium;
+}
+.id {
+  height: 11px;
+  color: map.get($text_color, common);
+  opacity: 0.5;
+  margin-top: 0;
+  margin-bottom: 7px;
+}
+.phone {
+  display: flex;
+  flex-direction: row;
+  margin: 0 0 7px -3px;
+}
+.phonetext {
+  color: map.get($text_color, common);
+  margin: 0 12px 0 0;
+}
+.phonenumber {
+  display: flex;
+  color: map.get($text_color, common);
+  margin: 0;
+}
+.underlay {
+  display: flex;
+  flex-direction: row;
+  width: 215.09px;
+  height: 25px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 0;
+  top: 96px;
+}
+.backgreen {
+  background-image: url('../../images/backgreen.svg');
+}
+.backorange {
+  background-image: url('../../images/backorange.svg');
+}
+.backgrey {
+  background-image: url('../../images/backgrey.svg');
+}
+.underlayitems {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width: 166px;
+}
+.underlayitem {
+  max-width: 65px;
+  height: 22px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 2px;
+  &:first-child {
+    margin-left: 30px;
+  }
+  &:last-child {
+    p {
+      margin-left: 4px;
+    }
+  }
+}
+.underlaynumber {
+  height: 15px;
+  display: flex;
+  color: map.get($text_color, primary);
+  margin-bottom: 11px;
+  margin-left: 2px;
+}
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 40px;
+}
+.confirm {
+  max-width: 108px;
+  span {
+    @extend .text-small;
+  }
+}
+
+.block {
+  max-width: 123px;
+  span {
+    color: map.get($text_color, primary);
+    @extend .text-small;
+  }
+}
+.givekeys {
+  max-width: 100px;
+  padding: 8px 8px !important;
+  span {
+    width: 100%;
+    @extend .text-small;
+    color: map.get($text_color, primary);
+  }
+  &:disabled {
+    span {
+      color: map.get($text_color, primaryAdditional);
+    }
+  }
+}
+.label {
+  width: 75.27px;
+  height: 11.8px;
+  position: absolute;
+  top: 148px;
+  left: 47px;
+  z-index: 10;
+  &:hover {
+    cursor: pointer;
+  }
+}
+@include respond(small) {
+  .card {
+    width: 175px;
+    height: 280px;
+  }
+  .avatarunderlay {
+    width: 35px;
+    height: 34px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+    left: 57px;
+    top: 21px;
+  }
+  .cardcontent {
+    margin-left: 14px;
+  }
+  .name {
+    width: 147px;
+    height: 14px;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 400;
+    margin-top: 31px;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .id {
+    width: 197px;
+    height: 11px;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 400;
+  }
+  .phone {
+    width: 153px;
+    margin-left: -2px;
+  }
+  .phonetext {
+    width: 30px;
+  }
+  .phonenumber {
+    width: 113px;
+  }
+  .underlay {
+    top: 126px;
+    background-image: none;
+  }
+  .underlayitems {
+    gap: 5px;
+  }
+  .underlayitem {
+    &:first-child {
+      margin-left: 14px;
+    }
+  }
+  .label {
+    top: 172px;
+    left: 31px;
+  }
+}

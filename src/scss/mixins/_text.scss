@@ -1,0 +1,9 @@
+@mixin text($size, $weight, $lineHeight) {
+  font: {
+    family: 'GolosText';
+    style: normal;
+    size: $size;
+    weight: $weight;
+  }
+  line-height: $lineHeight;
+}
